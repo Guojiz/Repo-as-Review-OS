@@ -1,29 +1,30 @@
-# Daily Review
+# Daily Review / 每日复盘
 
-Date:  
-Focus:  
+Date / 日期:  
+Focus / 重点:  
 
-## Warm-up
-
-- [ ] 
-- [ ] 
-
-## Core review
+## Warm-up / 热身
 
 - [ ] 
 - [ ] 
-- [ ] 
 
-## Transfer item
-
-A new item that uses an old model:
+## Core review / 核心复习
 
 - [ ] 
+- [ ] 
+- [ ] 
 
-## Reflection
+## Transfer item / 迁移题
 
-What was easy?  
+A new item that uses an old model:  
+一个使用旧模型的新题：
 
-What was still unclear?  
+- [ ] 
 
-What should return later?  
+## Reflection / 复盘
+
+What was easy? / 什么比较容易？  
+
+What was still unclear? / 什么仍然不清楚？  
+
+What should return later? / 什么需要之后回炉？  
