@@ -3,7 +3,14 @@
 
 
 [中文说明](README.zh-CN.md)
-
+<p align="center">
+  <a href="https://github.com/Guojiz/Repo-as-Review-OS/stargazers">
+    <img src="https://img.shields.io/github/stars/Guojiz/Repo-as-Review-OS?style=flat-square" alt="Stars"/>
+  </a>
+  <a href="LICENSE">
+    <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License: MIT"/>
+  </a>
+</p>
 **Repo as Review OS is a goal-driven AI learning operating system built on GitHub.**
 
 It is not just a review template. It turns one GitHub repository into a writable learning timeline that an AI tool can read, edit, track, organize, generate practice from, and maintain over time.
