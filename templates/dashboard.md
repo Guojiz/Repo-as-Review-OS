@@ -1,32 +1,32 @@
-# Review Dashboard / 复习控制台
+# Review Dashboard
 
-## Current focus / 当前重点
-
-- 
-
-## Active models / 活跃模型
+## Current focus
 
 - 
-- 
-- 
 
-## Open TODOs / 待补事项
+## Active models
 
 - 
 - 
 - 
 
-## Recently updated / 最近更新
+## Open TODOs
 
-| Date / 日期 | File / 文件 | Change / 改动 |
+- 
+- 
+- 
+
+## Recently updated
+
+| Date | File | Change |
 |:---|:---|:---|
 |  |  |  |
 
-## Next handoff / 下一次接手
+## Next handoff
 
-Before continuing, read:  
-继续前，先读：
+Before continuing, read:
 
 1. `README.md`
-2. `agents/handoff-protocol.md`
-3. the files listed above / 上面列出的文件
+2. `AGENTS.md`
+3. `agents/handoff-protocol.md`
+4. the files listed above
