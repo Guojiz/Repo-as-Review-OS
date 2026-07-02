@@ -6,6 +6,8 @@
 
 It is not just a review template. It turns one GitHub repository into a writable learning timeline that an AI tool can read, edit, track, organize, generate practice from, and maintain over time.
 
+Current status: public alpha. See `PUBLIC-ALPHA.md`.
+
 Core model:
 
 ```text
@@ -19,11 +21,25 @@ goal
 → new understanding
 ```
 
+## See the demo first
+
+Chinese lite demo: `examples/zh-CN/demo-zhongkao-lite/`
+
+It shows how a fictional exam-math goal becomes:
+
+```text
+main goal
+→ geometry model
+→ review set
+→ dashboard
+→ next review
+```
+
 ## Copy this to an AI tool
 
 ```text
 Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
-Start with OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, and AGENTS.md. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
+Start with OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, and AGENTS.md. Then inspect examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
 ```
 
 ## Why GitHub
@@ -66,6 +82,8 @@ A normal AI project can store instructions and context, but it does not provide 
 ```text
 OPERATING-MODEL.md              Overall operating model
 AGENT-RUNTIME.md                Runtime guide for AI tools
+PUBLIC-ALPHA.md                 Public alpha note
+examples/zh-CN/demo-zhongkao-lite/ Chinese lite demo
 docs/product-positioning.md     Product positioning
 docs/why-github.md              Why GitHub
 docs/goal-model.md              Goal model
