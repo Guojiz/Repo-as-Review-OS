@@ -77,12 +77,27 @@ A normal AI project can store instructions and context, but it does not provide 
 - Keep textbooks, PDFs, screenshots, and private files local unless a small excerpt is needed.
 - Require the AI to report every file it creates or edits.
 
+## Contributing
+
+Contributions are welcome: demos, templates, translations, automation prompts, documentation improvements, and feedback from trying the system with an AI tool.
+
+Please read:
+
+```text
+CONTRIBUTING.md
+PUBLIC-CHECKLIST.zh-CN.md
+```
+
+Use GitHub Issues to submit feedback, demo ideas, or bug reports.
+
 ## Key documents
 
 ```text
 OPERATING-MODEL.md              Overall operating model
 AGENT-RUNTIME.md                Runtime guide for AI tools
 PUBLIC-ALPHA.md                 Public alpha note
+PUBLIC-CHECKLIST.zh-CN.md       Public release checklist
+CONTRIBUTING.md                 Contribution guide
 examples/zh-CN/demo-zhongkao-lite/ Chinese lite demo
 docs/product-positioning.md     Product positioning
 docs/why-github.md              Why GitHub
