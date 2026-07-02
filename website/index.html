@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Repo as Review OS</title>
+  <style>
+    body { margin: 0; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #111827; background: #f8fafc; }
+    main { width: min(920px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0; }
+    .shell { border: 1px solid #e5e7eb; border-radius: 20px; padding: 32px; background: white; box-shadow: 0 20px 60px rgba(15, 23, 42, .08); }
+    .switcher { display: flex; gap: 10px; margin-bottom: 28px; }
+    button, a.button { border: 1px solid #d1d5db; border-radius: 999px; padding: 10px 16px; background: white; color: #111827; font-weight: 700; cursor: pointer; text-decoration: none; display: inline-flex; }
+    button.active { background: #111827; color: white; }
+    h1 { font-size: clamp(42px, 8vw, 84px); line-height: .95; margin: 0 0 18px; }
+    p, li { font-size: 18px; line-height: 1.75; color: #4b5563; }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="shell">
+      <div class="switcher" aria-label="Language switcher">
+        <button id="btn-en" class="active" type="button">English</button>
+        <button id="btn-zh" type="button">中文</button>
+      </div>
+
+      <article id="page-en">
+        <h1>Repo as Review OS</h1>
+        <p>A deployable review system built with GitHub and Markdown.</p>
+        <h2>Problem</h2>
+        <p>Study context is often scattered across notes, screenshots, chats, and folders.</p>
+        <h2>Solution</h2>
+        <p>Use a repository as the review operating system. Keep sources traceable, turn mistakes into reusable models, and give future tools a clear map before they edit anything.</p>
+        <h2>What it contains</h2>
+        <ul>
+          <li>source rules</li>
+          <li>problem-card templates</li>
+          <li>writing-material templates</li>
+          <li>review dashboards</li>
+          <li>handoff protocols</li>
+          <li>deployment notes</li>
+        </ul>
+      </article>
+
+      <article id="page-zh" class="hidden">
+        <h1>仓库即复习操作系统</h1>
+        <p>一个基于 GitHub 和 Markdown 的可部署复习系统。</p>
+        <h2>问题</h2>
+        <p>复习上下文经常散落在笔记、截图、聊天记录和文件夹里。</p>
+        <h2>解决方案</h2>
+        <p>把一个仓库当作复习操作系统。保留可追踪来源，把错题转化为可复用模型，并让后续工具在编辑前拥有清晰地图。</p>
+        <h2>它包含什么</h2>
+        <ul>
+          <li>来源规则</li>
+          <li>题目卡模板</li>
+          <li>写作素材模板</li>
+          <li>复习控制台</li>
+          <li>接手协议</li>
+          <li>部署说明</li>
+        </ul>
+      </article>
+
+      <div class="actions">
+        <a class="button" href="https://github.com/Guojiz/Repo-as-Review-OS">GitHub Repository</a>
+        <a class="button" href="../README.md">README</a>
+      </div>
+    </section>
+  </main>
+  <script>
+    const en = document.getElementById('page-en');
+    const zh = document.getElementById('page-zh');
+    const btnEn = document.getElementById('btn-en');
+    const btnZh = document.getElementById('btn-zh');
+    function show(lang) {
+      const isZh = lang === 'zh';
+      en.classList.toggle('hidden', isZh);
+      zh.classList.toggle('hidden', !isZh);
+      btnEn.classList.toggle('active', !isZh);
+      btnZh.classList.toggle('active', isZh);
+      document.documentElement.lang = isZh ? 'zh-CN' : 'en';
+    }
+    btnEn.addEventListener('click', () => show('en'));
+    btnZh.addEventListener('click', () => show('zh'));
+  </script>
+</body>
+</html>
