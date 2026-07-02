@@ -41,7 +41,7 @@
 
 ```text
 请阅读这个仓库：https://github.com/Guojiz/Repo-as-Review-OS
-先读 OPERATING-MODEL.zh-CN.md、START-HERE.zh-CN.md、AGENT-RUNTIME.zh-CN.md 和 AGENTS.zh-CN.md，再看 examples/zh-CN/demo-zhongkao-lite。帮我搭建自己的 Review OS。先解释它是什么，再判断你的权限边界，然后指导我创建或选择一个 GitHub 仓库。接着创建目标文件、目录结构、来源规则、题目模型模板、间隔复习字段、自动化输出位置和控制台。
+先读 OPERATING-MODEL.zh-CN.md、START-HERE.zh-CN.md、AGENT-RUNTIME.zh-CN.md、AGENTS.zh-CN.md 和 docs/zh-CN/skill-and-memory-runtime.md，再看 examples/zh-CN/demo-zhongkao-lite。帮我搭建自己的 Review OS。先解释它是什么，再判断你的权限边界，然后指导我创建或选择一个 GitHub 仓库。如果你的环境支持 skill，就使用 skills/repo-as-review-os/SKILL.md；如果不支持 skill，就使用 docs/zh-CN/skill-and-memory-runtime.md 里的记忆回退方案。接着创建目标文件、目录结构、来源规则、题目模型模板、间隔复习字段、自动化输出位置和控制台。
 ```
 
 ## 它解决什么问题
@@ -76,6 +76,22 @@ GitHub 不只是网盘。它是一条可以写入的时间线。
 7. 必要时安排下次复习。
 8. 汇报每一次改动。
 
+## Skill 或记忆运行层
+
+如果 AI 工具支持 skill，使用：
+
+```text
+skills/repo-as-review-os/SKILL.md
+```
+
+如果 AI 工具不支持 skill，使用记忆或项目指令回退方案：
+
+```text
+docs/zh-CN/skill-and-memory-runtime.md
+```
+
+Skill 给 AI 行为，记忆给 AI 稳定偏好，仓库给 AI 当前学习状态。
+
 ## 人类需要做什么
 
 - 如果是真实学习资料，先使用私有仓库。
@@ -102,6 +118,8 @@ PUBLIC-CHECKLIST.zh-CN.md
 ```text
 OPERATING-MODEL.zh-CN.md        总运行模型
 AGENT-RUNTIME.zh-CN.md          AI 运行指南
+skills/repo-as-review-os/SKILL.md Skill 包
+docs/zh-CN/skill-and-memory-runtime.md Skill 与记忆运行层
 PUBLIC-ALPHA.zh-CN.md           早期公开说明
 PUBLIC-CHECKLIST.zh-CN.md       公开前检查清单
 CONTRIBUTING.zh-CN.md           贡献指南
@@ -134,7 +152,7 @@ review-os/
 
 ## 给 AI Agent
 
-修改文件前先阅读 `OPERATING-MODEL.zh-CN.md`、`AGENT-RUNTIME.zh-CN.md` 和 `AGENTS.zh-CN.md`。如果使用英文环境，也可以读对应英文文件。
+修改文件前先阅读 `OPERATING-MODEL.zh-CN.md`、`AGENT-RUNTIME.zh-CN.md`、`docs/zh-CN/skill-and-memory-runtime.md` 和 `AGENTS.zh-CN.md`。如果使用英文环境，也可以读对应英文文件。
 
 ## 许可证
 
