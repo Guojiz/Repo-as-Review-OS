@@ -46,7 +46,7 @@ main goal
 
 ```text
 Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
-Start with OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, and AGENTS.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
+Start with OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. If your environment supports skills, use skills/repo-as-review-os/SKILL.md. If not, use the memory fallback in docs/skill-and-memory-runtime.md. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
 ```
 
 ## Why GitHub
@@ -76,6 +76,22 @@ A normal AI project can store instructions and context, but it does not provide 
 7. Schedule review if needed.
 8. Report every change.
 
+## Skill or memory runtime
+
+If the AI tool supports skills, use:
+
+```text
+skills/repo-as-review-os/SKILL.md
+```
+
+If the AI tool does not support skills, use the memory or project-instruction fallback in:
+
+```text
+docs/skill-and-memory-runtime.md
+```
+
+Skill gives the AI behavior. Memory gives the AI stable preferences. The repository gives the AI current learning state.
+
 ## Human role
 
 - Use a private repository for real study records.
@@ -102,6 +118,8 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 ```text
 OPERATING-MODEL.md              Overall operating model
 AGENT-RUNTIME.md                Runtime guide for AI tools
+skills/repo-as-review-os/SKILL.md Skill package
+docs/skill-and-memory-runtime.md Skill and memory runtime guide
 PUBLIC-ALPHA.md                 Public alpha note
 PUBLIC-CHECKLIST.md             Public release checklist
 CONTRIBUTING.md                 Contribution guide
@@ -136,7 +154,7 @@ review-os/
 
 ## For AI agents
 
-Read `OPERATING-MODEL.md`, `AGENT-RUNTIME.md`, and `AGENTS.md` before changing files.
+Read `OPERATING-MODEL.md`, `AGENT-RUNTIME.md`, `docs/skill-and-memory-runtime.md`, and `AGENTS.md` before changing files.
 
 ## License
 
