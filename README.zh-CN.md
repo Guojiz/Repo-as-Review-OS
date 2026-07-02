@@ -84,12 +84,27 @@ GitHub 不只是网盘。它是一条可以写入的时间线。
 - 要求 AI 汇报每个新增或修改的文件。
 - 本地教材、PDF、截图和老师文件可以留在本地，只在需要时上传最小摘录。
 
+## 如何贡献
+
+欢迎贡献：demo、模板、翻译、自动化提示词、文档改进和使用反馈。
+
+请先阅读：
+
+```text
+CONTRIBUTING.zh-CN.md
+PUBLIC-CHECKLIST.zh-CN.md
+```
+
+可以通过 GitHub Issues 提交反馈、demo 想法或 bug 报告。
+
 ## 关键文档
 
 ```text
 OPERATING-MODEL.zh-CN.md        总运行模型
 AGENT-RUNTIME.zh-CN.md          AI 运行指南
 PUBLIC-ALPHA.zh-CN.md           早期公开说明
+PUBLIC-CHECKLIST.zh-CN.md       公开前检查清单
+CONTRIBUTING.zh-CN.md           贡献指南
 examples/zh-CN/demo-zhongkao-lite/ 中文轻量 demo
 docs/zh-CN/product-positioning.md 产品定位
 docs/zh-CN/why-github.md        为什么使用 GitHub
