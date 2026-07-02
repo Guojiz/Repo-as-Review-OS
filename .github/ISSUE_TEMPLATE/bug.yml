@@ -1,0 +1,31 @@
+name: Bug report
+description: Report a problem in docs, templates, links, or examples
+labels: [bug]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      placeholder: What is wrong or broken?
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: File or section
+      placeholder: README.md, docs/..., examples/...
+    validations:
+      required: false
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: What should happen instead?
+    validations:
+      required: false
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix
+    validations:
+      required: false
