@@ -25,6 +25,8 @@ goal
 
 English research reading demo: `examples/en/demo-research-reading-lite/`
 
+English SAT prep demo: `examples/en/demo-sat-lite/`
+
 Chinese exam-math demo: `examples/zh-CN/demo-zhongkao-lite/`
 
 They show how a learning goal becomes:
@@ -42,7 +44,7 @@ main goal
 
 ```text
 Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
-Start with OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, and AGENTS.md. Then inspect examples/en/demo-research-reading-lite and examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
+Start with OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, and AGENTS.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
 ```
 
 ## Why GitHub
@@ -102,6 +104,7 @@ PUBLIC-ALPHA.md                 Public alpha note
 PUBLIC-CHECKLIST.md             Public release checklist
 CONTRIBUTING.md                 Contribution guide
 examples/en/demo-research-reading-lite/ English research reading demo
+examples/en/demo-sat-lite/      English SAT prep demo
 examples/zh-CN/demo-zhongkao-lite/ Chinese exam-math demo
 docs/product-positioning.md     Product positioning
 docs/why-github.md              Why GitHub
