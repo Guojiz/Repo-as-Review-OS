@@ -2,13 +2,15 @@
 
 Different AI environments load operating rules differently.
 
-Repo as Review OS should support both skill-based agents and memory-driven chat applications.
+Repo as Review OS supports both skill-based agents and memory-driven chat applications.
 
 ## Two runtime paths
 
 ```text
 Path A: skill-capable agent
-→ install or copy SKILL.md
+→ install or copy the skill suite
+→ start from the router skill
+→ route to the specific subskill
 → connect GitHub repository
 → run the repository workflow
 
@@ -20,13 +22,36 @@ Path B: memory-driven AI app
 
 ## Skill path
 
-Some AI agents support reusable skill packages. In that case, use:
+Some AI agents support reusable skill packages.
+
+Start with the router skill:
 
 ```text
 skills/repo-as-review-os/SKILL.md
 ```
 
-The skill gives the agent a stable workflow for creating and maintaining a learning repository.
+Then use the specific subskill when the task is clear:
+
+```text
+skills/repo-as-review-os-setup/SKILL.md
+skills/repo-as-review-os-source/SKILL.md
+skills/repo-as-review-os-model/SKILL.md
+skills/repo-as-review-os-review/SKILL.md
+skills/repo-as-review-os-maintenance/SKILL.md
+```
+
+## Skill suite roles
+
+```text
+repo-as-review-os                  Main router
+repo-as-review-os-setup            Create or migrate a learning repository
+repo-as-review-os-source           Turn materials into source records
+repo-as-review-os-model            Extract reusable learning models
+repo-as-review-os-review           Generate review sets, drills, or mini tests
+repo-as-review-os-maintenance      Audit, repair, and maintain the repository
+```
+
+The skill suite gives the agent stable behavior.
 
 It should not store changing personal learning data.
 
@@ -100,8 +125,16 @@ docs/spaced-repetition.md
 docs/filesystem-design.md
 docs/automation-model.md
 templates/
+skills/
+```
+
+If the target AI tool supports only one skill, copy only:
+
+```text
 skills/repo-as-review-os/
 ```
+
+If it supports multiple skills, copy the whole `skills/` directory.
 
 ## Important distinction
 
