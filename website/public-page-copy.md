@@ -1,40 +1,36 @@
-# Website Copy / 网站文案
+# Website Copy
 
-## Title / 标题
+## Title
 
-Repo as Review OS / 仓库即复习操作系统
+Repo as Review OS
 
-## Subtitle / 副标题
+## Subtitle
 
-A deployable review system built with GitHub and Markdown.  
-一个基于 GitHub 和 Markdown 的可部署复习系统。
+A deployable review system built with GitHub and Markdown.
 
-## Short description / 简介
+## Short description
 
-Repo as Review OS turns study materials into a structured project. It keeps sources traceable, turns mistakes into reusable models, and gives future tools a clear map.  
-Repo as Review OS 把复习材料整理成结构化项目：保留可追踪来源，把错题转化为可复用模型，并为后续工具提供清晰地图。
+Repo as Review OS turns study materials into a structured project. It keeps sources traceable, turns mistakes into reusable models, and gives future tools a clear map.
 
-## Sections / 页面板块
+## Sections
 
-### Problem / 问题
+### Problem
 
-Study context is often scattered across notes, screenshots, chats, and folders.  
-复习上下文经常散落在笔记、截图、聊天记录和文件夹里。
+Study context is often scattered across notes, screenshots, chats, and folders.
 
-### Solution / 解决方案
+### Solution
 
-Use a repository as the review operating system.  
-把一个仓库当作复习操作系统。
+Use a repository as the review operating system.
 
-### What it contains / 它包含什么
+### What it contains
 
-- source rules / 来源规则；
-- problem-card templates / 错题卡模板；
-- writing-material templates / 写作素材模板；
-- review dashboards / 复习控制台；
-- handoff protocols / 接手协议；
-- deployment notes / 部署说明。
+- source rules;
+- problem-card templates;
+- writing-material templates;
+- review dashboards;
+- handoff protocols;
+- deployment notes.
 
-### Link / 链接
+### Link
 
 https://github.com/Guojiz/Repo-as-Review-OS
