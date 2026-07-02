@@ -48,7 +48,7 @@ main goal
 
 ```text
 Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
-Start with QUICKSTART.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. If your environment supports skills, use skills/repo-as-review-os/SKILL.md. If not, use the memory fallback in docs/skill-and-memory-runtime.md. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
+Start with QUICKSTART.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. If your environment supports skills, start with skills/repo-as-review-os/SKILL.md and use the specific subskills when appropriate. If not, use the memory fallback in docs/skill-and-memory-runtime.md. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
 ```
 
 ## Why GitHub
@@ -80,10 +80,16 @@ A normal AI project can store instructions and context, but it does not provide 
 
 ## Skill or memory runtime
 
-If the AI tool supports skills, use:
+If the AI tool supports skills, start with the router skill:
 
 ```text
 skills/repo-as-review-os/SKILL.md
+```
+
+For the full skill suite, see:
+
+```text
+skills/README.md
 ```
 
 If the AI tool does not support skills, use the memory or project-instruction fallback in:
@@ -121,7 +127,8 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 QUICKSTART.md                   Five-minute setup
 OPERATING-MODEL.md              Overall operating model
 AGENT-RUNTIME.md                Runtime guide for AI tools
-skills/repo-as-review-os/SKILL.md Skill package
+skills/README.md                Skill suite overview
+skills/repo-as-review-os/SKILL.md Main router skill
 docs/skill-and-memory-runtime.md Skill and memory runtime guide
 PUBLIC-ALPHA.md                 Public alpha note
 PUBLIC-CHECKLIST.md             Public release checklist
@@ -157,7 +164,7 @@ review-os/
 
 ## For AI agents
 
-Read `QUICKSTART.md`, `OPERATING-MODEL.md`, `AGENT-RUNTIME.md`, `docs/skill-and-memory-runtime.md`, and `AGENTS.md` before changing files.
+Read `QUICKSTART.md`, `OPERATING-MODEL.md`, `AGENT-RUNTIME.md`, `skills/README.md`, `docs/skill-and-memory-runtime.md`, and `AGENTS.md` before changing files.
 
 ## License
 
