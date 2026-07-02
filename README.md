@@ -10,6 +10,8 @@ It is not just a review template. It turns one GitHub repository into a writable
 
 Current status: public alpha. See `PUBLIC-ALPHA.md`.
 
+New here? Start with `QUICKSTART.md`.
+
 Core model:
 
 ```text
@@ -46,7 +48,7 @@ main goal
 
 ```text
 Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
-Start with OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. If your environment supports skills, use skills/repo-as-review-os/SKILL.md. If not, use the memory fallback in docs/skill-and-memory-runtime.md. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
+Start with QUICKSTART.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. If your environment supports skills, use skills/repo-as-review-os/SKILL.md. If not, use the memory fallback in docs/skill-and-memory-runtime.md. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
 ```
 
 ## Why GitHub
@@ -116,6 +118,7 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 ## Key documents
 
 ```text
+QUICKSTART.md                   Five-minute setup
 OPERATING-MODEL.md              Overall operating model
 AGENT-RUNTIME.md                Runtime guide for AI tools
 skills/repo-as-review-os/SKILL.md Skill package
@@ -154,7 +157,7 @@ review-os/
 
 ## For AI agents
 
-Read `OPERATING-MODEL.md`, `AGENT-RUNTIME.md`, `docs/skill-and-memory-runtime.md`, and `AGENTS.md` before changing files.
+Read `QUICKSTART.md`, `OPERATING-MODEL.md`, `AGENT-RUNTIME.md`, `docs/skill-and-memory-runtime.md`, and `AGENTS.md` before changing files.
 
 ## License
 
