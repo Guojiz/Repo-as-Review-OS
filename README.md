@@ -2,51 +2,99 @@
 
 [中文说明](README.zh-CN.md)
 
-A deployable review-system template built on GitHub and Markdown.
+**Repo as Review OS is a goal-driven AI learning operating system built on GitHub.**
 
-The idea is simple: treat a repository as the operating system for study. Notes, mistakes, reusable methods, writing drafts, source checks, and handoff rules should live in one structured place instead of being scattered across chats and screenshots.
+It is not just a review template. It turns one GitHub repository into a writable learning timeline that an AI tool can read, edit, track, organize, generate practice from, and maintain over time.
 
-## Goals
+Core model:
 
-- Keep original sources traceable.
-- Turn mistakes into reusable models.
-- Separate originals, summaries, indexes, and TODO items.
-- Give future tools a clear map before they edit anything.
-- Publish only cleaned and non-private method-level content.
+```text
+goal
+→ source
+→ split
+→ model
+→ practice set
+→ spaced repetition
+→ automation
+→ new understanding
+```
+
+## Copy this to an AI tool
+
+```text
+Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
+Start with OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, and AGENTS.md. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
+```
+
+## Why GitHub
+
+GitHub is not just storage. It is a writable timeline.
+
+It gives the AI:
+
+- a file tree;
+- writeback;
+- history;
+- timestamps;
+- traceable changes;
+- automation outputs;
+- a durable workspace beyond one chat.
+
+A normal AI project can store instructions and context, but it does not provide the same open file system, structured writeback, version history, and portable learning state.
+
+## What the AI should do
+
+1. Identify its permission level.
+2. Read the user's goal.
+3. Check the repository structure.
+4. Find active sources, models, and weak points.
+5. Decide what should be split, merged, rewritten, reviewed, generated, or archived.
+6. Update files.
+7. Schedule review if needed.
+8. Report every change.
+
+## Human role
+
+- Use a private repository for real study records.
+- Use only cleaned examples in public templates.
+- Grant one-repository access first, not broad account access.
+- Keep textbooks, PDFs, screenshots, and private files local unless a small excerpt is needed.
+- Require the AI to report every file it creates or edits.
+
+## Key documents
+
+```text
+OPERATING-MODEL.md              Overall operating model
+AGENT-RUNTIME.md                Runtime guide for AI tools
+docs/product-positioning.md     Product positioning
+docs/why-github.md              Why GitHub
+docs/goal-model.md              Goal model
+docs/adaptive-rules.md          Adaptive rules
+docs/spaced-repetition.md       Spaced repetition
+docs/filesystem-design.md       Filesystem design
+docs/automation-model.md        Automation model
+docs/lessons-from-original-system.md Lessons from the original system
+```
 
 ## Suggested layout
 
 ```text
-Repo-as-Review-OS/
-├── README.md
-├── README.zh-CN.md
-├── AGENTS.md
-├── AGENTS.zh-CN.md
-├── LICENSE
-├── docs/
-├── agents/
+review-os/
+├── dashboard.md
+├── goals/
+├── inbox/
+├── sources/
+├── models/
+├── reviews/
 ├── templates/
-└── website/
+├── agents/
+├── automations/
+└── archive/
 ```
-
-## Main layers
-
-- `docs/`: architecture, deployment, privacy, and sourcing notes.
-- `agents/`: handoff rules and maintenance protocols.
-- `templates/`: reusable cards for problems, writing materials, daily review, and dashboards.
-- `website/`: public page copy and a small language-switching page.
-
-## Minimum workflow
-
-1. Add a source, mistake, draft, or feedback item.
-2. Mark its status: original, summary, index, model, or TODO.
-3. Convert reusable items into templates.
-4. Use the handoff rules before editing the repository.
-5. Deploy only cleaned public-facing content.
 
 ## For AI agents
 
-Read `AGENTS.md` before changing files.
+Read `OPERATING-MODEL.md`, `AGENT-RUNTIME.md`, and `AGENTS.md` before changing files.
 
 ## License
 
