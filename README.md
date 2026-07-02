@@ -85,7 +85,7 @@ Please read:
 
 ```text
 CONTRIBUTING.md
-PUBLIC-CHECKLIST.zh-CN.md
+PUBLIC-CHECKLIST.md
 ```
 
 Use GitHub Issues to submit feedback, demo ideas, or bug reports.
@@ -96,7 +96,7 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 OPERATING-MODEL.md              Overall operating model
 AGENT-RUNTIME.md                Runtime guide for AI tools
 PUBLIC-ALPHA.md                 Public alpha note
-PUBLIC-CHECKLIST.zh-CN.md       Public release checklist
+PUBLIC-CHECKLIST.md             Public release checklist
 CONTRIBUTING.md                 Contribution guide
 examples/zh-CN/demo-zhongkao-lite/ Chinese lite demo
 docs/product-positioning.md     Product positioning
