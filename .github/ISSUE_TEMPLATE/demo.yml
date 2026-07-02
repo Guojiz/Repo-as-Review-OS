@@ -1,0 +1,36 @@
+name: Demo idea
+description: Propose a new cleaned demo for a learning scenario
+labels: [demo]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Demo ideas are welcome. Please use fictional or cleaned material only.
+  - type: input
+    id: scenario
+    attributes:
+      label: Demo scenario
+      placeholder: exam prep, language learning, research reading, project learning...
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Main goal
+      placeholder: What should the learner achieve?
+    validations:
+      required: true
+  - type: textarea
+    id: loop
+    attributes:
+      label: Learning loop
+      description: How would the demo show goal, source, model, practice, review, and dashboard?
+    validations:
+      required: true
+  - type: textarea
+    id: files
+    attributes:
+      label: Suggested files
+      placeholder: goals/main-goal.md, models/..., reviews/..., dashboard.md
+    validations:
+      required: false
