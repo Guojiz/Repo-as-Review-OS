@@ -1,0 +1,47 @@
+name: Feedback
+description: Share feedback after trying Repo as Review OS
+labels: [feedback]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for trying Repo as Review OS. Please do not include private study records, copyrighted material, or personal files.
+  - type: textarea
+    id: context
+    attributes:
+      label: What were you trying to do?
+      description: Describe your learning scenario or AI workflow.
+      placeholder: I tried to use the repository to build a learning OS for...
+    validations:
+      required: true
+  - type: textarea
+    id: worked
+    attributes:
+      label: What worked well?
+    validations:
+      required: false
+  - type: textarea
+    id: confusing
+    attributes:
+      label: What was confusing or missing?
+    validations:
+      required: true
+  - type: dropdown
+    id: ai-tool
+    attributes:
+      label: Which AI tool did you use?
+      options:
+        - ChatGPT
+        - Codex-style agent
+        - Claude Code-style tool
+        - Cursor
+        - Windsurf
+        - Other
+    validations:
+      required: false
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested improvement
+    validations:
+      required: false
