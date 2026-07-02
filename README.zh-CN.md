@@ -6,6 +6,8 @@
 
 它不是普通资料夹，也不只是复习模板。它把一个 GitHub 仓库变成 AI 可以读取、写回、追踪、整理、出题和持续接手的学习时间线。
 
+当前状态：早期公开版本。见 `PUBLIC-ALPHA.zh-CN.md`。
+
 核心模型：
 
 ```text
@@ -19,13 +21,27 @@
 → 新理解
 ```
 
+## 先看 demo
+
+中文轻量示例：`examples/zh-CN/demo-zhongkao-lite/`
+
+它展示了一个虚构的中考数学目标如何变成：
+
+```text
+主目标
+→ 几何模型
+→ 复习题单
+→ 控制台
+→ 下次复习
+```
+
 ## 只看到一句话怎么办
 
 把这段复制给 ChatGPT、Codex、Claude Code、Cursor、Windsurf 或其他能读写 GitHub 的 AI 工具：
 
 ```text
 请阅读这个仓库：https://github.com/Guojiz/Repo-as-Review-OS
-先读 OPERATING-MODEL.zh-CN.md、START-HERE.zh-CN.md、AGENT-RUNTIME.zh-CN.md 和 AGENTS.zh-CN.md。帮我搭建自己的 Review OS。先解释它是什么，再判断你的权限边界，然后指导我创建或选择一个 GitHub 仓库。接着创建目标文件、目录结构、来源规则、题目模型模板、间隔复习字段、自动化输出位置和控制台。
+先读 OPERATING-MODEL.zh-CN.md、START-HERE.zh-CN.md、AGENT-RUNTIME.zh-CN.md 和 AGENTS.zh-CN.md，再看 examples/zh-CN/demo-zhongkao-lite。帮我搭建自己的 Review OS。先解释它是什么，再判断你的权限边界，然后指导我创建或选择一个 GitHub 仓库。接着创建目标文件、目录结构、来源规则、题目模型模板、间隔复习字段、自动化输出位置和控制台。
 ```
 
 ## 它解决什么问题
@@ -73,6 +89,8 @@ GitHub 不只是网盘。它是一条可以写入的时间线。
 ```text
 OPERATING-MODEL.zh-CN.md        总运行模型
 AGENT-RUNTIME.zh-CN.md          AI 运行指南
+PUBLIC-ALPHA.zh-CN.md           早期公开说明
+examples/zh-CN/demo-zhongkao-lite/ 中文轻量 demo
 docs/zh-CN/product-positioning.md 产品定位
 docs/zh-CN/why-github.md        为什么使用 GitHub
 docs/zh-CN/goal-model.md        目标模型
