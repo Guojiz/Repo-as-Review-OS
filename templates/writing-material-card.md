@@ -1,35 +1,30 @@
-# Writing Material Card / 写作素材卡
+# Writing Material Card
 
-Status / 状态: `todo`  
-Theme / 主题:  
-Source / 来源:  
-Date / 日期:  
+Status: `todo`  
+Theme:  
+Source:  
+Date:  
 
-## Scene / 场景
+## Scene
 
-What concrete scene does this material come from?  
-这个素材来自什么具体场景？
+What concrete scene does this material come from?
 
-## Conflict / 冲突
+## Conflict
 
-What changed or became difficult?  
-发生了什么变化，或者困难在哪里？
+What changed or became difficult?
 
-## Detail / 细节
+## Detail
 
-What small detail makes it believable?  
-哪个小细节让它可信？
+What small detail makes it believable?
 
-## Adaptation / 适配题目
+## Adaptation
 
-This material can fit these topics:  
-这个素材可以适配这些主题：
+This material can fit these topics:
 
 - 
 - 
 - 
 
-## Public version / 公开版本
+## Public version
 
-Rewrite a safe public version here if needed.  
-如有需要，在这里改写成适合公开的版本。
+Rewrite a safe public version here if needed.
