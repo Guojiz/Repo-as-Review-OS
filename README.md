@@ -1,5 +1,6 @@
 # Repo as Review OS
-![Uploading image.png…]()
+<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/5e1942dd-5996-4346-ba3c-3afe18d5503d" />
+
 
 [中文说明](README.zh-CN.md)
 
