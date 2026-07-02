@@ -1,29 +1,118 @@
 ---
 name: repo-as-review-os
-description: Use when helping a user set up, migrate, maintain, or run a goal-driven AI learning operating system in a GitHub repository. This skill turns learning goals, sources, mistakes, notes, and review tasks into a structured repository workflow with dashboards, models, spaced repetition, and automation outputs.
+description: Use as the main router for Repo as Review OS tasks. It decides whether to use setup, source handling, model extraction, review generation, or maintenance skills for a goal-driven AI learning repository built on GitHub.
 ---
 
-# Repo as Review OS Skill
+# Repo as Review OS Skill Router
 
 ## Purpose
 
-Use this skill to help a user run Repo as Review OS in their own GitHub repository.
+Use this as the main entry skill for Repo as Review OS.
 
 Repo as Review OS is a goal-driven AI learning operating system built on GitHub.
 
-It is not a normal notes folder, not a dump of files, and not a single AI chat. It is a writable learning timeline that an AI tool can read, edit, track, organize, generate practice from, and maintain over time.
+It turns one repository into a writable learning timeline that an AI tool can read, edit, track, organize, generate practice from, and maintain over time.
 
-## When to use this skill
+## Skill suite
 
-Use this skill when the user asks to:
+Use the most specific skill available:
 
-- create a personal learning OS;
-- migrate study materials into a GitHub repository;
-- organize notes, sources, mistakes, or review tasks;
-- generate practice from their own weak points;
-- create dashboards, goal files, source records, models, or review sets;
-- maintain a learning repository with an AI agent;
-- explain or apply Repo as Review OS.
+```text
+repo-as-review-os                  Main router
+repo-as-review-os-setup            Create or migrate a learning repository
+repo-as-review-os-source           Turn materials into honest source records
+repo-as-review-os-model            Extract reusable learning models
+repo-as-review-os-review           Generate review sets, drills, or mini tests
+repo-as-review-os-maintenance      Audit, repair, and maintain the repository
+```
+
+## Routing rules
+
+### Use setup when the user wants to create or migrate a repository
+
+Use:
+
+```text
+skills/repo-as-review-os-setup/SKILL.md
+```
+
+For requests like:
+
+```text
+Set this up.
+Create my learning OS.
+Copy the template into my repo.
+Migrate my study repository.
+```
+
+### Use source when the user provides learning material
+
+Use:
+
+```text
+skills/repo-as-review-os-source/SKILL.md
+```
+
+For requests like:
+
+```text
+Save this mistake.
+Record this source.
+This is only a partial note.
+Turn this practice result into a source record.
+```
+
+### Use model when the user wants reusable understanding
+
+Use:
+
+```text
+skills/repo-as-review-os-model/SKILL.md
+```
+
+For requests like:
+
+```text
+Turn this into a model.
+Extract the method.
+What is the reusable pattern?
+Make this mistake useful next time.
+```
+
+### Use review when the user wants practice or repetition
+
+Use:
+
+```text
+skills/repo-as-review-os-review/SKILL.md
+```
+
+For requests like:
+
+```text
+Generate a review set.
+Make me a mini test.
+What should I study today?
+Give me practice from my weak points.
+```
+
+### Use maintenance when the repository needs repair or audit
+
+Use:
+
+```text
+skills/repo-as-review-os-maintenance/SKILL.md
+```
+
+For requests like:
+
+```text
+Check this repo.
+Clean up stale files.
+Update the dashboard.
+Find missing sources.
+Prepare this for another agent.
+```
 
 ## Core model
 
@@ -38,70 +127,21 @@ goal
 → new understanding
 ```
 
-## Default setup flow
+## Universal rules
 
-When setting up a new user repository:
+1. Identify the user's goal.
+2. Identify the repository and permission boundary.
+3. Keep sources traceable.
+4. Never treat a summary as a full source.
+5. Never invent missing material.
+6. Use private repositories for real learning data.
+7. Write back only when the output has future value.
+8. Update dashboard or review fields when appropriate.
+9. Report every file created or changed.
 
-1. Confirm or create one target GitHub repository.
-2. Copy the core Repo as Review OS files into that repository.
-3. Create a minimal structure:
+## If no subskill is available
 
-```text
-review-os/
-├── dashboard.md
-├── goals/
-├── inbox/
-├── sources/
-├── models/
-├── reviews/
-├── templates/
-├── agents/
-├── automations/
-└── archive/
-```
-
-4. Create `goals/main-goal.md`.
-5. Create `dashboard.md`.
-6. Create source, model, and review templates.
-7. Add AI runtime instructions.
-8. Report every file created or changed.
-
-## If the environment supports skills
-
-Install or copy this skill package into the agent's skill directory if the agent supports file-based skills.
-
-The skill package should include at minimum:
-
-```text
-skills/repo-as-review-os/SKILL.md
-skills/repo-as-review-os/README.md
-```
-
-Then use this skill whenever the user works on their learning repository.
-
-## If the environment does not support skills
-
-Use memory, custom instructions, project instructions, or a repository-level agent file instead.
-
-Add this memory instruction:
-
-```text
-Use GitHub as the main operating layer for my personal learning OS. Treat local files as protected source material. Do not invent missing sources. Organize learning around goals, source records, reusable models, spaced repetition, dashboards, and generated practice. Report every repository change. If a source is incomplete, label it honestly and add it to a queue instead of pretending it is complete.
-```
-
-## First-run checklist
-
-Before editing a user's learning repository, check:
-
-1. What is the user's main goal?
-2. What repository should be used?
-3. What permission level do you have?
-4. Are there private or copyrighted materials that must stay local?
-5. Is this a public template or a private real-learning repository?
-
-## Task loop
-
-For every learning task:
+Use this fallback task loop:
 
 ```text
 task arrives
@@ -115,58 +155,17 @@ task arrives
 → report changes and gaps
 ```
 
-## Source rules
+## If the environment does not support skills
 
-Never treat a summary as a full source.
+Use memory, custom instructions, project instructions, or repository-level agent rules instead.
 
-Never invent a missing question, passage, paper, teacher file, screenshot, or score report.
-
-If the source is incomplete, create a source record and label what is missing.
-
-Use these status labels when helpful:
+Suggested memory:
 
 ```text
-full-source
-draft-full
-index
-summary-only
-not-full-solution
-local-only-source
-needs-source
-todo
-model
-generated-review
-active-dashboard
+Use GitHub as the main operating layer for my personal learning OS. Treat local files as protected source material. Do not invent missing sources. Organize learning around goals, source records, reusable models, spaced repetition, dashboards, and generated practice. Report every repository change. If a source is incomplete, label it honestly and add it to a queue instead of pretending it is complete.
 ```
 
-## Privacy and safety
-
-For public repositories, only use templates, methods, and cleaned or fictional examples.
-
-Do not upload:
-
-- private study records;
-- teacher files;
-- copyrighted textbook or test pages;
-- private screenshots;
-- real exam records;
-- secrets, tokens, cookies, or account information.
-
-For real learning data, recommend a private repository.
-
-## Adaptive behavior
-
-Principles are stable. Strategies are adjustable.
-
-When time is short, create lightweight notes, mark missing parts, and backfill later.
-
-When time is available, expand notes into full source records, models, dashboards, and review cycles.
-
-Do not make the repository beautiful at the cost of learning.
-
 ## Output standard
-
-When you finish a task, report:
 
 ```text
 Changed files:
