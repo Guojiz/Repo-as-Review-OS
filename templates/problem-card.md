@@ -4,6 +4,12 @@ Status: `todo`
 Subject:  
 Source:  
 Date:  
+Goal link:  
+First learned:  
+Last reviewed:  
+Next review:  
+Review count: 0  
+Memory status: `new`  
 
 ## Original problem
 
@@ -30,3 +36,7 @@ What went wrong before?
 ## Next reaction
 
 When I see this again, I should...
+
+## Review notes
+
+After each review, record whether the model was recognized quickly, slowly, or forgotten.
