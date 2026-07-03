@@ -56,11 +56,11 @@
     <rect x="545" y="220" width="350" height="300" rx="30" fill="#111C36" stroke="#3F628F" stroke-width="2"/>
     <rect x="573" y="248" width="112" height="32" rx="16" fill="url(#orange)"/>
     <text x="593" y="270" class="chip">AI TOOL</text>
-    <text x="575" y="325" class="label">ChatGPT / Codex</text>
+    <text x="575" y="325" class="label">Any capable AI</text>
     <text x="575" y="366" class="small">detect runtime</text>
     <text x="575" y="398" class="small">verify permissions</text>
     <text x="575" y="430" class="small">write structured records</text>
-    <text x="575" y="486" class="tiny">Never claim access it has not verified.</text>
+    <text x="575" y="486" class="tiny">Capability matters, not brand.</text>
   </g>
 
   <g filter="url(#shadow)">
