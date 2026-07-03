@@ -20,13 +20,24 @@ Use when the user says things like:
 - connect this repo to my AI agent;
 - copy the Review OS template into my repo.
 
+## First deployment rule
+
+For a first deployment, prefer an empty or nearly empty private GitHub repository.
+
+Treat the target repository as empty unless existing files are detected.
+
+If existing files are present, inspect them first and ask before overwriting anything.
+
+Do not assume the target repository already contains Repo as Review OS files.
+
 ## Setup flow
 
 1. Confirm the target GitHub repository.
-2. Ask whether the repository will contain real learning data.
-3. Recommend a private repository for real learning records.
-4. Check the AI permission boundary.
-5. Create or verify this minimal structure:
+2. Check whether the target repository is empty, nearly empty, or already contains files.
+3. Ask whether the repository will contain real learning data.
+4. Recommend a private repository for real learning records.
+5. Check the AI permission boundary.
+6. Create or verify this minimal structure:
 
 ```text
 dashboard.md
@@ -40,10 +51,10 @@ automations/
 archive/
 ```
 
-6. Copy or recreate core method files and templates.
-7. Add skill runtime or memory fallback instructions.
-8. Ask for the user's first learning goal before writing detailed personalized content.
-9. Report every created or changed file.
+7. Copy or recreate core method files and templates.
+8. Add skill runtime or memory fallback instructions.
+9. Ask for the user's first learning goal before writing detailed personalized content.
+10. Report every created or changed file.
 
 ## Recommended copy set
 
@@ -85,6 +96,8 @@ Do not place private or copyrighted materials in a public repository.
 For real study data, recommend a private repository.
 
 Do not ask for broad GitHub account permissions when one-repository access is enough.
+
+Do not overwrite existing files in the target repository without asking.
 
 ## Output standard
 
