@@ -42,9 +42,32 @@
 把这段复制给 ChatGPT、Codex、Claude Code、Cursor、Windsurf 或其他能读写 GitHub 的 AI 工具：
 
 ```text
-请阅读这个仓库：https://github.com/Guojiz/Repo-as-Review-OS
-先读 QUICKSTART.zh-CN.md、docs/zh-CN/first-experiment-guide.md、OPERATING-MODEL.zh-CN.md、START-HERE.zh-CN.md、AGENT-RUNTIME.zh-CN.md、AGENTS.zh-CN.md、skills/README.md 和 docs/zh-CN/skill-and-memory-runtime.md，再看 examples/zh-CN/demo-zhongkao-lite。帮我搭建自己的 Review OS。先解释它是什么，再判断你的权限边界，然后指导我创建或选择一个 GitHub 仓库。如果你的环境支持 skill，就从 skills/repo-as-review-os/SKILL.md 开始，并在合适时使用具体子 skill；如果不支持 skill，就使用 docs/zh-CN/skill-and-memory-runtime.md 里的记忆回退方案。接着创建目标文件、目录结构、来源规则、题目模型模板、间隔复习字段、自动化输出位置和控制台。
+请阅读这个模板仓库：https://github.com/Guojiz/Repo-as-Review-OS
+
+先读 QUICKSTART.zh-CN.md、docs/zh-CN/first-experiment-guide.md、docs/zh-CN/runtime-self-adaptation.md、OPERATING-MODEL.zh-CN.md、START-HERE.zh-CN.md、AGENT-RUNTIME.zh-CN.md、AGENTS.zh-CN.md、skills/README.md 和 docs/zh-CN/skill-and-memory-runtime.md，再看 examples/zh-CN/demo-zhongkao-lite。
+
+帮我搭建自己的 Review OS。先解释它是什么，再判断你当前的运行环境、权限边界，以及哪些步骤必须由我手动完成。
+
+请把这个 Repo as Review OS 仓库视为模板仓库，把我的目标仓库视为个人学习仓库。不要把我的学习数据写进模板仓库。
+
+然后指导我创建或选择一个目标 GitHub 仓库。如果你的环境支持 skill，就从 skills/repo-as-review-os/SKILL.md 开始，并在合适时使用具体子 skill；如果不支持 skill，就使用 docs/zh-CN/skill-and-memory-runtime.md 里的记忆回退方案。
+
+接着在我的目标仓库里创建目标文件、目录结构、来源规则、题目模型模板、间隔复习字段、自动化输出位置和控制台。每次创建或修改文件都要汇报。
 ```
+
+## 仓库角色
+
+```text
+Repo as Review OS 仓库
+→ 模板仓库
+→ 方法、文档、skill、示例、规则
+
+用户目标仓库
+→ 个人学习仓库
+→ 目标、来源、模型、复习、dashboard
+```
+
+AI 应该把这个仓库作为模板读取，然后把结构部署到用户自己的仓库里。
 
 ## 它解决什么问题
 
@@ -69,14 +92,15 @@ GitHub 不只是网盘。它是一条可以写入的时间线。
 
 ## AI 执行路径
 
-1. 判断自己的权限等级。
-2. 读取用户目标。
-3. 检查仓库结构。
-4. 找到活跃来源、模型和薄弱点。
-5. 判断什么要拆解、合并、重写、复习、生成或归档。
-6. 更新文件。
-7. 必要时安排下次复习。
-8. 汇报每一次改动。
+1. 判断自己的运行环境和权限等级。
+2. 区分模板仓库和目标学习仓库。
+3. 读取用户目标。
+4. 检查目标仓库结构。
+5. 找到活跃来源、模型和薄弱点。
+6. 判断什么要拆解、合并、重写、复习、生成或归档。
+7. 只在正确的目标仓库中更新文件。
+8. 必要时安排下次复习。
+9. 汇报每一次改动。
 
 ## Skill 或记忆运行层
 
@@ -124,24 +148,28 @@ PUBLIC-CHECKLIST.zh-CN.md
 ## 关键文档
 
 ```text
-QUICKSTART.zh-CN.md              五分钟开始
-docs/zh-CN/first-experiment-guide.md 第一次实验指南
-OPERATING-MODEL.zh-CN.md        总运行模型
-AGENT-RUNTIME.zh-CN.md          AI 运行指南
-skills/README.md                Skill suite 总览
-skills/repo-as-review-os/SKILL.md 总入口 router skill
-docs/zh-CN/skill-and-memory-runtime.md Skill 与记忆运行层
-PUBLIC-ALPHA.zh-CN.md           早期公开说明
-PUBLIC-CHECKLIST.zh-CN.md       公开前检查清单
-CONTRIBUTING.zh-CN.md           贡献指南
-examples/zh-CN/demo-zhongkao-lite/ 中文轻量 demo
-docs/zh-CN/product-positioning.md 产品定位
-docs/zh-CN/why-github.md        为什么使用 GitHub
-docs/zh-CN/goal-model.md        目标模型
-docs/zh-CN/adaptive-rules.md    动态规则
-docs/zh-CN/spaced-repetition.md 间隔复习
-docs/zh-CN/filesystem-design.md 文件系统设计
-docs/zh-CN/automation-model.md  自动化模型
+QUICKSTART.zh-CN.md                       五分钟开始
+docs/zh-CN/first-experiment-guide.md      第一次实验指南
+docs/zh-CN/runtime-self-adaptation.md     运行环境自适应
+OPERATING-MODEL.zh-CN.md                  总运行模型
+AGENT-RUNTIME.zh-CN.md                    AI 运行指南
+AGENTS.zh-CN.md                           AI 接手规则
+skills/README.md                          Skill suite 总览
+skills/repo-as-review-os/SKILL.md         总入口 router skill
+docs/zh-CN/skill-and-memory-runtime.md    Skill 与记忆运行层
+docs/local-runtime-note.md                本地文件夹与 ChatGPT Project 说明
+docs/zh-CN/automation-runtime-matrix.md   自动化运行环境矩阵
+PUBLIC-ALPHA.zh-CN.md                     早期公开说明
+PUBLIC-CHECKLIST.zh-CN.md                 公开前检查清单
+CONTRIBUTING.zh-CN.md                     贡献指南
+examples/zh-CN/demo-zhongkao-lite/        中文轻量 demo
+docs/zh-CN/product-positioning.md         产品定位
+docs/zh-CN/why-github.md                  为什么使用 GitHub
+docs/zh-CN/goal-model.md                  目标模型
+docs/zh-CN/adaptive-rules.md              动态规则
+docs/zh-CN/spaced-repetition.md           间隔复习
+docs/zh-CN/filesystem-design.md           文件系统设计
+docs/zh-CN/automation-model.md            自动化模型
 docs/zh-CN/lessons-from-original-system.md 从原系统提炼出的规则
 ```
 
@@ -163,7 +191,7 @@ review-os/
 
 ## 给 AI Agent
 
-修改文件前先阅读 `QUICKSTART.zh-CN.md`、`docs/zh-CN/first-experiment-guide.md`、`OPERATING-MODEL.zh-CN.md`、`AGENT-RUNTIME.zh-CN.md`、`skills/README.md`、`docs/zh-CN/skill-and-memory-runtime.md` 和 `AGENTS.zh-CN.md`。如果使用英文环境，也可以读对应英文文件。
+修改文件前先阅读 `QUICKSTART.zh-CN.md`、`docs/zh-CN/first-experiment-guide.md`、`docs/zh-CN/runtime-self-adaptation.md`、`OPERATING-MODEL.zh-CN.md`、`AGENT-RUNTIME.zh-CN.md`、`skills/README.md`、`docs/zh-CN/skill-and-memory-runtime.md` 和 `AGENTS.zh-CN.md`。如果使用英文环境，也可以读对应英文文件。
 
 ## 许可证
 
