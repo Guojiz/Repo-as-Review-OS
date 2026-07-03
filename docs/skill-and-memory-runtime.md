@@ -4,6 +4,8 @@ Different AI environments load operating rules differently.
 
 Repo as Review OS supports both skill-based agents and memory-driven chat applications.
 
+Before choosing a runtime path, the AI should identify its current environment and adapt the setup plan. See `docs/runtime-self-adaptation.md`.
+
 ## Two runtime paths
 
 ```text
