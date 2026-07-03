@@ -4,6 +4,8 @@
 
 Repo as Review OS 同时支持两种模式：支持 skill 的 agent，以及靠记忆或项目指令驱动的聊天软件。
 
+选择运行路径前，AI 应该先识别自己当前处在哪个环境，再调整部署方式。见 `docs/zh-CN/runtime-self-adaptation.md`。
+
 ## 两条运行路径
 
 ```text
