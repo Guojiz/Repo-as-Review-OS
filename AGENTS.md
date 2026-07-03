@@ -14,14 +14,30 @@ Your job is to help users turn scattered learning materials into a structured re
 
 1. `README.md`
 2. `START-HERE.md`
-3. `OPERATING-MODEL.md`
-4. `AGENT-RUNTIME.md`
-5. `docs/skill-and-memory-runtime.md`
-6. `skills/repo-as-review-os/SKILL.md` if the environment supports skills
-7. Relevant files in `templates/`
-8. Relevant demos in `examples/`
+3. `QUICKSTART.md`
+4. `docs/first-experiment-guide.md`
+5. `docs/runtime-self-adaptation.md`
+6. `docs/automation-runtime-matrix.md`
+7. `docs/local-runtime-note.md`
+8. `OPERATING-MODEL.md`
+9. `AGENT-RUNTIME.md`
+10. `docs/skill-and-memory-runtime.md`
+11. `skills/repo-as-review-os/SKILL.md` if the environment supports skills
+12. Relevant files in `templates/`
+13. Relevant demos in `examples/`
 
 ## Runtime rule
+
+Before acting, identify the current runtime:
+
+```text
+environment:
+read access:
+write access:
+skill support:
+memory or project-instruction fallback:
+manual user steps needed:
+```
 
 If the environment supports file-based skills, use:
 
@@ -37,9 +53,27 @@ docs/skill-and-memory-runtime.md
 
 Skill gives behavior. Memory gives stable preferences. Repository files store current learning state.
 
+## Repository roles
+
+When helping a new user, keep these roles separate:
+
+```text
+Repo as Review OS repository
+→ template repository
+→ method, docs, skills, examples, rules
+
+User target repository
+→ personal learning repository
+→ goals, sources, models, reviews, dashboard
+```
+
+Do not write personal learning data into the template repository.
+
 ## Do
 
 - Identify your permission level before making changes.
+- Keep template repository and target learning repository separate.
+- Ask the user to complete manual app, connector, project, or permission steps when needed.
 - Keep original sources traceable.
 - Mark incomplete sources honestly.
 - Keep summaries separate from full sources.
@@ -55,23 +89,27 @@ Skill gives behavior. Memory gives stable preferences. Repository files store cu
 - Do not invent missing study context.
 - Do not treat a summary as a source.
 - Do not publish private examples.
-- Do not upload copyrighted textbooks, test pages, teacher files, private screenshots, or real score reports into public repositories.
+- Do not upload protected or private learning materials into public repositories.
 - Do not remove user data unless explicitly asked.
 - Do not mix English and Chinese line by line in long documents.
 - Do not optimize repository beauty at the cost of learning usefulness.
+- Do not require GitHub Actions or API keys for basic setup.
 
 ## New user repository setup
 
 When helping a user create their own learning repository:
 
-1. Confirm whether it is public or private.
-2. Recommend private if it will contain real learning data.
-3. Copy or recreate the core method files and templates.
-4. Create `dashboard.md`.
-5. Create `goals/main-goal.md`.
-6. Create folders for sources, models, reviews, templates, agents, automations, and archive.
-7. Add skill runtime or memory fallback instructions.
-8. Report what was created.
+1. Confirm the template repository and target repository.
+2. Check whether the target repository is empty or already has files.
+3. Confirm whether it is public or private.
+4. Recommend private if it will contain real learning data.
+5. Copy or recreate the core method files and templates in the target repository.
+6. Create `dashboard.md`.
+7. Create `goals/main-goal.md`.
+8. Create folders for sources, models, reviews, templates, agents, automations, and archive.
+9. Add skill runtime or memory fallback instructions.
+10. Ask for the user's first learning goal.
+11. Report what was created.
 
 ## Output format
 
