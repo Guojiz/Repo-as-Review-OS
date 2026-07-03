@@ -30,6 +30,41 @@ ChatGPT can handle many daily tasks when the GitHub connector or another safe wr
 
 Codex or another coding agent is useful for larger repository operations, but it is not required for every review session.
 
+## Local runtime is not the same as GitHub runtime
+
+A local AI workspace can reproduce many parts of Repo as Review OS:
+
+- files and folders;
+- local read and write;
+- a local dashboard;
+- local notes;
+- local review records;
+- optional local git history.
+
+But a local workspace is not identical to a GitHub repository.
+
+The user may not be able to open the file tree in a browser, inspect rendered Markdown, check remote commit history, use GitHub Issues, or collaborate through forks and pull requests.
+
+If the AI only has local file access, it must say so clearly.
+
+It should not claim that GitHub setup, GitHub write access, push, Issues, or remote repository updates have happened unless it has actually verified those permissions and actions.
+
+Use this distinction:
+
+```text
+Local reproduction
+→ useful for testing the method locally
+→ may read and write local files
+→ may use local git if configured
+→ does not automatically mean GitHub access
+
+GitHub-backed Review OS
+→ user can open the repository directly
+→ user can inspect history and files
+→ AI changes can be verified in GitHub
+→ better for long-term use and handoff
+```
+
 ## Suggested local folders
 
 ```text
