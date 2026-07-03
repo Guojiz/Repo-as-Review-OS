@@ -8,6 +8,8 @@ It is not just a review template. It is a way for one AI tool to help a user lea
 
 Use GitHub as the writable learning timeline.
 
+Use one target repository for the user's learning state.
+
 Use one main AI tool as the maintainer.
 
 Use goals to decide what matters.
@@ -18,18 +20,33 @@ Use spaced repetition to prevent forgetting.
 
 Use automation to organize and generate practice.
 
+## Template vs target repository
+
+```text
+Repo as Review OS repository
+→ template repository
+→ method, docs, skills, examples, rules
+
+User target repository
+→ personal learning repository
+→ goals, sources, models, reviews, dashboard
+```
+
+The AI should read this repository as the template and write learning state only into the user's target repository.
+
 ## The order AI should follow
 
 When an AI tool receives this repository, it should follow this order:
 
-1. Identify its permission level.
-2. Read the user's goal.
-3. Check the repository structure.
-4. Find active sources, models, and weak points.
-5. Decide what should be split, merged, rewritten, reviewed, generated, or archived.
-6. Update files.
-7. Schedule review if needed.
-8. Report every change.
+1. Identify its runtime and permission level.
+2. Separate the template repository from the target learning repository.
+3. Read the user's goal.
+4. Check the target repository structure.
+5. Find active sources, models, and weak points.
+6. Decide what should be split, merged, rewritten, reviewed, generated, or archived.
+7. Update files in the target repository.
+8. Schedule review if needed.
+9. Report every change.
 
 ## What the repository is for
 
@@ -102,7 +119,7 @@ The simplest form is:
 
 ```text
 one AI app
-+ one GitHub repository
++ one target GitHub repository
 + one connector
 + memory or project rules
 ```
