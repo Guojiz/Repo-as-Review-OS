@@ -4,6 +4,8 @@ Automation in Repo as Review OS must be explicit about what the scheduled enviro
 
 A scheduled reminder is not always a repository worker.
 
+For the runtime capability map, see `docs/automation-runtime-matrix.md`.
+
 ## Two automation layers
 
 ```text
@@ -128,6 +130,21 @@ Output a concise handoff card with:
 4. Repository areas to read first.
 5. Generation rules after repository access.
 ```
+
+## Optional worker implementation
+
+A script or GitHub Actions worker may be added later, but it is not required for the protocol to work.
+
+If added, it should start small:
+
+```text
+check required files
+check required folders
+write a simple health report
+avoid rewriting learning content automatically
+```
+
+This kind of worker is a validation layer, not the whole learning agent.
 
 ## Why Git history matters
 
