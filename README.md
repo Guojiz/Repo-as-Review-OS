@@ -54,9 +54,32 @@ main goal
 ## Copy this to an AI tool
 
 ```text
-Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
-Start with QUICKSTART.md, docs/first-experiment-guide.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite. Help me build my own Review OS. First explain what it is, then identify your permission boundary, then guide me to create or choose one GitHub repository. If your environment supports skills, start with skills/repo-as-review-os/SKILL.md and use the specific subskills when appropriate. If not, use the memory fallback in docs/skill-and-memory-runtime.md. After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard.
+Read this template repository: https://github.com/Guojiz/Repo-as-Review-OS
+
+Start with QUICKSTART.md, docs/first-experiment-guide.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
+
+Help me build my own Review OS. First explain what it is. Then identify your current runtime, permission boundary, and any manual steps I must complete.
+
+Treat this Repo as Review OS repository as the template repository. Treat my target repository as the personal learning repository. Do not write my learning data into the template repository.
+
+Guide me to create or choose one target GitHub repository. If your environment supports skills, start with skills/repo-as-review-os/SKILL.md and use the specific subskills when appropriate. If not, use the memory fallback in docs/skill-and-memory-runtime.md.
+
+After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard in my target repository. Report every file created or edited.
 ```
+
+## Repository roles
+
+```text
+Repo as Review OS repository
+→ template repository
+→ method, docs, skills, examples, rules
+
+User target repository
+→ personal learning repository
+→ goals, sources, models, reviews, dashboard
+```
+
+The AI should read this repository as the template, then deploy the structure into the user's own repository.
 
 ## Why GitHub
 
@@ -76,14 +99,15 @@ A normal AI project can store instructions and context, but it does not provide 
 
 ## What the AI should do
 
-1. Identify its permission level.
-2. Read the user's goal.
-3. Check the repository structure.
-4. Find active sources, models, and weak points.
-5. Decide what should be split, merged, rewritten, reviewed, generated, or archived.
-6. Update files.
-7. Schedule review if needed.
-8. Report every change.
+1. Identify its runtime and permission level.
+2. Separate the template repository from the target learning repository.
+3. Read the user's goal.
+4. Check the target repository structure.
+5. Find active sources, models, and weak points.
+6. Decide what should be split, merged, rewritten, reviewed, generated, or archived.
+7. Update files only in the correct target repository.
+8. Schedule review if needed.
+9. Report every change.
 
 ## Skill or memory runtime
 
@@ -134,28 +158,31 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 ## Key documents
 
 ```text
-QUICKSTART.md                   Five-minute setup
-docs/first-experiment-guide.md  First experiment guide
-OPERATING-MODEL.md              Overall operating model
-AGENT-RUNTIME.md                Runtime guide for AI tools
-skills/README.md                Skill suite overview
-skills/repo-as-review-os/SKILL.md Main router skill
-docs/skill-and-memory-runtime.md Skill and memory runtime guide
-docs/local-runtime-note.md      Local folders and ChatGPT Project note
-PUBLIC-ALPHA.md                 Public alpha note
-PUBLIC-CHECKLIST.md             Public release checklist
-CONTRIBUTING.md                 Contribution guide
+QUICKSTART.md                         Five-minute setup
+docs/first-experiment-guide.md        First experiment guide
+docs/runtime-self-adaptation.md       Runtime self-adaptation guide
+OPERATING-MODEL.md                    Overall operating model
+AGENT-RUNTIME.md                      Runtime guide for AI tools
+AGENTS.md                             Agent handoff rules
+skills/README.md                      Skill suite overview
+skills/repo-as-review-os/SKILL.md     Main router skill
+docs/skill-and-memory-runtime.md      Skill and memory runtime guide
+docs/local-runtime-note.md            Local folders and ChatGPT Project note
+docs/automation-runtime-matrix.md     Automation runtime matrix
+PUBLIC-ALPHA.md                       Public alpha note
+PUBLIC-CHECKLIST.md                   Public release checklist
+CONTRIBUTING.md                       Contribution guide
 examples/en/demo-research-reading-lite/ English research reading demo
-examples/en/demo-sat-lite/      English SAT prep demo
-examples/zh-CN/demo-zhongkao-lite/ Chinese exam-math demo
-docs/product-positioning.md     Product positioning
-docs/why-github.md              Why GitHub
-docs/goal-model.md              Goal model
-docs/adaptive-rules.md          Adaptive rules
-docs/spaced-repetition.md       Spaced repetition
-docs/filesystem-design.md       Filesystem design
-docs/automation-model.md        Automation model
-docs/lessons-from-original-system.md Lessons from the original system
+examples/en/demo-sat-lite/            English SAT prep demo
+examples/zh-CN/demo-zhongkao-lite/    Chinese exam-math demo
+docs/product-positioning.md           Product positioning
+docs/why-github.md                    Why GitHub
+docs/goal-model.md                    Goal model
+docs/adaptive-rules.md                Adaptive rules
+docs/spaced-repetition.md             Spaced repetition
+docs/filesystem-design.md             Filesystem design
+docs/automation-model.md              Automation model
+docs/lessons-from-original-system.md  Lessons from the original system
 ```
 
 ## Suggested layout
@@ -176,7 +203,7 @@ review-os/
 
 ## For AI agents
 
-Read `QUICKSTART.md`, `docs/first-experiment-guide.md`, `OPERATING-MODEL.md`, `AGENT-RUNTIME.md`, `skills/README.md`, `docs/skill-and-memory-runtime.md`, and `AGENTS.md` before changing files.
+Read `QUICKSTART.md`, `docs/first-experiment-guide.md`, `docs/runtime-self-adaptation.md`, `OPERATING-MODEL.md`, `AGENT-RUNTIME.md`, `skills/README.md`, `docs/skill-and-memory-runtime.md`, and `AGENTS.md` before changing files.
 
 ## License
 
