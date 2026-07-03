@@ -8,7 +8,7 @@
 
 当前状态：早期公开版本。见 `PUBLIC-ALPHA.zh-CN.md`。
 
-刚开始看？先读 `QUICKSTART.zh-CN.md`。
+刚开始看？先读 `QUICKSTART.zh-CN.md` 和 `docs/zh-CN/first-experiment-guide.md`。
 
 核心模型：
 
@@ -43,7 +43,7 @@
 
 ```text
 请阅读这个仓库：https://github.com/Guojiz/Repo-as-Review-OS
-先读 QUICKSTART.zh-CN.md、OPERATING-MODEL.zh-CN.md、START-HERE.zh-CN.md、AGENT-RUNTIME.zh-CN.md、AGENTS.zh-CN.md、skills/README.md 和 docs/zh-CN/skill-and-memory-runtime.md，再看 examples/zh-CN/demo-zhongkao-lite。帮我搭建自己的 Review OS。先解释它是什么，再判断你的权限边界，然后指导我创建或选择一个 GitHub 仓库。如果你的环境支持 skill，就从 skills/repo-as-review-os/SKILL.md 开始，并在合适时使用具体子 skill；如果不支持 skill，就使用 docs/zh-CN/skill-and-memory-runtime.md 里的记忆回退方案。接着创建目标文件、目录结构、来源规则、题目模型模板、间隔复习字段、自动化输出位置和控制台。
+先读 QUICKSTART.zh-CN.md、docs/zh-CN/first-experiment-guide.md、OPERATING-MODEL.zh-CN.md、START-HERE.zh-CN.md、AGENT-RUNTIME.zh-CN.md、AGENTS.zh-CN.md、skills/README.md 和 docs/zh-CN/skill-and-memory-runtime.md，再看 examples/zh-CN/demo-zhongkao-lite。帮我搭建自己的 Review OS。先解释它是什么，再判断你的权限边界，然后指导我创建或选择一个 GitHub 仓库。如果你的环境支持 skill，就从 skills/repo-as-review-os/SKILL.md 开始，并在合适时使用具体子 skill；如果不支持 skill，就使用 docs/zh-CN/skill-and-memory-runtime.md 里的记忆回退方案。接着创建目标文件、目录结构、来源规则、题目模型模板、间隔复习字段、自动化输出位置和控制台。
 ```
 
 ## 它解决什么问题
@@ -125,6 +125,7 @@ PUBLIC-CHECKLIST.zh-CN.md
 
 ```text
 QUICKSTART.zh-CN.md              五分钟开始
+docs/zh-CN/first-experiment-guide.md 第一次实验指南
 OPERATING-MODEL.zh-CN.md        总运行模型
 AGENT-RUNTIME.zh-CN.md          AI 运行指南
 skills/README.md                Skill suite 总览
@@ -162,7 +163,7 @@ review-os/
 
 ## 给 AI Agent
 
-修改文件前先阅读 `QUICKSTART.zh-CN.md`、`OPERATING-MODEL.zh-CN.md`、`AGENT-RUNTIME.zh-CN.md`、`skills/README.md`、`docs/zh-CN/skill-and-memory-runtime.md` 和 `AGENTS.zh-CN.md`。如果使用英文环境，也可以读对应英文文件。
+修改文件前先阅读 `QUICKSTART.zh-CN.md`、`docs/zh-CN/first-experiment-guide.md`、`OPERATING-MODEL.zh-CN.md`、`AGENT-RUNTIME.zh-CN.md`、`skills/README.md`、`docs/zh-CN/skill-and-memory-runtime.md` 和 `AGENTS.zh-CN.md`。如果使用英文环境，也可以读对应英文文件。
 
 ## 许可证
 
