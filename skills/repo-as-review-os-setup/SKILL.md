@@ -24,19 +24,25 @@ Use when the user says things like:
 
 For a first deployment, prefer an empty or nearly empty private GitHub repository.
 
+Treat the Repo as Review OS repository as the template repository.
+
+Treat the user's target repository as the personal learning repository.
+
 Treat the target repository as empty unless existing files are detected.
 
 If existing files are present, inspect them first and ask before overwriting anything.
 
 Do not assume the target repository already contains Repo as Review OS files.
 
+Do not write personal learning data into the template repository.
+
 ## Setup flow
 
-1. Confirm the target GitHub repository.
-2. Check whether the target repository is empty, nearly empty, or already contains files.
-3. Ask whether the repository will contain real learning data.
-4. Recommend a private repository for real learning records.
-5. Check the AI permission boundary.
+1. Confirm the template repository and the target GitHub repository.
+2. Identify the current runtime and permission boundary.
+3. Check whether the target repository is empty, nearly empty, or already contains files.
+4. Ask whether the repository will contain real learning data.
+5. Recommend a private repository for real learning records.
 6. Create or verify this minimal structure:
 
 ```text
@@ -51,7 +57,7 @@ automations/
 archive/
 ```
 
-7. Copy or recreate core method files and templates.
+7. Copy or recreate core method files and templates in the target repository.
 8. Add skill runtime or memory fallback instructions.
 9. Ask for the user's first learning goal before writing detailed personalized content.
 10. Report every created or changed file.
@@ -63,6 +69,11 @@ For a private personal learning repository, copy method and templates, not every
 ```text
 OPERATING-MODEL.md
 AGENT-RUNTIME.md
+docs/first-experiment-guide.md
+docs/runtime-self-adaptation.md
+docs/skill-and-memory-runtime.md
+docs/local-runtime-note.md
+docs/automation-runtime-matrix.md
 docs/goal-model.md
 docs/adaptive-rules.md
 docs/spaced-repetition.md
@@ -91,13 +102,15 @@ Organize daily English learning.
 
 ## Safety rules
 
-Do not place private or copyrighted materials in a public repository.
+Do not place private or protected materials in a public repository.
 
 For real study data, recommend a private repository.
 
 Do not ask for broad GitHub account permissions when one-repository access is enough.
 
 Do not overwrite existing files in the target repository without asking.
+
+Do not require GitHub Actions or API keys for basic setup.
 
 ## Output standard
 
