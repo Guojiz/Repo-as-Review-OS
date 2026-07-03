@@ -1,5 +1,16 @@
 # AI Runtime Support
 
+This page is a supplementary guide.
+
+For the current main runtime path, read:
+
+- [Runtime Self-Adaptation](runtime-self-adaptation.md)
+- [Automation Runtime Matrix](automation-runtime-matrix.md)
+- [Local Runtime Note](local-runtime-note.md)
+- [Skill and Memory Runtime](skill-and-memory-runtime.md)
+
+## Core idea
+
 Repo as Review OS is not tied to one AI product.
 
 It can be supported by any AI tool that can read instructions, access a repository, edit files, and report changes.
@@ -40,7 +51,7 @@ Without memory or project instructions, the user has to repeat the same setup in
 ## Minimum runtime
 
 ```text
-one AI tool + one GitHub repository + one rule file
+one AI tool + one target GitHub repository + one rule file
 ```
 
 ## Best runtime
@@ -53,15 +64,8 @@ one main AI tool
 + optional local file upload when needed
 ```
 
-## Obsidian path
+## Local-first path
 
-Some users may start with Obsidian. A practical migration path is:
+A local workspace can test the method, but local access is not the same as GitHub access.
 
-```text
-Obsidian
-→ Obsidian + Git
-→ Obsidian + Git + GitHub
-→ GitHub + one AI tool
-```
-
-The final form is simpler because the user can manage the system from one AI app and one GitHub repository.
+For the boundary, see [Local Runtime Note](local-runtime-note.md).
