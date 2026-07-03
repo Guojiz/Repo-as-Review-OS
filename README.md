@@ -1,5 +1,6 @@
 # Repo as Review OS
-<img width="1448" height="1086" alt="image" src="https://github.com/user-attachments/assets/5e1942dd-5996-4346-ba3c-3afe18d5503d" />
+
+![Repo as Review OS overview](docs/assets/repo-as-review-os-map.svg)
 
 [中文说明](README.zh-CN.md)
 
@@ -18,7 +19,7 @@ It is not just a review template. It turns one GitHub repository into a writable
 
 Current status: public alpha. See [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md).
 
-New here? Start with [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [First Experiment Guide](docs/first-experiment-guide.md), and [What Goes Into GitHub](docs/what-goes-into-github.md).
+New here? Start with [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30-second-intro.md), [First Experiment Guide](docs/first-experiment-guide.md), and [What Goes Into GitHub](docs/what-goes-into-github.md).
 
 Core model:
 
@@ -55,7 +56,7 @@ main goal
 ```text
 Read this template repository: https://github.com/Guojiz/Repo-as-Review-OS
 
-Start with QUICKSTART.md, FAQ.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
+Start with QUICKSTART.md, FAQ.md, docs/30-second-intro.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
 
 Help me build my own Review OS. First explain what it is. Then identify your current runtime, permission boundary, and any manual steps I must complete.
 
@@ -148,6 +149,7 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 
 - [QUICKSTART.md](QUICKSTART.md): Five-minute setup
 - [FAQ.md](FAQ.md): Frequently asked questions
+- [docs/30-second-intro.md](docs/30-second-intro.md): 30-second intro
 - [docs/first-experiment-guide.md](docs/first-experiment-guide.md): First experiment guide
 - [docs/what-goes-into-github.md](docs/what-goes-into-github.md): What goes into GitHub
 - [docs/customer-clarity-checklist.md](docs/customer-clarity-checklist.md): Customer clarity checklist
@@ -193,7 +195,7 @@ review-os/
 
 ## For AI agents
 
-Read [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [First Experiment Guide](docs/first-experiment-guide.md), [What Goes Into GitHub](docs/what-goes-into-github.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [OPERATING-MODEL.md](OPERATING-MODEL.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [skills/README.md](skills/README.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), and [AGENTS.md](AGENTS.md) before changing files.
+Read [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30-second-intro.md), [First Experiment Guide](docs/first-experiment-guide.md), [What Goes Into GitHub](docs/what-goes-into-github.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [OPERATING-MODEL.md](OPERATING-MODEL.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [skills/README.md](skills/README.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), and [AGENTS.md](AGENTS.md) before changing files.
 
 ## License
 
