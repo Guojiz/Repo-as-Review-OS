@@ -10,11 +10,11 @@ That matters for learning. Each problem, correction, summary, and template updat
 
 ## 2. Pull and push create a learning rhythm
 
-A repository can be read, updated, and written back.
+A target repository can be read, updated, and written back.
 
 For an AI tool, the cycle is:
 
-1. read the latest repository state;
+1. read the latest target repository state;
 2. solve or analyze a task;
 3. write the result back;
 4. leave a trace of what changed;
@@ -51,9 +51,11 @@ For many users, the simplest form is:
 
 ```text
 one AI app
-+ one GitHub repository
++ one target GitHub repository
 + one connector
 + one memory or project-rule layer
 ```
 
 This can work from a phone and does not require a full local toolchain.
+
+This template repository provides the method. The user's target repository is the learning workspace.
