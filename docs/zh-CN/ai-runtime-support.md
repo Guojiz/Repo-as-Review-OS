@@ -1,5 +1,16 @@
 # AI 运行环境支持
 
+本页是补充说明。
+
+当前主线运行路径请先读：
+
+- [运行环境自适应](runtime-self-adaptation.md)
+- [自动化运行环境矩阵](automation-runtime-matrix.md)
+- [本地运行说明](../local-runtime-note.md)
+- [Skill 与记忆运行层](skill-and-memory-runtime.md)
+
+## 核心想法
+
 Repo as Review OS 不绑定某一个 AI 产品。
 
 只要一个 AI 工具能够读取指令、访问仓库、修改文件并汇报改动，它就可以承载这个系统。
@@ -40,7 +51,7 @@ AI 应该记住这个用户偏好：
 ## 最小运行环境
 
 ```text
-一个 AI 工具 + 一个 GitHub 仓库 + 一个规则文件
+一个 AI 工具 + 一个目标 GitHub 仓库 + 一个规则文件
 ```
 
 ## 最佳运行环境
@@ -53,15 +64,8 @@ AI 应该记住这个用户偏好：
 + 必要时上传本地文件摘录
 ```
 
-## Obsidian 路径
+## 本地优先路径
 
-很多用户可能从 Obsidian 开始。一个实际演化路径是：
+本地工作区可以测试这套方法，但本地访问不等于 GitHub 访问。
 
-```text
-Obsidian
-→ Obsidian + Git
-→ Obsidian + Git + GitHub
-→ GitHub + 一个 AI 工具
-```
-
-最后一种形态更简单，因为用户只需要一个 AI App 和一个 GitHub 仓库就能维护系统。
+边界说明见 [本地运行说明](../local-runtime-note.md)。
