@@ -4,11 +4,11 @@ Repo as Review OS is an AI-native review system built around GitHub.
 
 It is not a ChatGPT-only project. It is not an Obsidian-only workflow. It is not a multi-agent framework.
 
-It is a lightweight operating model for one main AI tool and one GitHub repository.
+It is a lightweight operating model for one main AI tool and one target GitHub repository.
 
 ## One sentence
 
-Use GitHub as the review system, and use one capable AI tool to maintain it.
+Use GitHub as the review system, and use one capable AI tool to maintain the user's target repository.
 
 ## What makes it work
 
@@ -22,6 +22,20 @@ The system works when the AI tool has these capabilities:
 6. report every change.
 
 The specific AI product is not the point. The capability set is the point.
+
+## Template vs target repository
+
+```text
+Repo as Review OS repository
+→ template repository
+→ method, docs, skills, examples, rules
+
+User target repository
+→ personal learning repository
+→ goals, sources, models, reviews, dashboard
+```
+
+The template teaches the method. The target repository stores the user's learning state.
 
 ## Why GitHub instead of Obsidian as the final layer
 
@@ -51,7 +65,7 @@ Obsidian can still be useful as a personal editor, but it is no longer the cente
 Minimum runtime:
 
 ```text
-one AI tool + one GitHub repository + one rule file
+one AI tool + one target GitHub repository + one rule file
 ```
 
 Best runtime:
@@ -60,7 +74,7 @@ Best runtime:
 one main AI tool
 + GitHub or MCP connector
 + memory or project instructions
-+ single-repository write access
++ single-target-repository write access
 + clear safety boundary
 ```
 
@@ -101,7 +115,7 @@ If a source is local-only, the AI should create a source record in GitHub and as
 
 ## Permission philosophy
 
-The best default is one-repository write access.
+The best default is one-target-repository write access.
 
 This lets the AI work smoothly inside the Review OS repository while keeping risky actions blocked.
 
@@ -129,9 +143,9 @@ Repo as Review OS lets a user run a review system with:
 
 ```text
 one AI app
-one GitHub repository
+one target GitHub repository
 one connector
 one memory or project-rule layer
 ```
 
-It reduces the workflow from many tools to one durable repository that an AI can understand and maintain.
+It reduces the workflow from many tools to one durable target repository that an AI can understand and maintain.
