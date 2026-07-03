@@ -1,51 +1,57 @@
 # 开始使用
 
-本指南给人类用户使用：如果你想让 ChatGPT、Codex 或其他 AI 工具帮你搭建 Review OS 仓库，可以从这里开始。
+本页是给人类用户看的短入口。
 
-## 1. 创建 GitHub 仓库
+完整首次部署流程请先看：
 
-1. 打开 GitHub。
-2. 点击 **New repository**。
-3. 选择仓库名，例如 `my-review-os`。
-4. 如果要放真实复习资料，建议先设为私有。
-5. 如果希望别人复用，添加许可证。
+- [QUICKSTART.zh-CN.md](../../QUICKSTART.zh-CN.md)
+- [常见问题](../../FAQ.zh-CN.md)
+- [第一次实验指南](first-experiment-guide.md)
+- [什么内容放进 GitHub](what-goes-into-github.md)
+- [运行环境自适应](runtime-self-adaptation.md)
 
-公开模板推荐许可证：MIT License。
+## 基本想法
 
-## 2. 给 AI 打开权限
-
-如果你使用带 GitHub 工具的 ChatGPT，请连接 GitHub，并允许它访问这个仓库。
-
-如果你使用 Codex，请把这个仓库作为项目工作区，并确认它可以读取和编辑文件。
-
-尽量使用最小权限：先只授权一个仓库，不要一开始就授权整个账号。
-
-## 3. 给 AI 的第一条提示词
+Repo as Review OS 里有两个仓库角色：
 
 ```text
-请先阅读 README.zh-CN.md 和 AGENTS.zh-CN.md。帮我把这个仓库初始化为 Review OS。个人复习资料保持私有。创建或更新 docs、agents、templates 和 website 文案。中文和英文请放在不同文件里。
+Repo as Review OS 仓库
+→ 模板仓库
+→ 方法、文档、skill、示例、规则
+
+你的目标仓库
+→ 个人学习仓库
+→ 目标、来源、模型、复习、dashboard
 ```
 
-## 4. 最先添加什么
+不要把个人学习数据写进模板仓库。
 
-优先添加这些文件或目录：
+## 首次部署
 
-- `AGENTS.zh-CN.md`
-- `README.zh-CN.md`
-- `docs/zh-CN/architecture.md`
-- `docs/zh-CN/privacy-and-sourcing.md`
-- `agents/zh-CN/handoff-protocol.md`
-- `templates/zh-CN/problem-card.md`
-- `templates/zh-CN/dashboard.md`
+1. 创建一个空的或接近空的私有目标仓库。
+2. 连接一个能读取模板仓并写入目标仓的 AI 工具。
+3. 让 AI 先识别自己的运行环境和权限边界。
+4. 让 AI 在目标仓库中创建最小结构。
+5. 告诉 AI 你的第一个学习目标。
 
-## 5. 先私有，后公开
+## 目标仓库最小结构
 
-真实复习仓库可能包含个人学习记录，建议先保持私有。
+```text
+dashboard.md
+goals/main-goal.md
+sources/
+models/
+reviews/
+templates/
+agents/
+automations/
+archive/
+```
 
-公开时只提取：
+## 重要边界
 
-- 结构；
-- 模板；
-- 虚构示例；
-- 方法说明；
-- 部署说明。
+本地工作区可以测试这套方法，但它不等于 GitHub-backed Review OS。
+
+除非 AI 确实验证过，否则不能声称自己拥有 GitHub 写入权限、已经 push、已经创建 Issues 或已经完成远程仓库更新。
+
+见 [本地运行说明](../local-runtime-note.md)。
