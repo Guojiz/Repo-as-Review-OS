@@ -149,6 +149,7 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 - [QUICKSTART.md](QUICKSTART.md): Five-minute setup
 - [docs/first-experiment-guide.md](docs/first-experiment-guide.md): First experiment guide
 - [docs/what-goes-into-github.md](docs/what-goes-into-github.md): What goes into GitHub
+- [docs/customer-clarity-checklist.md](docs/customer-clarity-checklist.md): Customer clarity checklist
 - [docs/runtime-self-adaptation.md](docs/runtime-self-adaptation.md): Runtime self-adaptation guide
 - [OPERATING-MODEL.md](OPERATING-MODEL.md): Overall operating model
 - [AGENT-RUNTIME.md](AGENT-RUNTIME.md): Runtime guide for AI tools
