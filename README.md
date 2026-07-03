@@ -140,6 +140,7 @@ AGENT-RUNTIME.md                Runtime guide for AI tools
 skills/README.md                Skill suite overview
 skills/repo-as-review-os/SKILL.md Main router skill
 docs/skill-and-memory-runtime.md Skill and memory runtime guide
+docs/local-runtime-note.md      Local folders and ChatGPT Project note
 PUBLIC-ALPHA.md                 Public alpha note
 PUBLIC-CHECKLIST.md             Public release checklist
 CONTRIBUTING.md                 Contribution guide
