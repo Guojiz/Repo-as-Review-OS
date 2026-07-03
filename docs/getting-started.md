@@ -1,51 +1,56 @@
 # Getting Started
 
-This guide is for a human user who wants ChatGPT, Codex, or another AI tool to help build a Review OS repository.
+This page is a short entry point for human users.
 
-## 1. Create a GitHub repository
+For the full first setup flow, start with:
 
-1. Open GitHub.
-2. Click **New repository**.
-3. Choose a name, for example `my-review-os`.
-4. Start private if you will store real study records.
-5. Add a license if you want others to reuse it.
+- [QUICKSTART.md](../QUICKSTART.md)
+- [First Experiment Guide](first-experiment-guide.md)
+- [What Goes Into GitHub](what-goes-into-github.md)
+- [Runtime Self-Adaptation](runtime-self-adaptation.md)
 
-Recommended license for a public template: MIT License.
+## The basic idea
 
-## 2. Give AI access
-
-If you use ChatGPT with GitHub tools, connect GitHub and allow access to the repository.
-
-If you use Codex, open the repository as the project workspace and make sure it can read and edit files.
-
-Use the least privilege that still works. Start with one repository, not your whole account.
-
-## 3. First prompt to AI
+Repo as Review OS uses two repositories roles:
 
 ```text
-Read README.md and AGENTS.md first. Help me initialize this repository as a Review OS. Keep all personal study records private. Create or update docs, agents, templates, and website copy. Keep English and Chinese in separate files.
+Repo as Review OS repository
+→ template repository
+→ method, docs, skills, examples, rules
+
+Your target repository
+→ personal learning repository
+→ goals, sources, models, reviews, dashboard
 ```
 
-## 4. What to add first
+Do not write personal learning data into the template repository.
 
-Add these files or folders first:
+## First setup
 
-- `AGENTS.md`
-- `README.md`
-- `docs/architecture.md`
-- `docs/privacy-and-sourcing.md`
-- `agents/handoff-protocol.md`
-- `templates/problem-card.md`
-- `templates/dashboard.md`
+1. Create an empty or nearly empty private target repository.
+2. Connect an AI tool that can read the template and write to the target.
+3. Ask the AI to identify its runtime and permission boundary.
+4. Ask it to create the minimal structure in the target repository.
+5. Give it your first learning goal.
 
-## 5. Private first, public later
+## Minimal target structure
 
-A real review repository may contain personal learning records. Keep it private first.
+```text
+dashboard.md
+goals/main-goal.md
+sources/
+models/
+reviews/
+templates/
+agents/
+automations/
+archive/
+```
 
-When publishing, extract only:
+## Important boundary
 
-- structure;
-- templates;
-- fake examples;
-- method notes;
-- deployment instructions.
+A local workspace can test the method, but it is not the same as a GitHub-backed Review OS.
+
+The AI must not claim GitHub write access, push, Issues, or remote updates unless it has verified those abilities.
+
+See [Local Runtime Note](local-runtime-note.md).
