@@ -1,55 +1,60 @@
 # Local and Cloud Split
 
-Repo as Review OS should separate what belongs on the user's local machine from what belongs in GitHub.
+This page is a supplementary guide.
+
+For the current main guides, read:
+
+- [What Goes Into GitHub](what-goes-into-github.md)
+- [Local Runtime Note](local-runtime-note.md)
+- [Runtime Self-Adaptation](runtime-self-adaptation.md)
 
 ## Core principle
 
-GitHub is the shared operating layer. Local storage is the protected source layer.
+GitHub is the operating layer.
+
+Local storage is the working/source layer.
+
+Do not collapse them into one place.
 
 ## Put in GitHub
 
-GitHub should store:
+GitHub should store structured learning records:
 
-- README files;
-- AGENTS files;
-- handoff rules;
+- goals;
+- source records;
 - dashboards;
 - indexes;
 - templates;
-- cleaned examples;
-- source status notes;
-- links or references to local-only material;
-- generated review plans;
-- public website copy.
+- reusable models;
+- review plans;
+- next review dates;
+- handoff notes.
 
 GitHub is for structure, state, and reusable method.
 
-## Keep local
+## Keep local when needed
 
-Local storage should keep:
+Local storage may keep:
 
-- original textbooks;
-- copyrighted PDFs;
+- large files;
+- original screenshots;
+- textbook pages;
 - raw scans;
-- personal screenshots;
-- teacher files;
 - private notes;
-- large media files;
-- files the AI cannot access safely.
+- local working files;
+- raw exports from other apps.
 
-Local storage is for protected source material.
+Local storage is for original working material.
 
 ## How to reference local material
 
-Do not upload private or copyrighted sources by default.
-
-Instead, create a source record in GitHub:
+If a source stays outside GitHub, create a source record in GitHub:
 
 ```text
 Status: local-only-source
-Local reference: textbook chapter, page, or file name
-Public summary: short safe description
-Needed action: user must upload excerpt or screenshot if AI needs it
+Local reference: folder, page, or file name
+Visible excerpt: what the AI has actually seen
+Needed action: ask user for an excerpt if more detail is needed
 ```
 
 ## AI behavior
@@ -57,20 +62,15 @@ Needed action: user must upload excerpt or screenshot if AI needs it
 The AI should:
 
 1. use GitHub as the main map;
-2. check whether a needed source is online or local-only;
-3. ask the user to upload only the needed excerpt;
+2. check whether a needed source is available or local-only;
+3. ask the user for only the needed excerpt;
 4. never pretend it has read a local file it cannot access;
-5. write back cleaned notes, models, and indexes to GitHub.
+5. write cleaned notes, models, indexes, and review records back to the target repository.
 
-## Single-AI flow
+## Local runtime warning
 
-```text
-User → ChatGPT → GitHub repository
-             ↘ asks user for local excerpt only when needed
-```
+A local workspace can reproduce part of the method, but it is not identical to a GitHub-backed Review OS.
 
-No extra local agent is required.
+If the AI has only local file access, it must not claim that GitHub setup, push, Issues, or remote updates have happened.
 
-## Difference from the old system
-
-The old system could rely on a local agent to inspect files, pull tasks, and push results. This template assumes that the main AI is ChatGPT or a similar single AI. Therefore, local-only materials must be surfaced by the user when needed.
+See [Local Runtime Note](local-runtime-note.md).
