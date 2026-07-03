@@ -7,16 +7,19 @@ Use this page if you want to try Repo as Review OS but do not want to read the w
 You need three things:
 
 ```text
-one GitHub repository
-+ one AI tool that can read or write GitHub
+this template repository
++ your own target GitHub repository
++ one AI tool that can read the template and write to the target
 + one learning goal
 ```
+
+The target repository is where your personal learning records will live.
 
 The AI tool can be ChatGPT with a GitHub connector, Codex, Claude Code, Cursor, Windsurf, or another agent connected through MCP or a GitHub integration.
 
 ## Five-minute setup
 
-### 1. Create a private GitHub repository
+### 1. Create a private target repository
 
 For first deployment, create an empty or nearly empty private repository, then let the AI set up the Repo as Review OS structure inside it.
 
@@ -30,20 +33,26 @@ Suggested name:
 my-learning-os
 ```
 
-### 2. Connect your AI tool to that repository
+### 2. Connect your AI tool to the target repository
 
 Use MCP, a GitHub connector, or another safe integration.
 
 Grant access to one repository first. Do not grant broad account access unless you understand the risk.
 
+The AI should confirm whether it can actually read and write the target repository. If it cannot, it should say so clearly.
+
 ### 3. Send this prompt to your AI tool
 
 ```text
-Read https://github.com/Guojiz/Repo-as-Review-OS and help me set up my own personal learning OS in this repository: <paste your repository link>.
+Read this template repository:
+https://github.com/Guojiz/Repo-as-Review-OS
+
+Set up my own personal learning OS in this target repository:
+<paste your repository link>
 
 This is a first deployment. Treat the target repository as empty or nearly empty unless you find existing files. If existing files are present, inspect them first and do not overwrite them without asking.
 
-Start with START-HERE.md, README.md, OPERATING-MODEL.md, AGENT-RUNTIME.md, AGENTS.md, and docs/skill-and-memory-runtime.md.
+Start with START-HERE.md, README.md, QUICKSTART.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, AGENT-RUNTIME.md, AGENTS.md, and docs/skill-and-memory-runtime.md.
 
 If you support skills, use skills/repo-as-review-os/SKILL.md. If not, use the memory fallback from docs/skill-and-memory-runtime.md.
 
@@ -90,6 +99,12 @@ Check my dashboard and tell me what I should study today.
 Generate a short practice test from my weak points.
 ```
 
+## What goes into GitHub
+
+GitHub mainly stores structured learning records: goals, source records, reusable models, review sets, dashboards, next review dates, and handoff notes.
+
+It does not have to store every original file. See [docs/what-goes-into-github.md](docs/what-goes-into-github.md).
+
 ## What not to upload
 
 Do not upload private or copyrighted material into a public repository.
@@ -135,8 +150,6 @@ What files did you change?
 
 If you want an example first, start here:
 
-```text
-examples/en/demo-sat-lite/
-examples/en/demo-research-reading-lite/
-examples/zh-CN/demo-zhongkao-lite/
-```
+- [examples/en/demo-sat-lite/](examples/en/demo-sat-lite/)
+- [examples/en/demo-research-reading-lite/](examples/en/demo-research-reading-lite/)
+- [examples/zh-CN/demo-zhongkao-lite/](examples/zh-CN/demo-zhongkao-lite/)
