@@ -24,13 +24,15 @@ Do not assume a multi-agent system. Other tools may exist, but the Review OS sho
 
 ## Read first
 
-1. `START-HERE.md`
-2. `README.md`
-3. `AGENTS.md`
-4. `docs/product-positioning.md`
-5. `docs/permission-and-boundary.md`
-6. `docs/local-cloud-split.md`
-7. `docs/ai-runtime-support.md`
+1. [START-HERE.md](START-HERE.md)
+2. [README.md](README.md)
+3. [QUICKSTART.md](QUICKSTART.md)
+4. [docs/first-experiment-guide.md](docs/first-experiment-guide.md)
+5. [docs/what-goes-into-github.md](docs/what-goes-into-github.md)
+6. [docs/runtime-self-adaptation.md](docs/runtime-self-adaptation.md)
+7. [docs/local-runtime-note.md](docs/local-runtime-note.md)
+8. [docs/automation-runtime-matrix.md](docs/automation-runtime-matrix.md)
+9. [AGENTS.md](AGENTS.md)
 
 ## GitHub role
 
