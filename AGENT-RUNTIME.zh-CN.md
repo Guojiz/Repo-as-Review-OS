@@ -24,13 +24,15 @@
 
 ## 先读
 
-1. `START-HERE.zh-CN.md`
-2. `README.zh-CN.md`
-3. `AGENTS.zh-CN.md`
-4. `docs/zh-CN/product-positioning.md`
-5. `docs/zh-CN/permission-and-boundary.md`
-6. `docs/zh-CN/local-cloud-split.md`
-7. `docs/zh-CN/ai-runtime-support.md`
+1. [START-HERE.zh-CN.md](START-HERE.zh-CN.md)
+2. [README.zh-CN.md](README.zh-CN.md)
+3. [QUICKSTART.zh-CN.md](QUICKSTART.zh-CN.md)
+4. [docs/zh-CN/first-experiment-guide.md](docs/zh-CN/first-experiment-guide.md)
+5. [docs/zh-CN/what-goes-into-github.md](docs/zh-CN/what-goes-into-github.md)
+6. [docs/zh-CN/runtime-self-adaptation.md](docs/zh-CN/runtime-self-adaptation.md)
+7. [docs/local-runtime-note.md](docs/local-runtime-note.md)
+8. [docs/zh-CN/automation-runtime-matrix.md](docs/zh-CN/automation-runtime-matrix.md)
+9. [AGENTS.zh-CN.md](AGENTS.zh-CN.md)
 
 ## GitHub 的角色
 
