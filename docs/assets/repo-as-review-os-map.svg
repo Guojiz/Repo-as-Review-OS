@@ -1,0 +1,87 @@
+<svg width="1440" height="760" viewBox="0 0 1440 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Repo as Review OS overview</title>
+  <desc id="desc">A diagram showing Repo as Review OS as a template repository, an AI tool, and a user's target GitHub learning repository.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="760" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1020"/>
+      <stop offset="0.55" stop-color="#101A36"/>
+      <stop offset="1" stop-color="#152B4F"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#60A5FA"/>
+      <stop offset="1" stop-color="#22D3EE"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#34D399"/>
+      <stop offset="1" stop-color="#A3E635"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#FBBF24"/>
+      <stop offset="1" stop-color="#FB7185"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#000000" flood-opacity="0.32"/>
+    </filter>
+    <style>
+      .title { font: 800 58px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; fill: #F8FAFC; }
+      .subtitle { font: 500 25px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; fill: #BFD3F7; }
+      .label { font: 800 28px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; fill: #F8FAFC; }
+      .small { font: 500 20px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; fill: #D8E4FF; }
+      .tiny { font: 500 17px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; fill: #AFC2E8; }
+      .chip { font: 700 16px -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif; fill: #0B1020; }
+      .arrow { stroke: #AFC2E8; stroke-width: 5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="760" rx="36" fill="url(#bg)"/>
+  <circle cx="118" cy="100" r="180" fill="#2563EB" opacity="0.18"/>
+  <circle cx="1310" cy="650" r="230" fill="#22D3EE" opacity="0.12"/>
+  <circle cx="1110" cy="120" r="130" fill="#A3E635" opacity="0.10"/>
+
+  <text x="92" y="96" class="title">Repo as Review OS</text>
+  <text x="96" y="140" class="subtitle">Turn GitHub into a writable learning timeline that an AI can read, maintain, and continue.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="86" y="220" width="350" height="300" rx="30" fill="#111C36" stroke="#335486" stroke-width="2"/>
+    <rect x="114" y="248" width="146" height="32" rx="16" fill="url(#blue)"/>
+    <text x="132" y="270" class="chip">TEMPLATE</text>
+    <text x="116" y="325" class="label">This repository</text>
+    <text x="116" y="366" class="small">method · docs · skills</text>
+    <text x="116" y="398" class="small">examples · rules</text>
+    <text x="116" y="454" class="tiny">Read as the map.</text>
+    <text x="116" y="482" class="tiny">Do not store personal learning data here.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="545" y="220" width="350" height="300" rx="30" fill="#111C36" stroke="#3F628F" stroke-width="2"/>
+    <rect x="573" y="248" width="112" height="32" rx="16" fill="url(#orange)"/>
+    <text x="593" y="270" class="chip">AI TOOL</text>
+    <text x="575" y="325" class="label">ChatGPT / Codex</text>
+    <text x="575" y="366" class="small">detect runtime</text>
+    <text x="575" y="398" class="small">verify permissions</text>
+    <text x="575" y="430" class="small">write structured records</text>
+    <text x="575" y="486" class="tiny">Never claim access it has not verified.</text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="1004" y="220" width="350" height="300" rx="30" fill="#111C36" stroke="#4F7B62" stroke-width="2"/>
+    <rect x="1032" y="248" width="122" height="32" rx="16" fill="url(#green)"/>
+    <text x="1054" y="270" class="chip">TARGET</text>
+    <text x="1034" y="325" class="label">Your learning repo</text>
+    <text x="1034" y="366" class="small">goals · sources · models</text>
+    <text x="1034" y="398" class="small">reviews · dashboard</text>
+    <text x="1034" y="454" class="tiny">Write learning state here.</text>
+    <text x="1034" y="482" class="tiny">Keep raw files elsewhere when needed.</text>
+  </g>
+
+  <path class="arrow" d="M452 370H516"/>
+  <path class="arrow" d="M502 354L520 370L502 386"/>
+  <path class="arrow" d="M912 370H976"/>
+  <path class="arrow" d="M962 354L980 370L962 386"/>
+
+  <g transform="translate(120 590)">
+    <rect x="0" y="0" width="1200" height="76" rx="24" fill="#0B1328" stroke="#263E68" stroke-width="2"/>
+    <text x="36" y="47" class="small">Core flow:</text>
+    <text x="170" y="47" class="small">goal → source → split → model → practice set → spaced repetition → dashboard → next review</text>
+  </g>
+</svg>
