@@ -18,6 +18,10 @@ The AI tool can be ChatGPT with a GitHub connector, Codex, Claude Code, Cursor, 
 
 ### 1. Create a private GitHub repository
 
+For first deployment, create an empty or nearly empty private repository, then let the AI set up the Repo as Review OS structure inside it.
+
+If you already have files in the target repository, tell the AI to inspect the existing files first and avoid overwriting them.
+
 Use a private repository if you will store real study notes, mistakes, screenshots, scores, or personal learning records.
 
 Suggested name:
@@ -36,6 +40,8 @@ Grant access to one repository first. Do not grant broad account access unless y
 
 ```text
 Read https://github.com/Guojiz/Repo-as-Review-OS and help me set up my own personal learning OS in this repository: <paste your repository link>.
+
+This is a first deployment. Treat the target repository as empty or nearly empty unless you find existing files. If existing files are present, inspect them first and do not overwrite them without asking.
 
 Start with START-HERE.md, README.md, OPERATING-MODEL.md, AGENT-RUNTIME.md, AGENTS.md, and docs/skill-and-memory-runtime.md.
 
