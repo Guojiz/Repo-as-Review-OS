@@ -13,9 +13,7 @@
   </a>
 </p>
 
-**Repo as Review OS is a goal-driven AI learning operating system built on GitHub.**
-
-It is not just a review template. It turns one GitHub repository into a writable learning timeline that an AI tool can read, edit, track, organize, generate practice from, and maintain over time.
+**This is the AI brain for your learning, helping you study more efficiently and intelligently.**
 
 Current status: public alpha. See [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md).
 
