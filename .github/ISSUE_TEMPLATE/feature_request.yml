@@ -1,0 +1,28 @@
+name: Feature request
+description: Propose a new workflow, template, demo, or automation
+title: "Feature: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: learner-problem
+    attributes:
+      label: Learner or maintainer problem
+      description: What does this make easier?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: textarea
+    id: example
+    attributes:
+      label: Example workflow
+      description: Use fictional or cleaned examples only.
+  - type: textarea
+    id: safety
+    attributes:
+      label: Privacy and safety notes
+      description: What data should not be stored or shared?
