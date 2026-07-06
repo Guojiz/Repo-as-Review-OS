@@ -1,0 +1,37 @@
+name: Bug report
+description: Report a problem in the learning OS, templates, or examples
+title: "Bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What is broken or confusing?
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Operating model
+        - Template
+        - Demo
+        - Automation prompt
+        - Documentation
+        - Other
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce or inspect
+      placeholder: "1. ...\n2. ...\n3. ..."
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes
+      description: Do not include private learning records, copyrighted material, or secrets.
