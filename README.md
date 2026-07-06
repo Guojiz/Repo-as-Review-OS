@@ -17,6 +17,15 @@
 
 Current status: public alpha. See [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md).
 
+## Who this is for
+
+- Learners who want to turn AI from one-off chat into a long-term study assistant.
+- People who want GitHub to store learning traces, review records, and knowledge structure.
+- Users who want ChatGPT, Claude, Zhipu, local agents, or other AI tools to take over the same learning repository.
+- Anyone who wants goals, sources, problem models, review plans, dashboards, and next actions in one durable workspace.
+
+It is not just cloud storage or a note template. It is a file system that lets an AI agent continuously take over and improve a learning process.
+
 New here? Start with [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30-second-intro.md), [First Experiment Guide](docs/first-experiment-guide.md), and [What Goes Into GitHub](docs/what-goes-into-github.md).
 
 Core model:
