@@ -4,9 +4,7 @@
 
 [English](README.md)
 
-**Repo as Review OS 是一个基于 GitHub 的目标驱动型 AI 学习操作系统。**
-
-它把一个目标 GitHub 仓库变成 AI 可以读取、写回、追踪、整理、出题和持续接手的学习时间线。
+**这是给你用于学习的人工智能大脑，可以让你的学习更加高效、智能。**
 
 当前状态：早期公开版本。见 [PUBLIC-ALPHA.zh-CN.md](PUBLIC-ALPHA.zh-CN.md)。
 
