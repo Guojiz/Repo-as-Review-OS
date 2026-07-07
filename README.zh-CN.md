@@ -158,4 +158,4 @@ review-os/
 
 ## 许可证
 
-采用 Apache License 2.0，详见 [LICENSE](LICENSE)。
+采用 MIT License，详见 [LICENSE](LICENSE)。
