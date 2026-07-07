@@ -9,7 +9,7 @@
     <img src="https://img.shields.io/github/stars/Guojiz/Repo-as-Review-OS?style=flat-square" alt="Stars"/>
   </a>
   <a href="LICENSE">
-    <img src="https://img.shields.io/badge/License-Apache--2.0-green.svg?style=flat-square" alt="License: Apache-2.0"/>
+    <img src="https://img.shields.io/badge/License-MIT-green.svg?style=flat-square" alt="License: MIT"/>
   </a>
 </p>
 
@@ -206,4 +206,4 @@ Read [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30
 
 ## License
 
-Apache License 2.0. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](LICENSE).
