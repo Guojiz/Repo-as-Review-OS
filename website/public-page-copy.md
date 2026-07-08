@@ -2,33 +2,34 @@
 
 ## Title
 
-Repo as Review OS
+GitLearnOS
 
 ## Subtitle
 
-A deployable review system built with GitHub and Markdown.
+Turn your GitHub repository into an AI-maintained learning system.
 
 ## Short description
 
-Repo as Review OS turns study materials into a structured project. It keeps sources traceable, turns mistakes into reusable models, and gives future tools a clear map.
+GitLearnOS stores goals, sources, reusable models, knowledge gaps, review plans, dashboards, and AI handoff notes in one inspectable repository.
 
 ## Sections
 
 ### Problem
 
-Study context is often scattered across notes, screenshots, chats, and folders.
+Study context is often scattered across notes, screenshots, chats, folders, and AI conversations.
 
 ### Solution
 
-Use a repository as the review operating system.
+Use a GitHub repository as the inspectable learning-state system that an AI can read, update, review, and continue.
 
 ### What it contains
 
 - source rules;
-- problem-card templates;
-- writing-material templates;
+- learner profile templates;
+- reusable model cards;
+- knowledge gap records;
 - review dashboards;
-- handoff protocols;
+- AI handoff protocols;
 - deployment notes.
 
 ### Link
