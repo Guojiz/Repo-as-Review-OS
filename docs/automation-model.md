@@ -44,10 +44,10 @@ For most learners, two routines are enough:
 
 ```text
 1. Organizer + Critic + Revision
-   → clean indexes, check weak points, critique stale or low-quality records, revise the repository state
+   → clean indexes, check weak points, critique stale or low-quality records, revise learner-profile.md and repository state
 
 2. Practice Generator
-   → generate review or practice from weak points, old models, sources, and review schedule
+   → generate review or practice from learner profile, weak points, old models, sources, and review schedule
 ```
 
 The first routine maintains the learning system. The second routine creates new practice.
@@ -72,13 +72,15 @@ ChatGPT app
 ChatGPT memory and GitHub should stay aligned:
 
 ```text
-GitHub = source of truth for files, indexes, review records, and history
+GitHub = source of truth for files, indexes, learner-profile.md, review records, and history
 ChatGPT memory = compact stable summary and preferences
 ```
 
 When they conflict, trust GitHub first and update the memory summary or project instructions later.
 
-A desktop agent, Codex, or local tool can be added only when the user wants more advanced automation, bulk file edits, local scripts, or a computer-based workflow. Do not present it as the default requirement.
+A desktop agent, Codex, external memory tool, or local tool can be added only when the user wants more advanced automation, bulk file edits, local retrieval, scripts, or a computer-based workflow. Do not present it as the default requirement.
+
+For memory rules, see `docs/memory-policy.md`.
 
 ## Visual and math work
 
@@ -99,7 +101,8 @@ Desktop agent / Codex / tool-enabled environment
 → optional enhanced mode
 → can run longer repository checks
 → can read many files
-→ can write reports, practice sets, and dashboard updates
+→ can write reports, practice sets, learner-profile updates, and dashboard updates
+→ may use an external memory tool for recall if the user installed one
 → must still report every changed file
 ```
 
@@ -114,7 +117,7 @@ The automation should output a short handoff card with:
 1. Current position: this is only a handoff card / starter.
 2. What the current chat or agent should continue doing.
 3. Repository areas that should be checked first.
-4. Risks to check, such as missing sources, stale dashboards, or old review items.
+4. Risks to check, such as missing sources, stale dashboards, old review items, or stale learner profile.
 5. A user command to continue, such as: Continue repository check.
 
 End with a clear warning:
@@ -131,10 +134,10 @@ This combines three roles in one routine:
 
 ```text
 Organizer
-→ update indexes, dashboard links, stale TODOs, and review fields
+→ update indexes, dashboard links, stale TODOs, review fields, and learner-profile.md
 
 Critic
-→ find vague notes, weak source records, duplicated models, poor practice items, and unsupported summaries
+→ find vague notes, weak source records, duplicated models, poor practice items, unsupported summaries, and stale memory/profile claims
 
 Revision
 → make small safe fixes, queue uncertain fixes, and report what changed
@@ -142,14 +145,16 @@ Revision
 
 If running as a worker:
 
-1. read dashboard and indexes;
-2. check goals, sources, models, reviews, automations, and any learner-state/profile file;
-3. find incomplete files, stale TODO items, weak source records, duplicated models, and old review items;
-4. update learner state or profile files if the repository uses them;
-5. revise safe low-risk issues;
-6. queue uncertain fixes instead of guessing;
-7. update dashboard links and review fields;
-8. report every changed file.
+1. identify runtime, file access, memory access, GitHub writeback, and any external memory tool;
+2. read dashboard and indexes;
+3. check learner-profile.md, goals, sources, models, reviews, automations, and memory sync notes;
+4. find incomplete files, stale TODO items, weak source records, duplicated models, old review items, and stale learner-profile claims;
+5. update learner-profile.md when durable learner state changed;
+6. compare native memory/project instructions with GitHub state when the current environment can do so;
+7. revise safe low-risk issues;
+8. queue uncertain fixes instead of guessing;
+9. update dashboard links and review fields;
+10. report every changed file and every suggested memory update.
 
 Output can be written to:
 
@@ -164,11 +169,11 @@ Suggested prompt:
 ```text
 Check my learning repository as Organizer + Critic + Revision.
 
-First identify whether you have repository tools.
+First identify your runtime, memory capability, GitHub access, project/file access, and whether any external memory tool is available.
 
 If you do not have repository tools, output only a handoff card: what to inspect first, what risks to check, and what command I should send next.
 
-If you do have repository tools, read dashboard.md, goals/, sources/, models/, reviews/, automations/, and any learner-state/profile file. Update stale indexes, missing review fields, weak-point records, and dashboard links. Critique unclear notes, duplicated models, poor source records, and old practice items. Make small safe revisions, queue uncertain fixes, and report every file changed.
+If you do have repository tools, read dashboard.md, learner-profile.md, goals/, sources/, models/, reviews/, automations/, and memory sync notes. Update stale indexes, missing review fields, weak-point records, learner profile, and dashboard links. Critique unclear notes, duplicated models, poor source records, old practice items, and stale memory/profile claims. Make small safe revisions, queue uncertain fixes, and report every file changed plus any suggested native-memory update.
 ```
 
 ## Automation 2: Practice Generator
@@ -179,16 +184,17 @@ This routine should use the current repository state rather than inventing a gen
 
 If running as a worker:
 
-1. read recent review records;
-2. read old weak points;
-3. read active models;
-4. read source records if needed;
-5. check what has not appeared recently;
-6. generate a small review set;
-7. include answers and explanations;
-8. link questions to weak points, models, or sources;
-9. write the result back to the repository;
-10. update review schedule or dashboard fields.
+1. read learner-profile.md;
+2. read recent review records;
+3. read old weak points;
+4. read active models;
+5. read source records if needed;
+6. check what has not appeared recently;
+7. generate a small review set;
+8. include answers and explanations;
+9. link questions to weak points, models, sources, or learner-profile entries;
+10. write the result back to the repository;
+11. update review schedule, dashboard fields, or learner-profile progress notes when appropriate.
 
 Output can be written to:
 
@@ -205,16 +211,18 @@ Create a review/practice set from my learning repository.
 
 First identify whether you have repository tools. If not, output only a handoff card.
 
-If you have tools, read recent reviews, models, weak points, sources, and dashboard records. Generate a small practice set from active weak points and old material due for review. Include answers, explanations, linked source/model/review records, and suggested next review dates. Write the result back and report every changed file.
+If you have tools, read learner-profile.md, recent reviews, models, weak points, sources, and dashboard records. Generate a small practice set from active weak points and old material due for review. Include answers, explanations, linked source/model/review/profile records, and suggested next review dates. Write the result back and report every changed file.
 ```
 
 ## Memory and GitHub sync check
 
-Add this check to either routine when using ChatGPT:
+Add this check to either routine when using a platform with native memory or project instructions:
 
 ```text
-Compare the current ChatGPT memory/project instructions with the GitHub repository state. If memory contains a stable preference that is missing from the repository, suggest where it should be recorded. If GitHub contains a newer learner-state summary, suggest updating memory or project instructions. Do not silently overwrite either side.
+Compare the current native memory/project instructions with the GitHub repository state and learner-profile.md. If memory contains a stable preference that is missing from the repository, suggest where it should be recorded. If GitHub contains a newer learner-state summary, suggest updating memory or project instructions. Do not silently overwrite either side.
 ```
+
+If an external memory tool is available, use it only for recall and supporting context unless the user explicitly asks to manage that memory layer.
 
 ## Handoff card pattern
 
@@ -229,10 +237,11 @@ Do not claim completed repository work before the current chat has actually used
 
 Output a concise handoff card with:
 1. Current position.
-2. Next task for the current chat.
-3. Repository areas to inspect first.
-4. Risks or missing sources to check.
-5. User command to continue.
+2. Runtime and memory capability.
+3. Next task for the current chat.
+4. Repository areas to inspect first.
+5. Risks or missing sources to check.
+6. User command to continue.
 ```
 
 ## Practice handoff pattern
@@ -283,4 +292,4 @@ If the environment is prompt-only, the automation is only a starter.
 
 If the environment has repository access, the automation may act as a worker.
 
-Deleting files, publishing private records, or uploading local materials still requires confirmation.
+Deleting files, publishing private records, uploading local materials, or writing into native/external memory still requires appropriate user control.
