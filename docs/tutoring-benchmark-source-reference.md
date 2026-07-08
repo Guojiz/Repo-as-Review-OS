@@ -51,12 +51,13 @@ source material
 → difficulty
 ```
 
-For Repo as Review OS, the lightweight equivalent is:
+For GitLearnOS, the lightweight equivalent is:
 
 ```text
 sources/
 → learner-profile.md
 → models/
+→ knowledge-gaps/
 → reviews/
 → automations/practice-generator/
 → dashboard.md
@@ -73,7 +74,7 @@ The report lists four task types with sampling weights:
 | Application | 应用 | 20% |
 | Comparison | 比较 | 20% |
 
-A Repo as Review OS practice generator can reuse this distribution as a default, then adapt it to the learner profile.
+A GitLearnOS practice generator can reuse this distribution as a default, then adapt it to the learner profile.
 
 ## Rejection checks
 
@@ -83,7 +84,7 @@ The report describes three rejection checks for generated tasks:
 2. Task-gap fit: the task should naturally expose the targeted gaps.
 3. Conversational naturalness and consistency: the task should read like a plausible learner request and not contain internal contradictions.
 
-For Repo as Review OS, the Organizer + Critic + Revision routine should apply the same spirit:
+For GitLearnOS, the Organizer + Critic + Revision routine should apply the same spirit:
 
 ```text
 Is this practice linked to a real weak point?
@@ -95,7 +96,7 @@ Should it be revised, approved, or rejected?
 
 ## Lightweight adaptation
 
-Repo as Review OS does not need to reproduce the full benchmark machinery.
+GitLearnOS does not need to reproduce the full benchmark machinery.
 
 It can use the idea in a lighter way:
 
@@ -118,4 +119,4 @@ source → model → weak point → personalized question → result → learner
 
 ## Attribution
 
-This reference is based on the public DeepTutor technical report, arXiv:2604.26962, which lists the TutorBench PDF source inventory, task generation structure, and rejection checks. The material here is rewritten as a lightweight implementation reference for Repo as Review OS and does not bundle or redistribute the original PDFs.
+This reference is based on the public DeepTutor technical report, arXiv:2604.26962, which lists the TutorBench PDF source inventory, task generation structure, and rejection checks. The material here is rewritten as a lightweight implementation reference for GitLearnOS and does not bundle or redistribute the original PDFs.
