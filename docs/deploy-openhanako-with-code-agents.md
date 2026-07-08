@@ -15,8 +15,8 @@ After OpenHanako is running, the GitLearnOS desktop workflow should run inside O
 ## Boundary
 
 ```text
-ChatGPT
-→ daily GitLearnOS learning platform
+ChatGPT / Claude
+→ native daily GitLearnOS learning platform
 
 OpenHanako / HanaAgent
 → desktop multi-agent runtime for local files and deeper automation
@@ -29,83 +29,81 @@ Do not ask Claude Code or Codex to become the GitLearnOS tutoring platform unles
 
 Use them to read OpenHanako source, install dependencies, run scripts, diagnose build errors, and prepare a local OpenHanako setup.
 
-## What the OpenHanako source shows
+## Source verification rule
 
-OpenHanako is an Electron + React + Vite + Node application.
+OpenHanako is an external upstream project. Its files, scripts, and Node requirements can change.
 
-The root `package.json` declares:
-
-```text
-name: hanako
-main: desktop/bootstrap.cjs
-bin: hana → cli/entry.ts
-Node engine: >=24.12.0 <25
-```
-
-Important scripts include:
+Before running anything, the code agent must inspect the current upstream source, especially:
 
 ```text
-npm run start
-npm run start:dev
-npm run start:vite
-npm run cli
-npm run server
-npm run build:client
-npm run build:server
-npm run pack
-npm run dist
-npm run dist:win
-npm run dist:linux
-npm run typecheck
-npm run test
+README.md
+package.json
+scripts/launch.js
+scripts/dev-env.js
+server/index.ts
+core/agent.ts
+lib/tools/subagent-tool.ts
+lib/tools/channel-tool.ts
 ```
 
-The project builds renderer, preload, theme, main, server, computer-use helper, and platform installers through scripts in `package.json`.
+The values in this guide are routing hints, not permanent facts. If `package.json` disagrees with this guide, trust the current upstream `package.json` and report the difference.
 
-## Source-level deployment facts
+## What to inspect first
 
-### Node version matters
+A code agent should first confirm:
 
-OpenHanako requires Node `>=24.12.0 <25` at the project level.
+```text
+project name
+Node engine requirement
+available npm scripts
+main entry
+CLI entry
+server entry
+launcher behavior
+development data location
+production data location
+```
 
-The server distribution build also pins a bundled Node runtime, currently `v24.15.0`, and verifies runtime checksums before packaging.
+Do not scan the whole source tree first. Start with the route files above.
 
-A deployment agent should check Node first:
+## Node version check
+
+Check Node and npm before installation:
 
 ```bash
 node -v
 npm -v
 ```
 
+Then compare the result with the current `package.json` `engines` field.
+
 If the Node version is wrong, fix Node before debugging app code.
 
-### Development launcher matters
+Do not hard-code a Node version from this GitLearnOS guide. Use the current OpenHanako source as truth.
 
-OpenHanako uses `scripts/launch.js` as a cross-platform launcher for Electron, dev Electron, CLI, and server modes.
+## Development launcher check
 
-That launcher intentionally clears `ELECTRON_RUN_AS_NODE` before spawning Electron, because VS Code or Claude Code terminals may set it and break Electron startup.
+If OpenHanako provides a launcher script such as `scripts/launch.js`, use the project scripts rather than raw Electron commands.
 
-This is why Claude Code can be helpful for deployment, but also why the deployment instructions should use the repository scripts rather than raw Electron commands.
+This prevents common Electron startup problems caused by environment variables such as `ELECTRON_RUN_AS_NODE`.
 
-### Dev data location
-
-`scripts/dev-env.js` sets development data under:
+If desktop startup fails, inspect:
 
 ```text
-~/.hanako-dev
+scripts/launch.js
+scripts/dev-env.js
+Electron logs
+HANA_HOME
+ELECTRON_RUN_AS_NODE
 ```
 
-Production data uses `HANA_HOME`, documented in the OpenHanako README as production defaulting to `~/.hanako` and development defaulting to `~/.hanako-dev`.
+Do not delete user data folders without asking.
 
-A deployment agent should not delete these folders without asking.
+## Server architecture check
 
-### Server architecture
+If the source has a server entry such as `server/index.ts`, inspect it before debugging server startup.
 
-The server is a Hono HTTP + WebSocket API and can run either independently or as a forked process inside the Electron desktop app.
-
-It registers routes for chat, sessions, models, agents, desk, skills, channels, DM, filesystem, preferences, bridge, commands, resources, mobile workbench, media, and more.
-
-For GitLearnOS, this means OpenHanako is not just a chat UI. It is a local agent server with file, agent, channel, desk, skill, and automation surfaces.
+If server startup fails, run the server script only if it exists in `package.json`, then inspect the error output.
 
 ## Deployment checklist for code agents
 
@@ -114,16 +112,18 @@ A Claude Code / Codex deployment agent should follow this order:
 ```text
 1. Clone or open liliMozi/openhanako.
 2. Confirm OS and CPU architecture.
-3. Confirm Node version is >=24.12.0 and <25.
-4. Run npm install.
-5. Run npm run typecheck.
-6. Run npm test if time allows.
-7. Start dev mode with npm run start:dev or npm run start:vite.
-8. If desktop startup fails, inspect scripts/launch.js, Electron logs, HANA_HOME, and ELECTRON_RUN_AS_NODE.
-9. If server fails, run npm run server and inspect server/index.ts startup errors.
-10. If packaging is needed, choose the platform script: dist, dist:win, or dist:linux.
-11. Do not edit user data directories without confirmation.
-12. Record every change and every command run.
+3. Read README.md and package.json.
+4. Confirm Node and npm versions.
+5. Compare Node with package.json engines.
+6. Run npm install.
+7. Run npm run typecheck only if the script exists.
+8. Run npm test only if the script exists and the user wants the extra check.
+9. Start dev mode with a package.json start/dev script such as start:dev or start:vite, only if present.
+10. If desktop startup fails, inspect the launcher, Electron logs, HANA_HOME, and ELECTRON_RUN_AS_NODE.
+11. If server fails, run the package.json server script if present and inspect server/index.ts.
+12. If packaging is requested, choose a package script that exists, such as dist, dist:win, or dist:linux.
+13. Do not edit or delete user data directories without confirmation.
+14. Record every command, changed file, error, and fix.
 ```
 
 ## Safe prompt for Claude Code or Codex
@@ -133,11 +133,13 @@ You are helping me deploy OpenHanako / HanaAgent for GitLearnOS.
 
 Do not treat Claude Code/Codex as the daily GitLearnOS tutor. Your job is only to inspect, install, run, debug, or customize OpenHanako.
 
-First read package.json, scripts/launch.js, scripts/dev-env.js, server/index.ts, core/agent.ts, lib/tools/subagent-tool.ts, and lib/tools/channel-tool.ts.
+First read README.md, package.json, scripts/launch.js, scripts/dev-env.js, server/index.ts, core/agent.ts, lib/tools/subagent-tool.ts, and lib/tools/channel-tool.ts if they exist.
 
-Confirm my OS, CPU architecture, Node version, npm version, and repository path.
+Confirm my OS, CPU architecture, Node version, npm version, repository path, package.json engines, and available npm scripts.
 
-Use the repository scripts rather than raw Electron commands:
+Use the repository scripts declared in package.json. Do not invent scripts.
+
+Common candidates may include:
 - npm run start:dev
 - npm run start:vite
 - npm run server
@@ -145,7 +147,9 @@ Use the repository scripts rather than raw Electron commands:
 - npm test
 - npm run dist:win / dist / dist:linux only if packaging is requested
 
-If Electron fails to start, check whether ELECTRON_RUN_AS_NODE is interfering and use scripts/launch.js.
+Run each candidate only if it exists in package.json.
+
+If Electron fails to start, check whether ELECTRON_RUN_AS_NODE is interfering and use the project launcher if one exists.
 
 Do not delete ~/.hanako, ~/.hanako-dev, or user data without asking.
 
@@ -174,8 +178,16 @@ OpenHanako agent setup
 → create Source & Model Extractor
 → create Practice & Review Coach
 → optional Critic
-→ connect target GitHub repository as learning state
+→ connect or choose one learning state layer
 → keep original materials in local folders or desk files
+```
+
+The state layer may be:
+
+```text
+GitHub target repository
+local git repository
+local git + Obsidian vault
 ```
 
 For the OpenHanako agent configuration, see `docs/platform-agent-configuration.md`.
