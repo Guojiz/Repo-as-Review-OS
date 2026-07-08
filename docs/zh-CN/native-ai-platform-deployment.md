@@ -1,18 +1,8 @@
 # 原生 AI 平台部署指南
 
-本指南覆盖 GitLearnOS 最应该当作参考实现的两个原生 AI 平台：
+本指南覆盖 ChatGPT 和 Claude 这两个 GitLearnOS 原生日常学习平台。
 
-```text
-ChatGPT
-→ 原生记忆优先的学习平台
-
-Claude
-→ 原生项目 / artifact 优先的学习平台
-```
-
-其他聊天式 AI 平台基本可以照这两个平台的模式适配。
-
-不要把 Claude 和 Claude Code 混在一起。Claude 是 claude.ai 或 Claude App 里的原生聊天平台。Claude Code 是代码 Agent，属于 OpenHanako 部署路径，不属于日常学习运行层。
+这里不覆盖 Claude Code。Claude Code 是代码 Agent，属于 OpenHanako 部署 / 调试路径。
 
 ## 核心规则
 
@@ -25,15 +15,28 @@ Claude
 → 一条接手路径
 ```
 
-今天用 ChatGPT，ChatGPT 就是活跃运行层。
+不要让 ChatGPT 和 Claude 同时更新同一份 learner-profile、knowledge-gaps、reviews 或 dashboard。
 
-今天用 Claude，Claude 就是活跃运行层。
+## 原生平台的状态层规则
 
-不要让两个平台同时更新 learner-profile、knowledge-gaps、reviews 或 dashboard。
+对 ChatGPT 和 Claude 来说，默认状态层应该是 GitHub 目标仓库。
 
-## 共同学习闭环
+```text
+原生平台最佳默认
+→ GitHub 目标仓库
 
-ChatGPT 和 Claude 都应该运行同一套 GitLearnOS 闭环：
+可以存在但不是自动可写
+→ 本地 git 仓库
+→ 本地 git + Obsidian vault
+```
+
+只有当运行环境真的能读取和写入本地文件，或者 AI 给出精确文件内容 / 补丁让用户手动应用时，本地路径才可以作为状态层。
+
+不要写出“ChatGPT 或 Claude 可以直接编辑本地 Obsidian vault”的暗示，除非当前运行时确实有本地文件访问权限。
+
+## 共同 GitLearnOS 闭环
+
+ChatGPT 和 Claude 都应该运行同一套闭环：
 
 ```text
 来源
@@ -45,238 +48,98 @@ ChatGPT 和 Claude 都应该运行同一套 GitLearnOS 闭环：
 → 下次复习
 ```
 
-平台可以记住偏好，但长期学习状态必须保存在可检查的状态层。
-
-状态层可以是：
-
-```text
-GitHub 仓库
-本地 git 仓库
-本地 git + Obsidian vault
-```
-
-需要云同步、跨设备接手、公开模板或远程 AI 访问时，优先用 GitHub。
-
-主要在一台电脑上学习、偏好本地优先时，本地 git + Obsidian 已经够用。
+平台可以记住稳定偏好，但长期学习状态必须保存在可检查的状态层。
 
 ## ChatGPT 部署
 
-当学习者想要最顺滑的手机 / 网页日常学习流程，以及较强的持续个性化时，使用 ChatGPT。
+ChatGPT 适合想要手机 / 网页日常学习流程，以及较强持续个性化的学习者。
 
-### 1. 选择状态层
-
-三选一：
-
-```text
-GitHub 目标仓库
-本地 git 仓库
-本地 git + Obsidian vault
-```
-
-最小结构：
-
-```text
-dashboard.md
-learner-profile.md
-goals/main-goal.md
-sources/
-models/
-knowledge-gaps/
-reviews/
-templates/
-agents/
-automations/
-archive/
-```
-
-### 2. 创建 Project 或固定启动提示词
-
-核心指令：
+### 设置指令
 
 ```text
 你正在帮我在 ChatGPT 中运行 GitLearnOS。
 
-使用我选定的状态层作为学习状态事实源。ChatGPT 记忆是主动偏好缓存，不是仓库本身。
+使用我选定的状态层作为事实源。优先使用 GitHub 目标仓库。ChatGPT 记忆是主动偏好缓存，不是正式学习仓库。
 
-行动前先识别你的运行环境、记忆、文件访问、仓库访问和权限边界。
+行动前先判断你的运行环境、记忆能力、文件访问、仓库访问和权限边界。
 
 遵守这个闭环：
 来源 → 模型 → 知识缺口 → 个性化题目 → 复习结果 → learner-profile.md → 下次复习。
 
 不要编造缺失来源。除非你能说出具体改了哪些文件，否则不要声称已经编辑文件或仓库。
+
+如果你不能写入状态层，就给出我可以手动应用的精确文件内容或补丁。
 ```
 
-### 3. 配置记忆
+### 记忆规则
 
 只保存稳定偏好：
 
 ```text
-用户使用 GitLearnOS 进行 AI 辅助学习。
-选定状态层是学习状态事实源。
-learner-profile.md 保存可检查的学习画像。
-练习应该来自最近模型和活跃知识缺口。
-如果记忆和状态层冲突，优先相信状态层，并建议更新记忆。
+用户使用 GitLearnOS 做 AI 辅助学习。
+选定状态层是事实源。
+learner-profile.md 保存可检查学习画像。
+练习应该来自近期模型和活跃知识缺口。
+当记忆和状态层冲突时，优先相信状态层，并建议更新记忆。
 ```
 
-不要把临时任务、原始私人笔记、过期缺口或一次性练习结果当成永久记忆。
+不要把临时任务、原始私人笔记、过期知识缺口或一次性练习结果保存成长期记忆。
 
-### 4. 日常提示词
+### 自动化边界
 
-```text
-请使用我的 GitLearnOS 状态。
-
-读取 dashboard.md、learner-profile.md、最近模型、活跃知识缺口和最近复习记录。
-
-告诉我下一步应该学什么。生成一小套个性化练习，并说明每道题对应哪个来源、模型或知识缺口。
-
-如果你更新文件，请汇报每个被修改的文件。
-```
-
-### 5. 定时提示边界
-
-如果 ChatGPT 的定时提示没有实时仓库工具，就只能算接手启动卡。
+如果 ChatGPT scheduled prompts 没有实时仓库工具，它们只能作为接手提示。
 
 ```text
-这是 GitLearnOS 接手启动卡。如果你没有实时仓库访问，不要声称仓库工作已完成。告诉我下一步要检查什么，以及应该在有工具权限的聊天里运行什么命令。
+这是 GitLearnOS 接手提示。如果你没有实时仓库访问权限，不要声称已经完成仓库工作。告诉我下一步应该检查什么，以及应该在哪个有工具权限的对话里运行什么提示词。
 ```
 
 ## Claude 部署
 
-当学习者需要长上下文阅读、写作、Artifacts、项目式组织和精细草稿时，使用 Claude。
+Claude 适合项目式组织、长上下文阅读、写作、Artifacts 和细致草稿。
 
-### 1. 选择状态层
-
-三选一：
-
-```text
-GitHub 目标仓库
-本地 git 仓库
-本地 git + Obsidian vault
-```
-
-状态层仍然是事实源。
-
-Claude Projects、项目文件、Artifacts 和记忆是工作表面，不是长期学习状态本身，除非用户只是做一次短实验。
-
-### 2. 创建 Claude Project 或等价工作区
-
-每个主要学习工作流使用一个 Claude Project。
-
-只放稳定参考文件和说明。
-
-不要把所有材料一股脑塞进 Project。Project 要轻，Claude 才容易遵守。
-
-### 3. 添加 Claude 项目指令
+### 设置指令
 
 ```text
 你正在帮我在 Claude 中运行 GitLearnOS。
 
-使用我选定的状态层作为学习状态事实源。Claude project context、artifacts 和 memory 是工作表面，不是长期状态本身。
+使用我选定的状态层作为事实源。除非我明确选择本地优先工作流且你确实有本地文件访问权限，否则优先使用 GitHub 目标仓库。Claude project context、artifacts 和 memory 都是工作表面，不是正式学习状态。
 
-行动前先识别你的运行环境、记忆 / project 能力、文件访问、仓库访问和权限边界。
+行动前先判断你的运行环境、memory/project 能力、文件访问、仓库访问和权限边界。
 
 遵守这个闭环：
 来源 → 模型 → 知识缺口 → 个性化题目 → 复习结果 → learner-profile.md → 下次复习。
 
 不要编造缺失来源。除非你能说出具体改了哪些文件，否则不要声称已经编辑文件或仓库。
 
-Artifacts 可以用于草稿、可视化解释、表格、小练习或临时教学材料。重要学习状态必须写回 learner-profile.md、sources/、models/、knowledge-gaps/、reviews/ 或 dashboard.md。
+Artifacts 可以用于草稿、可视化解释、表格、小应用或临时教学材料。重要学习状态必须写回或建议写回 learner-profile.md、sources/、models/、knowledge-gaps/、reviews/ 或 dashboard.md。
+
+如果你不能写入状态层，就给出我可以手动应用的精确文件内容或补丁。
 ```
 
-### 4. Claude 记忆和项目上下文规则
+### Artifact 规则
 
-Claude 记忆或 Project context 只保存稳定偏好和长期工作假设。
+Artifacts 适合草稿、可视化解释、对比卡片、小练习和写作修改。
 
-适合保存：
+Artifacts 不能成为唯一保存学习状态的地方。如果 artifact 产生了长期学习信息，必须写回或建议写回状态层。
 
-```text
-偏好解释方式
-当前学习目标
-状态层位置
-仓库结构
-反复出现的学习模式
-格式约定
-```
+## ChatGPT 与 Claude 切换
 
-不要只存在记忆里：
-
-```text
-活跃知识缺口
-一次性练习答案
-临时截止日期
-原始私人笔记
-未经验证的来源结论
-```
-
-### 5. Claude 日常提示词
-
-```text
-请使用我的 GitLearnOS 状态。
-
-从我提供的文件或连接仓库读取 dashboard.md、learner-profile.md、最近模型、活跃知识缺口和最近复习记录。
-
-给出下一步行动，然后生成一小套练习。每道题都要说明对应哪个来源、模型或知识缺口。
-
-只有在有助于复习、可视化或编辑结果时才使用 artifact。重要状态要写回选定状态层。
-```
-
-### 6. Claude artifact 规则
-
-Artifacts 适合：
-
-```text
-课程草稿
-可视化解释
-交互式小练习
-对比卡片
-小 dashboard
-写作修改
-```
-
-Artifacts 不应该变成唯一的学习状态保存地。
-
-如果 artifact 产生了长期有用的学习信息，就把摘要写回状态层。
-
-## 在 ChatGPT 和 Claude 之间切换
-
-切换必须明确接手：
+切换前必须刻意接手：
 
 ```text
 1. 读取 dashboard.md 和 learner-profile.md。
-2. 读取最近 models、knowledge-gaps 和 reviews。
-3. 写接手记录。
+2. 读取近期 models、knowledge gaps 和 reviews。
+3. 写 agents/handoff-notes/latest.md。
 4. 停止旧平台。
-5. 新平台从接手记录开始。
+5. 新平台从 handoff note 开始。
 ```
 
 不要让两个平台同时更新同一份学习状态。
 
-## 其他平台怎么抄
+## 与 OpenHanako 的关系
 
-其他原生 AI 平台可以照 ChatGPT / Claude 模式抄：
+OpenHanako 不是 ChatGPT 或 Claude 这类原生网页 / 移动 AI 平台的替代品。
 
-```text
-原生记忆或项目上下文
-→ 稳定偏好缓存
+它是可选的桌面增强路径，适合本地文件、书桌、Skills、定时任务、桥接频道、浏览器 / 桌面操作和有限多 Agent 工作流。
 
-文件、artifact 或项目上传
-→ 工作表面
-
-GitHub / 本地 git / Obsidian
-→ 长期学习状态
-
-接手记录
-→ 安全切换平台
-```
-
-如果一个平台说不清楚它读了什么、记住了什么、改了什么，那就只把它当单上下文助手。
-
-## 和 OpenHanako 的关系
-
-OpenHanako 不是 ChatGPT 或 Claude 这种网页 / 移动原生 AI 平台的替代品。
-
-它是桌面端增强路径，用于本地文件、书桌文件、Skills、定时任务、外部入口和多 Agent 工作流。
-
-当学习者想让电脑本身成为 Agent 工作区时，使用 OpenHanako。
-
-Claude Code、Codex 或 Cursor 只用来部署或调试 OpenHanako。部署完成后，日常学习交回 OpenHanako。
+Claude Code、Codex、Cursor 或其他代码 Agent 只用于部署或调试 OpenHanako；桌面学习工作流应回到 OpenHanako 内部运行。
