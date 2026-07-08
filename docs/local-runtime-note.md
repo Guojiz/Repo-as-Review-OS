@@ -1,17 +1,49 @@
 # Local Runtime Note
 
-Repo as Review OS can run across three layers:
+Repo as Review OS can run across three layers, but the layers are not equal.
 
 ```text
 GitHub repository
-→ learning structure, indexes, models, reviews, dashboard, agent rules
+→ the durable learning state: structure, indexes, models, reviews, dashboard, agent rules, handoff notes, and history
 
-AI project space
-→ project instructions, current conversation context, selected working inputs
+ChatGPT Project or another AI project space
+→ fixed reference materials, project instructions, and current conversation context
 
 Local folders
-→ original learning files and subject folders kept outside the repository
+→ original learning files and large subject folders kept outside the repository
 ```
+
+## ChatGPT Project boundary
+
+A ChatGPT Project is useful, but it should not be treated as the whole learning OS.
+
+Use it mainly for:
+
+- fixed textbooks or selected excerpts;
+- stable project instructions;
+- a small number of reference files;
+- current conversations around those materials.
+
+Do not rely on it as the main place for:
+
+- long-term dynamic notes;
+- large source libraries;
+- many changing files;
+- review history;
+- generated practice archives;
+- learner profile updates;
+- cross-agent handoff state;
+- Git-style version history.
+
+In plain terms:
+
+```text
+ChatGPT Project = fixed material shelf and conversation layer
+GitHub repository = durable learning state and writeback layer
+Local folders = protected source and working-file layer
+```
+
+The project space can help ChatGPT read a textbook or stable notes, but the repository should remain the source of truth for the learning system.
 
 ## For ChatGPT Plus users
 
@@ -21,12 +53,15 @@ A practical setup can be:
 
 ```text
 ChatGPT Project
++ selected fixed materials
 + Repo as Review OS instructions
 + GitHub repository
 + local subject folders
 ```
 
 ChatGPT can handle many daily tasks when the GitHub connector or another safe writeback path is available.
+
+Without repository writeback, ChatGPT Project should be treated as a reading and conversation space, not as proof that the learning repository has been updated.
 
 Codex or another coding agent is useful for larger repository operations, but it is not required for every review session.
 
@@ -77,7 +112,9 @@ Learning-OS-Local/
 └── _shared/
 ```
 
-Each subject folder may contain the user's own working files, notes, and selected excerpts for AI use.
+Each subject folder may contain the user's own working files, notes, drafts, screenshots, PDFs, and exports.
+
+Only selected excerpts, source records, summaries, or links need to be copied into GitHub.
 
 ## Repository link to local folders
 
@@ -98,7 +135,7 @@ It should ask for the relevant excerpt or mark the source as incomplete.
 
 GitHub is the operating layer.
 
-The AI project is the conversation layer.
+The AI project is the fixed-material and conversation layer.
 
 Local folders are the protected working layer.
 
