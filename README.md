@@ -1,6 +1,6 @@
-# Learning Trace OS
+# GitLearnOS
 
-![Repo as Review OS overview](docs/assets/repo-as-review-os-map.svg)
+![GitLearnOS overview](docs/assets/repo-as-review-os-map.svg)
 
 [中文说明](README.zh-CN.md)
 
@@ -13,9 +13,9 @@
   </a>
 </p>
 
-**Learning Trace OS is the AI brain for your learning, helping you study more efficiently and intelligently.**
+**GitLearnOS is a lightweight learning-trace operating system for AI-assisted study.**
 
-The repository is still named `Repo-as-Review-OS` for continuity, but the product concept is now **Learning Trace OS**.
+The repository is still named `Repo-as-Review-OS` for continuity, but the product concept is now **GitLearnOS**.
 
 Current status: public alpha. See [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md).
 
@@ -24,7 +24,7 @@ Current status: public alpha. See [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md).
 - Learners who want to turn AI from one-off chat into a long-term study assistant.
 - People who want GitHub to store learning traces, review records, and knowledge structure.
 - Users who want ChatGPT, Claude, Zhipu, local agents, or other AI tools to take over the same learning repository.
-- Anyone who wants goals, sources, problem models, review plans, dashboards, and next actions in one durable workspace.
+- Anyone who wants goals, sources, problem models, knowledge gaps, review plans, dashboards, and next actions in one durable workspace.
 
 It is not just cloud storage or a note template. It is a file system that lets an AI agent continuously take over and improve a learning process.
 
@@ -37,6 +37,7 @@ goal
 → source
 → split
 → model
+→ knowledge gap
 → practice set
 → spaced repetition
 → automation
@@ -55,6 +56,7 @@ They show how a learning goal becomes:
 main goal
 → source record
 → reusable model
+→ knowledge gap
 → review set
 → dashboard
 → next review
@@ -65,17 +67,17 @@ main goal
 ```text
 Read this template repository: https://github.com/Guojiz/Repo-as-Review-OS
 
-The repository is named Repo-as-Review-OS, but the product concept is Learning Trace OS.
+The repository is named Repo-as-Review-OS, but the product concept is GitLearnOS.
 
 Start with QUICKSTART.md, FAQ.md, docs/30-second-intro.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, docs/lightweight-skg-dpm.md, and docs/agentic-tutoring-standard.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
 
-Help me build my own Learning Trace OS. First explain what it is. Then identify your current runtime, permission boundary, memory capability, GitHub access, and any manual steps I must complete.
+Help me build my own GitLearnOS. First explain what it is. Then identify your current runtime, permission boundary, memory capability, GitHub access, and any manual steps I must complete.
 
 Treat this Repo-as-Review-OS repository as the template repository. Treat my target repository as the personal learning repository. Do not write my learning data into the template repository.
 
 Guide me to create or choose one target GitHub repository. If your environment supports skills, start with skills/repo-as-review-os/SKILL.md and use the specific subskills when appropriate. If not, use the memory fallback in docs/skill-and-memory-runtime.md.
 
-After that, create goal files, learner-profile.md, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard in my target repository. Report every file created or edited.
+After that, create goal files, learner-profile.md, folder structure, source rules, problem-model templates, knowledge-gap fields, spaced-repetition fields, automation output folders, and a dashboard in my target repository. Report every file created or edited.
 ```
 
 ## Repository roles
@@ -86,15 +88,15 @@ Repo-as-Review-OS repository
 → method, docs, skills, examples, rules
 
 User target repository
-→ personal Learning Trace OS repository
-→ goals, learner profile, sources, models, reviews, dashboard
+→ personal GitLearnOS repository
+→ goals, learner profile, sources, models, knowledge gaps, reviews, dashboard
 ```
 
 The AI should read this repository as the template, then deploy the structure into the user's own repository.
 
 ## What goes into GitHub
 
-GitHub should store the organized learning state: goals, learner profile, source records, reusable models, review sets, dashboards, next review dates, and agent handoff notes.
+GitHub should store the organized learning state: goals, learner profile, source records, reusable models, knowledge gaps, review sets, dashboards, next review dates, and agent handoff notes.
 
 It does not have to store every original file. Large files, original screenshots, textbook pages, local working files, or raw exports can stay outside the repository when needed. See [What Goes Into GitHub](docs/what-goes-into-github.md).
 
@@ -119,19 +121,23 @@ See [Local Runtime Note](docs/local-runtime-note.md) and [Adaptive Memory and Le
 
 ## Static and dynamic personalization
 
-Learning Trace OS keeps two layers aligned:
+GitLearnOS keeps two layers aligned:
 
 ```text
 Static grounding layer
 → local textbooks, source records, models, GitHub indexes
 
 Dynamic learner layer
-→ learner-profile.md, review results, native AI memory, optional external recall tools
+→ learner-profile.md, knowledge gaps, review results, native AI memory, optional external recall tools
 ```
 
 The static layer grounds answers in materials. The dynamic layer adapts explanations, practice, review, and next actions to the learner.
 
 See [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md) for the lightweight mapping.
+
+## Research signal
+
+Recent open research on agentic personalized tutoring reports that combining source grounding, learner memory, and closed-loop practice improved personalized tutoring metrics by **10.8%** on average and improved general agentic reasoning by **29.4%** across five backbone models. GitLearnOS applies the same broad principle in a lighter GitHub-native form: sources, models, knowledge gaps, learner profile, practice, review, and memory alignment stay inspectable in the learner's own repository. See arXiv:2604.26962.
 
 ## Standard
 
@@ -161,7 +167,7 @@ A normal AI project can store instructions and context, but it does not provide 
 2. Separate the template repository from the target learning repository.
 3. Read the user's goal.
 4. Check the target repository structure.
-5. Find active sources, models, learner profile, and weak points.
+5. Find active sources, models, learner profile, and knowledge gaps.
 6. Decide what should be split, merged, rewritten, reviewed, generated, or archived.
 7. Update files only in the correct target repository.
 8. Suggest native-memory updates only for stable preferences or repeated patterns.
@@ -238,13 +244,14 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 ## Suggested layout
 
 ```text
-learning-trace-os/
+gitlearnos/
 ├── dashboard.md
 ├── learner-profile.md
 ├── goals/
 ├── inbox/
 ├── sources/
 ├── models/
+├── knowledge-gaps/
 ├── reviews/
 ├── templates/
 ├── agents/
