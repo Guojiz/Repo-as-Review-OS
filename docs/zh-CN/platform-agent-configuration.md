@@ -199,31 +199,78 @@ lib/tools/subagent-tool.ts
 
 如果上游源码变了，先更新本指南，再改 GitLearnOS 部署说明。
 
+## DeepTutor 对 OpenHanako 多 Agent 的参考
+
+配置 OpenHanako Agent 前，先读 [DeepTutor 多 Agent 参考](zh-CN/deeptutor-multi-agent-reference.md)。
+
+有价值的 DeepTutor 模式是：
+
+```text
+主 tutor loop
+→ 需要时咨询或分派一个聚焦 Agent
+→ 回到主 loop
+→ 主 loop 回答并写入状态
+```
+
+不要复制 DeepTutor 完整平台。只借鉴受控 pipeline、咨询预算边界和学习状态反馈闭环。
+
 ## 推荐 OpenHanako Agent 布局
 
 在 OpenHanako 内部，可以使用多个 Agent，但它们只是同一个活跃桌面运行时里的角色。
 
-默认布局：
+### 最小默认配置
 
 ```text
 1. GitLearnOS Maintainer
-   → 负责 dashboard、learner-profile.md、索引、接手记录和写入边界
+   → 主 tutor loop
+   → 负责 dashboard、learner-profile.md、索引、接手记录和最终写入
 
 2. Source & Model Extractor
-   → 把本地摘录或上传材料转成来源记录、模型和知识缺口
+   → 在需要处理来源材料、错题、论文、截图或本地摘录时被咨询
+   → 提出来源记录、可复用模型和知识缺口
 
 3. Practice & Review Coach
-   → 根据近期模型、活跃缺口、复习历史和间隔复习生成练习
+   → 在需要复习题单、小测、间隔复习或下一步行动时被咨询
+   → 提出练习和复习更新
+
+4. Validator / Critic
+   → 可选
+   → 检查无来源断言、过期缺口、弱题目、答案正确性和学习画像漂移
 ```
 
-只在需要时加：
+Maintainer 是最终写入者。其他 Agent 只检查、提取、提出建议、出题或验证，避免多 Agent 漂移。
+
+### DeepTutor-inspired 扩展配置
+
+只有用户明确想要更重的 OpenHanako 配置时才使用：
 
 ```text
-4. Critic
-   → 审查模糊笔记、无来源摘要、过期缺口、差题目和不符合证据的学习画像
+Maintainer / Orchestrator
+→ 主 loop、状态边界、最终回答、最终写入
+
+Personalized Investigator
+→ 将用户任务映射到来源记录、当前缺口、学习画像和计划
+
+Step Solver / Model Extractor
+→ 执行计划，提取可复用模型，记录观察
+
+Evidence Writer
+→ 把结果写成面向学习者的解释或仓库笔记
+
+Practice Idea Agent
+→ 根据活跃缺口和来源上下文提出练习想法
+
+Question Generator
+→ 生成 question-answer-explanation 三元组
+
+Validator / Critic
+→ 独立检查正确性、来源 grounding、匹配度和难度
+
+Memory Updaters
+→ 更新 Session History、Weakness Diagnosis 和 Self-Reflection
 ```
 
-Maintainer 是最终写入者。其他 Agent 只提出或准备内容，避免多 Agent 漂移。
+扩展配置是选项，不是 GitLearnOS 默认要求。
 
 ## OpenHanako 状态层
 
