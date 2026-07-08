@@ -94,17 +94,22 @@ GitHub should store the organized learning state: goals, source records, reusabl
 
 It does not have to store every original file. Large files, original screenshots, textbook pages, local working files, or raw exports can stay outside the repository when needed. See [What Goes Into GitHub](docs/what-goes-into-github.md).
 
-## ChatGPT Project boundary
+## ChatGPT Project and memory boundary
 
 A ChatGPT Project is useful as a fixed material shelf and conversation layer.
 
 Use it for selected textbooks, stable reference files, and project instructions. Do not treat it as the main learning repository. Dynamic notes, many changing files, review history, generated practice archives, learner profile updates, and cross-agent handoff state should live in GitHub.
 
+ChatGPT memory is useful for stable preferences and a compact learner summary. It should stay aligned with GitHub, but it does not replace GitHub files, indexes, or version history.
+
 ```text
+ChatGPT memory → stable preferences and compact learner summary
 ChatGPT Project → fixed materials and conversation context
 GitHub repository → durable learning state, writeback, and version history
 Local folders → original files and protected working materials
 ```
+
+If ChatGPT memory and GitHub conflict, trust GitHub first, then update memory or project instructions.
 
 See [Local Runtime Note](docs/local-runtime-note.md) for the full boundary.
 
