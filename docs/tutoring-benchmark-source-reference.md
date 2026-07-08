@@ -1,12 +1,12 @@
-# Tutoring Benchmark Source Reference
+# External Tutoring Research Reference
 
-This file records public benchmark-design ingredients that are useful for checking whether a learning repository has enough source variety, learner-state structure, and practice-task coverage.
+This file records public tutoring-research ingredients that may inspire GitLearnOS design checks.
 
-It is a reference list, not a dependency and not bundled source material.
+It is **not** the primary benchmark for GitLearnOS. The primary practical baseline is the original `zhongkao` learning repository system. This file is a reference list, not a dependency and not bundled source material.
 
 ## Source inventory example
 
-The DeepTutor technical report lists a TutorBench PDF source inventory. The list is useful as a reference for building a broad starter knowledge map.
+The DeepTutor technical report lists a TutorBench PDF source inventory. The list is useful as a reference for thinking about source variety, but GitLearnOS does not need to reproduce that inventory or platform.
 
 ### Textbook-derived PDFs
 
@@ -38,7 +38,7 @@ All listed textbook PDFs are sourced from OpenStax.
 
 A useful personalized tutoring benchmark does not only store source files.
 
-It should connect:
+It connects:
 
 ```text
 source material
@@ -59,9 +59,10 @@ sources/
 → models/
 → knowledge-gaps/
 → reviews/
-→ automations/practice-generator/
 → dashboard.md
 ```
+
+This is a design analogy, not a claim that GitLearnOS implements the full benchmark.
 
 ## Task type coverage
 
@@ -74,7 +75,7 @@ The report lists four task types with sampling weights:
 | Application | 应用 | 20% |
 | Comparison | 比较 | 20% |
 
-A GitLearnOS practice generator can reuse this distribution as a default, then adapt it to the learner profile.
+A GitLearnOS practice generator may reuse this distribution as a rough default, then adapt it to the learner profile and the actual repository state.
 
 ## Rejection checks
 
@@ -84,7 +85,7 @@ The report describes three rejection checks for generated tasks:
 2. Task-gap fit: the task should naturally expose the targeted gaps.
 3. Conversational naturalness and consistency: the task should read like a plausible learner request and not contain internal contradictions.
 
-For GitLearnOS, the Organizer + Critic + Revision routine should apply the same spirit:
+For GitLearnOS, the Organizer + Critic + Revision routine can apply the same spirit:
 
 ```text
 Is this practice linked to a real weak point?
@@ -111,7 +112,7 @@ recently split models
 → spaced repetition / next review date
 ```
 
-The important part is not the benchmark scale. The important part is the closed loop:
+The important part is not the benchmark scale. The important part is the closed loop that also appears in the original `zhongkao` learning system:
 
 ```text
 source → model → weak point → personalized question → result → learner profile update → next review
@@ -119,4 +120,4 @@ source → model → weak point → personalized question → result → learner
 
 ## Attribution
 
-This reference is based on the public DeepTutor technical report, arXiv:2604.26962, which lists the TutorBench PDF source inventory, task generation structure, and rejection checks. The material here is rewritten as a lightweight implementation reference for GitLearnOS and does not bundle or redistribute the original PDFs.
+This reference is based on the public DeepTutor technical report, arXiv:2604.26962, which lists the TutorBench PDF source inventory, task generation structure, and rejection checks. The material here is rewritten as a lightweight external research reference for GitLearnOS and does not bundle or redistribute the original PDFs.
