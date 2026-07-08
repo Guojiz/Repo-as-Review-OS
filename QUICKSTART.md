@@ -56,7 +56,7 @@ Start with START-HERE.md, README.md, QUICKSTART.md, docs/first-experiment-guide.
 
 If you support skills, use skills/repo-as-review-os/SKILL.md. If not, use the memory fallback from docs/skill-and-memory-runtime.md.
 
-Create a minimal learning repository with dashboard.md, learner-profile.md, goals/main-goal.md, sources/, models/, knowledge-gaps/, reviews/, templates/, agents/, automations/, and archive/. Ask me for my first learning goal before creating detailed content. Report every file you create or edit.
+Create a minimal learning repository with dashboard.md, learner-profile.md, goals/main-goal.md, sources/, models/, knowledge-gaps/, reviews/, templates/, agents/, automations/, and archive/. If I have already given a learning goal, use it. If not, ask me for my first learning goal before creating detailed content. Report every file you create or edit.
 ```
 
 ### 4. Tell the AI your first goal
