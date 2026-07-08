@@ -1,6 +1,10 @@
 # Parity with the Original System
 
-This document checks whether Repo as Review OS can reproduce the behavior of the original `zhongkao` repository system.
+This document checks whether GitLearnOS can reproduce the behavior of the original `zhongkao` repository system.
+
+The original `zhongkao` system is the primary practical baseline for this project. External tutoring research can inspire design checks, but the first standard is whether the real learning loop that already worked can be made lighter, reusable, and easier for other AI tools to deploy.
+
+The repository is still named `Repo-as-Review-OS` for continuity.
 
 ## What can be reproduced
 
@@ -10,15 +14,30 @@ Yes. The new template can use GitHub as the main map, state store, template libr
 
 ### 2. AI-first maintenance
 
-Yes. The original system moved toward ChatGPT as the main maintainer. The new template makes this explicit through `START-HERE.md`, `AGENTS.md`, and the handoff protocols.
+Yes. The original system moved toward ChatGPT as the main maintainer. GitLearnOS makes this explicit through `START-HERE.md`, `AGENTS.md`, and the handoff protocols.
 
 ### 3. Content integrity
 
-Yes. The old system protected the difference between source, summary, index, and incomplete files. The new template reproduces this through sourcing rules, content labels, and local-only source records.
+Yes. The old system protected the difference between source, summary, index, and incomplete files. GitLearnOS reproduces this through sourcing rules, content labels, and local-only source records.
 
 ### 4. Templates and dashboards
 
-Yes. Problem cards, writing material cards, daily review files, and dashboards can all be reproduced.
+Yes. Problem cards, writing material cards, daily review files, knowledge-gap records, and dashboards can all be reproduced.
+
+### 5. Review and next-action loop
+
+Yes. The useful loop is preserved:
+
+```text
+goal
+→ source
+→ split
+→ model
+→ knowledge gap
+→ review set
+→ dashboard
+→ next action
+```
 
 ## What cannot be fully reproduced by GitHub alone
 
@@ -50,7 +69,7 @@ ChatGPT or one main AI
 
 The old system experimented with local agents, Obsidian, Git, GitHub, and automated inspection.
 
-The new system is simpler:
+GitLearnOS is simpler:
 
 - one main AI;
 - one GitHub repository;
@@ -61,10 +80,10 @@ The new system is simpler:
 
 ## Practical conclusion
 
-Repo as Review OS can reproduce the old system's structure and method.
+GitLearnOS can reproduce the old system's structure and method.
 
 It cannot perfectly reproduce invisible local automation unless the user adds a local agent or grants local file access.
 
 Therefore, the default product should promise this:
 
-**A lightweight GitHub + AI review system that works from one repository and one main AI, with local files surfaced only when needed.**
+**A lightweight GitHub + AI learning system that works from one repository and one main AI, with local files surfaced only when needed.**
