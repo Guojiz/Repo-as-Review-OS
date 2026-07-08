@@ -1,17 +1,36 @@
 # Platform Agent Configuration
 
-This guide gives detailed GitLearnOS configuration for the main platform families this repository supports:
+This guide gives AI-facing configuration rules for the platform families GitLearnOS can use.
+
+It must not change the product principle:
 
 ```text
-Native AI platforms
-→ ChatGPT
-→ Claude
+GitLearnOS core
+→ one active learning runtime
+→ one learning state layer
+→ source records, models, gaps, reviews, dashboard
+```
 
-Desktop enhanced agent runtime
-→ OpenHanako / HanaAgent
+Platform guides are adapters, not new product identities.
 
-Code-agent deployment helpers
-→ Claude Code / Codex / Cursor
+## Platform roles
+
+```text
+ChatGPT
+→ native daily learning runtime
+→ best default with a GitHub target repository
+
+Claude
+→ native daily learning runtime
+→ best for project-style reading, writing, artifacts, and long-context work
+
+OpenHanako / HanaAgent
+→ optional desktop enhanced runtime
+→ useful for local files, desks, Skills, channels, scheduled tasks, and limited multi-agent work
+
+Claude Code / Codex / Cursor / CLI agents
+→ deployment and source-code assistants for OpenHanako
+→ not the maintained daily learning layer
 ```
 
 Do not confuse Claude with Claude Code.
@@ -24,89 +43,59 @@ Claude Code
 → coding agent for deploying, inspecting, debugging, or customizing OpenHanako
 ```
 
-For the native ChatGPT and Claude setup, see `docs/native-ai-platform-deployment.md`.
-
-For OpenHanako deployment with code agents, see `docs/deploy-openhanako-with-code-agents.md`.
-
-The supported platforms should respect the same GitLearnOS learning loop:
-
-```text
-source → model → knowledge gap → personalized practice → review result → learner-profile.md → next review
-```
-
-## Runtime rule
+## Runtime self-check
 
 Before setup, every AI tool must identify:
 
 ```text
 runtime:
-native memory:
-project / workspace instructions:
 state layer:
-repository or local git access:
+read access:
+write access:
 local file access:
+repository access:
+memory / project instructions:
 desktop automation:
 manual user steps:
 ```
 
 Do not claim repository edits, local-file reading, scheduled work, or long-term memory unless that capability is actually available.
 
-## Recommended platform map
+## State layer boundary
+
+For ChatGPT and Claude, prefer GitHub as the state layer.
 
 ```text
-ChatGPT
-→ actively supported native daily learning platform
-→ memory alignment, reasoning, explanation, writing, GitHub-assisted work, and light handoff automation
+native platform default
+→ GitHub target repository
 
-Claude
-→ actively supported native daily learning platform
-→ project-style organization, long-context reading, writing, artifacts, careful drafting, and repository-assisted work
+native platform local path
+→ only if the runtime has actual local file access
+→ otherwise provide manual file contents or patches
 
-OpenHanako / HanaAgent
-→ actively supported desktop enhanced runtime
-→ local files, multi-agent work, Skills, scheduled tasks, portable channels, browser/desktop actions, and deeper file automation
-
-Claude Code / Codex / Cursor / CLI agents
-→ supported only as OpenHanako deployment and source-code assistants
-→ not maintained here as daily GitLearnOS tutoring platforms
+OpenHanako desktop path
+→ local git or local git + Obsidian can be real state layers when file access is granted
 ```
 
-ChatGPT and Claude are the two reference native platforms. Other chat-style AI tools should copy their pattern.
+## Shared GitLearnOS loop
 
-OpenHanako is the recommended desktop-side enhanced agent environment when the learner wants a computer-resident multi-agent system.
-
-## Native platform setup
-
-For ChatGPT and Claude, use:
+All supported platforms should respect the same loop:
 
 ```text
-docs/native-ai-platform-deployment.md
+source → model → knowledge gap → personalized practice → review result → learner-profile.md → next review
 ```
 
-The short version:
-
-```text
-ChatGPT
-→ memory-first native workflow
-
-Claude
-→ project/artifact-first native workflow
-
-GitHub / local git / Obsidian
-→ durable learning state
-```
-
-Use only one active native platform at a time. Do not let ChatGPT and Claude both update the same learner-profile, knowledge gaps, reviews, or dashboard.
+The loop is more important than the platform brand.
 
 ## ChatGPT native configuration
 
-Use ChatGPT when the learner wants the smoothest daily web/mobile workflow and strong persistent personalization.
+Use ChatGPT when the learner wants smooth daily web/mobile learning and persistent personalization.
 
-Minimum setup:
+Minimum configuration:
 
 ```text
-state layer: GitHub, local git, or local git + Obsidian
-active platform: ChatGPT
+active runtime: ChatGPT
+state layer: GitHub target repository unless proven otherwise
 memory: stable preference cache
 learner-profile.md: inspectable learner state
 ```
@@ -116,7 +105,7 @@ Core instruction:
 ```text
 You are helping me run GitLearnOS in ChatGPT.
 
-Use my chosen state layer as the source of truth for learning state. ChatGPT memory is an active preference cache, not the canonical repository.
+Use my chosen state layer as the source of truth. Prefer a GitHub target repository. ChatGPT memory is an active preference cache, not the canonical learning repository.
 
 Before acting, identify your runtime, memory, file access, repository access, and permission boundary.
 
@@ -130,11 +119,11 @@ Do not invent missing sources. Do not claim file or repository edits unless you 
 
 Use Claude when the learner wants project-style organization, long-context reading, writing, artifacts, and careful revision.
 
-Minimum setup:
+Minimum configuration:
 
 ```text
-state layer: GitHub, local git, or local git + Obsidian
-active platform: Claude
+active runtime: Claude
+state layer: GitHub target repository unless proven otherwise
 Claude Project: working surface
 Artifacts: drafts, visual explanations, mini practice, or temporary teaching materials
 learner-profile.md: inspectable learner state
@@ -145,7 +134,7 @@ Core instruction:
 ```text
 You are helping me run GitLearnOS in Claude.
 
-Use my chosen state layer as the source of truth for learning state. Claude project context, artifacts, and memory are working surfaces, not the canonical state.
+Use my chosen state layer as the source of truth. Prefer a GitHub target repository unless I explicitly choose a local-first workflow and you have actual local file access. Claude project context, artifacts, and memory are working surfaces, not the canonical state.
 
 Before acting, identify your runtime, memory/project capability, file access, repository access, and permission boundary.
 
@@ -159,51 +148,82 @@ Use artifacts for drafts, visual explanations, tables, small apps, or temporary 
 
 ## OpenHanako / HanaAgent desktop configuration
 
-Use OpenHanako when the learner wants a real desktop-side agent system.
+Use OpenHanako only when the learner wants a real desktop-side runtime.
 
-OpenHanako is a better fit than generic desktop agents when GitLearnOS needs:
+Good reasons to use it:
 
 - local source material;
-- file reading and writing;
-- browser and computer-use actions;
+- local file reading and writing;
+- agent desks;
 - Skills;
-- agent memory;
 - scheduled tasks;
-- multi-agent collaboration;
-- local desktop workspace and desk files;
-- portable channel access from messaging or social platforms.
+- bridge channels;
+- browser and computer-use actions;
+- limited multi-agent delegation inside one active desktop runtime.
 
-## Why OpenHanako fits GitLearnOS
+Do not present OpenHanako as required for basic GitLearnOS. Do not let it run in parallel with ChatGPT or Claude on the same state layer unless there is a deliberate handoff.
 
-OpenHanako describes HanaAgent as an AI agent with memory, personality, proactive action, and multiple agents working together on the user's computer.
+## Source-grounded OpenHanako facts
 
-Its README lists file read/write, commands, terminal sessions, browser tools, search, screenshots, media preview, web inspection, Skills support, role cards, multi-agent collaboration, desk files, scheduled tasks, sandboxing, plugins, multi-platform bridge, mobile PWA, and LAN frontend support.
+The OpenHanako / HanaAgent guidance here is based on the actual `liliMozi/openhanako` source, not guessed from the name.
 
-Its source also models each Agent as having its own identity, personality, memory, tools, and prompt-building logic.
+Current verified facts:
+
+```text
+package.json
+→ name: hanako
+→ productName: HanaAgent
+→ main: desktop/bootstrap.cjs
+→ bin: hana → cli/entry.ts
+→ node: >=24.12.0 <25
+
+scripts/launch.js
+→ cross-platform launcher
+→ clears ELECTRON_RUN_AS_NODE before spawning Electron
+
+scripts/dev-env.js
+→ development HANA_HOME = ~/.hanako-dev
+
+server/index.ts
+→ Hono HTTP + WebSocket server
+→ routes include chat, sessions, models, agents, desk, skills, channels, filesystem, preferences, bridge, commands, resources, mobile workbench, media
+
+core/agent.ts
+→ Agent has identity, personality, memory, tools, and prompt-building logic
+
+lib/tools/subagent-tool.ts
+→ supports delegated subagents
+→ optional agent target
+→ optional model override
+```
+
+If those source facts change upstream, update this guide before changing GitLearnOS deployment instructions.
 
 ## Recommended OpenHanako agent layout
 
-Create three GitLearnOS agents:
+Inside OpenHanako, multiple agents are allowed only as roles within one active desktop runtime.
+
+Default layout:
 
 ```text
 1. GitLearnOS Maintainer
-   → owns repository structure, dashboard, learner-profile.md, indexes, and handoff notes
+   → owns dashboard, learner-profile.md, indexes, handoff notes, and write boundary
 
 2. Source & Model Extractor
-   → reads local excerpts or uploaded materials, creates source records, extracts reusable models, and records knowledge gaps
+   → turns local excerpts or uploaded materials into source records, models, and knowledge gaps
 
 3. Practice & Review Coach
-   → generates personalized practice from recent models, active knowledge gaps, review history, and spaced repetition
+   → generates practice from recent models, active gaps, review history, and spaced repetition
 ```
 
-Optional fourth agent:
+Optional only when needed:
 
 ```text
 4. Critic
    → audits vague notes, unsupported source claims, stale gaps, poor questions, and outdated learner-profile entries
 ```
 
-Do not create many agents by default. Three agents are enough for most learners.
+The Maintainer is the final writer. Other agents propose or prepare work. This prevents multi-agent drift.
 
 ## OpenHanako state layer
 
@@ -217,190 +237,9 @@ local git repository
 GitHub repository
 ```
 
-Local git + Obsidian may be enough when the learner wants local-first control, fast editing, private notes, markdown navigation, and git history without cloud dependency.
+Local folders keep original materials. The state layer keeps inspectable learning state.
 
-Use GitHub when the learner needs cloud sync, cross-device handoff, public template sharing, or remote AI access.
-
-## OpenHanako setup steps
-
-### 1. Install and configure models
-
-Follow OpenHanako's setup flow. Configure:
-
-```text
-conversation model
-→ normal conversation and tutoring
-
-small utility model
-→ light tasks, routing, summaries, file checks
-
-large tool model
-→ memory compilation, deep analysis, source/model extraction, repository maintenance
-
-vision model
-→ screenshots, diagrams, handwritten notes, visual explanations when available
-```
-
-### 2. Create a GitLearnOS workspace
-
-Use one local folder as the protected source layer:
-
-```text
-GitLearnOS-local/
-├── textbooks/
-├── screenshots/
-├── papers/
-├── raw-notes/
-└── exports/
-```
-
-Use one learning state layer:
-
-```text
-GitLearnOS-state/
-├── dashboard.md
-├── learner-profile.md
-├── goals/
-├── sources/
-├── models/
-├── knowledge-gaps/
-├── reviews/
-├── automations/
-└── archive/
-```
-
-Local folders keep original materials. The state layer keeps the inspectable learning state.
-
-### 3. Configure the Maintainer agent
-
-```text
-You are the GitLearnOS Maintainer.
-
-Your job is to keep the target learning state coherent: dashboard.md, learner-profile.md, goals/, sources/, models/, knowledge-gaps/, reviews/, automations/, and archive/.
-
-Before editing, identify file access, state-layer access, local access, memory status, and whether the current action is safe.
-
-Never write personal learning data into the template repository. Only write into the user's chosen state layer.
-
-Report every changed file.
-```
-
-Suggested memory:
-
-```text
-GitLearnOS source of truth is the user's chosen state layer.
-Local files are protected source material.
-learner-profile.md is the inspectable learner memory.
-Knowledge gaps connect models to future practice.
-```
-
-### 4. Configure the Source & Model Extractor agent
-
-```text
-You are the GitLearnOS Source & Model Extractor.
-
-When given material, create an honest source record. Mark whether the source is complete, excerpt-only, local-only, missing, or uncertain.
-
-Extract reusable models from problems, notes, papers, or mistakes.
-
-Record knowledge gaps when the learner fails to recognize, apply, explain, or transfer a model.
-
-Do not claim to have read a local file unless OpenHanako actually gave you access to it.
-```
-
-Output target:
-
-```text
-sources/
-models/
-knowledge-gaps/
-```
-
-### 5. Configure the Practice & Review Coach agent
-
-```text
-You are the GitLearnOS Practice & Review Coach.
-
-Generate practice only from repository state: learner-profile.md, recent models, active knowledge gaps, source records, and review history.
-
-Every question should link to a source, model, or knowledge-gap entry.
-
-After practice, propose updates to learner-profile.md and next review dates.
-```
-
-Output target:
-
-```text
-reviews/
-automations/practice-generator/
-```
-
-### 6. Configure the optional Critic agent
-
-```text
-You are the GitLearnOS Critic.
-
-Audit the repository for vague notes, unsupported summaries, stale knowledge gaps, duplicated models, weak practice questions, and learner-profile entries that no longer match evidence.
-
-Make small safe fixes only when clearly supported. Queue uncertain fixes instead of guessing.
-```
-
-Output target:
-
-```text
-automations/organizer-critic/
-```
-
-### 7. Use OpenHanako channels or delegation
-
-Recommended workflow:
-
-```text
-Maintainer receives the user request.
-Maintainer delegates source/model work to Source & Model Extractor.
-Maintainer delegates practice generation to Practice & Review Coach.
-Critic audits the result when needed.
-Maintainer writes or approves final state-layer updates.
-```
-
-Keep the state layer shared so agents do not drift into separate private memories.
-
-### 8. Use the desk as the local source inbox
-
-Put local files on the relevant agent desk:
-
-```text
-textbook excerpts
-screenshots
-PDF notes
-paper snippets
-raw mistakes
-```
-
-The agent should turn them into source records or model cards, not dump raw files into the state layer.
-
-### 9. Configure scheduled tasks
-
-Use scheduled tasks for maintenance, not unchecked rewriting.
-
-Recommended schedules:
-
-```text
-Daily or every 2 days:
-→ check dashboard, learner-profile.md, active knowledge gaps, and due reviews
-
-Weekly:
-→ run Organizer + Critic + Revision
-
-After each study session:
-→ update learner-profile.md, record new gaps, schedule next review
-```
-
-Scheduled tasks must report what they actually read and changed.
-
-### 10. Sandbox rule
-
-Keep OpenHanako's file permissions narrow:
+Keep file permissions narrow:
 
 ```text
 read local source folder
@@ -410,7 +249,7 @@ ask before uploading private material
 ask before publishing real learning records
 ```
 
-## Deploy OpenHanako with Claude Code or Codex
+## Code-agent deployment helpers
 
 Claude Code, Codex, Cursor, and similar tools can help deploy OpenHanako itself.
 
@@ -427,22 +266,21 @@ build or packaging troubleshooting
 
 Do not use them as the maintained daily GitLearnOS tutoring layer.
 
-See `docs/deploy-openhanako-with-code-agents.md` for the source-guided deployment checklist and safe prompt.
-
 ## Final choice rule
 
 ```text
 Native daily learning conversation
 → ChatGPT or Claude
 
-Desktop multi-agent and local-file workflow
+Desktop local-file / multi-agent workflow
 → OpenHanako / HanaAgent
 
 Deploying or debugging OpenHanako source
 → Claude Code / Codex / Cursor / CLI code agent
 
 Long-term learning state
-→ GitHub target repository, local git, or local git + Obsidian
+→ GitHub target repository by default
+→ local git / Obsidian only when the active runtime can actually access it
 
 Original source material
 → local folders unless a small excerpt is needed
