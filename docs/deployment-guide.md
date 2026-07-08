@@ -1,28 +1,32 @@
 # Deployment Guide
 
-This is the file-address-first deployment guide for GitLearnOS.
+This is the AI-facing, file-address-first deployment guide for GitLearnOS.
 
-The goal is lightweight deployment.
-
-Lightweight does not mean vague. It means the AI should know the exact files to read, exact files to create, exact files to update, and exact files to ignore.
+The goal is lightweight deployment. Lightweight does not mean vague. It means the AI should know exactly what to read, what to create, what to update, and what to ignore.
 
 Do not ask an AI to ingest the whole repository by default. Give it a route map.
 
 ## Core idea
 
 ```text
-fewer files read
-+ exact paths
+few files read
 + exact state layer
 + exact write targets
++ single active runtime
 = lower token cost and less drift
 ```
 
-A good GitLearnOS deployment should feel like a small surgical kit, not a warehouse tour.
+## Non-negotiable principles
+
+1. Keep the template repository and the learner's state layer separate.
+2. Use one active learning runtime at a time.
+3. Do not let ChatGPT, Claude, OpenHanako, Codex, Cursor, or Claude Code update the same state layer in parallel.
+4. Code agents are deployment/debug helpers, not the daily learning tutor.
+5. If the learner has already provided a learning goal, use it. If not, ask for it before creating detailed learning content.
+6. Do not claim repository edits, local-file access, memory updates, scheduled work, or OpenHanako setup unless the runtime actually has that capability.
+7. Report every file read, created, changed, or intentionally not touched.
 
 ## Repository roles
-
-There are always two roles.
 
 ```text
 Template repository
@@ -44,9 +48,7 @@ local git repository
 local git + Obsidian vault
 ```
 
-GitHub is useful for cloud sync and cross-device work.
-
-Local git + Obsidian may be enough for a desktop OpenHanako setup.
+GitHub is useful for cloud sync and cross-device work. Local git + Obsidian may be enough for a desktop OpenHanako setup.
 
 ## Canonical template repository
 
@@ -58,21 +60,7 @@ Repository full name:
 Guojiz/Repo-as-Review-OS
 ```
 
-## Read this first: minimal route
-
-For a Chinese deployment, read only these files first:
-
-```text
-README.zh-CN.md
-START-HERE.zh-CN.md
-QUICKSTART.zh-CN.md
-docs/zh-CN/deployment-guide.md
-docs/zh-CN/native-ai-platform-deployment.md
-docs/zh-CN/platform-agent-configuration.md
-docs/zh-CN/skill-and-memory-runtime.md
-docs/zh-CN/single-runtime-rule.md
-AGENTS.zh-CN.md
-```
+## First read route
 
 For an English deployment, read only these files first:
 
@@ -88,9 +76,23 @@ docs/single-active-runtime-rule.md
 AGENTS.md
 ```
 
+For a Chinese deployment, read only these files first:
+
+```text
+README.zh-CN.md
+START-HERE.zh-CN.md
+QUICKSTART.zh-CN.md
+docs/zh-CN/deployment-guide.md
+docs/zh-CN/native-ai-platform-deployment.md
+docs/zh-CN/platform-agent-configuration.md
+docs/zh-CN/skill-and-memory-runtime.md
+docs/zh-CN/single-runtime-rule.md
+AGENTS.zh-CN.md
+```
+
 Do not read `examples/`, `website/`, all `docs/`, or all `skills/` during first deployment unless the user asks.
 
-## Read this next: platform-specific route
+## Platform-specific route
 
 ### ChatGPT native platform
 
@@ -102,13 +104,7 @@ docs/platform-agent-configuration.md
 docs/single-active-runtime-rule.md
 ```
 
-Chinese:
-
-```text
-docs/zh-CN/native-ai-platform-deployment.md
-docs/zh-CN/platform-agent-configuration.md
-docs/zh-CN/single-runtime-rule.md
-```
+Use ChatGPT as the active runtime only when the learner chooses ChatGPT for this deployment.
 
 ### Claude native platform
 
@@ -120,15 +116,7 @@ docs/platform-agent-configuration.md
 docs/single-active-runtime-rule.md
 ```
 
-Chinese:
-
-```text
-docs/zh-CN/native-ai-platform-deployment.md
-docs/zh-CN/platform-agent-configuration.md
-docs/zh-CN/single-runtime-rule.md
-```
-
-Claude means the native Claude platform, not Claude Code.
+Claude means the native Claude chat/project platform, not Claude Code.
 
 ### OpenHanako desktop runtime
 
@@ -140,13 +128,7 @@ docs/single-active-runtime-rule.md
 docs/deploy-openhanako-with-code-agents.md
 ```
 
-Chinese:
-
-```text
-docs/zh-CN/platform-agent-configuration.md
-docs/zh-CN/single-runtime-rule.md
-docs/zh-CN/deploy-openhanako-with-code-agents.md
-```
+Use OpenHanako when the learner wants a desktop agent workspace with local files, desk files, Skills, memory, selected scheduled tasks, channels, or multi-agent workflows.
 
 ### Claude Code / Codex / Cursor deployment helper
 
@@ -156,17 +138,11 @@ Read only deployment files:
 docs/deploy-openhanako-with-code-agents.md
 ```
 
-Chinese:
+Claude Code, Codex, Cursor, and similar tools should not become the daily GitLearnOS learning layer. They are only used to deploy, inspect, debug, or customize OpenHanako when the user explicitly wants that path.
 
-```text
-docs/zh-CN/deploy-openhanako-with-code-agents.md
-```
+## Minimal target state tree
 
-Claude Code, Codex, and Cursor should not become the daily learning layer. They are only used to deploy or debug OpenHanako.
-
-## Exact target state tree
-
-Create this in the user's chosen learning state layer.
+Create this in the learner's chosen state layer.
 
 ```text
 dashboard.md
@@ -191,7 +167,7 @@ automations/practice-generator/index.md
 archive/README.md
 ```
 
-Create folders even if the first file is only an index.
+Create these folders even if the first file is only an index:
 
 ```text
 goals/
@@ -210,15 +186,11 @@ archive/
 
 Do not create extra folders during first deployment.
 
-## Exact target files and purpose
+## Required target files
 
 ### `dashboard.md`
 
-Purpose:
-
-```text
-front page of the learner state
-```
+Purpose: front page of the learner state.
 
 Must contain:
 
@@ -234,11 +206,7 @@ handoff note link
 
 ### `learner-profile.md`
 
-Purpose:
-
-```text
-inspectable learner memory
-```
+Purpose: inspectable learner memory.
 
 Must contain:
 
@@ -255,11 +223,7 @@ last updated
 
 ### `GITLEARNOS.md`
 
-Purpose:
-
-```text
-local operating rule for the target state layer
-```
+Purpose: local operating rule for the target state layer.
 
 Must contain:
 
@@ -272,117 +236,23 @@ handoff rule
 source honesty rule
 ```
 
-### `goals/main-goal.md`
+### Index files
 
-Purpose:
-
-```text
-primary learning objective
-```
-
-Must contain:
+Create short index files for:
 
 ```text
-goal statement
-why it matters
-time horizon
-current stage
-success criteria
-linked sources
-linked models
-linked gaps
-review cadence
+goals/goal-index.md
+sources/source-index.md
+models/model-index.md
+knowledge-gaps/gap-index.md
+reviews/review-index.md
+reviews/due.md
+agents/handoff-notes/index.md
+automations/README.md
+archive/README.md
 ```
 
-### `sources/source-index.md`
-
-Purpose:
-
-```text
-index of source records
-```
-
-Each source record should live at:
-
-```text
-sources/YYYY-MM-DD-short-title.md
-```
-
-Source status must be one of:
-
-```text
-complete
-excerpt-only
-local-only
-missing
-uncertain
-```
-
-### `models/model-index.md`
-
-Purpose:
-
-```text
-index of reusable learning models
-```
-
-Each model card should live at:
-
-```text
-models/YYYY-MM-DD-short-model-name.md
-```
-
-A model is not a summary. It should capture a transferable pattern.
-
-### `knowledge-gaps/gap-index.md`
-
-Purpose:
-
-```text
-index of active and resolved knowledge gaps
-```
-
-Each gap record should live at:
-
-```text
-knowledge-gaps/YYYY-MM-DD-short-gap-name.md
-```
-
-A knowledge gap should say what the learner cannot yet recognize, apply, explain, or transfer.
-
-### `reviews/review-index.md`
-
-Purpose:
-
-```text
-index of review sets and practice results
-```
-
-Each review set should live at:
-
-```text
-reviews/YYYY-MM-DD-review-topic.md
-```
-
-### `reviews/due.md`
-
-Purpose:
-
-```text
-small due-review list
-```
-
-Must stay short. It should link to actual review records.
-
-### `agents/handoff-notes/latest.md`
-
-Purpose:
-
-```text
-one-page state transfer note
-```
-
-Use this when switching platforms.
+Each index should be short, link-based, and easy for an AI to scan.
 
 ## First deployment content templates
 
@@ -399,7 +269,8 @@ Use this when switching platforms.
 
 ## Next action
 
-- Ask the learner for the first learning goal.
+- If the learner has already provided a learning goal, use it to fill `goals/main-goal.md`.
+- If not, ask the learner for the first learning goal.
 
 ## Active knowledge gaps
 
@@ -511,7 +382,7 @@ TBD
 
 ## Next action
 
-Ask the learner for the first learning goal.
+If the learner has already provided a learning goal, use it. If not, ask for the first learning goal.
 ```
 
 ## Minimal copy set from template repository
@@ -531,15 +402,9 @@ reviews/due.md
 agents/handoff-notes/latest.md
 ```
 
-Do not copy every public demo.
+Do not copy every public demo, documentation file, website file, or issue template.
 
-Do not copy every documentation file.
-
-Do not copy website files.
-
-Do not copy issue templates.
-
-## Exact native-platform setup prompts
+## Exact setup prompts
 
 ### ChatGPT setup prompt
 
@@ -576,7 +441,7 @@ Create or verify exactly these files:
 Do not read the whole repository unless I ask.
 Do not create extra folders unless needed.
 Do not claim edits unless you can name changed files.
-Ask me for my first learning goal after the skeleton is ready.
+If I already gave a learning goal, use it. If not, ask me for my first learning goal before creating detailed learning content.
 ```
 
 ### Claude setup prompt
@@ -599,8 +464,7 @@ Read only these template files first:
 My state layer is:
 <paste GitHub repo, local git folder, or Obsidian vault path>
 
-Treat Claude Project context, files, memory, and artifacts as working surfaces.
-The state layer is the source of truth.
+Treat Claude Project context, files, memory, and artifacts as working surfaces. The state layer is the source of truth.
 
 Create or verify exactly these files:
 - dashboard.md
@@ -616,7 +480,7 @@ Create or verify exactly these files:
 
 Use artifacts only for drafts, visual explanations, or temporary teaching material.
 Persist durable learning state back to the state layer.
-Ask me for my first learning goal after the skeleton is ready.
+If I already gave a learning goal, use it. If not, ask me for my first learning goal before creating detailed learning content.
 ```
 
 ### OpenHanako setup prompt
@@ -654,9 +518,10 @@ Enable only needed features:
 Do not enable broad file access.
 Do not enable unnecessary scheduled tasks.
 Do not let multiple platforms update the same state layer.
+If I already gave a learning goal, use it. If not, ask me for my first learning goal before creating detailed learning content.
 ```
 
-## Exact OpenHanako source addresses for code agents
+## OpenHanako source route for code agents
 
 When using Claude Code, Codex, Cursor, or another code agent to deploy OpenHanako, inspect these OpenHanako source files first:
 
@@ -679,18 +544,22 @@ Do not inspect the whole source tree first.
 
 Do not modify source code during first deployment unless the build fails and the user approves a fix.
 
-## Exact OpenHanako command order
+## OpenHanako command rule
 
-Run in this order:
+Do not assume scripts exist. First read `package.json`, then run only scripts that are present.
+
+Recommended order:
 
 ```bash
 node -v
 npm -v
 npm install
-npm run typecheck
-npm test
-npm run start:dev
+npm run typecheck   # only if present
+npm test            # only if present and useful
+npm run start:dev   # only if present
 ```
+
+If the repo uses a different start script, use the script declared in `package.json` and report the substitution.
 
 If desktop startup fails, inspect:
 
@@ -709,13 +578,7 @@ server/index.ts
 npm run server output
 ```
 
-If packaging is requested, use only the platform script:
-
-```bash
-npm run dist:win
-npm run dist:linux
-npm run dist
-```
+If packaging is requested, use only a package script that exists in `package.json`, such as `dist`, `dist:win`, or `dist:linux`.
 
 Do not package during first setup unless the user explicitly asks.
 
@@ -743,7 +606,7 @@ Use these rules during deployment:
 Read the route file first.
 Read only platform-specific files next.
 Create the skeleton before reading examples.
-Ask for the first learning goal before creating detailed content.
+If the learner already gave a learning goal, use it; if not, ask for the first learning goal before detailed content.
 Do not read examples unless the user asks for a demo.
 Do not open all docs.
 Do not copy website files.
@@ -784,7 +647,7 @@ GITLEARNOS.md created
 learner-profile.md created
 dashboard.md created
 handoff note created
-first learning goal requested
+first learning goal used or requested
 no parallel runtime left active
 ```
 
