@@ -63,7 +63,7 @@ main goal
 ```text
 Read this template repository: https://github.com/Guojiz/Repo-as-Review-OS
 
-Start with QUICKSTART.md, FAQ.md, docs/30-second-intro.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, and docs/skill-and-memory-runtime.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
+Start with QUICKSTART.md, FAQ.md, docs/30-second-intro.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, docs/skill-and-memory-runtime.md, and docs/agentic-tutoring-standard.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
 
 Help me build my own Review OS. First explain what it is. Then identify your current runtime, permission boundary, and any manual steps I must complete.
 
@@ -71,7 +71,7 @@ Treat this Repo as Review OS repository as the template repository. Treat my tar
 
 Guide me to create or choose one target GitHub repository. If your environment supports skills, start with skills/repo-as-review-os/SKILL.md and use the specific subskills when appropriate. If not, use the memory fallback in docs/skill-and-memory-runtime.md.
 
-After that, create goal files, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard in my target repository. Report every file created or edited.
+After that, create goal files, learner-profile.md, folder structure, source rules, problem-model templates, spaced-repetition fields, automation output folders, and a dashboard in my target repository. Report every file created or edited.
 ```
 
 ## Repository roles
@@ -83,14 +83,14 @@ Repo as Review OS repository
 
 User target repository
 → personal learning repository
-→ goals, sources, models, reviews, dashboard
+→ goals, learner profile, sources, models, reviews, dashboard
 ```
 
 The AI should read this repository as the template, then deploy the structure into the user's own repository.
 
 ## What goes into GitHub
 
-GitHub should store the organized learning state: goals, source records, reusable models, review sets, dashboards, next review dates, and agent handoff notes.
+GitHub should store the organized learning state: goals, learner profile, source records, reusable models, review sets, dashboards, next review dates, and agent handoff notes.
 
 It does not have to store every original file. Large files, original screenshots, textbook pages, local working files, or raw exports can stay outside the repository when needed. See [What Goes Into GitHub](docs/what-goes-into-github.md).
 
@@ -112,6 +112,12 @@ Local folders → original files and protected working materials
 If ChatGPT memory and GitHub conflict, trust GitHub first, then update memory or project instructions.
 
 See [Local Runtime Note](docs/local-runtime-note.md) for the full boundary.
+
+## Standard
+
+This project should be judged against modern agentic tutoring systems, not against ordinary note templates.
+
+See [Agentic Tutoring Standard](docs/agentic-tutoring-standard.md) for the checklist used to evaluate unified context, source grounding, learner state, practice generation, critique, writing, visuals, repetition, handoff, inspectability, and honest runtime boundaries.
 
 ## Why GitHub
 
@@ -188,6 +194,7 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 - [docs/skill-and-memory-runtime.md](docs/skill-and-memory-runtime.md): Skill and memory runtime guide
 - [docs/local-runtime-note.md](docs/local-runtime-note.md): Local folders and ChatGPT Project note
 - [docs/automation-runtime-matrix.md](docs/automation-runtime-matrix.md): Automation runtime matrix
+- [docs/agentic-tutoring-standard.md](docs/agentic-tutoring-standard.md): Agentic tutoring standard
 - [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md): Public alpha note
 - [PUBLIC-CHECKLIST.md](PUBLIC-CHECKLIST.md): Public release checklist
 - [CONTRIBUTING.md](CONTRIBUTING.md): Contribution guide
@@ -208,6 +215,7 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 ```text
 review-os/
 ├── dashboard.md
+├── learner-profile.md
 ├── goals/
 ├── inbox/
 ├── sources/
@@ -221,7 +229,7 @@ review-os/
 
 ## For AI agents
 
-Read [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30-second-intro.md), [First Experiment Guide](docs/first-experiment-guide.md), [What Goes Into GitHub](docs/what-goes-into-github.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [OPERATING-MODEL.md](OPERATING-MODEL.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [skills/README.md](skills/README.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), and [AGENTS.md](AGENTS.md) before changing files.
+Read [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30-second-intro.md), [First Experiment Guide](docs/first-experiment-guide.md), [What Goes Into GitHub](docs/what-goes-into-github.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [OPERATING-MODEL.md](OPERATING-MODEL.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [skills/README.md](skills/README.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), [Agentic Tutoring Standard](docs/agentic-tutoring-standard.md), and [AGENTS.md](AGENTS.md) before changing files.
 
 ## License
 
