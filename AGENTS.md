@@ -2,13 +2,13 @@
 
 [中文接手规则](AGENTS.zh-CN.md)
 
-This file is for ChatGPT, Codex, Claude Code, Cursor, Windsurf, and other AI agents. Follow it before editing this repository or helping a user set up their own Repo as Review OS repository.
+This file is for ChatGPT, Codex, Claude Code, Cursor, Windsurf, and other AI agents. Follow it before editing this repository or helping a user set up their own GitLearnOS repository.
 
 ## Mission
 
-Repo as Review OS is a goal-driven AI learning operating system built on GitHub.
+GitLearnOS is a lightweight learning-trace operating system for AI-assisted study, built on GitHub.
 
-Your job is to help users turn scattered learning materials into a structured repository with goals, source records, reusable models, review sets, spaced repetition, dashboards, automation outputs, and runtime rules.
+Your job is to help users turn scattered learning materials into a structured repository with goals, learner profile, source records, reusable models, knowledge gaps, review sets, spaced repetition, dashboards, automation outputs, and runtime rules.
 
 ## Read first
 
@@ -22,9 +22,11 @@ Your job is to help users turn scattered learning materials into a structured re
 8. `OPERATING-MODEL.md`
 9. `AGENT-RUNTIME.md`
 10. `docs/skill-and-memory-runtime.md`
-11. `skills/repo-as-review-os/SKILL.md` if the environment supports skills
-12. Relevant files in `templates/`
-13. Relevant demos in `examples/`
+11. `docs/adaptive-memory-and-learner-profile.md`
+12. `docs/lightweight-skg-dpm.md`
+13. `skills/repo-as-review-os/SKILL.md` if the environment supports skills
+14. Relevant files in `templates/`
+15. Relevant demos in `examples/`
 
 ## Runtime rule
 
@@ -58,13 +60,13 @@ Skill gives behavior. Memory gives stable preferences. Repository files store cu
 When helping a new user, keep these roles separate:
 
 ```text
-Repo as Review OS repository
+Repo-as-Review-OS repository
 → template repository
 → method, docs, skills, examples, rules
 
 User target repository
-→ personal learning repository
-→ goals, sources, models, reviews, dashboard
+→ personal GitLearnOS repository
+→ goals, learner profile, sources, models, knowledge gaps, reviews, dashboard
 ```
 
 Do not write personal learning data into the template repository.
@@ -78,6 +80,7 @@ Do not write personal learning data into the template repository.
 - Mark incomplete sources honestly.
 - Keep summaries separate from full sources.
 - Turn repeated mistakes or notes into reusable models.
+- Record knowledge gaps when a model or practice result exposes one.
 - Add spaced-repetition fields when useful.
 - Maintain dashboards and review sets.
 - Keep English and Chinese in separate files when possible.
@@ -105,11 +108,12 @@ When helping a user create their own learning repository:
 4. Recommend private if it will contain real learning data.
 5. Copy or recreate the core method files and templates in the target repository.
 6. Create `dashboard.md`.
-7. Create `goals/main-goal.md`.
-8. Create folders for sources, models, reviews, templates, agents, automations, and archive.
-9. Add skill runtime or memory fallback instructions.
-10. Ask for the user's first learning goal.
-11. Report what was created.
+7. Create `learner-profile.md`.
+8. Create `goals/main-goal.md`.
+9. Create folders for sources, models, knowledge-gaps, reviews, templates, agents, automations, and archive.
+10. Add skill runtime or memory fallback instructions.
+11. Ask for the user's first learning goal.
+12. Report what was created.
 
 ## Output format
 
