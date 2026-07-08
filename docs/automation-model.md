@@ -80,7 +80,7 @@ When they conflict, trust GitHub first and update the memory summary or project 
 
 A desktop agent, Codex, external memory tool, or local tool can be added only when the user wants more advanced automation, bulk file edits, local retrieval, scripts, or a computer-based workflow. Do not present it as the default requirement.
 
-For memory rules, see `docs/memory-policy.md`.
+For adaptive memory and learner profile rules, see `docs/adaptive-memory-and-learner-profile.md`.
 
 ## Visual and math work
 
