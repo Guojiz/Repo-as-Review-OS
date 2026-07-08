@@ -33,7 +33,7 @@ Do not assume a multi-agent system. Other tools may exist, but GitLearnOS should
 7. [docs/local-runtime-note.md](docs/local-runtime-note.md)
 8. [docs/automation-runtime-matrix.md](docs/automation-runtime-matrix.md)
 9. [docs/adaptive-memory-and-learner-profile.md](docs/adaptive-memory-and-learner-profile.md)
-10. [docs/lightweight-skg-dpm.md](docs/lightweight-skg-dpm.md)
+10. [docs/source-and-learner-state.md](docs/source-and-learner-state.md)
 11. [AGENTS.md](AGENTS.md)
 
 ## GitHub role
