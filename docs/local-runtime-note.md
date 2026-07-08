@@ -45,6 +45,35 @@ Local folders = protected source and working-file layer
 
 The project space can help ChatGPT read a textbook or stable notes, but the repository should remain the source of truth for the learning system.
 
+## ChatGPT memory and GitHub sync
+
+ChatGPT memory is useful for stable preferences and a compact learner summary.
+
+GitHub should remain the source of truth for concrete learning state:
+
+```text
+ChatGPT memory
+→ stable preferences, explanation style, broad learner summary
+
+GitHub repository
+→ goals, source records, models, reviews, generated practice, dashboard, handoff notes, and version history
+```
+
+They should be kept aligned, but they should not be treated as the same thing.
+
+Use this rule:
+
+```text
+If GitHub and memory conflict, trust GitHub first.
+Then update or correct the memory summary if needed.
+```
+
+A useful maintenance step is to compare the current ChatGPT memory or project instructions with the repository state:
+
+- if memory contains a stable preference missing from the repository, record it in the appropriate repo note;
+- if GitHub contains a newer learner-state summary, update the memory or project instructions;
+- if either side is uncertain, ask the user before treating it as permanent.
+
 ## For ChatGPT Plus users
 
 A user does not always need Codex for daily learning.
@@ -54,6 +83,7 @@ A practical setup can be:
 ```text
 ChatGPT Project
 + selected fixed materials
++ ChatGPT memory for stable preferences
 + Repo as Review OS instructions
 + GitHub repository
 + local subject folders
@@ -64,6 +94,21 @@ ChatGPT can handle many daily tasks when the GitHub connector or another safe wr
 Without repository writeback, ChatGPT Project should be treated as a reading and conversation space, not as proof that the learning repository has been updated.
 
 Codex or another coding agent is useful for larger repository operations, but it is not required for every review session.
+
+## Visual and math work
+
+Do not add a separate desktop agent just for visuals by default.
+
+If the current ChatGPT environment can create diagrams, images, tables, code, or interactive explanations, use those built-in abilities first.
+
+For math visualization, the AI may create:
+
+- a Desmos-ready expression list;
+- a small HTML demo;
+- Python code;
+- a diagram or step-by-step visual explanation.
+
+Only write the artifact back to GitHub when the current chat actually has repository write access.
 
 ## Local runtime is not the same as GitHub runtime
 
@@ -135,8 +180,10 @@ It should ask for the relevant excerpt or mark the source as incomplete.
 
 GitHub is the operating layer.
 
+ChatGPT memory is the compact preference and learner-summary layer.
+
 The AI project is the fixed-material and conversation layer.
 
 Local folders are the protected working layer.
 
-Do not collapse all three into one place.
+Do not collapse all layers into one place.
