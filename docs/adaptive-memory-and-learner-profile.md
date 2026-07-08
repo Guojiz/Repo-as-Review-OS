@@ -1,0 +1,202 @@
+# Adaptive Memory and Learner Profile
+
+Repo as Review OS binds memory to the learning repository.
+
+The goal is not to force every AI platform to have the same memory feature. The goal is to keep the learner state portable, inspectable, and adaptable across tools.
+
+## Memory layers
+
+```text
+GitHub repository
+→ source of truth for learning state, history, files, indexes, learner-profile.md, reviews, and handoff notes
+
+learner-profile.md
+→ compact repository-level learner memory
+
+Native AI memory
+→ stable preferences and durable learner summary when the platform supports it
+
+Project instructions
+→ stable operating rules and fixed materials
+
+External/local memory tools
+→ optional enhanced retrieval for desktop agents, Claude Code, Codex, local models, or long-running workflows
+
+Current chat
+→ temporary workspace only
+```
+
+## Active and passive memory
+
+Native AI memory is relatively active: the model may surface it automatically during future sessions.
+
+GitHub is more passive: the AI must read or search the repository to recover the state.
+
+Both matter.
+
+```text
+Active memory
+→ helps the model remember stable preferences without being prompted
+
+Passive repository memory
+→ gives inspectable, versioned, source-grounded learning state
+```
+
+The AI should keep the two aligned without pretending they are the same thing.
+
+## Source of truth rule
+
+GitHub remains the source of truth.
+
+Native AI memory, project instructions, and external memory tools may accelerate retrieval, but they should not silently override repository files.
+
+```text
+If memory conflicts with GitHub, trust GitHub first.
+Then propose a memory update.
+```
+
+## What belongs in native AI memory
+
+Use native memory only for stable information:
+
+- long-term learning goals;
+- stable preferences;
+- preferred explanation style;
+- durable constraints;
+- repeated mistake patterns;
+- repository operating preferences;
+- stable privacy boundaries.
+
+Do not store fast-changing or sensitive state there by default.
+
+## What belongs in learner-profile.md
+
+Use `learner-profile.md` for the current inspectable learner state:
+
+- current goals;
+- active subjects;
+- strong areas;
+- active weak points;
+- repeated mistake patterns;
+- preferred explanation style;
+- memory sync notes;
+- recent progress;
+- next priorities;
+- adaptive routing keywords.
+
+This file should be updated by the Organizer + Critic + Revision routine.
+
+## What belongs in external memory tools
+
+External memory tools are optional.
+
+They are useful when the user works with:
+
+- Claude Code;
+- Codex CLI;
+- Cursor or another IDE;
+- local agents;
+- long-running desktop workflows;
+- large conversation histories;
+- local-first retrieval requirements.
+
+External memory is best used for recall and retrieval, not as the canonical learning-state editor.
+
+Good use:
+
+```text
+retrieve old conversations
+recover past decisions
+search long local histories
+load relevant context into the current agent session
+```
+
+Bad use:
+
+```text
+replace GitHub as source of truth
+hide learning state inside a private memory database
+pretend all agents share the same memory
+store sensitive material without user choice
+```
+
+## MemPalace-style local memory
+
+A MemPalace-style memory layer can be treated as an optional enhanced memory backend.
+
+Use it when the learner wants local-first recall for desktop or code-agent workflows.
+
+Recommended boundary:
+
+```text
+MemPalace-style memory
+→ local recall layer for conversations, project history, and old decisions
+
+Repo as Review OS
+→ learning operating layer and source of truth
+
+learner-profile.md
+→ compact learner-state anchor
+
+Native AI memory
+→ stable preference cache
+```
+
+Do not make any external memory backend mandatory.
+
+## Self-adaptive memory check
+
+Before deciding how to remember something, the AI should ask:
+
+```text
+1. Is this stable or temporary?
+2. Is it private or public-safe?
+3. Should it be inspectable in GitHub?
+4. Should it be summarized into native AI memory?
+5. Should it only stay in the current chat?
+6. Is an external local memory tool available?
+7. Would storing this create stale or misleading memory later?
+```
+
+## Memory update workflow
+
+When meaningful learning state changes:
+
+1. update the relevant GitHub files;
+2. update `learner-profile.md` if the change is durable;
+3. suggest a native memory update only for stable preferences or repeated patterns;
+4. if an external memory tool exists, let it index or recall supporting history;
+5. report what changed and what was not changed.
+
+## Prompt pattern
+
+```text
+Identify your memory environment first.
+
+Report:
+- runtime:
+- native memory: yes / no / unknown
+- project instructions: yes / no / unknown
+- GitHub access: write / read / pasted excerpt / none
+- external memory tool: yes / no / unknown
+
+Then decide where each piece of information belongs:
+- GitHub source of truth
+- learner-profile.md
+- native AI memory
+- project instructions
+- external memory retrieval
+- current chat only
+
+Do not silently store or overwrite memory. If uncertain, ask or mark as pending.
+```
+
+## Rule of thumb
+
+```text
+GitHub remembers the system.
+learner-profile.md remembers the learner.
+Native AI memory remembers stable preferences.
+External memory retrieves old context.
+Current chat does the current work.
+```
