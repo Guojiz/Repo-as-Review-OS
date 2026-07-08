@@ -1,8 +1,10 @@
 # 早期公开说明
 
-Repo as Review OS 目前是早期公开版本。
+GitLearnOS 目前是早期公开版本。
 
 它已经可以让别人查看、复制，并交给 AI 工具试运行，但还不应该被当成最终成品。
+
+仓库名仍然是 `Repo-as-Review-OS`，用于保持链接连续。
 
 ## 已经完成
 
@@ -22,7 +24,7 @@ Repo as Review OS 目前是早期公开版本。
 
 ```text
 请阅读 https://github.com/Guojiz/Repo-as-Review-OS
-先读 OPERATING-MODEL.zh-CN.md、README.zh-CN.md、AGENT-RUNTIME.zh-CN.md，以及 examples/zh-CN/demo-zhongkao-lite 下的 demo。请解释我如何用一个 GitHub 仓库搭建自己的学习 OS。
+先读 START-HERE.zh-CN.md、README.zh-CN.md、QUICKSTART.zh-CN.md、AGENT-RUNTIME.zh-CN.md，以及 examples/zh-CN/demo-zhongkao-lite 下的 demo。请解释我如何用一个 GitHub 仓库搭建自己的 GitLearnOS。
 ```
 
 ## 安全提醒
