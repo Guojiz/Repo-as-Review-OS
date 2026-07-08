@@ -56,7 +56,7 @@ https://github.com/Guojiz/Repo-as-Review-OS
 
 如果你支持 skill，请使用 skills/repo-as-review-os/SKILL.md。如果不支持 skill，请使用 docs/zh-CN/skill-and-memory-runtime.md 里的记忆回退方案。
 
-请创建一个最小学习仓库结构，包括 dashboard.md、learner-profile.md、goals/main-goal.md、sources/、models/、knowledge-gaps/、reviews/、templates/、agents/、automations/ 和 archive/。创建具体内容前，先问我的第一个学习目标。每次创建或修改文件后都要汇报。
+请创建一个最小学习仓库结构，包括 dashboard.md、learner-profile.md、goals/main-goal.md、sources/、models/、knowledge-gaps/、reviews/、templates/、agents/、automations/ 和 archive/。如果我已经给出学习目标，直接使用；如果没有，再问我的第一个学习目标。每次创建或修改文件后都要汇报。
 ```
 
 ### 4. 告诉 AI 你的第一个目标
