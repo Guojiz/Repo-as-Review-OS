@@ -10,9 +10,21 @@ Desktop enhanced agent runtime
 → OpenHanako / HanaAgent
 ```
 
-Claude, Codex, Claude Code, Cursor, and other code or CLI agents may still be compatible with the GitLearnOS file structure, but this repository does not maintain detailed setup guides for them. Users who prefer those ecosystems should adapt the general repository protocol themselves or use another specialized agentic tutoring / coding-agent workflow.
+Claude Code, Codex, Cursor, and other code or CLI agents are not maintained here as daily GitLearnOS tutoring runtimes.
 
-The goal is not to force every platform into the same shape. The goal is to make the supported platforms respect the same GitLearnOS learning loop:
+They do have one useful role:
+
+```text
+OpenHanako deployment assistant
+→ inspect OpenHanako source
+→ install dependencies
+→ run and debug HanaAgent
+→ prepare the desktop runtime
+```
+
+For that role, see `docs/deploy-openhanako-with-code-agents.md`.
+
+The supported platforms should respect the same GitLearnOS learning loop:
 
 ```text
 source → model → knowledge gap → personalized practice → review result → learner-profile.md → next review
@@ -40,13 +52,19 @@ Do not claim repository edits, local-file reading, scheduled work, or long-term 
 
 ```text
 ChatGPT
-→ actively supported daily platform for reasoning, explanation, writing, memory alignment, GitHub-assisted work, and light automation handoff
+→ actively supported daily learning platform
+→ reasoning, explanation, writing, memory alignment, GitHub-assisted work, and light automation handoff
 
 OpenHanako / HanaAgent
-→ actively supported desktop enhanced runtime for local files, multi-agent work, Skills, scheduled tasks, browser/desktop actions, and deeper file automation
+→ actively supported desktop enhanced runtime
+→ local files, multi-agent work, Skills, scheduled tasks, browser/desktop actions, and deeper file automation
 
-Claude / Codex / Claude Code / Cursor / CLI agents
-→ compatible in principle, but not detailed here; use external ecosystem-specific workflows if you prefer them
+Claude Code / Codex / Cursor / CLI agents
+→ supported only as OpenHanako deployment and source-code assistants
+→ not maintained here as daily GitLearnOS tutoring platforms
+
+Claude native platform
+→ compatible in principle, but not detailed here; users who prefer it should use external ecosystem-specific workflows or maintain their own adaptation
 ```
 
 ChatGPT is treated as a native AI platform, not as a desktop runtime.
@@ -251,8 +269,6 @@ Local folders keep original materials. GitHub keeps the inspectable learning sta
 
 ### 3. Configure the Maintainer agent
 
-System / personality instruction:
-
 ```text
 You are the GitLearnOS Maintainer.
 
@@ -276,8 +292,6 @@ Knowledge gaps connect models to future practice.
 
 ### 4. Configure the Source & Model Extractor agent
 
-Instruction:
-
 ```text
 You are the GitLearnOS Source & Model Extractor.
 
@@ -300,8 +314,6 @@ knowledge-gaps/
 
 ### 5. Configure the Practice & Review Coach agent
 
-Instruction:
-
 ```text
 You are the GitLearnOS Practice & Review Coach.
 
@@ -320,8 +332,6 @@ automations/practice-generator/
 ```
 
 ### 6. Configure the optional Critic agent
-
-Instruction:
 
 ```text
 You are the GitLearnOS Critic.
@@ -396,11 +406,24 @@ ask before uploading private material
 ask before publishing real learning records
 ```
 
-## Limited compatibility note
+## Deploy OpenHanako with Claude Code or Codex
 
-Claude, Codex, Claude Code, Cursor, and other code or CLI agents can still read and write a GitLearnOS repository if they understand the file structure.
+Claude Code, Codex, Cursor, and similar tools can help deploy OpenHanako itself.
 
-This repository does not provide detailed configuration for those platforms. Keep their use to external workflows, coding tasks, or user-maintained adaptations.
+Use them for:
+
+```text
+source inspection
+Node version checks
+dependency installation
+Electron startup debugging
+server debugging
+build or packaging troubleshooting
+```
+
+Do not use them as the maintained daily GitLearnOS tutoring layer.
+
+See `docs/deploy-openhanako-with-code-agents.md` for the source-guided deployment checklist and safe prompt.
 
 ## Final choice rule
 
@@ -411,8 +434,8 @@ Daily learning conversation
 Desktop multi-agent and local-file workflow
 → OpenHanako / HanaAgent
 
-External or user-maintained workflows
-→ Claude / Codex / Claude Code / Cursor / CLI agent
+Deploying or debugging OpenHanako source
+→ Claude Code / Codex / Cursor / CLI code agent
 
 Long-term learning state
 → GitHub target repository
