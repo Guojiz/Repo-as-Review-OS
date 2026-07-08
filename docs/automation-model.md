@@ -40,28 +40,63 @@ Tool access → real repository work may begin.
 
 Do not overbuild many small automations.
 
-For most learners, two recurring routines are enough:
+For most learners, two routines are enough:
 
 ```text
-1. Repository Organizer
-   → clean, index, update dashboard, update learner state
+1. Organizer + Critic + Revision
+   → clean indexes, check weak points, critique stale or low-quality records, revise the repository state
 
-2. Practice Generator + Critic
-   → generate practice from weak points, check quality, write approved tasks back
+2. Practice Generator
+   → generate review or practice from weak points, old models, sources, and review schedule
 ```
 
-On desktop or in a tool-enabled agent, these routines can be more complex because the agent may read and write files directly.
+The first routine maintains the learning system. The second routine creates new practice.
 
-On ChatGPT mobile/app scheduled automation, keep the prompt simple. Treat it as a starter or handoff card unless the current chat actually has repository access.
+On ChatGPT mobile/app automation, keep these as simple scheduled starters or handoff cards unless the current chat actually has repository access.
+
+On desktop or in a tool-enabled environment, the same routines may run with deeper file access and longer repository checks.
+
+## ChatGPT-first workflow
+
+A separate desktop agent is optional, not required.
+
+For many users, the main workflow can be:
+
+```text
+ChatGPT app
+→ ChatGPT memory for stable preferences and learner summary
+→ GitHub repository for durable learning state
+→ optional project space for fixed materials
+```
+
+ChatGPT memory and GitHub should stay aligned:
+
+```text
+GitHub = source of truth for files, indexes, review records, and history
+ChatGPT memory = compact stable summary and preferences
+```
+
+When they conflict, trust GitHub first and update the memory summary or project instructions later.
+
+A desktop agent, Codex, or local tool can be added only when the user wants more advanced automation, bulk file edits, local scripts, or a computer-based workflow. Do not present it as the default requirement.
+
+## Visual and math work
+
+Visual explanations do not require a separate agent by default.
+
+If ChatGPT can create diagrams, images, code, tables, or interactive explanations in the current environment, use those built-in abilities first.
+
+For math visualization, the AI may also produce a Desmos-ready expression list, a small HTML demo, or Python code when useful. Save only the useful artifact or link back into the repository when the current environment can write to GitHub.
 
 ## ChatGPT app vs desktop agents
 
 ```text
 ChatGPT app / mobile automation
-→ best for reminders, short handoff cards, and user-triggered continuation
+→ best for reminders, short handoff cards, user-triggered continuation, and memory/GitHub alignment checks
 → should not pretend it updated GitHub unless GitHub tools were actually used
 
 Desktop agent / Codex / tool-enabled environment
+→ optional enhanced mode
 → can run longer repository checks
 → can read many files
 → can write reports, practice sets, and dashboard updates
@@ -88,23 +123,38 @@ End with a clear warning:
 This automation itself does not mean the repository task has been completed. Continue in a tool-enabled chat or agent to execute it.
 ```
 
-## Automation 1: Repository Organizer
+## Automation 1: Organizer + Critic + Revision
 
-Purpose: keep the repository clean and usable.
+Purpose: keep the repository clean, accurate, and useful.
+
+This combines three roles in one routine:
+
+```text
+Organizer
+→ update indexes, dashboard links, stale TODOs, and review fields
+
+Critic
+→ find vague notes, weak source records, duplicated models, poor practice items, and unsupported summaries
+
+Revision
+→ make small safe fixes, queue uncertain fixes, and report what changed
+```
 
 If running as a worker:
 
-1. read dashboards and indexes;
-2. find incomplete files;
-3. find stale TODO items;
+1. read dashboard and indexes;
+2. check goals, sources, models, reviews, automations, and any learner-state/profile file;
+3. find incomplete files, stale TODO items, weak source records, duplicated models, and old review items;
 4. update learner state or profile files if the repository uses them;
-5. update dashboards;
-6. report changes.
+5. revise safe low-risk issues;
+6. queue uncertain fixes instead of guessing;
+7. update dashboard links and review fields;
+8. report every changed file.
 
 Output can be written to:
 
 ```text
-automations/repository-organizer/YYYY-MM-DD.md
+automations/organizer-critic/YYYY-MM-DD.md
 ```
 
 If running as prompt-only automation, output a handoff card instead.
@@ -112,38 +162,33 @@ If running as prompt-only automation, output a handoff card instead.
 Suggested prompt:
 
 ```text
-Check my learning repository. First identify whether you have repository tools.
+Check my learning repository as Organizer + Critic + Revision.
+
+First identify whether you have repository tools.
 
 If you do not have repository tools, output only a handoff card: what to inspect first, what risks to check, and what command I should send next.
 
-If you do have repository tools, read dashboard.md, goals/, sources/, models/, reviews/, automations/, and any learner-state/profile file. Update stale indexes, missing review fields, weak-point records, and dashboard links. Do not rewrite learning content unnecessarily. Report every file changed.
+If you do have repository tools, read dashboard.md, goals/, sources/, models/, reviews/, automations/, and any learner-state/profile file. Update stale indexes, missing review fields, weak-point records, and dashboard links. Critique unclear notes, duplicated models, poor source records, and old practice items. Make small safe revisions, queue uncertain fixes, and report every file changed.
 ```
 
-## Automation 2: Practice Generator + Critic
+## Automation 2: Practice Generator
 
-Purpose: create useful practice from repository history, then check it before treating it as approved.
+Purpose: create useful practice from repository history.
 
-This combines two roles in one routine:
-
-```text
-Generator
-→ proposes practice from weak points, old models, sources, and review schedule
-
-Critic
-→ checks fit, clarity, difficulty, answer quality, duplication, and source grounding
-```
+This routine should use the current repository state rather than inventing a generic quiz.
 
 If running as a worker:
 
-1. read recent problem cards or review records;
+1. read recent review records;
 2. read old weak points;
 3. read active models;
-4. check what has not appeared recently;
-5. generate a small review set;
-6. critique the generated questions;
-7. revise or reject weak questions;
-8. write approved practice back to the repository;
-9. update review schedule or dashboard fields.
+4. read source records if needed;
+5. check what has not appeared recently;
+6. generate a small review set;
+7. include answers and explanations;
+8. link questions to weak points, models, or sources;
+9. write the result back to the repository;
+10. update review schedule or dashboard fields.
 
 Output can be written to:
 
@@ -160,7 +205,15 @@ Create a review/practice set from my learning repository.
 
 First identify whether you have repository tools. If not, output only a handoff card.
 
-If you have tools, read recent reviews, models, weak points, sources, and dashboard records. Generate a small practice set from active weak points and old material due for review. Then switch into critic mode: reject unclear, duplicated, unsupported, or badly calibrated questions. Keep only approved questions, include answers and explanations, write the result back, and report every changed file.
+If you have tools, read recent reviews, models, weak points, sources, and dashboard records. Generate a small practice set from active weak points and old material due for review. Include answers, explanations, linked source/model/review records, and suggested next review dates. Write the result back and report every changed file.
+```
+
+## Memory and GitHub sync check
+
+Add this check to either routine when using ChatGPT:
+
+```text
+Compare the current ChatGPT memory/project instructions with the GitHub repository state. If memory contains a stable preference that is missing from the repository, suggest where it should be recorded. If GitHub contains a newer learner-state summary, suggest updating memory or project instructions. Do not silently overwrite either side.
 ```
 
 ## Handoff card pattern
