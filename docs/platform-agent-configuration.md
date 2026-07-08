@@ -1,19 +1,18 @@
 # Platform Agent Configuration
 
-This guide explains how to configure GitLearnOS across three recommended runtime families:
+This guide gives detailed GitLearnOS configuration for the two runtimes this repository actively supports:
 
 ```text
 Daily native AI platform
-→ ChatGPT or Claude
+→ ChatGPT
 
 Desktop enhanced agent runtime
 → OpenHanako / HanaAgent
-
-Code or CLI assistant
-→ Codex, Claude Code, Cursor, or other repository-aware tools
 ```
 
-The goal is not to force every platform into the same shape. The goal is to make each platform respect the same GitLearnOS learning loop:
+Claude, Codex, Claude Code, Cursor, and other code or CLI agents may still be compatible with the GitLearnOS file structure, but this repository does not maintain detailed setup guides for them. Users who prefer those ecosystems should adapt the general repository protocol themselves or use another specialized agentic tutoring / coding-agent workflow.
+
+The goal is not to force every platform into the same shape. The goal is to make the supported platforms respect the same GitLearnOS learning loop:
 
 ```text
 source → model → knowledge gap → personalized practice → review result → learner-profile.md → next review
@@ -41,19 +40,16 @@ Do not claim repository edits, local-file reading, scheduled work, or long-term 
 
 ```text
 ChatGPT
-→ recommended daily platform for reasoning, writing, explanation, memory alignment, GitHub-assisted work, and light automation handoff
-
-Claude
-→ recommended daily platform for reasoning, writing, long-context work, project-style organization, and GitHub/MCP-assisted work when available
+→ actively supported daily platform for reasoning, explanation, writing, memory alignment, GitHub-assisted work, and light automation handoff
 
 OpenHanako / HanaAgent
-→ recommended desktop enhanced runtime for local files, multi-agent work, skills, scheduled tasks, browser/desktop actions, and deeper file automation
+→ actively supported desktop enhanced runtime for local files, multi-agent work, Skills, scheduled tasks, browser/desktop actions, and deeper file automation
 
-Codex / Claude Code / Cursor / CLI agents
-→ useful for coding, repository cleanup, scripts, bulk edits, and developer workflows
+Claude / Codex / Claude Code / Cursor / CLI agents
+→ compatible in principle, but not detailed here; use external ecosystem-specific workflows if you prefer them
 ```
 
-ChatGPT and Claude are not described here as desktop runtimes. Use their native platform features directly.
+ChatGPT is treated as a native AI platform, not as a desktop runtime.
 
 OpenHanako is the recommended desktop-side enhanced agent environment when the learner wants a computer-resident multi-agent system.
 
@@ -155,64 +151,6 @@ Use this wording:
 ```text
 This is a GitLearnOS handoff starter. If you do not have live GitHub access, do not claim repository work is done. Tell me what to inspect next and what command to send in a tool-enabled chat.
 ```
-
-## Claude native configuration
-
-Use Claude when the learner wants strong reasoning, writing, long-context work, and project-style organization.
-
-### 1. Create a Claude project or equivalent workspace
-
-Add only stable instructions and selected reference files.
-
-Do not treat the Claude project as the learning repository.
-
-Changing learning state belongs in GitHub:
-
-```text
-learner-profile.md
-sources/
-models/
-knowledge-gaps/
-reviews/
-dashboard.md
-```
-
-### 2. Add Claude project instructions
-
-```text
-You are helping me run GitLearnOS.
-
-Use my GitHub target repository as the source of truth. Use project files as reference material only.
-
-Before acting, identify whether you have GitHub access, local file access, memory/project instruction support, MCP/tools, and write permission.
-
-Follow this loop:
-source → model → knowledge gap → personalized practice → review result → learner-profile.md → next review.
-
-Do not claim file edits unless you can name the changed files.
-```
-
-### 3. Connect GitHub or MCP if available
-
-Ask Claude to confirm capability:
-
-```text
-Can you read my target GitLearnOS repository? Can you write to it? Can you use MCP or a connector? Can you access local files? Report the boundary before doing work.
-```
-
-### 4. Daily use prompt
-
-```text
-Read my GitLearnOS state: dashboard.md, learner-profile.md, active goals, recent models, knowledge-gaps/, and reviews/.
-
-Generate today's next action and a small practice set from active knowledge gaps. Link each question to a source, model, or learner-profile entry. If you cannot read the repository, ask for the minimum excerpts instead.
-```
-
-### 5. Memory behavior
-
-If Claude has native memory or persistent project context, store only stable preferences and durable patterns.
-
-If it does not, keep the changing learner state in GitHub and ask for repository excerpts when needed.
 
 ## OpenHanako / HanaAgent desktop configuration
 
@@ -458,35 +396,23 @@ ask before uploading private material
 ask before publishing real learning records
 ```
 
-## Code / CLI assistant configuration
+## Limited compatibility note
 
-Use Codex, Claude Code, Cursor, or another CLI/code agent when the task is mostly repository maintenance, scripts, cleanup, or bulk editing.
+Claude, Codex, Claude Code, Cursor, and other code or CLI agents can still read and write a GitLearnOS repository if they understand the file structure.
 
-Do not make them the default daily learning tutor unless the learner prefers a developer workflow.
-
-Recommended prompt:
-
-```text
-You are maintaining a GitLearnOS repository.
-
-Do not change the template repository unless explicitly asked. Work in the target repository.
-
-Check dashboard.md, learner-profile.md, sources/, models/, knowledge-gaps/, reviews/, and automations/.
-
-Make small reviewable changes. Report every changed file.
-```
+This repository does not provide detailed configuration for those platforms. Keep their use to external workflows, coding tasks, or user-maintained adaptations.
 
 ## Final choice rule
 
 ```text
 Daily learning conversation
-→ ChatGPT or Claude
+→ ChatGPT
 
 Desktop multi-agent and local-file workflow
 → OpenHanako / HanaAgent
 
-Repository scripts, coding, and bulk cleanup
-→ Codex / Claude Code / Cursor / CLI agent
+External or user-maintained workflows
+→ Claude / Codex / Claude Code / Cursor / CLI agent
 
 Long-term learning state
 → GitHub target repository
