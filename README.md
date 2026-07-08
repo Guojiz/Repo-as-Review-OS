@@ -34,7 +34,7 @@ Use the right door:
 
 - **Learner:** read [30-Second Intro](docs/30-second-intro.md), then [QUICKSTART.md](QUICKSTART.md).
 - **AI tool:** read [START-HERE.md](START-HERE.md), [AGENTS.md](AGENTS.md), and [AGENT-RUNTIME.md](AGENT-RUNTIME.md), then follow the runtime-specific links.
-- **Expert or contributor:** read [Product Positioning](docs/product-positioning.md), [Agentic Tutoring Standard](docs/agentic-tutoring-standard.md), [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md), and [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md).
+- **Expert or contributor:** read [Parity with the Original System](docs/parity-with-original-system.md), [Product Positioning](docs/product-positioning.md), [GitLearnOS Evaluation Standard](docs/agentic-tutoring-standard.md), [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md), and [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md).
 
 Core model:
 
@@ -52,9 +52,9 @@ goal
 
 ## See the demos first
 
+- [Chinese exam-math demo](examples/zh-CN/demo-zhongkao-lite/)
 - [English research reading demo](examples/en/demo-research-reading-lite/)
 - [English SAT prep demo](examples/en/demo-sat-lite/)
-- [Chinese exam-math demo](examples/zh-CN/demo-zhongkao-lite/)
 
 They show how a learning goal becomes:
 
@@ -68,6 +68,8 @@ main goal
 → next review
 ```
 
+The main product baseline is the original `zhongkao` learning repository system and the cleaned `demo-zhongkao-lite` example. External tutoring research is a reference signal, not the identity of the project.
+
 ## Copy this to an AI tool
 
 ```text
@@ -75,7 +77,7 @@ Read this template repository: https://github.com/Guojiz/Repo-as-Review-OS
 
 The repository is named Repo-as-Review-OS, but the product concept is GitLearnOS.
 
-Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, AGENTS.md, docs/runtime-self-adaptation.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/lightweight-skg-dpm.md. Follow linked documents only when they are relevant to your current runtime.
+Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, AGENTS.md, docs/parity-with-original-system.md, docs/runtime-self-adaptation.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/lightweight-skg-dpm.md. Follow linked documents only when they are relevant to your current runtime.
 
 Help me build my own GitLearnOS. First explain what it is. Then identify your current runtime, permission boundary, memory capability, GitHub access, and any manual steps I must complete.
 
@@ -141,15 +143,15 @@ The static layer grounds answers in materials. The dynamic layer adapts explanat
 
 See [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md) for the lightweight mapping.
 
-## Research signal
+## External research signal
 
-HKU-led open research on DeepTutor reports that combining static knowledge grounding, dynamic learner memory, and closed-loop tutoring improved personalized tutoring quality by **10.8%** over the strongest baseline and achieved an average **28.6%** gain in general reasoning across five backbone models. GitLearnOS does not reproduce that heavy platform. It applies the same broad principle in a lighter GitHub-native form: sources, models, knowledge gaps, learner profile, practice, review, and memory alignment stay inspectable in the learner's own repository. See arXiv:2604.26962.
+DeepTutor reports that combining static knowledge grounding, dynamic learner memory, and closed-loop tutoring improved personalized tutoring quality by **10.8%** over the strongest baseline and achieved an average **28.6%** gain in general reasoning across five backbone models. This is used only as supporting evidence that source grounding, learner state, and closed-loop practice are valuable design ideas. GitLearnOS does not claim to reproduce DeepTutor, HKU's platform, or any full tutoring runtime. See arXiv:2604.26962.
 
-## Standard
+## Evaluation standard
 
-This project should be judged against modern agentic tutoring systems, not against ordinary note templates.
+This project should first be judged against the original `zhongkao` learning repository system: can it preserve the learning loop, file discipline, review habits, AI handoff, and inspectable progress in a lighter reusable template?
 
-See [Agentic Tutoring Standard](docs/agentic-tutoring-standard.md) for the checklist used to evaluate unified context, source grounding, learner state, practice generation, critique, writing, visuals, repetition, handoff, inspectability, and honest runtime boundaries.
+See [GitLearnOS Evaluation Standard](docs/agentic-tutoring-standard.md) and [Parity with the Original System](docs/parity-with-original-system.md). External tutoring research is a design reference, not the main benchmark.
 
 ## Why GitHub
 
@@ -221,6 +223,7 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 - [docs/what-goes-into-github.md](docs/what-goes-into-github.md): What goes into GitHub
 - [docs/customer-clarity-checklist.md](docs/customer-clarity-checklist.md): Customer clarity checklist
 - [docs/runtime-self-adaptation.md](docs/runtime-self-adaptation.md): Runtime self-adaptation guide
+- [docs/parity-with-original-system.md](docs/parity-with-original-system.md): Parity with the original zhongkao system
 - [OPERATING-MODEL.md](OPERATING-MODEL.md): Overall operating model
 - [AGENT-RUNTIME.md](AGENT-RUNTIME.md): Runtime guide for AI tools
 - [AGENTS.md](AGENTS.md): Agent handoff rules
@@ -229,17 +232,17 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 - [docs/skill-and-memory-runtime.md](docs/skill-and-memory-runtime.md): Skill and memory runtime guide
 - [docs/adaptive-memory-and-learner-profile.md](docs/adaptive-memory-and-learner-profile.md): Adaptive memory and learner profile
 - [docs/lightweight-skg-dpm.md](docs/lightweight-skg-dpm.md): Lightweight static/dynamic personalization map
-- [docs/tutoring-benchmark-source-reference.md](docs/tutoring-benchmark-source-reference.md): Tutoring benchmark source reference
+- [docs/tutoring-benchmark-source-reference.md](docs/tutoring-benchmark-source-reference.md): External tutoring research reference
 - [templates/learner-profile.md](templates/learner-profile.md): Learner profile template
 - [docs/local-runtime-note.md](docs/local-runtime-note.md): Local folders and ChatGPT Project note
 - [docs/automation-runtime-matrix.md](docs/automation-runtime-matrix.md): Automation runtime matrix
-- [docs/agentic-tutoring-standard.md](docs/agentic-tutoring-standard.md): Agentic tutoring standard
+- [docs/agentic-tutoring-standard.md](docs/agentic-tutoring-standard.md): GitLearnOS evaluation standard
 - [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md): Public alpha note
 - [PUBLIC-CHECKLIST.md](PUBLIC-CHECKLIST.md): Public release checklist
 - [CONTRIBUTING.md](CONTRIBUTING.md): Contribution guide
+- [examples/zh-CN/demo-zhongkao-lite/](examples/zh-CN/demo-zhongkao-lite/): Chinese exam-math demo
 - [examples/en/demo-research-reading-lite/](examples/en/demo-research-reading-lite/): English research reading demo
 - [examples/en/demo-sat-lite/](examples/en/demo-sat-lite/): English SAT prep demo
-- [examples/zh-CN/demo-zhongkao-lite/](examples/zh-CN/demo-zhongkao-lite/): Chinese exam-math demo
 - [docs/product-positioning.md](docs/product-positioning.md): Product positioning
 - [docs/why-github.md](docs/why-github.md): Why GitHub
 - [docs/goal-model.md](docs/goal-model.md): Goal model
@@ -269,7 +272,7 @@ gitlearnos/
 
 ## For AI agents
 
-Read [START-HERE.md](START-HERE.md), [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [AGENTS.md](AGENTS.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md), and [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md) before changing files. Follow deeper links only when they are relevant to the current runtime or task.
+Read [START-HERE.md](START-HERE.md), [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [Parity with the Original System](docs/parity-with-original-system.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [AGENTS.md](AGENTS.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md), and [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md) before changing files. Follow deeper links only when they are relevant to the current runtime or task.
 
 ## License
 
