@@ -1,15 +1,15 @@
 ---
 name: repo-as-review-os
-description: Use as the main router for Repo as Review OS tasks. It decides whether to use setup, source handling, model extraction, review generation, or maintenance skills for a goal-driven AI learning repository built on GitHub.
+description: Use as the main router for GitLearnOS tasks. It decides whether to use setup, source handling, model extraction, review generation, or maintenance skills for a goal-driven AI learning repository built on GitHub.
 ---
 
-# Repo as Review OS Skill Router
+# GitLearnOS Skill Router
 
 ## Purpose
 
-Use this as the main entry skill for Repo as Review OS.
+Use this as the main entry skill for GitLearnOS.
 
-Repo as Review OS is a goal-driven AI learning operating system built on GitHub.
+GitLearnOS is a lightweight learning-trace operating system for AI-assisted study, built on GitHub.
 
 It turns one repository into a writable learning timeline that an AI tool can read, edit, track, organize, generate practice from, and maintain over time.
 
@@ -18,7 +18,7 @@ It turns one repository into a writable learning timeline that an AI tool can re
 Use the most specific skill available:
 
 ```text
-repo-as-review-os                  Main router
+repo-as-review-os                  Main router for GitLearnOS
 repo-as-review-os-setup            Create or migrate a learning repository
 repo-as-review-os-source           Turn materials into honest source records
 repo-as-review-os-model            Extract reusable learning models
@@ -40,7 +40,7 @@ For requests like:
 
 ```text
 Set this up.
-Create my learning OS.
+Create my GitLearnOS.
 Copy the template into my repo.
 Migrate my study repository.
 ```
@@ -93,7 +93,7 @@ For requests like:
 Generate a review set.
 Make me a mini test.
 What should I study today?
-Give me practice from my weak points.
+Give me practice from my knowledge gaps.
 ```
 
 ### Use maintenance when the repository needs repair or audit
@@ -121,6 +121,7 @@ goal
 → source
 → split
 → model
+→ knowledge gap
 → practice set
 → spaced repetition
 → automation
@@ -136,7 +137,7 @@ goal
 5. Never invent missing material.
 6. Use private repositories for real learning data.
 7. Write back only when the output has future value.
-8. Update dashboard or review fields when appropriate.
+8. Update dashboard, learner profile, knowledge-gap records, or review fields when appropriate.
 9. Report every file created or changed.
 
 ## If no subskill is available
@@ -148,6 +149,7 @@ task arrives
 → check goal
 → check source
 → check similar models
+→ check knowledge gaps
 → answer or generate
 → write back if valuable
 → update index or dashboard
@@ -162,7 +164,7 @@ Use memory, custom instructions, project instructions, or repository-level agent
 Suggested memory:
 
 ```text
-Use GitHub as the main operating layer for my personal learning OS. Treat local files as protected source material. Do not invent missing sources. Organize learning around goals, source records, reusable models, spaced repetition, dashboards, and generated practice. Report every repository change. If a source is incomplete, label it honestly and add it to a queue instead of pretending it is complete.
+Use GitHub as the main operating layer for my GitLearnOS. Treat local files as protected source material. Do not invent missing sources. Organize learning around goals, source records, reusable models, knowledge gaps, learner profile, spaced repetition, dashboards, and generated practice. Report every repository change. If a source is incomplete, label it honestly and add it to a queue instead of pretending it is complete.
 ```
 
 ## Output standard
