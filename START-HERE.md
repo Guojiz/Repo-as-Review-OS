@@ -11,7 +11,7 @@ Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
 
 The repository is named Repo-as-Review-OS for continuity. The product concept is GitLearnOS.
 
-Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, AGENTS.md, docs/runtime-self-adaptation.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/lightweight-skg-dpm.md. Follow linked documents only when they are relevant to your current runtime.
+Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, AGENTS.md, docs/runtime-self-adaptation.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/source-and-learner-state.md. Follow linked documents only when they are relevant to your current runtime.
 
 Help me build my own GitLearnOS. First explain what it is, then identify your current runtime, memory capability, permission boundary, GitHub access, and any manual steps I must complete. Then guide me to create or choose one target GitHub repository.
 
@@ -32,7 +32,7 @@ After that, create goal files, learner-profile.md, folder structure, source rule
 6. Read `AGENTS.md`.
 7. Read `docs/skill-and-memory-runtime.md`.
 8. Read `docs/adaptive-memory-and-learner-profile.md`.
-9. Read `docs/lightweight-skg-dpm.md`.
+9. Read `docs/source-and-learner-state.md`.
 10. Explain the system to the user.
 11. Identify the current runtime, memory capability, file access, and permission boundary.
 12. Separate the template repository from the target learning repository.
