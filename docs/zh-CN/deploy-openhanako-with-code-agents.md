@@ -15,8 +15,8 @@ OpenHanako 跑起来以后，GitLearnOS 的桌面端工作流应该回到 OpenHa
 ## 边界
 
 ```text
-ChatGPT
-→ 日常 GitLearnOS 学习平台
+ChatGPT / Claude
+→ 原生日常 GitLearnOS 学习平台
 
 OpenHanako / HanaAgent
 → 桌面端多 Agent、本地文件和更深入自动化运行时
@@ -29,83 +29,81 @@ Claude Code / Codex / Cursor / CLI agents
 
 应该用它们来阅读 OpenHanako 源码、安装依赖、运行脚本、诊断构建错误，并准备本地 OpenHanako 环境。
 
-## OpenHanako 源码显示了什么
+## 源码核验规则
 
-OpenHanako 是 Electron + React + Vite + Node 应用。
+OpenHanako 是外部上游项目。它的文件、脚本和 Node 要求可能变化。
 
-根目录 `package.json` 显示：
-
-```text
-name: hanako
-main: desktop/bootstrap.cjs
-bin: hana → cli/entry.ts
-Node engine: >=24.12.0 <25
-```
-
-重要脚本包括：
+运行任何命令前，代码 Agent 必须先检查当前上游源码，尤其是：
 
 ```text
-npm run start
-npm run start:dev
-npm run start:vite
-npm run cli
-npm run server
-npm run build:client
-npm run build:server
-npm run pack
-npm run dist
-npm run dist:win
-npm run dist:linux
-npm run typecheck
-npm run test
+README.md
+package.json
+scripts/launch.js
+scripts/dev-env.js
+server/index.ts
+core/agent.ts
+lib/tools/subagent-tool.ts
+lib/tools/channel-tool.ts
 ```
 
-项目通过 `package.json` 里的脚本构建 renderer、preload、theme、main、server、computer-use helper 和平台安装包。
+本指南里的值是路线提示，不是永久事实。如果 `package.json` 和本指南不一致，以当前上游 `package.json` 为准，并汇报差异。
 
-## 源码层部署事实
+## 第一轮检查什么
 
-### Node 版本很重要
+代码 Agent 应该先确认：
 
-OpenHanako 项目级要求 Node `>=24.12.0 <25`。
+```text
+项目名
+Node engine 要求
+可用 npm scripts
+main entry
+CLI entry
+server entry
+launcher 行为
+开发数据目录
+生产数据目录
+```
 
-server 分发构建还会固定一个内置 Node runtime，目前是 `v24.15.0`，并在打包前校验 runtime checksum。
+不要第一轮就扫描整个源码树。先按上面的路线文件检查。
 
-部署 Agent 应该先检查 Node：
+## Node 版本检查
+
+安装前先检查 Node 和 npm：
 
 ```bash
 node -v
 npm -v
 ```
 
+然后和当前 `package.json` 的 `engines` 字段对比。
+
 如果 Node 版本不对，先修 Node，不要一上来改应用源码。
 
-### 开发启动器很重要
+不要从本 GitLearnOS 指南里硬编码 Node 版本。以当前 OpenHanako 源码为准。
 
-OpenHanako 使用 `scripts/launch.js` 作为跨平台启动器，处理 Electron、dev Electron、CLI 和 server 模式。
+## 开发启动器检查
 
-这个启动器会在启动 Electron 前清理 `ELECTRON_RUN_AS_NODE`，因为 VS Code 或 Claude Code 终端可能设置这个变量，导致 Electron 以纯 Node 模式启动失败。
+如果 OpenHanako 提供 `scripts/launch.js` 这样的启动器，优先使用项目脚本，而不是手写原始 Electron 命令。
 
-所以 Claude Code 可以帮助部署，但部署时应该优先使用仓库脚本，而不是手写原始 Electron 命令。
+这可以避免 `ELECTRON_RUN_AS_NODE` 等环境变量导致 Electron 启动异常。
 
-### 开发数据目录
-
-`scripts/dev-env.js` 会把开发数据放到：
+桌面端启动失败时检查：
 
 ```text
-~/.hanako-dev
+scripts/launch.js
+scripts/dev-env.js
+Electron logs
+HANA_HOME
+ELECTRON_RUN_AS_NODE
 ```
 
-OpenHanako README 也说明生产默认数据目录是 `~/.hanako`，开发默认是 `~/.hanako-dev`。
+不要未经确认删除用户数据目录。
 
-部署 Agent 不要未经确认删除这些目录。
+## Server 检查
 
-### Server 架构
+如果源码里有 `server/index.ts` 这样的 server 入口，调试 server 启动前先检查它。
 
-OpenHanako server 是 Hono HTTP + WebSocket API，可以独立运行，也可以被 Electron 桌面应用 fork 启动。
-
-它注册了 chat、sessions、models、agents、desk、skills、channels、DM、filesystem、preferences、bridge、commands、resources、mobile workbench、media 等路由。
-
-对 GitLearnOS 来说，这说明 OpenHanako 不只是聊天界面，而是带文件、Agent、频道、书桌、技能和自动化表面的本地 Agent server。
+server 启动失败时，只有在 `package.json` 里存在 server 脚本时才运行，并检查错误输出。
 
 ## 给代码 Agent 的部署清单
 
@@ -114,16 +112,18 @@ Claude Code / Codex 部署 Agent 应该按这个顺序执行：
 ```text
 1. Clone 或打开 liliMozi/openhanako。
 2. 确认操作系统和 CPU 架构。
-3. 确认 Node 版本是 >=24.12.0 且 <25。
-4. 运行 npm install。
-5. 运行 npm run typecheck。
-6. 时间允许时运行 npm test。
-7. 用 npm run start:dev 或 npm run start:vite 启动开发模式。
-8. 如果桌面端启动失败，检查 scripts/launch.js、Electron 日志、HANA_HOME 和 ELECTRON_RUN_AS_NODE。
-9. 如果 server 失败，运行 npm run server，并检查 server/index.ts 启动错误。
-10. 如需打包，再选择 dist、dist:win 或 dist:linux。
-11. 不经确认不要编辑或删除用户数据目录。
-12. 记录每个命令、改动和错误。
+3. 读取 README.md 和 package.json。
+4. 确认 Node 和 npm 版本。
+5. 对比 Node 和 package.json engines。
+6. 运行 npm install。
+7. 只有 typecheck 脚本存在时，才运行 npm run typecheck。
+8. 只有 test 脚本存在且用户需要额外检查时，才运行 npm test。
+9. 只有 package.json 里存在 start:dev、start:vite 或其他启动脚本时，才启动开发模式。
+10. 如果桌面端启动失败，检查启动器、Electron 日志、HANA_HOME 和 ELECTRON_RUN_AS_NODE。
+11. 如果 server 失败，只有 server 脚本存在时才运行，并检查 server/index.ts。
+12. 如需打包，只选择 package.json 中真实存在的脚本，例如 dist、dist:win 或 dist:linux。
+13. 不经确认不要编辑或删除用户数据目录。
+14. 记录每个命令、改动和错误。
 ```
 
 ## 给 Claude Code 或 Codex 的安全提示词
@@ -133,11 +133,13 @@ Claude Code / Codex 部署 Agent 应该按这个顺序执行：
 
 不要把 Claude Code / Codex 当成日常 GitLearnOS 辅导平台。你的任务只是阅读、安装、运行、调试或定制 OpenHanako。
 
-先读 package.json、scripts/launch.js、scripts/dev-env.js、server/index.ts、core/agent.ts、lib/tools/subagent-tool.ts 和 lib/tools/channel-tool.ts。
+先读 README.md、package.json、scripts/launch.js、scripts/dev-env.js、server/index.ts、core/agent.ts、lib/tools/subagent-tool.ts 和 lib/tools/channel-tool.ts；如果某个文件不存在，明确说明。
 
-确认我的操作系统、CPU 架构、Node 版本、npm 版本和仓库路径。
+确认我的操作系统、CPU 架构、Node 版本、npm 版本、仓库路径、package.json engines 和可用 npm scripts。
 
-优先使用仓库脚本，不要手写原始 Electron 命令：
+优先使用 package.json 里声明的仓库脚本，不要发明脚本。
+
+常见候选脚本可能包括：
 - npm run start:dev
 - npm run start:vite
 - npm run server
@@ -145,7 +147,9 @@ Claude Code / Codex 部署 Agent 应该按这个顺序执行：
 - npm test
 - 只有我要求打包时才运行 npm run dist:win / dist / dist:linux
 
-如果 Electron 无法启动，检查 ELECTRON_RUN_AS_NODE 是否干扰，并使用 scripts/launch.js。
+每个候选脚本只有在 package.json 里存在时才运行。
+
+如果 Electron 无法启动，检查 ELECTRON_RUN_AS_NODE 是否干扰，并使用项目启动器。
 
 不要未经确认删除 ~/.hanako、~/.hanako-dev 或用户数据。
 
@@ -174,8 +178,16 @@ OpenHanako Agent 设置
 → 创建 Source & Model Extractor
 → 创建 Practice & Review Coach
 → 可选 Critic
-→ 连接目标 GitHub 仓库作为学习状态
+→ 连接或选择一个学习状态层
 → 原始材料保留在本地文件夹或书桌文件中
+```
+
+状态层可以是：
+
+```text
+GitHub 目标仓库
+本地 git 仓库
+本地 git + Obsidian vault
 ```
 
 OpenHanako Agent 配置见 `docs/zh-CN/platform-agent-configuration.md`。
