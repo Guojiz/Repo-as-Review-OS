@@ -223,27 +223,33 @@ When using a code agent to deploy OpenHanako, verify against the actual `liliMoz
 
 Known source facts at the time this guide was written:
 
-- `package.json` uses package name `hanako`, product name `HanaAgent`, main entry `desktop/bootstrap.cjs`, CLI bin `hana → cli/entry.ts`, and Node engine `>=24.12.0 <25`.
-- `scripts/launch.js` is the cross-platform launcher and clears `ELECTRON_RUN_AS_NODE` before spawning Electron.
-- `scripts/dev-env.js` sets development `HANA_HOME` to `~/.hanako-dev`.
-- `server/index.ts` is a Hono HTTP + WebSocket server with routes for chat, sessions, models, agents, desk, skills, channels, filesystem, preferences, bridge, commands, resources, mobile workbench, media, and more.
-- `core/agent.ts` models an Agent with identity, personality, memory, tools, and prompt-building logic.
-- `lib/tools/subagent-tool.ts` supports delegated subagents with an optional `agent` target and optional `model` override; use the actual roster instead of inventing agent IDs.
+- `package.json` may define package name, product name, main entry, CLI bin, Node engine, and scripts. Always verify the current file.
+- `scripts/launch.js`, if present, should be treated as the project launcher rather than bypassed with raw Electron commands.
+- `scripts/dev-env.js`, if present, may define development data paths.
+- `server/index.ts`, if present, should be inspected before debugging server startup.
+- `core/agent.ts`, if present, may define Agent identity, memory, tools, and prompt-building logic.
+- `lib/tools/subagent-tool.ts`, if present, may define subagent delegation behavior. Use the actual roster instead of inventing agent IDs.
 
-## OpenHanako command order
+These are route hints, not permanent upstream facts. If the current source disagrees, trust the current source and report the difference.
 
-Run in this order:
+## OpenHanako command rule
+
+Do not assume npm scripts exist. Read `package.json` first, then run only scripts that are present.
+
+Suggested order:
 
 ```bash
 node -v
 npm -v
 npm install
-npm run typecheck
-npm test
-npm run start:dev
+npm run typecheck   # only if present
+npm test            # only if present and useful
+npm run start:dev   # only if present
 ```
 
-`npm run start:vite` should not be treated as a standalone first-run command. Use it only when the renderer dev server is also running, for example with `npm run dev:renderer` in another terminal.
+If `start:dev` is not present, use the actual development or start script declared in `package.json` and report the substitution.
+
+Do not treat `npm run start:vite` as a standalone first-run command unless the current source makes that safe. If it is only a renderer dev server, pair it with the required Electron/server command according to `package.json` and source docs.
 
 If desktop startup fails, inspect:
 
