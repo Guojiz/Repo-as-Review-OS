@@ -1,6 +1,6 @@
 <svg width="1440" height="760" viewBox="0 0 1440 760" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-  <title id="title">Repo as Review OS overview</title>
-  <desc id="desc">A diagram showing Repo as Review OS as a template repository, an AI tool, and a user's target GitHub learning repository.</desc>
+  <title id="title">GitLearnOS overview</title>
+  <desc id="desc">A diagram showing GitLearnOS as a template repository, an AI tool, and a user's target GitHub learning repository.</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1440" y2="760" gradientUnits="userSpaceOnUse">
       <stop stop-color="#0B1020"/>
@@ -38,7 +38,7 @@
   <circle cx="1310" cy="650" r="230" fill="#22D3EE" opacity="0.12"/>
   <circle cx="1110" cy="120" r="130" fill="#A3E635" opacity="0.10"/>
 
-  <text x="92" y="96" class="title">Repo as Review OS</text>
+  <text x="92" y="96" class="title">GitLearnOS</text>
   <text x="96" y="140" class="subtitle">Turn GitHub into a writable learning timeline that an AI can read, maintain, and continue.</text>
 
   <g filter="url(#shadow)">
@@ -69,7 +69,7 @@
     <text x="1054" y="270" class="chip">TARGET</text>
     <text x="1034" y="325" class="label">Your learning repo</text>
     <text x="1034" y="366" class="small">goals · sources · models</text>
-    <text x="1034" y="398" class="small">reviews · dashboard</text>
+    <text x="1034" y="398" class="small">gaps · reviews · dashboard</text>
     <text x="1034" y="454" class="tiny">Write learning state here.</text>
     <text x="1034" y="482" class="tiny">Keep raw files elsewhere when needed.</text>
   </g>
@@ -82,6 +82,6 @@
   <g transform="translate(120 590)">
     <rect x="0" y="0" width="1200" height="76" rx="24" fill="#0B1328" stroke="#263E68" stroke-width="2"/>
     <text x="36" y="47" class="small">Core flow:</text>
-    <text x="170" y="47" class="small">goal → source → split → model → practice set → spaced repetition → dashboard → next review</text>
+    <text x="170" y="47" class="small">goal → source → split → model → knowledge gap → practice set → review → next action</text>
   </g>
 </svg>
