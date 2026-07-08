@@ -13,7 +13,7 @@
   </a>
 </p>
 
-**GitLearnOS is a lightweight learning-trace operating system for AI-assisted study.**
+**GitLearnOS is a GitHub-native AI learning system that turns learning traces into an inspectable, reviewable, and reusable workspace.**
 
 The repository is still named `Repo-as-Review-OS` for continuity, but the product concept is now **GitLearnOS**.
 
@@ -28,7 +28,13 @@ Current status: public alpha. See [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md).
 
 It is not just cloud storage or a note template. It is a file system that lets an AI agent continuously take over and improve a learning process.
 
-New here? Start with [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30-second-intro.md), [First Experiment Guide](docs/first-experiment-guide.md), and [What Goes Into GitHub](docs/what-goes-into-github.md).
+## Start here
+
+Use the right door:
+
+- **Learner:** read [30-Second Intro](docs/30-second-intro.md), then [QUICKSTART.md](QUICKSTART.md).
+- **AI tool:** read [START-HERE.md](START-HERE.md), [AGENTS.md](AGENTS.md), and [AGENT-RUNTIME.md](AGENT-RUNTIME.md), then follow the runtime-specific links.
+- **Expert or contributor:** read [Product Positioning](docs/product-positioning.md), [Agentic Tutoring Standard](docs/agentic-tutoring-standard.md), [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md), and [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md).
 
 Core model:
 
@@ -69,7 +75,7 @@ Read this template repository: https://github.com/Guojiz/Repo-as-Review-OS
 
 The repository is named Repo-as-Review-OS, but the product concept is GitLearnOS.
 
-Start with QUICKSTART.md, FAQ.md, docs/30-second-intro.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, docs/lightweight-skg-dpm.md, and docs/agentic-tutoring-standard.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
+Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, AGENTS.md, docs/runtime-self-adaptation.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/lightweight-skg-dpm.md. Follow linked documents only when they are relevant to your current runtime.
 
 Help me build my own GitLearnOS. First explain what it is. Then identify your current runtime, permission boundary, memory capability, GitHub access, and any manual steps I must complete.
 
@@ -77,7 +83,7 @@ Treat this Repo-as-Review-OS repository as the template repository. Treat my tar
 
 Guide me to create or choose one target GitHub repository. If your environment supports skills, start with skills/repo-as-review-os/SKILL.md and use the specific subskills when appropriate. If not, use the memory fallback in docs/skill-and-memory-runtime.md.
 
-After that, create goal files, learner-profile.md, folder structure, source rules, problem-model templates, knowledge-gap fields, spaced-repetition fields, automation output folders, and a dashboard in my target repository. Report every file created or edited.
+After that, create goal files, learner-profile.md, folder structure, source rules, problem-model templates, knowledge-gap fields, spaced-repetition fields, automation output folders, and a dashboard in my target repository. If I already gave a learning goal, use it. If not, ask me for my first learning goal. Report every file created or edited.
 ```
 
 ## Repository roles
@@ -137,7 +143,7 @@ See [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md) for the lightweight m
 
 ## Research signal
 
-Recent open research on agentic personalized tutoring reports that combining source grounding, learner memory, and closed-loop practice improved personalized tutoring metrics by **10.8%** on average and improved general agentic reasoning by **29.4%** across five backbone models. GitLearnOS applies the same broad principle in a lighter GitHub-native form: sources, models, knowledge gaps, learner profile, practice, review, and memory alignment stay inspectable in the learner's own repository. See arXiv:2604.26962.
+HKU-led open research on DeepTutor reports that combining static knowledge grounding, dynamic learner memory, and closed-loop tutoring improved personalized tutoring quality by **10.8%** over the strongest baseline and achieved an average **28.6%** gain in general reasoning across five backbone models. GitLearnOS does not reproduce that heavy platform. It applies the same broad principle in a lighter GitHub-native form: sources, models, knowledge gaps, learner profile, practice, review, and memory alignment stay inspectable in the learner's own repository. See arXiv:2604.26962.
 
 ## Standard
 
@@ -175,6 +181,8 @@ A normal AI project can store instructions and context, but it does not provide 
 10. Report every change.
 
 ## Skill or memory runtime
+
+Skill is an optional execution layer, not the product itself.
 
 If the AI tool supports skills, start with the router skill: [skills/repo-as-review-os/SKILL.md](skills/repo-as-review-os/SKILL.md).
 
@@ -261,7 +269,7 @@ gitlearnos/
 
 ## For AI agents
 
-Read [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30-second-intro.md), [First Experiment Guide](docs/first-experiment-guide.md), [What Goes Into GitHub](docs/what-goes-into-github.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [OPERATING-MODEL.md](OPERATING-MODEL.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [skills/README.md](skills/README.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md), [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md), [Agentic Tutoring Standard](docs/agentic-tutoring-standard.md), and [AGENTS.md](AGENTS.md) before changing files.
+Read [START-HERE.md](START-HERE.md), [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [AGENTS.md](AGENTS.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md), and [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md) before changing files. Follow deeper links only when they are relevant to the current runtime or task.
 
 ## License
 
