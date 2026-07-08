@@ -1,10 +1,12 @@
 # Agentic Tutoring Standard
 
-Repo as Review OS should be judged against the strongest open agentic tutoring systems, not against ordinary note templates.
+GitLearnOS should be judged against the strongest open agentic tutoring systems, not against ordinary note templates.
 
 This document defines the standard used to inspect this project.
 
 The goal is not to copy a full tutoring platform. The goal is to preserve the useful learning loop in a lighter GitHub-native form.
+
+The repository is still named `Repo-as-Review-OS` for continuity. The product concept is **GitLearnOS**.
 
 ## Benchmark standard
 
@@ -23,9 +25,9 @@ A serious AI learning system should answer these questions:
 11. Can the learner inspect and edit the system?
 12. Does it avoid pretending that unavailable tools or files were used?
 
-## Repo as Review OS answer
+## GitLearnOS answer
 
-Repo as Review OS answers these requirements with ordinary repository structure instead of a private runtime.
+GitLearnOS answers these requirements with ordinary repository structure instead of a private runtime.
 
 ```text
 Unified learning context
@@ -67,7 +69,7 @@ Honest boundaries
 
 ## What this project should not become
 
-Do not turn Repo as Review OS into a heavy tutoring runtime.
+Do not turn GitLearnOS into a heavy tutoring runtime.
 
 Avoid requiring:
 
@@ -86,7 +88,7 @@ The standard is high, but the implementation should remain light.
 
 A full tutoring platform is better when the user wants a packaged app, built-in runtime, integrated memory system, and managed tutoring interface.
 
-Repo as Review OS is better when the user wants:
+GitLearnOS is better when the user wants:
 
 - a lightweight setup;
 - GitHub-native files and history;
@@ -104,7 +106,7 @@ Full tutoring platform
 → more built-in features
 → heavier runtime
 
-Repo as Review OS
+GitLearnOS
 → lighter personal learning substrate
 → open GitHub state
 → easier handoff across tools
@@ -125,7 +127,7 @@ These rules prevent the project from contradicting itself:
 
 ## User-facing promise
 
-Repo as Review OS is for learners who want the core loop of personalized AI tutoring without adopting a full tutoring platform.
+GitLearnOS is for learners who want the core loop of personalized AI tutoring without adopting a full tutoring platform.
 
 It keeps the learning system readable:
 
