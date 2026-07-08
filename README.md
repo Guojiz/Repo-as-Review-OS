@@ -1,4 +1,4 @@
-# Repo as Review OS
+# Learning Trace OS
 
 ![Repo as Review OS overview](docs/assets/repo-as-review-os-map.svg)
 
@@ -13,7 +13,9 @@
   </a>
 </p>
 
-**This is the AI brain for your learning, helping you study more efficiently and intelligently.**
+**Learning Trace OS is the AI brain for your learning, helping you study more efficiently and intelligently.**
+
+The repository is still named `Repo-as-Review-OS` for continuity, but the product concept is now **Learning Trace OS**.
 
 Current status: public alpha. See [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md).
 
@@ -63,11 +65,13 @@ main goal
 ```text
 Read this template repository: https://github.com/Guojiz/Repo-as-Review-OS
 
-Start with QUICKSTART.md, FAQ.md, docs/30-second-intro.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, docs/skill-and-memory-runtime.md, and docs/agentic-tutoring-standard.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
+The repository is named Repo-as-Review-OS, but the product concept is Learning Trace OS.
 
-Help me build my own Review OS. First explain what it is. Then identify your current runtime, permission boundary, and any manual steps I must complete.
+Start with QUICKSTART.md, FAQ.md, docs/30-second-intro.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, START-HERE.md, AGENT-RUNTIME.md, AGENTS.md, skills/README.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, docs/lightweight-skg-dpm.md, and docs/agentic-tutoring-standard.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
 
-Treat this Repo as Review OS repository as the template repository. Treat my target repository as the personal learning repository. Do not write my learning data into the template repository.
+Help me build my own Learning Trace OS. First explain what it is. Then identify your current runtime, permission boundary, memory capability, GitHub access, and any manual steps I must complete.
+
+Treat this Repo-as-Review-OS repository as the template repository. Treat my target repository as the personal learning repository. Do not write my learning data into the template repository.
 
 Guide me to create or choose one target GitHub repository. If your environment supports skills, start with skills/repo-as-review-os/SKILL.md and use the specific subskills when appropriate. If not, use the memory fallback in docs/skill-and-memory-runtime.md.
 
@@ -77,12 +81,12 @@ After that, create goal files, learner-profile.md, folder structure, source rule
 ## Repository roles
 
 ```text
-Repo as Review OS repository
+Repo-as-Review-OS repository
 → template repository
 → method, docs, skills, examples, rules
 
 User target repository
-→ personal learning repository
+→ personal Learning Trace OS repository
 → goals, learner profile, sources, models, reviews, dashboard
 ```
 
@@ -103,15 +107,31 @@ Use it for selected textbooks, stable reference files, and project instructions.
 ChatGPT memory is useful for stable preferences and a compact learner summary. It should stay aligned with GitHub, but it does not replace GitHub files, indexes, or version history.
 
 ```text
-ChatGPT memory → stable preferences and compact learner summary
+ChatGPT memory → active stable preference cache
 ChatGPT Project → fixed materials and conversation context
-GitHub repository → durable learning state, writeback, and version history
+GitHub repository → passive but inspectable learning state, writeback, and version history
 Local folders → original files and protected working materials
 ```
 
 If ChatGPT memory and GitHub conflict, trust GitHub first, then update memory or project instructions.
 
-See [Local Runtime Note](docs/local-runtime-note.md) for the full boundary.
+See [Local Runtime Note](docs/local-runtime-note.md) and [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md) for the full boundary.
+
+## Static and dynamic personalization
+
+Learning Trace OS keeps two layers aligned:
+
+```text
+Static grounding layer
+→ local textbooks, source records, models, GitHub indexes
+
+Dynamic learner layer
+→ learner-profile.md, review results, native AI memory, optional external recall tools
+```
+
+The static layer grounds answers in materials. The dynamic layer adapts explanations, practice, review, and next actions to the learner.
+
+See [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md) for the lightweight mapping.
 
 ## Standard
 
@@ -137,15 +157,16 @@ A normal AI project can store instructions and context, but it does not provide 
 
 ## What the AI should do
 
-1. Identify its runtime and permission level.
+1. Identify its runtime, memory, file access, and permission level.
 2. Separate the template repository from the target learning repository.
 3. Read the user's goal.
 4. Check the target repository structure.
-5. Find active sources, models, and weak points.
+5. Find active sources, models, learner profile, and weak points.
 6. Decide what should be split, merged, rewritten, reviewed, generated, or archived.
 7. Update files only in the correct target repository.
-8. Schedule review if needed.
-9. Report every change.
+8. Suggest native-memory updates only for stable preferences or repeated patterns.
+9. Schedule review if needed.
+10. Report every change.
 
 ## Skill or memory runtime
 
@@ -192,6 +213,10 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 - [skills/README.md](skills/README.md): Skill suite overview
 - [skills/repo-as-review-os/SKILL.md](skills/repo-as-review-os/SKILL.md): Main router skill
 - [docs/skill-and-memory-runtime.md](docs/skill-and-memory-runtime.md): Skill and memory runtime guide
+- [docs/adaptive-memory-and-learner-profile.md](docs/adaptive-memory-and-learner-profile.md): Adaptive memory and learner profile
+- [docs/lightweight-skg-dpm.md](docs/lightweight-skg-dpm.md): Lightweight static/dynamic personalization map
+- [docs/tutoring-benchmark-source-reference.md](docs/tutoring-benchmark-source-reference.md): Tutoring benchmark source reference
+- [templates/learner-profile.md](templates/learner-profile.md): Learner profile template
 - [docs/local-runtime-note.md](docs/local-runtime-note.md): Local folders and ChatGPT Project note
 - [docs/automation-runtime-matrix.md](docs/automation-runtime-matrix.md): Automation runtime matrix
 - [docs/agentic-tutoring-standard.md](docs/agentic-tutoring-standard.md): Agentic tutoring standard
@@ -213,7 +238,7 @@ Use GitHub Issues to submit feedback, demo ideas, or bug reports.
 ## Suggested layout
 
 ```text
-review-os/
+learning-trace-os/
 ├── dashboard.md
 ├── learner-profile.md
 ├── goals/
@@ -229,7 +254,7 @@ review-os/
 
 ## For AI agents
 
-Read [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30-second-intro.md), [First Experiment Guide](docs/first-experiment-guide.md), [What Goes Into GitHub](docs/what-goes-into-github.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [OPERATING-MODEL.md](OPERATING-MODEL.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [skills/README.md](skills/README.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), [Agentic Tutoring Standard](docs/agentic-tutoring-standard.md), and [AGENTS.md](AGENTS.md) before changing files.
+Read [QUICKSTART.md](QUICKSTART.md), [FAQ.md](FAQ.md), [30-Second Intro](docs/30-second-intro.md), [First Experiment Guide](docs/first-experiment-guide.md), [What Goes Into GitHub](docs/what-goes-into-github.md), [Runtime Self-Adaptation](docs/runtime-self-adaptation.md), [OPERATING-MODEL.md](OPERATING-MODEL.md), [AGENT-RUNTIME.md](AGENT-RUNTIME.md), [skills/README.md](skills/README.md), [Skill and Memory Runtime](docs/skill-and-memory-runtime.md), [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md), [Lightweight SKG and DPM](docs/lightweight-skg-dpm.md), [Agentic Tutoring Standard](docs/agentic-tutoring-standard.md), and [AGENTS.md](AGENTS.md) before changing files.
 
 ## License
 
