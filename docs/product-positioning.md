@@ -1,14 +1,16 @@
 # Product Positioning
 
-Repo as Review OS is an AI-native review system built around GitHub.
+GitLearnOS is an AI-native learning system built around GitHub.
 
 It is not a ChatGPT-only project. It is not an Obsidian-only workflow. It is not a multi-agent framework.
 
 It is a lightweight operating model for one main AI tool and one target GitHub repository.
 
+The repository is still named `Repo-as-Review-OS` for continuity. The product concept is **GitLearnOS**.
+
 ## One sentence
 
-Use GitHub as the review system, and use one capable AI tool to maintain the user's target repository.
+Use GitHub as the learning-state system, and use one capable AI tool to maintain the user's target repository.
 
 ## What makes it work
 
@@ -26,13 +28,13 @@ The specific AI product is not the point. The capability set is the point.
 ## Template vs target repository
 
 ```text
-Repo as Review OS repository
+Repo-as-Review-OS repository
 → template repository
 → method, docs, skills, examples, rules
 
 User target repository
-→ personal learning repository
-→ goals, sources, models, reviews, dashboard
+→ personal GitLearnOS repository
+→ goals, sources, models, knowledge gaps, reviews, dashboard
 ```
 
 The template teaches the method. The target repository stores the user's learning state.
@@ -117,7 +119,7 @@ If a source is local-only, the AI should create a source record in GitHub and as
 
 The best default is one-target-repository write access.
 
-This lets the AI work smoothly inside the Review OS repository while keeping risky actions blocked.
+This lets the AI work smoothly inside the user's GitLearnOS repository while keeping risky actions blocked.
 
 Safe default actions:
 
@@ -139,7 +141,7 @@ Ask before:
 
 ## Final promise
 
-Repo as Review OS lets a user run a review system with:
+GitLearnOS lets a user run an AI-maintained learning system with:
 
 ```text
 one AI app
@@ -148,4 +150,4 @@ one connector
 one memory or project-rule layer
 ```
 
-It reduces the workflow from many tools to one durable target repository that an AI can understand and maintain.
+It reduces the workflow from many scattered tools to one durable target repository that an AI can understand and maintain.
