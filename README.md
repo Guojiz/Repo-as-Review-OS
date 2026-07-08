@@ -145,7 +145,7 @@ See [Source and Learner State Model](docs/source-and-learner-state.md) for the c
 
 ## External research signal
 
-DeepTutor reports that combining source grounding, learner memory, and closed-loop tutoring improved personalized tutoring quality by **10.8%** over the strongest baseline and achieved an average **28.6%** gain in general reasoning across five backbone models. This is used only as supporting evidence that source grounding, learner state, and closed-loop practice are valuable design ideas. GitLearnOS does not claim to reproduce DeepTutor, HKU's platform, or any full tutoring runtime. See arXiv:2604.26962.
+DeepTutor reports that combining source grounding, learner memory, and closed-loop tutoring improved personalized tutoring quality by **10.8%** over the strongest baseline and achieved an average **28.6%** gain in general reasoning across five backbone models. This is used only as supporting evidence that source grounding, learner state, and closed-loop practice are valuable design ideas. GitLearnOS does not claim to reproduce DeepTutor or any full tutoring runtime. See arXiv:2604.26962.
 
 ## Evaluation standard
 
