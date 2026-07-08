@@ -1,10 +1,10 @@
 # Quickstart
 
-Use this page if you want to try Repo as Review OS but do not want to read the whole repository first.
+Use this page if you want to try GitLearnOS but do not want to read the whole repository first.
 
 ## What you need
 
-You need three things:
+You need four things:
 
 ```text
 this template repository
@@ -21,7 +21,7 @@ The AI tool can be ChatGPT with a GitHub connector, Codex, Claude Code, Cursor, 
 
 ### 1. Create a private target repository
 
-For first deployment, create an empty or nearly empty private repository, then let the AI set up the Repo as Review OS structure inside it.
+For first deployment, create an empty or nearly empty private repository, then let the AI set up the GitLearnOS structure inside it.
 
 If you already have files in the target repository, tell the AI to inspect the existing files first and avoid overwriting them.
 
@@ -30,7 +30,7 @@ Use a private repository if you will store real study notes, mistakes, screensho
 Suggested name:
 
 ```text
-my-learning-os
+my-gitlearnos
 ```
 
 ### 2. Connect your AI tool to the target repository
@@ -47,16 +47,16 @@ The AI should confirm whether it can actually read and write the target reposito
 Read this template repository:
 https://github.com/Guojiz/Repo-as-Review-OS
 
-Set up my own personal learning OS in this target repository:
+Set up my own personal GitLearnOS in this target repository:
 <paste your repository link>
 
 This is a first deployment. Treat the target repository as empty or nearly empty unless you find existing files. If existing files are present, inspect them first and do not overwrite them without asking.
 
-Start with START-HERE.md, README.md, QUICKSTART.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, AGENT-RUNTIME.md, AGENTS.md, and docs/skill-and-memory-runtime.md.
+Start with START-HERE.md, README.md, QUICKSTART.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, AGENT-RUNTIME.md, AGENTS.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/lightweight-skg-dpm.md.
 
 If you support skills, use skills/repo-as-review-os/SKILL.md. If not, use the memory fallback from docs/skill-and-memory-runtime.md.
 
-Create a minimal learning repository with dashboard.md, goals/main-goal.md, sources/, models/, reviews/, templates/, agents/, automations/, and archive/. Ask me for my first learning goal before creating detailed content. Report every file you create or edit.
+Create a minimal learning repository with dashboard.md, learner-profile.md, goals/main-goal.md, sources/, models/, knowledge-gaps/, reviews/, templates/, agents/, automations/, and archive/. Ask me for my first learning goal before creating detailed content. Report every file you create or edit.
 ```
 
 ### 4. Tell the AI your first goal
@@ -88,7 +88,7 @@ Based on my repository, make me a 30-minute review set.
 ```
 
 ```text
-Turn this mistake into a reusable model and schedule review.
+Turn this mistake into a reusable model, record the knowledge gap, and schedule review.
 ```
 
 ```text
@@ -96,12 +96,12 @@ Check my dashboard and tell me what I should study today.
 ```
 
 ```text
-Generate a short practice test from my weak points.
+Generate a short practice test from my knowledge gaps.
 ```
 
 ## What goes into GitHub
 
-GitHub mainly stores structured learning records: goals, source records, reusable models, review sets, dashboards, next review dates, and handoff notes.
+GitHub mainly stores structured learning records: goals, learner profile, source records, reusable models, knowledge gaps, review sets, dashboards, next review dates, and handoff notes.
 
 It does not have to store every original file. See [docs/what-goes-into-github.md](docs/what-goes-into-github.md).
 
@@ -126,9 +126,11 @@ After setup, your repository should have:
 
 ```text
 dashboard.md
+learner-profile.md
 goals/main-goal.md
 sources/
 models/
+knowledge-gaps/
 reviews/
 templates/
 agents/
@@ -140,7 +142,7 @@ The AI should be able to answer:
 
 ```text
 What is my current goal?
-What am I weak at?
+What knowledge gaps are active?
 What should I review next?
 What practice should I do today?
 What files did you change?
