@@ -2,49 +2,54 @@
 
 Different AI environments load operating rules differently.
 
-GitLearnOS supports skill-based agents, memory-driven chat applications, project-instruction workflows, desktop multi-agent runtimes, and single-context AI tools.
+GitLearnOS actively supports two runtime families:
+
+```text
+ChatGPT native workflow
+→ daily learning conversation, memory alignment, GitHub-assisted work, and light automation handoff
+
+OpenHanako / HanaAgent desktop workflow
+→ local files, multi-agent work, Skills, scheduled tasks, browser/computer actions, and deeper file automation
+```
+
+Claude, Codex, Claude Code, Cursor, and other code or CLI agents may still be compatible with the GitLearnOS file structure, but this repository does not maintain detailed setup guides for them.
 
 Before choosing a runtime path, the AI should identify its current environment and adapt the setup plan. See `docs/runtime-self-adaptation.md` and `docs/platform-agent-configuration.md`.
 
 ## Recommended runtime tiers
 
-Do not write any single AI tool as the only entry point.
-
-A safer runtime map is:
-
 ```text
-Daily native AI platform: ChatGPT / Claude
+Actively supported daily platform: ChatGPT
 → recommended for daily learning conversation, reasoning, explanation, writing, memory alignment, source interpretation, GitHub-assisted work, and lightweight review generation
 
-Desktop enhanced agent runtime: OpenHanako / HanaAgent
+Actively supported desktop enhanced runtime: OpenHanako / HanaAgent
 → recommended when the learner wants a real desktop-side multi-agent system with local files, memory, Skills, scheduled tasks, browser/computer actions, and deeper automation
 
-Code / CLI assistant tier: Codex / Claude Code / Cursor / repository-aware CLI agents
-→ useful for coding, scripts, repository cleanup, bulk edits, and developer workflows
+Limited compatibility: Claude / Codex / Claude Code / Cursor / repository-aware CLI agents
+→ may be adapted by users, but this repository does not provide detailed configuration for them
 
 Lightweight single-context tier: Zhipu Qingyan, domestic single-context agents, and other chat-style AI tools
 → useful when the user can place a small set of rules, materials, and repository excerpts into one context window
 ```
 
-Do not require a separate desktop agent by default. ChatGPT or Claude can already complete many daily learning workflows through their native platform features. OpenHanako is the recommended desktop enhancement when the user wants local file access, multi-agent coordination, Skills, and scheduled computer-side work.
+Do not require a separate desktop agent by default. ChatGPT can complete many daily learning workflows through native platform features. OpenHanako is the recommended desktop enhancement when the user wants local file access, multi-agent coordination, Skills, and scheduled computer-side work.
 
 For complete setup prompts and agent roles, see `docs/platform-agent-configuration.md`.
 
-## Two runtime paths
+## Three runtime paths
 
 ```text
-Path A: native ChatGPT / Claude workflow
+Path A: native ChatGPT workflow
 → use memory, project instructions, files, connectors, MCP, or GitHub integration when available
 → align native memory with learner-profile.md
 → keep GitHub as source of truth
 → use prompt-only automation as handoff unless live repository tools are available
 
-Path B: skill-capable or desktop agent workflow
-→ install or copy the skill suite
-→ start from the router skill
-→ connect GitHub repository
-→ optionally configure OpenHanako multi-agent roles
-→ run the repository workflow
+Path B: OpenHanako / HanaAgent desktop workflow
+→ configure GitLearnOS Maintainer, Source & Model Extractor, Practice & Review Coach, and optional Critic
+→ use local desk files as protected source inbox
+→ use GitHub as shared learning state
+→ report every actual repository change
 
 Path C: single-context fallback
 → paste only the rules and excerpts needed for the current task
@@ -52,9 +57,9 @@ Path C: single-context fallback
 → write valuable results back to GitHub manually or through a tool-enabled step
 ```
 
-## Native ChatGPT / Claude path
+## Native ChatGPT path
 
-Use the native platform directly.
+Use ChatGPT directly.
 
 The AI should configure:
 
@@ -158,6 +163,12 @@ This environment can still use the lightweight version of GitLearnOS:
 4. Manually or tool-assisted write valuable results back to GitHub.
 
 Do not ask a single-context agent to pretend it has long-term memory. It can execute the current task, but the long-term state still belongs in GitHub.
+
+## Limited compatibility path
+
+Claude, Codex, Claude Code, Cursor, and other code or CLI agents can still operate on a GitLearnOS repository if they understand the file structure.
+
+This repository does not provide detailed setup instructions for them. Use them as external workflows, coding tools, or user-maintained adaptations.
 
 ## New repository setup
 
