@@ -8,42 +8,53 @@ For the current main runtime path, read:
 - [Automation Runtime Matrix](automation-runtime-matrix.md)
 - [Local Runtime Note](local-runtime-note.md)
 - [Skill and Memory Runtime](skill-and-memory-runtime.md)
+- [Single Active Runtime Rule](single-active-runtime-rule.md)
 
 ## Core idea
 
-Repo as Review OS is not tied to one AI product.
+GitLearnOS is not tied to one AI product, but it does require a clear runtime boundary.
 
-It can be supported by any AI tool that can read instructions, access a repository, edit files, and report changes.
+A tool is useful only if it can honestly say what it can read, what it can write, and where the durable learning state lives.
 
 ## Required capabilities
 
-A good runtime should provide:
+A good daily runtime should provide:
 
-1. repository access;
-2. file creation and editing;
-3. project rules or long-term memory;
+1. repository or state-layer access;
+2. file creation and editing, or exact manual patches when it cannot edit;
+3. project rules or stable memory;
 4. permission boundaries;
-5. optional local workspace access;
+5. honest source handling;
 6. change reporting.
 
-## Possible runtimes
+## Supported runtime roles
 
-This system may be used with tools such as:
+```text
+ChatGPT
+→ native daily learning runtime
+→ best with GitHub connector / MCP / repository access
 
-- ChatGPT with GitHub or MCP connectors;
-- Codex-style coding agents;
-- Claude Code-style command-line tools;
-- Cursor or Windsurf-style AI editors;
-- other repository-aware AI tools.
+Claude
+→ native daily learning runtime
+→ best with project context, artifacts, and repository-assisted work
 
-The project should describe capabilities, not force one brand.
+OpenHanako / HanaAgent
+→ optional desktop enhanced runtime
+→ local files, desks, skills, scheduled tasks, bridge channels, subagents
+
+Claude Code / Codex / Cursor / CLI agents
+→ deployment and source-code assistants for OpenHanako
+→ not the maintained daily tutoring layer
+```
+
+The project should describe capabilities, not force one brand. It should also avoid pretending that every capable tool has the same permissions.
 
 ## Why memory matters
 
-The AI should remember this user preference:
+The AI should remember stable preferences only:
 
 ```text
-Use GitHub as the main Review OS repository. Treat local files as protected source material. Ask for local excerpts only when needed. Keep English and Chinese in separate files.
+Use GitLearnOS with one active learning runtime and one chosen state layer. Prefer GitHub as the state layer for native ChatGPT or Claude workflows. Treat local files as protected source material. Ask for local excerpts only when needed. Keep English and Chinese in separate files. Report every changed file.
 ```
 
 Without memory or project instructions, the user has to repeat the same setup in every conversation.
@@ -51,13 +62,16 @@ Without memory or project instructions, the user has to repeat the same setup in
 ## Minimum runtime
 
 ```text
-one AI tool + one target GitHub repository + one rule file
+one AI tool
++ one target GitHub repository or one accessible local state layer
++ one rule file
++ honest reporting
 ```
 
-## Best runtime
+## Best native runtime
 
 ```text
-one main AI tool
+one main native AI tool
 + GitHub repository connector
 + project memory or persistent instructions
 + clear permission boundary
@@ -66,6 +80,8 @@ one main AI tool
 
 ## Local-first path
 
-A local workspace can test the method, but local access is not the same as GitHub access.
+A local workspace can test or run the method, but local access is not the same as GitHub access.
+
+Use local git or Obsidian only when the active runtime can actually access those files, or when the AI provides exact patches for the user to apply manually.
 
 For the boundary, see [Local Runtime Note](local-runtime-note.md).
