@@ -1,6 +1,6 @@
 # Adaptive Rules
 
-Repo as Review OS should not treat every rule as fixed.
+GitLearnOS should not treat every rule as fixed.
 
 A learning system changes with the user's goal, time pressure, material quality, current stage, runtime environment, memory capability, and repository access.
 
@@ -17,6 +17,7 @@ Stable principles:
 - protect local material;
 - use GitHub as the durable operating layer;
 - keep learner state inspectable;
+- record knowledge gaps when they appear;
 - adapt to the actual AI environment instead of pretending every tool has the same abilities.
 
 Adjustable strategies:
@@ -50,7 +51,7 @@ What should I avoid claiming?
 
 The system should adapt to the answer.
 
-## Memory policy
+## Adaptive memory and learner profile
 
 Memory is important, but not every platform provides it.
 
@@ -73,7 +74,7 @@ The AI should not store:
 
 - temporary tasks;
 - raw private notes;
-- stale weak points;
+- stale knowledge gaps;
 - one-off practice results;
 - sensitive source details;
 - information that is better kept in GitHub history.
@@ -103,8 +104,8 @@ Write valuable output back to GitHub manually or through a tool-enabled step.
 The AI should update it when:
 
 - a major goal changes;
-- a weak point is repeatedly observed;
-- a weak point is resolved;
+- a knowledge gap is repeatedly observed;
+- a knowledge gap is resolved;
 - the preferred explanation style changes;
 - a new subject becomes active;
 - review results show a stable pattern;
@@ -134,6 +135,7 @@ stage: sprint / building / maintenance
 source: complete / excerpt-only / local-only / missing / uncertain
 privacy: public-safe / private / sensitive / local-only
 output: writeback / handoff-card / user-copy / draft-only
+gap: new / repeated / active / resolved / uncertain
 ```
 
 The AI should use these labels when reporting what it can safely do.
@@ -150,11 +152,11 @@ Create lightweight cards, mark missing parts, and backfill later.
 
 ### Building stage
 
-When time is available, expand lightweight notes into full cards, models, dashboards, learner profile updates, and review cycles.
+When time is available, expand lightweight notes into full cards, models, knowledge gaps, dashboards, learner profile updates, and review cycles.
 
 ### Maintenance stage
 
-When the system is stable, focus on cleanup, review scheduling, learner-profile sync, and detecting stale items.
+When the system is stable, focus on cleanup, review scheduling, learner-profile sync, knowledge-gap cleanup, and detecting stale items.
 
 ## Material completeness
 
@@ -173,6 +175,7 @@ use
 → observe friction
 → update rules or templates
 → update learner profile
+→ record or resolve knowledge gaps
 → generate better practice
 → review results
 → simplify or refine the workflow
