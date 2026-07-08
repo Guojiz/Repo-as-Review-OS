@@ -2,13 +2,97 @@
 
 This page records what GitLearnOS should borrow from DeepTutor's multi-agent pattern.
 
-Reference repository:
+Reference repository and paper:
 
 ```text
 https://github.com/HKUDS/DeepTutor
+https://arxiv.org/abs/2604.26962
 ```
 
 This is an external design reference, not the product identity of GitLearnOS. GitLearnOS still comes from the original `zhongkao` learning repository pattern and keeps GitHub / local git as the inspectable learning state layer.
+
+## What the paper actually says
+
+DeepTutor separates two layers:
+
+```text
+personalized agentic tutoring
+→ validated core pipeline
+
+proactive autonomous companionship / TutorBot
+→ deployment extension across channels
+```
+
+Do not collapse these into one vague "many agents" story.
+
+The paper's core tutoring loop is:
+
+```text
+current learner profile + relevant traces
+→ task dispatch
+→ problem-solving path or question-generation path
+→ build trace
+→ update memory / learner profile
+```
+
+### Problem-solving path
+
+The paper describes three sequential stages:
+
+```text
+① Personalized Investigation
+→ decompose the question, gather source and learner-state evidence, make a plan
+
+② Step-by-Step Solving
+→ execute sub-goals with tool use, observation, compression, and replanning
+
+③ Evidence-Based Writing
+→ produce the final explanation with citations and learner-calibrated depth/tone
+```
+
+### Question-generation path
+
+The paper describes two stages:
+
+```text
+④ Idea Generation
+→ generate candidate practice ideas from source context and diagnosed gaps
+→ filter and rank ideas
+
+⑤ Critic-Guided Generation
+→ create question-answer-explanation triples
+→ validate correctness, alignment, and computational results when needed
+```
+
+### Memory update path
+
+The paper updates the learner profile through three memory dimensions:
+
+```text
+Session History
+→ what was covered, difficulty, outcome, performance trend
+
+Weakness Diagnosis
+→ active/resolved knowledge gaps, recurring confusion, error evidence
+
+Self-Reflection
+→ what tutoring strategy worked or failed, pacing/tone/scaffolding notes
+```
+
+### TutorBot path
+
+The paper's proactive agent loop has three broad phases:
+
+```text
+context assembly
+→ persona / soul, memory, skills, conversation history
+
+ReAct tool-calling loop
+→ call LLM, execute tools, append observations until final response or budget exhaustion
+
+persist and consolidate
+→ append turn, compress old messages, update long-term profile and session log
+```
 
 ## What to borrow
 
@@ -17,29 +101,31 @@ DeepTutor's useful pattern is not "create many agents and let them all write sta
 The useful pattern is:
 
 ```text
-main chat / tutor loop
-→ consult a focused subagent when needed
-→ stream or record the subagent's work
+main tutor loop
+→ consult or dispatch a focused agent only when needed
+→ stream or record the agent's work
 → return to the main loop
 → main loop answers in its own voice
 → durable state is written in one controlled place
 ```
 
-In DeepTutor, the default chat surface can call tools, ground itself in knowledge bases, read attachments, write notebook records, and consult subagents from one turn. Its README describes contextual tools such as `rag`, `read_source`, `read_memory`, `write_memory`, `read_skill`, `load_tools`, `exec`, `ask_user`, `write_note`, `github`, and `consult_subagent` as mounting only when the turn has the right context.
+DeepTutor's README describes the default Chat surface as the place where work begins: it can call tools, ground itself in knowledge bases, read attachments, write notebook records, and consult subagents from one turn. Contextual tools such as `rag`, `read_source`, `read_memory`, `write_memory`, `read_skill`, `load_tools`, `exec`, `ask_user`, `write_note`, `github`, and `consult_subagent` mount only when the turn has the right context.
 
-DeepTutor's `consult_subagent` tool is also a useful boundary model. The model only supplies a focused `question`; server-side runtime injects the backend, working directory, config, budget, and session state. The consulted agent streams its native run, returns a final answer, and the main model must stop consulting when the budget is exhausted.
+DeepTutor's `consult_subagent` tool is a useful boundary model. The model only supplies a focused `question`; server-side runtime injects the backend, working directory, config, budget, and session state. The consulted agent streams its native run, returns a final answer, and the main model must stop consulting when the budget is exhausted.
 
-DeepTutor's subagent capability says the chat loop runs on a limited consult budget, the consulted agent session can persist across consults, and the main model should answer the user in its own voice rather than impersonating the subagent.
+DeepTutor's subagent capability also says the consulted agent session can persist across consults, while the main model should answer the user in its own voice rather than impersonating the subagent.
 
-## GitLearnOS adaptation
+## GitLearnOS adaptation for OpenHanako
 
-For GitLearnOS, this means OpenHanako multi-agent should use a **consultation pattern**, not uncontrolled parallel writing.
+For GitLearnOS, OpenHanako multi-agent should use a **controlled pipeline + consultation pattern**, not uncontrolled parallel writing.
 
-Recommended OpenHanako shape:
+### Minimal default
+
+Use this for normal learners:
 
 ```text
 GitLearnOS Maintainer
-→ main loop
+→ main tutor loop
 → owns dashboard, learner-profile.md, indexes, handoff notes, and final writes
 
 Source & Model Extractor
@@ -50,9 +136,79 @@ Practice & Review Coach
 → consulted when review sets, quizzes, spaced repetition, or next actions are needed
 → proposes practice and review updates
 
-Critic
-→ optional consulted reviewer
-→ audits vague notes, unsupported claims, stale gaps, weak questions, and learner-profile drift
+Validator / Critic
+→ optional reviewer
+→ checks unsupported claims, stale gaps, weak questions, answer correctness, and learner-profile drift
+```
+
+### DeepTutor-inspired expanded pipeline
+
+Use this only when the user wants a heavier OpenHanako setup:
+
+```text
+Maintainer / Orchestrator
+→ main loop, state boundary, final response, final write
+
+Personalized Investigator
+→ maps a user task to source records, current gaps, learner profile, and a plan
+
+Step Solver / Model Extractor
+→ executes the plan, extracts reusable models, records observations
+
+Evidence Writer
+→ turns the result into a learner-facing explanation or repository note
+
+Practice Idea Agent
+→ proposes practice ideas from active gaps and source context
+
+Question Generator
+→ creates question-answer-explanation triples
+
+Validator / Critic
+→ independently checks correctness, source grounding, fit, and difficulty
+
+Memory Updaters
+→ Session History, Weakness Diagnosis, and Self-Reflection updates
+```
+
+The expanded pipeline should be treated as a configuration option, not as the default GitLearnOS requirement.
+
+## Mapping to GitLearnOS files
+
+```text
+Personalized Investigation
+→ sources/source-index.md
+→ learner-profile.md
+→ knowledge-gaps/gap-index.md
+→ goals/main-goal.md
+
+Step-by-Step Solving / Model Extraction
+→ models/
+→ sources/
+→ knowledge-gaps/
+
+Evidence-Based Writing
+→ dashboard.md
+→ reviews/
+→ model cards
+→ learner-facing explanation notes
+
+Idea Generation
+→ reviews/review-index.md
+→ reviews/due.md
+→ practice candidates
+
+Critic-Guided Generation / Validation
+→ answer keys
+→ source links
+→ difficulty fit
+→ validator notes
+
+Memory Update
+→ learner-profile.md
+→ agents/handoff-notes/latest.md
+→ knowledge-gaps/gap-index.md
+→ reviews/review-index.md
 ```
 
 ## Final writer rule
@@ -68,6 +224,7 @@ extract
 summarize
 quiz
 audit
+validate
 ```
 
 They should not independently rewrite `learner-profile.md`, `dashboard.md`, `reviews/`, or `knowledge-gaps/` unless the Maintainer explicitly delegates a write and then verifies the result.
@@ -89,6 +246,7 @@ A good default:
 normal task: 0-1 consult
 source-heavy task: 1-2 consults
 complex repository repair: 2-3 consults
+expanded pipeline task: explicit user approval required
 ```
 
 More than that usually means the system is drifting and should ask the learner or write a handoff note.
@@ -124,7 +282,7 @@ or local git
 or local git + Obsidian
 ```
 
-DeepTutor can inspire the agent consultation shape, but GitLearnOS state remains file-based and inspectable.
+DeepTutor can inspire the agent pipeline and consultation pattern, but GitLearnOS state remains file-based and inspectable.
 
 ## What not to copy
 
@@ -136,10 +294,11 @@ Do not require:
 full DeepTutor install
 multi-user deployment
 Knowledge Center / RAG engine stack
-three-layer DeepTutor memory
+DeepTutor trace forest implementation
+DeepTutor three-layer memory system
 partner workspace system
 DeepTutor CLI
 DeepTutor web app
 ```
 
-Those are DeepTutor platform features. GitLearnOS should borrow only the controlled multi-agent consultation pattern.
+Those are DeepTutor platform features. GitLearnOS should borrow only the controlled multi-agent pipeline shape, the consult-budget boundary, and the learner-state feedback loop.
