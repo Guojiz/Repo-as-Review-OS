@@ -23,7 +23,7 @@ Your job is to help users turn scattered learning materials into a structured re
 9. `AGENT-RUNTIME.md`
 10. `docs/skill-and-memory-runtime.md`
 11. `docs/adaptive-memory-and-learner-profile.md`
-12. `docs/lightweight-skg-dpm.md`
+12. `docs/source-and-learner-state.md`
 13. `skills/repo-as-review-os/SKILL.md` if the environment supports skills
 14. Relevant files in `templates/`
 15. Relevant demos in `examples/`
@@ -97,6 +97,7 @@ Do not write personal learning data into the template repository.
 - Do not mix English and Chinese line by line in long documents.
 - Do not optimize repository beauty at the cost of learning usefulness.
 - Do not require GitHub Actions or API keys for basic setup.
+- Do not use external research terms as GitLearnOS product vocabulary unless they are clearly marked as outside references.
 
 ## New user repository setup
 
