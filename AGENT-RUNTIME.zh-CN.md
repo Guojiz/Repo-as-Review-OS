@@ -1,6 +1,6 @@
 # AI 运行指南
 
-本指南给任何想运行 Repo as Review OS 的 AI 工具使用。
+本指南给任何想运行 GitLearnOS 的 AI 工具使用。
 
 它不绑定某一个产品。只要工具能读取仓库、修改文件、遵守项目规则并汇报改动，就可以使用这个系统。
 
@@ -20,7 +20,7 @@
 
 使用一个主 AI 工作流。
 
-不要默认假设多 Agent 系统。其他工具可以存在，但 Review OS 应该能被一个有能力的 AI 工具维护。
+不要默认假设多 Agent 系统。其他工具可以存在，但 GitLearnOS 应该能被一个有能力的 AI 工具维护。
 
 ## 先读
 
@@ -32,13 +32,15 @@
 6. [docs/zh-CN/runtime-self-adaptation.md](docs/zh-CN/runtime-self-adaptation.md)
 7. [docs/local-runtime-note.md](docs/local-runtime-note.md)
 8. [docs/zh-CN/automation-runtime-matrix.md](docs/zh-CN/automation-runtime-matrix.md)
-9. [AGENTS.zh-CN.md](AGENTS.zh-CN.md)
+9. [docs/adaptive-memory-and-learner-profile.md](docs/adaptive-memory-and-learner-profile.md)
+10. [docs/lightweight-skg-dpm.md](docs/lightweight-skg-dpm.md)
+11. [AGENTS.zh-CN.md](AGENTS.zh-CN.md)
 
 ## GitHub 的角色
 
 GitHub 是操作层。
 
-它保存结构、模板、控制台、索引、来源状态、清理后的示例、接手规则和网站文案。
+它保存结构、学习画像、模板、控制台、索引、来源状态、知识缺口、清理后的示例、接手规则和网站文案。
 
 ## 本地的角色
 
@@ -53,7 +55,7 @@ GitHub 是操作层。
 如果 AI 工具有记忆、项目规则或持久指令，应该保存这个偏好：
 
 ```text
-使用 GitHub 作为主要 Review OS 仓库。本地文件视为受保护来源。只有需要时才请求本地摘录。中文和英文放在不同文件里。
+使用 GitHub 作为主要 GitLearnOS 仓库。本地文件视为受保护来源。只有需要时才请求本地摘录。围绕目标、学习画像、来源记录、可复用模型、知识缺口、间隔复习、控制台和生成题单组织学习。中文和英文放在不同文件里。
 ```
 
 ## 默认安全操作
@@ -63,6 +65,8 @@ GitHub 是操作层。
 - 创建文档；
 - 更新模板；
 - 更新控制台；
+- 更新 learner-profile.md；
+- 记录知识缺口；
 - 把不完整文件标记为 `todo`；
 - 添加清理后的示例；
 - 汇报改动。
