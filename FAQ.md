@@ -1,10 +1,10 @@
 # FAQ
 
-## What is Repo as Review OS?
+## What is GitLearnOS?
 
-Repo as Review OS is a GitHub-based learning repository protocol.
+GitLearnOS is a GitHub-native learning-trace operating system for AI-assisted study.
 
-It helps an AI tool organize goals, source records, reusable models, review sets, dashboards, and handoff notes in one target repository.
+It helps an AI tool organize goals, learner profile, source records, reusable models, knowledge gaps, review sets, dashboards, and handoff notes in one target repository.
 
 ## Is this repository my learning repository?
 
@@ -16,7 +16,7 @@ Your own target repository is where your personal learning records should go.
 
 ## What is the first thing I should do?
 
-Create an empty or nearly empty private target repository, then ask an AI tool to read this template repository and deploy the minimal structure into your target repository.
+Create an empty or nearly empty private target repository, then ask an AI tool to read this template repository and deploy the minimal GitLearnOS structure into your target repository.
 
 Start with [QUICKSTART.md](QUICKSTART.md).
 
@@ -24,7 +24,7 @@ Start with [QUICKSTART.md](QUICKSTART.md).
 
 Yes.
 
-It organizes structured learning records into GitHub: goals, source records, reusable models, review sets, dashboards, next review dates, and handoff notes.
+It organizes structured learning records into GitHub: goals, learner profile, source records, reusable models, knowledge gaps, review sets, dashboards, next review dates, and handoff notes.
 
 It does not require every original file to be uploaded.
 
@@ -40,7 +40,7 @@ GitHub should keep the structured learning state.
 
 ## Can I use it locally?
 
-Yes, but local use is not identical to a GitHub-backed Review OS.
+Yes, but local use is not identical to a GitHub-backed GitLearnOS.
 
 A local workspace can test the method and edit local files. It does not automatically mean the AI has GitHub access.
 
@@ -84,9 +84,11 @@ After setup, the target repository should contain:
 
 ```text
 dashboard.md
+learner-profile.md
 goals/main-goal.md
 sources/
 models/
+knowledge-gaps/
 reviews/
 templates/
 agents/
