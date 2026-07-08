@@ -2,14 +2,17 @@
 
 Different AI environments load operating rules differently.
 
-GitLearnOS actively supports two runtime families:
+GitLearnOS actively supports three runtime families:
 
 ```text
 ChatGPT native workflow
 → daily learning conversation, memory alignment, GitHub-assisted work, and light automation handoff
 
+Claude native workflow
+→ daily learning conversation, project-style organization, artifacts, long-context reading, writing, and careful revision
+
 OpenHanako / HanaAgent desktop workflow
-→ local files, multi-agent work, Skills, scheduled tasks, browser/computer actions, and deeper file automation
+→ local files, multi-agent work, Skills, scheduled tasks, portable channels, browser/computer actions, and deeper file automation
 ```
 
 Claude Code, Codex, Cursor, and other code or CLI agents are not maintained here as daily GitLearnOS tutoring runtimes.
@@ -25,56 +28,74 @@ Claude Code / Codex / Cursor / CLI code agent
 → then hand off daily learning work to OpenHanako
 ```
 
+Do not confuse Claude with Claude Code.
+
+```text
+Claude
+→ native AI platform
+
+Claude Code
+→ coding agent for deployment and source work
+```
+
 See `docs/deploy-openhanako-with-code-agents.md`.
 
-Before choosing a runtime path, the AI should identify its current environment and adapt the setup plan. See `docs/runtime-self-adaptation.md` and `docs/platform-agent-configuration.md`.
+Before choosing a runtime path, the AI should identify its current environment and adapt the setup plan. See `docs/runtime-self-adaptation.md`, `docs/native-ai-platform-deployment.md`, and `docs/platform-agent-configuration.md`.
 
 ## Recommended runtime tiers
 
 ```text
-Actively supported daily platform: ChatGPT
+Actively supported native platform: ChatGPT
 → recommended for daily learning conversation, reasoning, explanation, writing, memory alignment, source interpretation, GitHub-assisted work, and lightweight review generation
 
+Actively supported native platform: Claude
+→ recommended for project-style learning, long-context reading, writing, artifacts, careful revision, and repository-assisted work
+
 Actively supported desktop enhanced runtime: OpenHanako / HanaAgent
-→ recommended when the learner wants a real desktop-side multi-agent system with local files, memory, Skills, scheduled tasks, browser/computer actions, and deeper automation
+→ recommended when the learner wants a real desktop-side multi-agent system with local files, memory, Skills, scheduled tasks, portable channels, browser/computer actions, and deeper automation
 
 Deployment assistant: Claude Code / Codex / Cursor / repository-aware CLI agents
 → useful for deploying, debugging, or customizing OpenHanako
 → not the maintained daily tutoring layer
 
 Lightweight single-context tier: Zhipu Qingyan, domestic single-context agents, and other chat-style AI tools
-→ useful when the user can place a small set of rules, materials, and repository excerpts into one context window
+→ useful when the user can place a small set of rules, materials, and state excerpts into one context window
 ```
 
-Do not require a separate desktop agent by default. ChatGPT can complete many daily learning workflows through native platform features. OpenHanako is the recommended desktop enhancement when the user wants local file access, multi-agent coordination, Skills, and scheduled computer-side work.
+Do not require a desktop agent by default. ChatGPT and Claude cover the main native-platform pattern. OpenHanako is the desktop enhancement when the user wants local file access, multi-agent coordination, Skills, portable channels, and scheduled computer-side work.
 
-For complete setup prompts and agent roles, see `docs/platform-agent-configuration.md`.
+For complete setup prompts and agent roles, see `docs/native-ai-platform-deployment.md` and `docs/platform-agent-configuration.md`.
 
-## Four runtime paths
+## Five runtime paths
 
 ```text
 Path A: native ChatGPT workflow
 → use memory, project instructions, files, connectors, MCP, or GitHub integration when available
 → align native memory with learner-profile.md
-→ keep GitHub as source of truth
+→ keep chosen state layer as source of truth
 → use prompt-only automation as handoff unless live repository tools are available
 
-Path B: OpenHanako / HanaAgent desktop workflow
+Path B: native Claude workflow
+→ use Projects, memory/project context, artifacts, files, connectors, MCP, or GitHub integration when available
+→ keep artifacts as working surfaces
+→ persist durable learning state back to learner-profile.md, sources/, models/, knowledge-gaps/, reviews/, or dashboard.md
+
+Path C: OpenHanako / HanaAgent desktop workflow
 → configure GitLearnOS Maintainer, Source & Model Extractor, Practice & Review Coach, and optional Critic
 → use local desk files as protected source inbox
-→ use GitHub as shared learning state
-→ report every actual repository change
+→ use GitHub, local git, or local git + Obsidian as shared learning state
+→ report every actual state-layer change
 
-Path C: OpenHanako deployment with code agents
+Path D: OpenHanako deployment with code agents
 → use Claude Code, Codex, Cursor, or a CLI agent to inspect and run OpenHanako source
 → use package scripts, not raw Electron commands
 → fix Node, npm, Electron, server, and packaging issues
 → after deployment, move GitLearnOS work into OpenHanako
 
-Path D: single-context fallback
+Path E: single-context fallback
 → paste only the rules and excerpts needed for the current task
 → run one focused learning task
-→ write valuable results back to GitHub manually or through a tool-enabled step
+→ write valuable results back to the state layer manually or through a tool-enabled step
 ```
 
 ## Native ChatGPT path
@@ -94,7 +115,30 @@ stable instructions
 Suggested memory:
 
 ```text
-Use GitHub as the source of truth for my GitLearnOS. Treat local files as protected source material. learner-profile.md is the inspectable learner memory. Organize learning around goals, source records, reusable models, knowledge gaps, spaced repetition, dashboards, and generated practice. When native memory conflicts with GitHub, trust GitHub first and suggest a memory update.
+Use the chosen state layer as the source of truth for my GitLearnOS. Treat local files as protected source material. learner-profile.md is the inspectable learner memory. Organize learning around goals, source records, reusable models, knowledge gaps, spaced repetition, dashboards, and generated practice. When native memory conflicts with the state layer, trust the state layer first and suggest a memory update.
+```
+
+## Native Claude path
+
+Use Claude directly.
+
+The AI should configure:
+
+```text
+Claude Project or equivalent workspace
++ project instructions
++ selected files or connected repository when available
++ artifacts for drafts and teaching surfaces
++ learner-profile.md sync
++ source/model/gap/review workflow
+```
+
+Artifacts should not become the only learning state. If an artifact creates durable learning information, summarize it back into the chosen state layer.
+
+Suggested project instruction:
+
+```text
+Use the chosen state layer as the source of truth for my GitLearnOS. Treat Claude Project context, artifacts, and memory as working surfaces. Persist important learning state back to learner-profile.md, sources/, models/, knowledge-gaps/, reviews/, or dashboard.md.
 ```
 
 ## OpenHanako / HanaAgent desktop path
@@ -117,9 +161,11 @@ Optional Critic
 → audits vague notes, stale gaps, unsupported claims, weak questions, and learner-profile drift
 ```
 
-Keep GitHub as the shared state. Do not let agents drift into separate private memories.
+Use one state layer: GitHub, local git, or local git + Obsidian.
 
-Use OpenHanako desk files as the local source inbox. Turn local materials into source records and model cards instead of dumping raw files into GitHub.
+Keep the state layer shared. Do not let agents drift into separate private memories.
+
+Use OpenHanako desk files as the local source inbox. Turn local materials into source records and model cards instead of dumping raw files into the state layer.
 
 See `docs/platform-agent-configuration.md` for the full desktop setup.
 
@@ -153,7 +199,7 @@ skills/repo-as-review-os-maintenance/SKILL.md
 
 The skill suite gives the agent stable behavior. It should not store changing personal learning data.
 
-Changing data belongs in the user's repository:
+Changing data belongs in the user's chosen state layer:
 
 ```text
 goals/
@@ -168,20 +214,20 @@ automations/
 
 ## Single-context agent path
 
-Some AI tools only have one context window, or they do not have stable skills, memory, or GitHub writeback.
+Some AI tools only have one context window, or they do not have stable skills, memory, or writeback.
 
 This environment can still use the lightweight version of GitLearnOS:
 
-1. Copy only the repository rules needed for the current task.
+1. Copy only the rules needed for the current task.
 2. Paste the relevant goal, learner profile, source, model, knowledge gap, or mistake excerpt.
 3. Ask the AI to complete one task: organize, split, model, record gap, generate practice, or review.
-4. Manually or tool-assisted write valuable results back to GitHub.
+4. Write valuable results back to the state layer manually or through a tool-enabled step.
 
-Do not ask a single-context agent to pretend it has long-term memory. It can execute the current task, but the long-term state still belongs in GitHub.
+Do not ask a single-context agent to pretend it has long-term memory. It can execute the current task, but the long-term state still belongs in the chosen state layer.
 
 ## New repository setup
 
-Minimum private learning repository:
+Minimum private learning state:
 
 ```text
 dashboard.md
@@ -205,7 +251,7 @@ Memory gives the AI stable preferences.
 
 Project space gives the AI fixed materials and conversation context.
 
-Repository gives the AI current learning state.
+Repository, local git, or Obsidian gives the AI current learning state.
 
 Desktop runtime gives the AI local computer-side execution when available.
 
