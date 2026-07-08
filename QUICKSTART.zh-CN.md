@@ -52,7 +52,7 @@ https://github.com/Guojiz/Repo-as-Review-OS
 
 这是首次部署。除非你发现仓库里已经有文件，否则先把目标仓库视为空仓库或接近空仓库。如果发现已有文件，先检查，不要未经确认直接覆盖。
 
-先读 START-HERE.zh-CN.md、README.zh-CN.md、QUICKSTART.zh-CN.md、docs/zh-CN/first-experiment-guide.md、docs/zh-CN/what-goes-into-github.md、docs/zh-CN/runtime-self-adaptation.md、AGENT-RUNTIME.zh-CN.md、AGENTS.zh-CN.md、docs/zh-CN/skill-and-memory-runtime.md、docs/adaptive-memory-and-learner-profile.md 和 docs/lightweight-skg-dpm.md。
+先读 START-HERE.zh-CN.md、README.zh-CN.md、QUICKSTART.zh-CN.md、docs/zh-CN/first-experiment-guide.md、docs/zh-CN/what-goes-into-github.md、docs/zh-CN/runtime-self-adaptation.md、AGENT-RUNTIME.zh-CN.md、AGENTS.zh-CN.md、docs/zh-CN/skill-and-memory-runtime.md、docs/adaptive-memory-and-learner-profile.md 和 docs/source-and-learner-state.md。
 
 如果你支持 skill，请使用 skills/repo-as-review-os/SKILL.md。如果不支持 skill，请使用 docs/zh-CN/skill-and-memory-runtime.md 里的记忆回退方案。
 
