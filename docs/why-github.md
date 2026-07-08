@@ -1,12 +1,12 @@
 # Why GitHub
 
-Repo as Review OS uses GitHub because GitHub is not just storage. It is a writable timeline.
+GitLearnOS uses GitHub because GitHub is not just storage. It is a writable learning timeline.
 
 ## 1. Every change has time and history
 
 A normal folder stores files. GitHub records when files changed, what changed, and why.
 
-That matters for learning. Each problem, correction, summary, and template update becomes part of a visible learning timeline.
+That matters for learning. Each problem, correction, summary, model, knowledge gap, and template update becomes part of a visible learning timeline.
 
 ## 2. Pull and push create a learning rhythm
 
@@ -22,9 +22,9 @@ For an AI tool, the cycle is:
 
 ## 3. Problems can become models
 
-When the user solves a math problem, the AI can store more than the answer.
+When the user solves a math problem, reads a paper, or makes a mistake, the AI can store more than the answer.
 
-It can store the original problem, solution path, mistake, recognition cue, common pattern, and future review item.
+It can store the original problem, source, solution path, mistake, recognition cue, common pattern, knowledge gap, and future review item.
 
 Over time, single problems become reusable models.
 
@@ -34,7 +34,7 @@ Because files and commits have history, the AI can ask:
 
 - What was added recently?
 - What has not been reviewed for a long time?
-- Which mistakes keep returning?
+- Which knowledge gaps keep returning?
 - What should appear in the next review set?
 
 ## 5. Why not only an AI project
@@ -58,4 +58,4 @@ one AI app
 
 This can work from a phone and does not require a full local toolchain.
 
-This template repository provides the method. The user's target repository is the learning workspace.
+This template repository provides the method. The user's target repository is the GitLearnOS workspace.
