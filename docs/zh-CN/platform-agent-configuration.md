@@ -1,28 +1,32 @@
 # 平台 Agent 配置教程
 
-本教程只详细维护 GitLearnOS 的两个主支持运行层：
+本教程详细维护 GitLearnOS 的三个主要平台族：
 
 ```text
-日常原生 AI 平台
+原生 AI 平台
 → ChatGPT
+→ Claude
 
 桌面端增强 Agent 运行时
 → OpenHanako / HanaAgent
+
+代码 Agent 部署助手
+→ Claude Code / Codex / Cursor
 ```
 
-Claude Code、Codex、Cursor 和其他代码 / CLI Agent 不是本仓维护的日常 GitLearnOS 辅导运行层。
-
-它们有一个有用角色：
+不要把 Claude 和 Claude Code 混在一起。
 
 ```text
-OpenHanako 部署助手
-→ 阅读 OpenHanako 源码
-→ 安装依赖
-→ 运行和调试 HanaAgent
-→ 准备桌面端运行时
+Claude
+→ 原生 AI 平台，用于学习对话、Projects、Artifacts、长上下文、写作和复习
+
+Claude Code
+→ 代码 Agent，用于部署、阅读、调试或定制 OpenHanako
 ```
 
-这个角色见 `docs/zh-CN/deploy-openhanako-with-code-agents.md`。
+ChatGPT 和 Claude 的原生平台部署见 `docs/zh-CN/native-ai-platform-deployment.md`。
+
+用代码 Agent 部署 OpenHanako 见 `docs/zh-CN/deploy-openhanako-with-code-agents.md`。
 
 本仓主动支持的平台应该遵守同一个 GitLearnOS 学习闭环：
 
@@ -38,10 +42,9 @@ OpenHanako 部署助手
 运行环境：
 原生记忆：
 项目 / 工作区指令：
-GitHub 读取权限：
-GitHub 写入权限：
+状态层：
+仓库或本地 git 访问：
 本地文件访问：
-外部记忆工具：
 桌面自动化：
 需要用户手动完成的步骤：
 ```
@@ -52,120 +55,106 @@ GitHub 写入权限：
 
 ```text
 ChatGPT
-→ 本仓详细支持的日常学习平台
-→ 推理、解释、写作、记忆校准、GitHub 辅助工作和轻量自动化接手
+→ 本仓详细支持的原生日常学习平台
+→ 记忆校准、推理、解释、写作、GitHub 辅助工作和轻量自动化接手
+
+Claude
+→ 本仓详细支持的原生日常学习平台
+→ 项目式组织、长上下文阅读、写作、Artifacts、细致草稿和仓库辅助工作
 
 OpenHanako / HanaAgent
 → 本仓详细支持的桌面端增强运行时
-→ 本地文件、多 Agent、Skills、定时任务、浏览器 / 电脑操作和更深入的文件自动化
+→ 本地文件、多 Agent、Skills、定时任务、便携入口、浏览器 / 电脑操作和更深入的文件自动化
 
 Claude Code / Codex / Cursor / CLI agents
 → 只作为 OpenHanako 部署和源码辅助工具
 → 不是本仓维护的日常 GitLearnOS 辅导平台
-
-Claude 原生平台
-→ 原则上兼容，但本仓不详细维护；偏好这些生态的用户请使用外部专门方案或自行适配
 ```
 
-ChatGPT 作为原生 AI 平台使用，不写成桌面端运行时。
+ChatGPT 和 Claude 是两个原生平台代表。其他聊天式 AI 平台可以照着它们适配。
 
 OpenHanako 是用户需要本机多 Agent 系统时的桌面端增强推荐。
 
-## ChatGPT 原生配置
+## 原生平台部署
 
-适合日常学习、解释、写作、复习和 GitHub 辅助维护。
-
-### 1. 创建或选择目标仓库
-
-真实学习数据建议使用一个私有 GitHub 仓库。
-
-建议结构：
+ChatGPT 和 Claude 使用：
 
 ```text
-dashboard.md
-learner-profile.md
-goals/main-goal.md
-sources/
-models/
-knowledge-gaps/
-reviews/
-templates/
-agents/
-automations/
-archive/
+docs/zh-CN/native-ai-platform-deployment.md
 ```
 
-### 2. 添加 Project instructions 或固定启动提示词
+简版：
+
+```text
+ChatGPT
+→ 记忆优先的原生工作流
+
+Claude
+→ Project / Artifact 优先的原生工作流
+
+GitHub / 本地 git / Obsidian
+→ 长期学习状态
+```
+
+一次只使用一个活跃原生平台。不要让 ChatGPT 和 Claude 同时更新同一份 learner-profile、knowledge-gaps、reviews 或 dashboard。
+
+## ChatGPT 原生配置
+
+适合想要最顺滑手机 / 网页日常学习流程，以及较强持续个性化的学习者。
+
+最小配置：
+
+```text
+状态层：GitHub、本地 git 或本地 git + Obsidian
+活跃平台：ChatGPT
+记忆：稳定偏好缓存
+learner-profile.md：可检查学习画像
+```
 
 核心指令：
 
 ```text
-你正在帮我运行 GitLearnOS。
+你正在帮我在 ChatGPT 中运行 GitLearnOS。
 
-GitHub 是我的学习状态事实源。本地文件是受保护的原始资料。ChatGPT 记忆是主动偏好缓存，不是仓库本身。
+使用我选定的状态层作为学习状态事实源。ChatGPT 记忆是主动偏好缓存，不是仓库本身。
 
-行动前先识别你的运行环境、记忆、文件访问、GitHub 访问和权限边界。
+行动前先识别你的运行环境、记忆、文件访问、仓库访问和权限边界。
 
-学习时遵守这个闭环：
+遵守这个闭环：
 来源 → 模型 → 知识缺口 → 个性化题目 → 复习结果 → learner-profile.md → 下次复习。
 
-不要编造缺失来源。除非你能汇报具体改了哪些文件，否则不要声称已经修改仓库。
+不要编造缺失来源。除非你能说出具体改了哪些文件，否则不要声称已经编辑文件或仓库。
 ```
 
-### 3. 谨慎使用 ChatGPT 记忆
+## Claude 原生配置
 
-建议写入的稳定记忆：
+适合需要项目式组织、长上下文阅读、写作、Artifacts 和细致修改的学习者。
+
+最小配置：
 
 ```text
-用户使用 GitLearnOS 进行 AI 辅助学习。
-GitHub 是学习状态事实源。
-learner-profile.md 保存可检查的学习画像。
-本地文件是受保护来源材料。
-练习应该来自最近模型和活跃知识缺口。
-如果 ChatGPT 记忆和 GitHub 冲突，优先相信 GitHub，并建议更新记忆。
+状态层：GitHub、本地 git 或本地 git + Obsidian
+活跃平台：Claude
+Claude Project：工作表面
+Artifacts：草稿、可视化解释、小练习或临时教学材料
+learner-profile.md：可检查学习画像
 ```
 
-不要把临时任务、原始私人笔记、过期知识缺口或一次性练习结果当作永久记忆。
-
-### 4. 连接 GitHub 后先验证权限
+核心指令：
 
 ```text
-请检查你是否能读取我的目标仓库，以及是否能写入。汇报你的准确权限等级。如果你不能写入，不要假装可以更新文件。
-```
+你正在帮我在 Claude 中运行 GitLearnOS。
 
-### 5. 首次运行提示词
+使用我选定的状态层作为学习状态事实源。Claude project context、artifacts 和 memory 是工作表面，不是长期状态本身。
 
-```text
-请阅读这个模板仓库：https://github.com/Guojiz/Repo-as-Review-OS
+行动前先识别你的运行环境、记忆 / project 能力、文件访问、仓库访问和权限边界。
 
-帮我在这个目标仓库里搭建 GitLearnOS：
-<粘贴目标仓库>
+遵守这个闭环：
+来源 → 模型 → 知识缺口 → 个性化题目 → 复习结果 → learner-profile.md → 下次复习。
 
-先识别你的运行环境、记忆能力、Project 上下文、GitHub 读写权限，以及我需要手动完成的步骤。
+不要编造缺失来源。除非你能说出具体改了哪些文件，否则不要声称已经编辑文件或仓库。
 
-然后创建或检查 dashboard.md、learner-profile.md、goals/main-goal.md、sources/、models/、knowledge-gaps/、reviews/、templates/、agents/、automations/ 和 archive/。汇报每个创建或修改的文件。
-```
-
-### 6. 日常使用提示词
-
-```text
-请使用我的 GitLearnOS 仓库。
-
-读取 dashboard.md、learner-profile.md、最近模型、活跃知识缺口和最近复习记录。
-
-告诉我下一步应该学什么，生成一小套个性化练习，并说明每道题对应哪个来源、模型或知识缺口。
-
-如果你更新仓库，请汇报每个被修改的文件。
-```
-
-### 7. 自动化边界
-
-ChatGPT 的定时提示如果没有实时 GitHub 工具，只能算接手卡，不是已经完成仓库维护。
-
-建议提示：
-
-```text
-这是 GitLearnOS 接手启动卡。如果你没有实时 GitHub 访问，不要声称仓库工作已完成。告诉我下一步要检查什么，以及应该在有工具权限的聊天里发送什么命令。
+Artifacts 可以用于草稿、可视化解释、表格、小应用或临时教学材料。重要学习状态必须写回 learner-profile.md、sources/、models/、knowledge-gaps/、reviews/ 或 dashboard.md。
 ```
 
 ## OpenHanako / HanaAgent 桌面端配置
@@ -181,13 +170,14 @@ OpenHanako 比泛泛的桌面 Agent 更适合这些 GitLearnOS 场景：
 - Agent 记忆；
 - 定时任务；
 - 多 Agent 协作；
-- 本地桌面工作区和书桌文件。
+- 本地桌面工作区和书桌文件；
+- 从消息或社交平台进入的便携入口。
 
 ## 为什么 OpenHanako 适合 GitLearnOS
 
 OpenHanako / HanaAgent 自己的说明里写了：它是有记忆、有性格、会主动行动，还能多个 Agent 在电脑上一同工作的 AI agent。
 
-它的功能包括读写文件、命令、终端会话、浏览器、搜索、截图、网页检查、Skills、角色卡、多 Agent、书桌、定时任务、沙盒、插件和多平台接入。
+它的功能包括读写文件、命令、终端会话、浏览器、搜索、截图、网页检查、Skills、角色卡、多 Agent、书桌、定时任务、沙盒、插件、多平台桥接、移动 PWA 和 LAN 前端。
 
 源码里每个 Agent 也被建模成拥有自己的身份、人格、记忆、工具和 prompt 拼装逻辑。
 
@@ -214,6 +204,22 @@ OpenHanako / HanaAgent 自己的说明里写了：它是有记忆、有性格、
 ```
 
 默认不要创建太多 Agent。多数学习者三个就够。
+
+## OpenHanako 状态层
+
+桌面端不一定必须使用 GitHub。
+
+三选一：
+
+```text
+本地 git + Obsidian
+本地 git 仓库
+GitHub 仓库
+```
+
+如果学习者想要本地优先、快速编辑、私人笔记、Markdown 导航和 git 历史，本地 git + Obsidian 可能已经够用。
+
+只有需要云同步、跨设备接手、公开模板展示或远程 AI 访问时，才优先使用 GitHub。
 
 ## OpenHanako 设置步骤
 
@@ -248,10 +254,10 @@ GitLearnOS-local/
 └── exports/
 ```
 
-GitHub 仓库作为学习状态层：
+学习状态层：
 
 ```text
-GitLearnOS-repo/
+GitLearnOS-state/
 ├── dashboard.md
 ├── learner-profile.md
 ├── goals/
@@ -263,18 +269,18 @@ GitLearnOS-repo/
 └── archive/
 ```
 
-本地保存原始材料。GitHub 保存可检查的学习状态。
+本地保存原始材料。状态层保存可检查的学习状态。
 
 ### 3. 配置 Maintainer Agent
 
 ```text
 你是 GitLearnOS Maintainer。
 
-你的任务是保持目标 GitHub 仓库一致：dashboard.md、learner-profile.md、goals/、sources/、models/、knowledge-gaps/、reviews/、automations/ 和 archive/。
+你的任务是保持目标学习状态一致：dashboard.md、learner-profile.md、goals/、sources/、models/、knowledge-gaps/、reviews/、automations/ 和 archive/。
 
-编辑前先判断文件权限、GitHub 权限、本地访问、记忆状态，以及当前操作是否安全。
+编辑前先判断文件权限、状态层权限、本地访问、记忆状态，以及当前操作是否安全。
 
-不要把个人学习数据写进模板仓库。只写入用户自己的目标仓库。
+不要把个人学习数据写进模板仓库。只写入用户选定的状态层。
 
 汇报每个被修改的文件。
 ```
@@ -282,7 +288,7 @@ GitLearnOS-repo/
 建议记忆：
 
 ```text
-GitLearnOS 的事实源是用户目标 GitHub 仓库。
+GitLearnOS 的事实源是用户选定的状态层。
 本地文件是受保护来源材料。
 learner-profile.md 是可检查的学习者记忆。
 知识缺口连接模型和未来练习。
@@ -315,7 +321,7 @@ knowledge-gaps/
 ```text
 你是 GitLearnOS Practice & Review Coach。
 
-只根据仓库状态出题：learner-profile.md、最近模型、活跃知识缺口、来源记录和复习历史。
+只根据状态层出题：learner-profile.md、最近模型、活跃知识缺口、来源记录和复习历史。
 
 每道题都要链接到一个来源、模型或知识缺口条目。
 
@@ -354,10 +360,10 @@ Maintainer 接收用户请求。
 Maintainer 把来源 / 模型工作委派给 Source & Model Extractor。
 Maintainer 把出题工作委派给 Practice & Review Coach。
 必要时让 Critic 审查结果。
-Maintainer 最后写入或批准仓库更新。
+Maintainer 最后写入或批准状态层更新。
 ```
 
-GitHub 必须作为共享状态，避免多个 Agent 各自在私有记忆里跑偏。
+必须让状态层成为共享状态，避免多个 Agent 各自在私有记忆里跑偏。
 
 ### 8. 把书桌当成本地来源 inbox
 
@@ -371,7 +377,7 @@ PDF 笔记
 原始错题
 ```
 
-Agent 应该把它们转成来源记录或模型卡，而不是把原始文件一股脑塞进 GitHub。
+Agent 应该把它们转成来源记录或模型卡，而不是把原始文件一股脑塞进状态层。
 
 ### 9. 配置定时任务
 
@@ -398,7 +404,7 @@ OpenHanako 文件权限要收窄：
 
 ```text
 读取本地来源文件夹
-只写入 GitLearnOS 目标仓库或受控工作区
+只写入 GitLearnOS 状态层或受控工作区
 删除文件前先问
 上传私人材料前先问
 发布真实学习记录前先问
@@ -426,8 +432,8 @@ server 调试
 ## 最终选择规则
 
 ```text
-日常学习对话
-→ ChatGPT
+原生日常学习对话
+→ ChatGPT 或 Claude
 
 桌面端多 Agent 和本地文件工作流
 → OpenHanako / HanaAgent
@@ -436,7 +442,7 @@ server 调试
 → Claude Code / Codex / Cursor / CLI code agent
 
 长期学习状态
-→ GitHub 目标仓库
+→ GitHub 目标仓库、本地 git 或本地 git + Obsidian
 
 原始来源材料
 → 默认留在本地文件夹，需要时只取小摘录
