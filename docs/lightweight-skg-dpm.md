@@ -1,6 +1,6 @@
 # Lightweight SKG and DPM
 
-Learning Trace OS uses a lightweight version of two personalization ideas:
+GitLearnOS uses a lightweight version of two personalization ideas:
 
 ```text
 Static knowledge grounding
@@ -16,12 +16,13 @@ The names here are implementation concepts, not required platform components.
 
 The static layer is the part that should not change too quickly.
 
-In Learning Trace OS, it is usually:
+In GitLearnOS, it is usually:
 
 ```text
 local textbooks / PDFs / screenshots / original files
 + sources/
 + models/
++ knowledge-gaps/
 + source-status records
 + Git history
 ```
@@ -32,19 +33,21 @@ This layer answers:
 What material is this based on?
 Which source did the AI use?
 Which concept or problem model was extracted?
+Which knowledge gap was found?
 Can the learner inspect the evidence?
 ```
 
-Local folders may keep the full textbook or original file. GitHub keeps the source record, selected excerpts, summaries, model cards, and links.
+Local folders may keep the full textbook or original file. GitHub keeps the source record, selected excerpts, summaries, model cards, knowledge-gap records, and links.
 
 ## Dynamic layer: learner profile and memory
 
 The dynamic layer changes as the learner studies.
 
-In Learning Trace OS, it is usually:
+In GitLearnOS, it is usually:
 
 ```text
 learner-profile.md
++ knowledge-gaps/
 + reviews/
 + automations/organizer-critic/
 + ChatGPT or Claude memory when available
@@ -55,7 +58,7 @@ This layer answers:
 
 ```text
 What is the learner trying to do now?
-What weak points are active?
+What knowledge gaps are active?
 What explanation style works better?
 What has improved?
 What should be reviewed next?
@@ -91,7 +94,7 @@ Default input:
 
 ```text
 recently split models
-+ active weak points
++ active knowledge gaps
 + learner-profile.md
 + source records
 + review schedule
@@ -103,17 +106,18 @@ Default output:
 small practice set
 + answer
 + explanation
-+ linked source/model/profile entry
++ linked source/model/gap/profile entry
 + next review date
 ```
 
 ## Closed loop
 
-Learning Trace OS keeps the loop simple:
+GitLearnOS keeps the loop simple:
 
 ```text
 source
 → split into model
+→ identify knowledge gap
 → generate personalized question
 → learner result
 → update learner-profile.md
