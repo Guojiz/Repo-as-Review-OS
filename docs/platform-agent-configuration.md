@@ -199,31 +199,78 @@ lib/tools/subagent-tool.ts
 
 If those source facts change upstream, update this guide before changing GitLearnOS deployment instructions.
 
+## DeepTutor reference for OpenHanako multi-agent design
+
+Use [DeepTutor Multi-Agent Reference](deeptutor-multi-agent-reference.md) before configuring OpenHanako agents.
+
+The useful DeepTutor pattern is:
+
+```text
+main tutor loop
+→ consult or dispatch a focused agent when needed
+→ return to the main loop
+→ main loop answers and writes state
+```
+
+Do not copy DeepTutor's full platform. Borrow only the controlled pipeline shape, consult-budget boundary, and learner-state feedback loop.
+
 ## Recommended OpenHanako agent layout
 
 Inside OpenHanako, multiple agents are allowed only as roles within one active desktop runtime.
 
-Default layout:
+### Minimal default layout
 
 ```text
 1. GitLearnOS Maintainer
-   → owns dashboard, learner-profile.md, indexes, handoff notes, and write boundary
+   → main tutor loop
+   → owns dashboard, learner-profile.md, indexes, handoff notes, and final writes
 
 2. Source & Model Extractor
-   → turns local excerpts or uploaded materials into source records, models, and knowledge gaps
+   → consulted when source material, mistakes, papers, screenshots, or local excerpts need extraction
+   → proposes source records, reusable models, and knowledge gaps
 
 3. Practice & Review Coach
-   → generates practice from recent models, active gaps, review history, and spaced repetition
+   → consulted when review sets, quizzes, spaced repetition, or next actions are needed
+   → proposes practice and review updates
+
+4. Validator / Critic
+   → optional
+   → checks unsupported claims, stale gaps, weak questions, answer correctness, and learner-profile drift
 ```
 
-Optional only when needed:
+The Maintainer is the final writer. Other agents inspect, extract, propose, quiz, or validate. This prevents multi-agent drift.
+
+### Expanded DeepTutor-inspired layout
+
+Use only when the user explicitly wants a heavier OpenHanako setup:
 
 ```text
-4. Critic
-   → audits vague notes, unsupported source claims, stale gaps, poor questions, and outdated learner-profile entries
+Maintainer / Orchestrator
+→ main loop, state boundary, final response, final write
+
+Personalized Investigator
+→ maps a user task to source records, current gaps, learner profile, and a plan
+
+Step Solver / Model Extractor
+→ executes the plan, extracts reusable models, records observations
+
+Evidence Writer
+→ turns the result into a learner-facing explanation or repository note
+
+Practice Idea Agent
+→ proposes practice ideas from active gaps and source context
+
+Question Generator
+→ creates question-answer-explanation triples
+
+Validator / Critic
+→ independently checks correctness, source grounding, fit, and difficulty
+
+Memory Updaters
+→ Session History, Weakness Diagnosis, and Self-Reflection updates
 ```
 
-The Maintainer is the final writer. Other agents propose or prepare work. This prevents multi-agent drift.
+The expanded layout is a configuration option, not the GitLearnOS default requirement.
 
 ## OpenHanako state layer
 
