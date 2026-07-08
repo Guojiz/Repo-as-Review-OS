@@ -2,7 +2,7 @@
 
 GitLearnOS strongly recommends using one active learning runtime at a time.
 
-Do not run ChatGPT, OpenHanako, Claude, Codex, Obsidian agents, and other tools as parallel learning authorities unless there is a deliberate handoff.
+Do not run ChatGPT, Claude, OpenHanako, Codex, Claude Code, Obsidian agents, and other tools as parallel learning authorities unless there is a deliberate handoff.
 
 Multiple platforms at the same time create drift:
 
@@ -11,7 +11,7 @@ native memory drift
 + private agent context drift
 + duplicate practice generation
 + conflicting learner-profile updates
-+ different repository states
++ inconsistent reviews / dashboard
 + unclear source of truth
 ```
 
@@ -39,6 +39,19 @@ local files
 → protected original materials
 ```
 
+### Claude native setup
+
+```text
+Claude
+→ daily learning runtime
+
+GitHub target repository
+→ source of truth for learning state
+
+Claude Project / Artifacts
+→ working surfaces, not the durable state
+```
+
 ### Desktop setup
 
 ```text
@@ -59,18 +72,16 @@ Claude Code / Codex / Cursor
 → deploy or debug OpenHanako only
 
 OpenHanako
-→ becomes the active learning runtime after deployment
+→ becomes the active desktop learning runtime after deployment
 ```
 
-## GitHub is optional on desktop
+## GitHub and local state layers
 
-On a desktop OpenHanako setup, GitHub is useful but not mandatory.
+For ChatGPT and Claude, GitHub is the default state layer.
 
-A local git repository plus Obsidian may be enough when the learner wants local-first control, fast editing, private notes, markdown navigation, and git history without cloud dependency.
+A local git repository or Obsidian vault is valid only when the active runtime can actually access local files, or when the user manually applies exact patches from the AI.
 
-In that case, treat local git + Obsidian as the learning state layer.
-
-Use GitHub only when the learner needs cloud sync, cross-device handoff, public template sharing, or remote AI access.
+For OpenHanako, a local git repository or local git + Obsidian can be the real state layer after the user grants file access.
 
 ## Portable access channels
 
@@ -95,16 +106,14 @@ Important learning results should still be written back to the chosen state laye
 
 OpenHanako has many features. Do not enable everything by default.
 
-Enable only features needed for the current learning workflow.
-
 ```text
 Usually useful:
 - memory
 - local file or desk access
 - selected Skills
-- one Maintainer agent
-- one Source and Model Extractor
-- one Practice and Review Coach
+- GitLearnOS Maintainer
+- Source and Model Extractor
+- Practice and Review Coach
 
 Enable only when needed:
 - scheduled tasks
@@ -120,7 +129,7 @@ Avoid by default:
 - parallel platform workflows
 ```
 
-This prevents token waste, context drift, and state conflicts.
+The Maintainer should be the final writer to the state layer. Other agents prepare or review work so multi-agent drift stays contained.
 
 ## Handoff rule
 
