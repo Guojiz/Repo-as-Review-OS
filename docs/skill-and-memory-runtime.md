@@ -80,6 +80,7 @@ Changing data belongs in the user's repository:
 
 ```text
 goals/
+learner-profile.md
 sources/
 models/
 reviews/
@@ -96,7 +97,7 @@ For those tools, use memory, custom instructions, project instructions, or the c
 Suggested memory:
 
 ```text
-Use GitHub as the main operating layer for my personal learning OS. Treat local files as protected source material. Do not invent missing sources. Organize learning around goals, source records, reusable models, spaced repetition, dashboards, and generated practice. Report every repository change. If a source is incomplete, label it honestly and add it to a queue instead of pretending it is complete.
+Use GitHub as the main operating layer for my personal learning OS. Treat local files as protected source material. Do not invent missing sources. Organize learning around goals, learner profile, source records, reusable models, spaced repetition, dashboards, and generated practice. Report every repository change. If a source is incomplete, label it honestly and add it to a queue instead of pretending it is complete.
 ```
 
 ## Single-context agent path
@@ -106,7 +107,7 @@ Some AI tools only have one context window, or they do not have stable skills, m
 This environment can still use the lightweight version of Repo as Review OS:
 
 1. Copy only the repository rules needed for the current task.
-2. Paste the relevant goal, source, model, or mistake excerpt.
+2. Paste the relevant goal, learner profile, source, model, or mistake excerpt.
 3. Ask the AI to complete one task: organize, split, model, generate practice, or review.
 4. Manually or tool-assisted write valuable results back to GitHub.
 
@@ -120,6 +121,7 @@ Minimum private learning repository:
 
 ```text
 dashboard.md
+learner-profile.md
 goals/main-goal.md
 sources/
 models/
