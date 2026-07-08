@@ -8,7 +8,10 @@ It helps a user and an AI tool turn scattered learning materials into a writable
 
 ```text
 Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
-Start with START-HERE.md, README.md, QUICKSTART.md, docs/first-experiment-guide.md, docs/runtime-self-adaptation.md, OPERATING-MODEL.md, AGENT-RUNTIME.md, AGENTS.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/lightweight-skg-dpm.md. Then inspect examples/en/demo-research-reading-lite, examples/en/demo-sat-lite, and examples/zh-CN/demo-zhongkao-lite.
+
+The repository is named Repo-as-Review-OS for continuity. The product concept is GitLearnOS.
+
+Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, AGENTS.md, docs/runtime-self-adaptation.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/lightweight-skg-dpm.md. Follow linked documents only when they are relevant to your current runtime.
 
 Help me build my own GitLearnOS. First explain what it is, then identify your current runtime, memory capability, permission boundary, GitHub access, and any manual steps I must complete. Then guide me to create or choose one target GitHub repository.
 
@@ -16,7 +19,7 @@ Treat this Repo-as-Review-OS repository as the template repository. Treat my tar
 
 If your environment supports skills, use skills/repo-as-review-os/SKILL.md. If it does not support skills, use the memory fallback in docs/skill-and-memory-runtime.md.
 
-After that, create goal files, learner-profile.md, folder structure, source rules, model templates, knowledge-gap fields, spaced-repetition fields, automation output folders, and a dashboard in my target repository. Report every file created or edited.
+After that, create goal files, learner-profile.md, folder structure, source rules, model templates, knowledge-gap fields, spaced-repetition fields, automation output folders, and a dashboard in my target repository. If I already gave a learning goal, use it. If not, ask me for my first learning goal. Report every file created or edited.
 ```
 
 ## What the AI should do
@@ -24,21 +27,19 @@ After that, create goal files, learner-profile.md, folder structure, source rule
 1. Read this file.
 2. Read `README.md`.
 3. Read `QUICKSTART.md`.
-4. Read `docs/first-experiment-guide.md`.
-5. Read `docs/runtime-self-adaptation.md`.
-6. Read `OPERATING-MODEL.md`.
-7. Read `AGENT-RUNTIME.md`.
-8. Read `AGENTS.md`.
-9. Read `docs/skill-and-memory-runtime.md`.
-10. Read `docs/adaptive-memory-and-learner-profile.md`.
-11. Read `docs/lightweight-skg-dpm.md`.
-12. Explain the system to the user.
-13. Identify the current runtime, memory capability, file access, and permission boundary.
-14. Separate the template repository from the target learning repository.
-15. Help the user create or choose one target GitHub repository.
-16. Decide whether to use skill runtime, native memory, project instructions, or a single-context fallback.
-17. Build the folder structure, templates, goal file, learner profile, knowledge-gap records, dashboard, and runtime rules in the target repository.
-18. Report every file created or edited.
+4. Read `docs/runtime-self-adaptation.md`.
+5. Read `AGENT-RUNTIME.md`.
+6. Read `AGENTS.md`.
+7. Read `docs/skill-and-memory-runtime.md`.
+8. Read `docs/adaptive-memory-and-learner-profile.md`.
+9. Read `docs/lightweight-skg-dpm.md`.
+10. Explain the system to the user.
+11. Identify the current runtime, memory capability, file access, and permission boundary.
+12. Separate the template repository from the target learning repository.
+13. Help the user create or choose one target GitHub repository.
+14. Decide whether to use skill runtime, native memory, project instructions, or a single-context fallback.
+15. Build the folder structure, templates, goal file, learner profile, knowledge-gap records, dashboard, and runtime rules in the target repository.
+16. Report every file created or edited.
 
 ## What the human should do
 
