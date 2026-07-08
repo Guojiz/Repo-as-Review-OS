@@ -36,6 +36,40 @@ No tool access → handoff card only.
 Tool access → real repository work may begin.
 ```
 
+## Recommended minimal automation design
+
+Do not overbuild many small automations.
+
+For most learners, two recurring routines are enough:
+
+```text
+1. Repository Organizer
+   → clean, index, update dashboard, update learner state
+
+2. Practice Generator + Critic
+   → generate practice from weak points, check quality, write approved tasks back
+```
+
+On desktop or in a tool-enabled agent, these routines can be more complex because the agent may read and write files directly.
+
+On ChatGPT mobile/app scheduled automation, keep the prompt simple. Treat it as a starter or handoff card unless the current chat actually has repository access.
+
+## ChatGPT app vs desktop agents
+
+```text
+ChatGPT app / mobile automation
+→ best for reminders, short handoff cards, and user-triggered continuation
+→ should not pretend it updated GitHub unless GitHub tools were actually used
+
+Desktop agent / Codex / tool-enabled environment
+→ can run longer repository checks
+→ can read many files
+→ can write reports, practice sets, and dashboard updates
+→ must still report every changed file
+```
+
+Multiple agents are optional. The repository is the shared state, so different tools can work on the same learning system if they can read and write the same GitHub repository.
+
 ## ChatGPT-style prompt-only automation
 
 Use this mode when the scheduled automation may not have live repository tools.
@@ -54,7 +88,7 @@ End with a clear warning:
 This automation itself does not mean the repository task has been completed. Continue in a tool-enabled chat or agent to execute it.
 ```
 
-## Repository organizer
+## Automation 1: Repository Organizer
 
 Purpose: keep the repository clean and usable.
 
@@ -63,8 +97,9 @@ If running as a worker:
 1. read dashboards and indexes;
 2. find incomplete files;
 3. find stale TODO items;
-4. update dashboards;
-5. report changes.
+4. update learner state or profile files if the repository uses them;
+5. update dashboards;
+6. report changes.
 
 Output can be written to:
 
@@ -74,18 +109,41 @@ automations/repository-organizer/YYYY-MM-DD.md
 
 If running as prompt-only automation, output a handoff card instead.
 
-## Practice generator
+Suggested prompt:
 
-Purpose: create review tasks from repository history.
+```text
+Check my learning repository. First identify whether you have repository tools.
+
+If you do not have repository tools, output only a handoff card: what to inspect first, what risks to check, and what command I should send next.
+
+If you do have repository tools, read dashboard.md, goals/, sources/, models/, reviews/, automations/, and any learner-state/profile file. Update stale indexes, missing review fields, weak-point records, and dashboard links. Do not rewrite learning content unnecessarily. Report every file changed.
+```
+
+## Automation 2: Practice Generator + Critic
+
+Purpose: create useful practice from repository history, then check it before treating it as approved.
+
+This combines two roles in one routine:
+
+```text
+Generator
+→ proposes practice from weak points, old models, sources, and review schedule
+
+Critic
+→ checks fit, clarity, difficulty, answer quality, duplication, and source grounding
+```
 
 If running as a worker:
 
-1. read recent problem cards;
+1. read recent problem cards or review records;
 2. read old weak points;
 3. read active models;
 4. check what has not appeared recently;
-5. create a small review set;
-6. write it back to the repository.
+5. generate a small review set;
+6. critique the generated questions;
+7. revise or reject weak questions;
+8. write approved practice back to the repository;
+9. update review schedule or dashboard fields.
 
 Output can be written to:
 
@@ -94,6 +152,16 @@ automations/practice-generator/YYYY-MM-DD.md
 ```
 
 If running as prompt-only automation, output a handoff card instead and wait for the user to continue in a tool-enabled chat.
+
+Suggested prompt:
+
+```text
+Create a review/practice set from my learning repository.
+
+First identify whether you have repository tools. If not, output only a handoff card.
+
+If you have tools, read recent reviews, models, weak points, sources, and dashboard records. Generate a small practice set from active weak points and old material due for review. Then switch into critic mode: reject unclear, duplicated, unsupported, or badly calibrated questions. Keep only approved questions, include answers and explanations, write the result back, and report every changed file.
+```
 
 ## Handoff card pattern
 
