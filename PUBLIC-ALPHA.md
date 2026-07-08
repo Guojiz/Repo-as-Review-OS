@@ -1,8 +1,10 @@
 # Public Alpha Note
 
-Repo as Review OS is currently an early public version.
+GitLearnOS is currently an early public version.
 
 It is ready for people to inspect, copy, and test with an AI tool, but it should not be treated as a finished product.
+
+The repository is still named `Repo-as-Review-OS` for continuity.
 
 ## What is ready
 
@@ -22,7 +24,7 @@ Copy this into an AI tool that can read GitHub:
 
 ```text
 Read https://github.com/Guojiz/Repo-as-Review-OS
-Start with OPERATING-MODEL.md, README.md, AGENT-RUNTIME.md, and the demo under examples/zh-CN/demo-zhongkao-lite. Explain how I can build my own learning OS from one GitHub repository.
+Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, and the demo under examples/zh-CN/demo-zhongkao-lite. Explain how I can build my own GitLearnOS from one GitHub repository.
 ```
 
 ## Important safety note
