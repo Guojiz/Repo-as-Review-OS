@@ -33,7 +33,7 @@
 7. [docs/local-runtime-note.md](docs/local-runtime-note.md)
 8. [docs/zh-CN/automation-runtime-matrix.md](docs/zh-CN/automation-runtime-matrix.md)
 9. [docs/adaptive-memory-and-learner-profile.md](docs/adaptive-memory-and-learner-profile.md)
-10. [docs/lightweight-skg-dpm.md](docs/lightweight-skg-dpm.md)
+10. [docs/source-and-learner-state.md](docs/source-and-learner-state.md)
 11. [AGENTS.zh-CN.md](AGENTS.zh-CN.md)
 
 ## GitHub 的角色
