@@ -1,18 +1,18 @@
 # 单一活跃运行层规则
 
-GitLearnOS 强烈建议：同一时间只使用一个活跃学习运行层。
+GitLearnOS 强烈建议一次只使用一个活跃学习运行层。
 
-不要让 ChatGPT、Claude、OpenHanako、Codex、Obsidian agent 或其他工具同时成为学习状态的权威，除非已经做了明确接手。
+不要让 ChatGPT、Claude、OpenHanako、Codex、Claude Code、Obsidian agent 或其他工具同时作为学习状态权威，除非已经做了明确接手。
 
-多个平台同时运行会造成：
+多个平台同时运行会造成漂移：
 
 ```text
 原生记忆漂移
-+ 私有 agent 上下文漂移
-+ 重复生成题单
-+ learner-profile 冲突更新
-+ 仓库状态不一致
-+ 事实源不清楚
++ 私有上下文漂移
++ 重复出题
++ learner-profile 冲突
++ reviews / dashboard 不一致
++ 不清楚哪个状态才是事实源
 ```
 
 ## 推荐规则
@@ -24,12 +24,12 @@ GitLearnOS 强烈建议：同一时间只使用一个活跃学习运行层。
 → 一条接手路径
 ```
 
-## 合理设置
+## 推荐形态
 
-### 轻量设置
+### 轻量形态
 
 ```text
-ChatGPT 或 Claude
+ChatGPT
 → 日常学习运行层
 
 GitHub 目标仓库
@@ -39,11 +39,24 @@ GitHub 目标仓库
 → 受保护原始材料
 ```
 
-### 桌面设置
+### Claude 原生形态
+
+```text
+Claude
+→ 日常学习运行层
+
+GitHub 目标仓库
+→ 学习状态事实源
+
+Claude Project / Artifacts
+→ 工作表面，不是长期事实源
+```
+
+### 桌面形态
 
 ```text
 OpenHanako / HanaAgent
-→ 日常桌面学习运行层
+→ 桌面学习运行层
 
 本地 git + Obsidian 或 GitHub 仓库
 → 学习状态层
@@ -52,84 +65,63 @@ OpenHanako / HanaAgent
 → 受保护原始材料
 ```
 
-### 部署设置
+### 部署形态
 
 ```text
 Claude Code / Codex / Cursor
-→ 只用于部署或调试 OpenHanako
+→ 只部署或调试 OpenHanako
 
 OpenHanako
-→ 部署完成后成为活跃学习运行层
+→ 部署完成后成为桌面学习运行层
 ```
 
-## 桌面端 GitHub 可选
+## GitHub 与本地状态层
 
-在 OpenHanako 桌面设置里，GitHub 有用，但不是强制。
+对 ChatGPT 和 Claude，GitHub 是默认状态层。
 
-如果学习者主要在一台电脑上工作，想要本地优先、快速编辑、私人笔记、Markdown 导航和 git 历史，本地 git + Obsidian 可能已经足够。
+本地 git / Obsidian 只有在运行层真的有本地文件访问权限，或者用户手动应用 AI 给出的补丁时，才适合作为状态层。
 
-这种情况下，把本地 git + Obsidian 视为学习状态层。
+对 OpenHanako，用户授权后，本地 git / Obsidian 可以作为真正状态层。
 
-只有需要云同步、跨设备接手、公开模板分享或远程 AI 访问时，才优先使用 GitHub。
-
-## 便携访问渠道
-
-OpenHanako 的消息或社交平台接入可以增强便携性。
-
-这些渠道只能作为输入和通知渠道，不是新的学习状态权威。
-
-```text
-便携渠道
-→ 快速输入和通知
-
-OpenHanako
-→ 活跃 agent 运行层
-
-本地 git / Obsidian / GitHub
-→ 学习状态层
-```
-
-重要学习结果仍然必须写回选定的学习状态层。
-
-## 功能预算规则
+## OpenHanako 功能预算
 
 OpenHanako 功能很多，不要默认全开。
 
 ```text
 通常有用：
 - memory
-- 本地文件或 desk access
+- local file 或 desk access
 - selected Skills
-- 一个 Maintainer agent
-- 一个 Source and Model Extractor
-- 一个 Practice and Review Coach
+- GitLearnOS Maintainer
+- Source & Model Extractor
+- Practice & Review Coach
 
-需要时才开：
+需要时才开启：
 - scheduled tasks
-- 便携渠道集成
-- 额外 subagents
+- portable channel integrations
+- extra subagents
 - Critic agent
-- screenshots 或 vision
+- screenshots or vision
 
 默认避免：
-- 过宽文件权限
-- 太多 agents
+- broad file access
+- 太多 Agent
 - 不受控定时重写
-- 并行平台工作流
+- 平台并行工作流
 ```
 
-这能减少 token 浪费、上下文漂移和状态冲突。
+Maintainer 应该是状态层最终写入者，其他 Agent 只负责准备或审查，避免多 Agent 漂移。
 
 ## 接手规则
 
-如果切换平台，必须做明确接手：
+切换平台时必须刻意接手：
 
 ```text
 1. 读取当前 dashboard 和 learner-profile。
-2. 读取最近 models、knowledge gaps 和 reviews。
-3. 写接手记录。
+2. 读取近期 models、knowledge gaps 和 reviews。
+3. 写 handoff note。
 4. 停止旧运行层。
-5. 新运行层从接手记录开始。
+5. 新运行层从 handoff note 开始。
 ```
 
-永远不要让两个运行层同时更新学习状态。
+不要让两个运行层同时更新同一份学习状态。
