@@ -79,6 +79,23 @@ Self-Reflection
 → what tutoring strategy worked or failed, pacing/tone/scaffolding notes
 ```
 
+### Student-side evaluation insight
+
+One of the most interesting ideas is the student-side design.
+
+The paper describes TutorBench as a student-centric benchmark with source-grounded learner profiles and a first-person interactive protocol. In GitLearnOS terms, this means the system should not only model the tutor side. It should also model the learner side:
+
+```text
+learner profile
+→ first-person learner request
+→ expected knowledge gaps
+→ observed response / answer attempt
+→ diagnosis
+→ profile update
+```
+
+This can be treated as a lightweight **Student Proxy** or **Learner Simulator** role in heavier OpenHanako setups. Its job is not to impersonate the real user in production. Its job is to test whether a generated explanation, quiz, or review set would expose the expected gap from the learner's perspective.
+
 ### TutorBot path
 
 The paper's proactive agent loop has three broad phases:
@@ -164,6 +181,10 @@ Practice Idea Agent
 Question Generator
 → creates question-answer-explanation triples
 
+Student Proxy / Learner Simulator
+→ tests whether a generated explanation or question exposes the expected gap from the learner's perspective
+→ never replaces the real learner's answer in production
+
 Validator / Critic
 → independently checks correctness, source grounding, fit, and difficulty
 
@@ -198,6 +219,12 @@ Idea Generation
 → reviews/due.md
 → practice candidates
 
+Student Proxy / Learner Simulator
+→ simulated first-person learner attempt
+→ expected-gap exposure check
+→ difficulty and wording feedback
+→ never counted as the real user's performance
+
 Critic-Guided Generation / Validation
 → answer keys
 → source links
@@ -225,9 +252,34 @@ summarize
 quiz
 audit
 validate
+simulate learner response
 ```
 
 They should not independently rewrite `learner-profile.md`, `dashboard.md`, `reviews/`, or `knowledge-gaps/` unless the Maintainer explicitly delegates a write and then verifies the result.
+
+## Student Proxy safety rule
+
+A Student Proxy is useful for testing and calibration, not for replacing the real learner.
+
+It may:
+
+```text
+simulate how a learner with the current profile might misunderstand a prompt
+check whether a question exposes the target gap
+flag wording that is too easy, too hard, or too leading
+suggest what kind of real learner response should be collected next
+```
+
+It must not:
+
+```text
+invent real learner performance
+mark a knowledge gap as resolved
+write final grades or mastery status
+pretend the user answered a question
+```
+
+Only real learner responses or explicit user confirmation can update mastery, resolved gaps, or performance trends.
 
 ## Consult budget rule
 
@@ -301,4 +353,4 @@ DeepTutor CLI
 DeepTutor web app
 ```
 
-Those are DeepTutor platform features. GitLearnOS should borrow only the controlled multi-agent pipeline shape, the consult-budget boundary, and the learner-state feedback loop.
+Those are DeepTutor platform features. GitLearnOS should borrow only the controlled multi-agent pipeline shape, the consult-budget boundary, the student-side evaluation insight, and the learner-state feedback loop.
