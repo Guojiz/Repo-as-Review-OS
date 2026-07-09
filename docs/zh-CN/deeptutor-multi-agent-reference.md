@@ -79,6 +79,23 @@ Self-Reflection
 → 哪些讲法有效或失败，节奏、口吻、脚手架是否合适
 ```
 
+### 学生侧评估洞察
+
+非常值得借鉴的是学生侧设计。
+
+论文把 TutorBench 描述为 student-centric benchmark，并使用 source-grounded learner profiles 和 first-person interactive protocol。换成 GitLearnOS 的语言，就是系统不应该只建模老师侧，也要建模学生侧：
+
+```text
+学习画像
+→ 第一人称学习者请求
+→ 预期知识缺口
+→ 观察到的回答 / 尝试
+→ 诊断
+→ 更新学习画像
+```
+
+在较重的 OpenHanako 配置里，这可以变成轻量 **Student Proxy / Learner Simulator** 角色。它不是在真实使用中冒充用户，而是用来测试一个解释、题目或复习设计能不能从学习者视角暴露预期知识缺口。
+
 ### TutorBot 路径
 
 论文里的 proactive agent loop 有三个大阶段：
@@ -164,6 +181,10 @@ Practice Idea Agent
 Question Generator
 → 生成 question-answer-explanation 三元组
 
+Student Proxy / Learner Simulator
+→ 测试解释或题目是否能从学习者视角暴露预期缺口
+→ 永远不能替代真实学习者回答
+
 Validator / Critic
 → 独立检查正确性、来源 grounding、匹配度和难度
 
@@ -198,6 +219,12 @@ Idea Generation
 → reviews/due.md
 → practice candidates
 
+Student Proxy / Learner Simulator
+→ 模拟第一人称学习者尝试
+→ 预期知识缺口暴露检查
+→ 难度与措辞反馈
+→ 永远不计入真实用户表现
+
 Critic-Guided Generation / Validation
 → answer keys
 → source links
@@ -225,9 +252,34 @@ Memory Update
 出题
 审查
 验证
+模拟学习者回应
 ```
 
 它们不应该独立重写 `learner-profile.md`、`dashboard.md`、`reviews/` 或 `knowledge-gaps/`，除非 Maintainer 明确委派写入并随后核对结果。
+
+## Student Proxy 安全规则
+
+Student Proxy 适合测试和校准，不适合替代真实学习者。
+
+它可以：
+
+```text
+模拟当前学习画像下的学习者可能如何误解提示
+检查题目是否暴露目标缺口
+标记措辞过易、过难或过于引导
+建议下一步应该收集哪种真实学习者回答
+```
+
+它不能：
+
+```text
+编造真实学习表现
+把知识缺口标记为已解决
+写最终成绩或 mastery status
+假装用户已经回答某道题
+```
+
+只有真实学习者回答或用户明确确认，才能更新掌握程度、已解决缺口或表现趋势。
 
 ## 咨询预算规则
 
@@ -301,4 +353,4 @@ DeepTutor CLI
 DeepTutor web app
 ```
 
-这些是 DeepTutor 平台功能。GitLearnOS 只借鉴受控的多 Agent pipeline、咨询预算边界和学习状态反馈闭环。
+这些是 DeepTutor 平台功能。GitLearnOS 只借鉴受控的多 Agent pipeline、咨询预算边界、学生侧评估洞察和学习状态反馈闭环。
