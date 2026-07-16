@@ -26,6 +26,6 @@ GitLearnOS
 
 ## 链接
 
-- 官网：https://gitlearnos.jizheng.chatgpt.site
+- 官网：https://guojiz.github.io/review-os/
 - 仓库：https://github.com/Guojiz/Repo-as-Review-OS
 - 快速开始：https://github.com/Guojiz/Repo-as-Review-OS/blob/main/QUICKSTART.zh-CN.md
