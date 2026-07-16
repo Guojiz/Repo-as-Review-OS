@@ -1,8 +1,10 @@
 # GitLearnOS
 
-![GitLearnOS 中文概览图](docs/assets/repo-as-review-os-map.zh-CN.svg)
+**[快速开始：从一科开始 →](QUICKSTART.zh-CN.md)**
 
 [English](README.md) · [官网](https://guojiz.github.io/review-os/)
+
+![GitLearnOS 中文概览图](docs/assets/repo-as-review-os-map.zh-CN.svg)
 
 **GitLearnOS 是用户拥有的轻量学习控制层：自动整理，针对性出题，持续写回。**
 

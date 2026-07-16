@@ -1,8 +1,10 @@
 # GitLearnOS
 
-![GitLearnOS overview](docs/assets/repo-as-review-os-map.svg)
+**[Quickstart: start with one subject →](QUICKSTART.md)**
 
 [中文](README.zh-CN.md) · [Website](https://guojiz.github.io/review-os/)
+
+![GitLearnOS overview](docs/assets/repo-as-review-os-map.svg)
 
 **GitLearnOS is a learner-owned control layer: organize automatically, generate targeted questions, and keep durable state in sync.**
 
