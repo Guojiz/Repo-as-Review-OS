@@ -4,34 +4,28 @@
 
 GitLearnOS
 
-## 副标题
+## 核心表达
 
-把你的 GitHub 仓库变成 AI 可维护的学习系统。
+你去学。它收尾。
 
 ## 简介
 
-GitLearnOS 用一个可检查、可追踪、可接手的仓库保存目标、资料来源、知识模型、知识缺口、复习计划、控制台和 AI 接手记录。
+学习发生在老师、学校、纸笔、平台、自学和 AI 中。GitLearnOS 让一个主 Agent 自动整理这些事件，按真实缺口出题，并把长期状态写回一个学习者拥有、按 `subjects/<subject>/` 分科的仓库。
 
-## 页面板块
+## 产品承诺
 
-### 问题
+- 自动整理；
+- 根据真实缺口与证据出题；
+- 同步老师反馈，不强迫 AI 重讲；
+- 根目录保存共享政策，学科文件夹保存聚焦状态；
+- 每次安全写回都可检查、可撤销。
 
-学习上下文经常散落在笔记、截图、聊天记录、文件夹和 AI 对话里。
+## 主行动
 
-### 解决方案
+从一科开始。
 
-把 GitHub 仓库作为可检查的学习状态系统，让 AI 可以读取、更新、复习和持续接手。
+## 链接
 
-### 它包含什么
-
-- 来源规则；
-- 学习画像模板；
-- 可复用模型卡片；
-- 知识缺口记录；
-- 复习控制台；
-- AI 接手协议；
-- 部署说明。
-
-### 链接
-
-https://github.com/Guojiz/Repo-as-Review-OS
+- 官网：https://gitlearnos.jizheng.chatgpt.site
+- 仓库：https://github.com/Guojiz/Repo-as-Review-OS
+- 快速开始：https://github.com/Guojiz/Repo-as-Review-OS/blob/main/QUICKSTART.zh-CN.md

@@ -11,7 +11,7 @@ Use `repo-as-review-os-question` to generate a new targeted set. Use this skill 
 
 ## Administer
 
-Read the linked goal, source/model, gap, question purpose, answer key or rubric, and recent results. Do not reveal answers before the learner attempts unless requested.
+Resolve the subject from the existing review path, then read the linked goal, source/model, gap, question purpose, answer key or rubric, and recent results inside that subject. Do not reveal answers before the learner attempts unless requested.
 
 Record:
 
@@ -49,6 +49,7 @@ A generated but unattempted set remains `planned`. A teacher's resolution may ch
 
 ```text
 Review status:
+Subject path:
 Evidence type: demonstrated / not-assessed
 Score:
 Support:

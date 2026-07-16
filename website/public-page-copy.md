@@ -4,34 +4,28 @@
 
 GitLearnOS
 
-## Subtitle
+## Core line
 
-Turn your GitHub repository into an AI-maintained learning system.
+You learn. It closes the loop.
 
 ## Short description
 
-GitLearnOS stores goals, sources, reusable models, knowledge gaps, review plans, dashboards, and AI handoff notes in one inspectable repository.
+Learning happens with teachers, school, paper, platforms, self-study, and AI. GitLearnOS lets one main agent organize those events, generate targeted questions, and write durable state back to one learner-owned repository with `subjects/<subject>/` folders.
 
-## Sections
+## Product promises
 
-### Problem
+- organize automatically;
+- generate questions from real gaps and evidence;
+- reconcile teacher feedback without forced AI reteaching;
+- keep shared policy at the root and focused subject state in subject folders;
+- make every safe writeback inspectable and reversible.
 
-Study context is often scattered across notes, screenshots, chats, folders, and AI conversations.
+## Primary call to action
 
-### Solution
+Start with one subject.
 
-Use a GitHub repository as the inspectable learning-state system that an AI can read, update, review, and continue.
+## Links
 
-### What it contains
-
-- source rules;
-- learner profile templates;
-- reusable model cards;
-- knowledge gap records;
-- review dashboards;
-- AI handoff protocols;
-- deployment notes.
-
-### Link
-
-https://github.com/Guojiz/Repo-as-Review-OS
+- Website: https://gitlearnos.jizheng.chatgpt.site
+- Repository: https://github.com/Guojiz/Repo-as-Review-OS
+- Quickstart: https://github.com/Guojiz/Repo-as-Review-OS/blob/main/QUICKSTART.md

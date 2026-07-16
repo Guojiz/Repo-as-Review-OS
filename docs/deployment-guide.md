@@ -5,7 +5,7 @@ Deployment attaches GitLearnOS to one learner-owned target repository and one ma
 ## Tool-capable fast path
 
 ```text
-1. identify the target and current goal/input
+1. identify the target, subject, and current goal/input
 2. verify read/write/source/scheduler capability
 3. inspect existing state
 4. read START-HERE.md, AGENTS.md, and learning-policy.md
@@ -21,10 +21,10 @@ AGENTS.md
 learning-policy.md
 dashboard.md
 learner-profile.md
-goals/main-goal.md
+subjects/<subject>/goals/main-goal.md
 ```
 
-Create source, gap, model, handoff, review, or activity files only when real use requires them.
+Create only the active subject folder. Add source, gap, model, handoff, review, or activity files inside it only when real use requires them.
 
 ## Existing target
 
@@ -50,6 +50,7 @@ ChatGPT Work is a standard direct path. Codex, Claude, Cursor, or another capabl
 Deployment succeeds when the learner can provide one natural-language event and the agent can:
 
 - organize and link it;
+- infer and use the correct subject folder without path-by-path instruction;
 - generate useful questions when requested or policy-triggered;
 - write safe changes without path-by-path instruction;
 - report actual automation and every changed file;

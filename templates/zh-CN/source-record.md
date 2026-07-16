@@ -1,6 +1,7 @@
 # 来源与外部反馈记录
 
 状态：`active` / `archived` / `needs-source`  
+学科：  
 渠道：`teacher` / `class` / `tutoring` / `paper` / `book` / `platform` / `exam` / `peer` / `ai` / `other`  
 可用性：`full` / `excerpt` / `summary-only` / `local-only` / `missing` / `uncertain`  
 证据类型：`reported` / `source-supported` / `demonstrated` / `not-assessed`  

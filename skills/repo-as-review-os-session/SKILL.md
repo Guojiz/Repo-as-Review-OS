@@ -11,7 +11,7 @@ Use this only for live AI teaching. Use `repo-as-review-os-organize` for capture
 
 ## Read
 
-Read the active goal, relevant learner-profile section, one gap or due item, and the minimum source/model. Respect `learning-policy.md`.
+Resolve the subject, then read its active goal, the relevant root learner-profile section, one subject-local gap or due item, and the minimum source/model. Respect root `learning-policy.md`.
 
 ## Loop
 
@@ -33,6 +33,7 @@ Stop or narrow when the learner is fatigued, the source is unavailable, the goal
 
 ```text
 Objective:
+Subject path:
 Questions used:
 Evidence score:
 Support:

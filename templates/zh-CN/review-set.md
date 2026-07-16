@@ -1,6 +1,7 @@
 # 个性化题组与复习记录
 
 状态：`draft` / `planned` / `attempted` / `scored` / `blocked` / `cancelled`  
+学科：  
 目的：`diagnostic` / `practice` / `variation` / `transfer` / `review` / `exam`  
 轨道：`school` / `self-study` / `mixed`  
 需求：`current-course` / `remediation` / `exam` / `exploration` / `advance` / `project` / `research` / `skill`  

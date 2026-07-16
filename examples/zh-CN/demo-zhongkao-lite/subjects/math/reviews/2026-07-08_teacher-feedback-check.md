@@ -1,6 +1,7 @@
 # 2026-07-08 老师反馈后的迁移验证
 
 状态：`scored`  
+学科：`math`  
 目的：`variation + transfer`  
 轨道：`mixed`  
 需求：`current-course + remediation`  

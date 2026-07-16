@@ -28,6 +28,14 @@ Record only durable information that changes coordination or question generation
 |---|---|---|---|
 | teacher / class / tutoring / platform / paper / AI |  |  |  |
 
+## Subject-specific adaptations
+
+Keep only stable differences that actually change organization, question generation, or handoff format.
+
+| Subject | Current method or constraint | Effective question or output form | Evidence link |
+|---|---|---|---|
+|  |  |  |  |
+
 ## Demonstrated strengths
 
 | Strength | Observable evidence | Evidence link | Last demonstrated | Confidence |

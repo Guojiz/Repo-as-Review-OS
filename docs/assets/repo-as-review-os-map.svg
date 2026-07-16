@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" role="img" aria-labelledby="title desc">
   <title id="title">GitLearnOS overview</title>
-  <desc id="desc">Teachers, class, self-study, books, platforms, and AI feed one main agent that organizes, generates targeted questions, and writes back to a learner-owned repository for school, self-study, and diverse needs.</desc>
+  <desc id="desc">Teachers, class, self-study, books, platforms, and AI feed one main agent that organizes, generates targeted questions, and writes back to subject folders inside one learner-owned repository.</desc>
   <defs>
     <style>
       text { font-family: Inter, Arial, sans-serif; fill: #172033; }
@@ -61,8 +61,8 @@
 
   <path d="M600 410 L600 452" class="arrow"/>
   <rect x="210" y="452" width="780" height="102" rx="18" class="repo"/>
-  <text x="600" y="485" text-anchor="middle" class="label">Learner-Owned GitHub Repository</text>
-  <text x="600" y="512" text-anchor="middle" class="small">learning-policy · goals · sources · models · gaps · handoffs · reviews · dashboard</text>
+  <text x="600" y="485" text-anchor="middle" class="label">One Learner-Owned GitHub Repository</text>
+  <text x="600" y="512" text-anchor="middle" class="small">root policy + dashboard · subjects/math/ · subjects/english/ · subjects/coding/</text>
   <text x="600" y="536" text-anchor="middle" class="small">inspectable · portable · correctable · reversible · agent-independent</text>
 
   <rect x="68" y="575" width="310" height="46" rx="12" class="track"/>

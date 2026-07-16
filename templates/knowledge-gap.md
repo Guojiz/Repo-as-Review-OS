@@ -1,6 +1,7 @@
 # Knowledge Gap
 
 Resolution state: `candidate` / `active` / `routed` / `awaiting-feedback` / `resolved-externally` / `resolved-with-ai` / `needs-verification` / `verified` / `reopened` / `archived`  
+Subject:  
 Mastery state: `untested` / `developing` / `demonstrated` / `stable` / `uncertain`  
 Gap type: `prerequisite` / `recognition` / `method` / `execution` / `explanation` / `transfer` / `uncertain`  
 Confidence: `low` / `medium` / `high`  

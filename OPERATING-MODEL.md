@@ -15,7 +15,8 @@ GitLearnOS rules, skills, and learning-policy
 → govern provenance, automation, writeback, safety, and evidence
 
 target GitHub repository
-→ learner-owned, inspectable, portable, reversible state
+→ root shared policy and cross-subject view
+→ subjects/<subject>/ for focused, inspectable learning state
 ```
 
 Do not split these layers or responsibilities into mandatory agents.
@@ -84,14 +85,16 @@ attempt
 - `learning-policy.md`: automation, privacy, writeback, and scheduling preferences;
 - `dashboard.md`: priorities, due work, waiting feedback, and next action;
 - `learner-profile.md`: durable evidence-backed learner state;
-- `goals/`: outcomes and success criteria;
-- `inbox/`: quick input not yet fully processed;
-- `sources/`: teacher, class, book, platform, AI, and other provenance;
-- `models/`: reusable understanding reconciled across sources;
-- `knowledge-gaps/`: resolution lifecycle and mastery evidence;
-- `handoffs/`: question and feedback packs for teachers, peers, or other agents;
-- `reviews/`: generated questions, answers, scores, and next dates;
-- `sessions/`: material cross-channel activities that changed state.
+- `subjects/<subject>/goals/`: subject outcomes and success criteria;
+- `subjects/<subject>/inbox/`: quick input not yet fully processed;
+- `subjects/<subject>/sources/`: teacher, class, book, platform, AI, and other provenance;
+- `subjects/<subject>/models/`: reusable understanding reconciled across sources;
+- `subjects/<subject>/knowledge-gaps/`: resolution lifecycle and mastery evidence;
+- `subjects/<subject>/handoffs/`: question and feedback packs for teachers, peers, or other agents;
+- `subjects/<subject>/reviews/`: generated questions, answers, scores, and next dates;
+- `subjects/<subject>/sessions/`: material cross-channel activities that changed state.
+
+The agent routes each event to a subject automatically. Root files coordinate subjects; they do not duplicate subject state. Create only folders required by the current event.
 
 ## Decision rules
 
@@ -111,8 +114,8 @@ Keep temporary content out of the repository. Under `safe-auto`, perform safe ac
 
 Resolution state and mastery evidence are separate. A teacher's answer may immediately end waiting and redundant AI teaching; independent mastery may still be checked through performance, delayed recall, or transfer. The learner may opt out of verification.
 
-## Benchmark boundary
+## Product boundary
 
-DeepTutor supplies the capability direction: grounded sources, evolving learner state, personalized questions, and feedback loops. GitLearnOS compresses these into cross-channel, learner-owned files and skills operated by one external main agent.
+GitLearnOS keeps grounded sources, evolving learner state, targeted questions, feedback reconciliation, and learner-controlled automation in a small file-based control layer.
 
 It intentionally omits a full app, server, mandatory multi-agent runtime, RAG engine, and database.

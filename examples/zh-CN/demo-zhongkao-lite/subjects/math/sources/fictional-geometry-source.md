@@ -1,6 +1,7 @@
 # 来源记录：虚构相似三角形题
 
 状态：`active`  
+学科：`math`  
 渠道：`ai`  
 可用性：`summary-only`  
 来源类型：虚构 demo 题目描述  

@@ -1,6 +1,7 @@
 # 跨渠道学习活动：同步老师反馈
 
 日期：2026-07-05  
+学科：`math`  
 渠道：`teacher`  
 轨道：`mixed`  
 需求：`current-course + remediation`  

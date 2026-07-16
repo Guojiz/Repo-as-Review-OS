@@ -11,6 +11,9 @@
 
 ## Organization
 
+- Subject routing: infer automatically / ask every time / manual
+- When routing is ambiguous: ask only if write location changes / place in subject inbox
+- Cross-subject events: one primary owner plus links / ask
 - Auto-link existing goals and gaps: yes / no
 - Extract reusable models: only when durable / never
 - Retire obsolete tasks after resolution: yes / no
@@ -72,3 +75,4 @@
 - “do not schedule review”
 - “preview first”
 - “undo the last learning update”
+- “this belongs to physics”

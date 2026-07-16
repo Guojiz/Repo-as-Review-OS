@@ -22,8 +22,11 @@ Learning may happen with teachers, class, paper, platforms, peers, or AI. Use on
 1. distinguish template and target repositories;
 2. detect actual read, write, source, and scheduling capability;
 3. read target `learning-policy.md` when present;
-4. read `dashboard.md`, active goal, and only files related to the current input;
-5. load one primary subskill, plus one helper only when necessary.
+4. infer the subject from explicit language, material, linked goals, and existing paths;
+5. read root `dashboard.md`, the active `subjects/<subject>/` goal, and only related files;
+6. load one primary subskill, plus one helper only when necessary.
+
+Keep shared policy, learner profile, and cross-subject dashboard at the repository root. Route subject-specific state under `subjects/<subject>/`. Ask only when ambiguity would cause a wrong write; honor a learner correction immediately. Never require the learner to choose a path or create empty subject trees.
 
 ## Route by intent
 
@@ -90,6 +93,7 @@ Distinguish immediate automation, on-handoff checks, and real scheduled backgrou
 
 ```text
 Mode:
+Subject path:
 Organized:
 Questions:
 Changed files:

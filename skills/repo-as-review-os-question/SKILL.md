@@ -16,6 +16,7 @@ Generate the next useful questions, not generic volume. Support two first-class 
 
 ```text
 active goal
++ subject path
 + relevant source or model
 + linked knowledge gap
 + recent attempted questions and support level
@@ -42,6 +43,7 @@ For each set record:
 
 ```yaml
 purpose:
+subject:
 grounded_in:
 target_goal:
 target_gap:
@@ -85,7 +87,7 @@ Use 0–3 only when observable performance fits that scale. Otherwise define a t
 
 ## Generate an external question pack
 
-Create under `handoffs/` with:
+Create under `subjects/<subject>/handoffs/` with:
 
 - destination or channel, without unnecessary identity;
 - goal and source locator;
@@ -112,6 +114,7 @@ Question generation does not itself prove learning. Leave unattempted sets `plan
 
 ```text
 Question type:
+Subject path:
 Count:
 Grounded in:
 Target:

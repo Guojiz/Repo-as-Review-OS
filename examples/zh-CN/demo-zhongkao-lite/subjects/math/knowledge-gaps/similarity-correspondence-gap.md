@@ -1,6 +1,7 @@
 # 知识缺口：相似三角形对应关系
 
 处理状态：`verified`  
+学科：`math`  
 掌握状态：`demonstrated`  
 缺口类型：`recognition`  
 可信度：`high`  

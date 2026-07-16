@@ -8,8 +8,8 @@ description: Audit and safely repair a learner-owned GitLearnOS repository for s
 ## Audit order
 
 1. `learning-policy.md` and actual runtime capability;
-2. active goal and dashboard;
-3. unprocessed inbox and waiting handoffs;
+2. root dashboard, subject index, and active subject goal;
+3. unprocessed inbox and waiting handoffs inside the active subject;
 4. active gaps and resolution/mastery separation;
 5. planned, due, and unscored questions;
 6. source/model links;
@@ -18,6 +18,8 @@ description: Audit and safely repair a learner-owned GitLearnOS repository for s
 ## High-value checks
 
 - dashboard duplicates state instead of linking;
+- subject-specific state sits at the root or in the wrong subject folder;
+- duplicate copies of one event exist across subjects;
 - teacher-resolved work still appears as an AI teaching task;
 - resolution is mistaken for mastery or score 3;
 - a generated set appears complete without an attempt;
@@ -40,6 +42,7 @@ For undo, identify the exact latest agent-created event or atomic commit, verify
 
 ```text
 Repository health:
+Subject routing issues:
 Organization issues:
 Question issues:
 Automation issues:

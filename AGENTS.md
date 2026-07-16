@@ -22,10 +22,23 @@ template repository
 → method, skills, templates, demos
 
 target learning repository
-→ learner policy, goals, sources, notes, gaps, models, handoffs, reviews, activities
+→ root shared policy and cross-subject view
+→ subjects/<subject>/ for goals, sources, gaps, models, handoffs, reviews, activities
 ```
 
 Never write personal learning state into the template repository. Inspect the target before writing and preserve unrelated learner content.
+
+## Subject routing
+
+- keep `learning-policy.md`, `learner-profile.md`, and the cross-subject `dashboard.md` at the repository root;
+- place subject-specific state under `subjects/<subject>/`;
+- infer the subject from explicit wording, current material, linked goals, and existing paths;
+- ask only when ambiguity would cause an incorrect write;
+- honor a natural-language override such as “this is chemistry” immediately;
+- create only the active subject and folders required by real state;
+- keep truly cross-subject goals at the root and link to subject evidence instead of duplicating it.
+
+Subject routing is part of automatic organization. The learner should not have to name a path.
 
 ## Minimum reading
 
@@ -33,9 +46,9 @@ Do not preload the repository. Initially read:
 
 1. `START-HERE.md` and this file;
 2. target `learning-policy.md` when present;
-3. `dashboard.md`;
-4. the active goal;
-5. only the sources, gaps, models, handoffs, or reviews relevant to the input.
+3. root `dashboard.md` and its current subject entry;
+4. the active goal inside `subjects/<subject>/`;
+5. only the subject-local sources, gaps, models, handoffs, or reviews relevant to the input.
 
 Load one primary skill after intent is clear and a second only when necessary.
 
@@ -107,7 +120,7 @@ Store only summaries and state changes with future value. Do not retain full pri
 
 ### Prepare help
 
-Create a `handoffs/` question pack containing:
+Create a `subjects/<subject>/handoffs/` question pack containing:
 
 - problem or material locator;
 - learner attempt;
@@ -243,12 +256,13 @@ After two consecutive score-3 reviews, double the prior interval up to 30 days.
 | automation, privacy, and writeback preferences | `learning-policy.md` |
 | current priorities, due work, and waiting feedback | `dashboard.md` |
 | durable learner state | `learner-profile.md` |
-| source availability and feedback provenance | `sources/` |
-| reusable understanding | `models/` |
-| question lifecycle and mastery evidence | `knowledge-gaps/` |
-| packs for teachers, peers, or other agents | `handoffs/` |
-| questions, results, and intervals | `reviews/` |
-| material cross-channel learning events | `sessions/` |
+| subject goals | `subjects/<subject>/goals/` |
+| source availability and feedback provenance | `subjects/<subject>/sources/` |
+| reusable understanding | `subjects/<subject>/models/` |
+| question lifecycle and mastery evidence | `subjects/<subject>/knowledge-gaps/` |
+| packs for teachers, peers, or other agents | `subjects/<subject>/handoffs/` |
+| questions, results, and intervals | `subjects/<subject>/reviews/` |
+| material cross-channel learning events | `subjects/<subject>/sessions/` |
 
 The dashboard is a view, not a second source of truth.
 
@@ -256,6 +270,7 @@ The dashboard is a view, not a second source of truth.
 
 ```text
 Mode: safe-auto / preview / manual
+Subject path:
 
 Organized:
 - input, links, and state changes

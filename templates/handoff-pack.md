@@ -1,6 +1,7 @@
 # External Help Question Pack
 
 Status: `draft` / `ready` / `sent` / `awaiting-feedback` / `feedback-received` / `reconciled` / `cancelled`  
+Subject:  
 Destination: `teacher` / `tutor` / `peer` / `other-agent` / `other`  
 Goal link:  
 Gap link:  
