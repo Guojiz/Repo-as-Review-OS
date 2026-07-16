@@ -1,157 +1,91 @@
 # Quickstart
 
-Use this page if you want to try GitLearnOS but do not want to read the whole repository first.
+GitLearnOS is easiest when the current AI workspace can read the template and write to one private target repository.
 
-## What you need
+## Fast path: tool-capable workspace
 
-You need four things:
+Use this path for ChatGPT Work, a repository-aware coding agent, or another environment with connected GitHub write access.
+
+1. Create or choose one private target repository.
+2. Connect only that repository when possible.
+3. Give the agent the target link and one learning goal.
+4. Let the agent inspect, bootstrap, and run the first session.
+
+Prompt:
 
 ```text
-this template repository
-+ your own target GitHub repository
-+ one AI tool that can read the template and write to the target
-+ one learning goal
+Use https://github.com/Guojiz/Repo-as-Review-OS as the GitLearnOS template.
+Target repository: <URL>
+Learning goal: <goal>
+
+Read START-HERE.md and AGENTS.md first. Verify your actual permissions, inspect existing target files, preserve them, and create only the minimum missing state. If skills are supported, use skills/repo-as-review-os/SKILL.md. Then run one short learning session and write back only evidence-based changes. Report every changed file.
 ```
 
-The target repository is where your personal learning records will live.
+The agent should not ask you to manually recreate files it can safely create itself.
 
-The AI tool can be ChatGPT with a GitHub connector, Codex, Claude Code, Cursor, Windsurf, or another agent connected through MCP or a GitHub integration.
+## Fallback: chat or read-only environment
 
-## Five-minute setup
+If the AI cannot write to GitHub:
 
-### 1. Create a private target repository
+1. paste the active goal, dashboard, learner profile, and only the relevant source/model/gap excerpt;
+2. complete one focused task;
+3. ask the AI for a writeback block;
+4. add that block to the target repository manually or in a later tool-capable session.
 
-For first deployment, create an empty or nearly empty private repository, then let the AI set up the GitLearnOS structure inside it.
+The AI must state that writeback is pending; it must not claim the repository was updated.
 
-If you already have files in the target repository, tell the AI to inspect the existing files first and avoid overwriting them.
+## Minimum first deployment
 
-Use a private repository if you will store real study notes, mistakes, screenshots, scores, or personal learning records.
-
-Suggested name:
-
-```text
-my-gitlearnos
-```
-
-### 2. Connect your AI tool to the target repository
-
-Use MCP, a GitHub connector, or another safe integration.
-
-Grant access to one repository first. Do not grant broad account access unless you understand the risk.
-
-The AI should confirm whether it can actually read and write the target repository. If it cannot, it should say so clearly.
-
-### 3. Send this prompt to your AI tool
+Do not copy the entire public template into a personal repository. Start with:
 
 ```text
-Read this template repository:
-https://github.com/Guojiz/Repo-as-Review-OS
-
-Set up my own personal GitLearnOS in this target repository:
-<paste your repository link>
-
-This is a first deployment. Treat the target repository as empty or nearly empty unless you find existing files. If existing files are present, inspect them first and do not overwrite them without asking.
-
-Start with START-HERE.md, README.md, QUICKSTART.md, docs/first-experiment-guide.md, docs/what-goes-into-github.md, docs/runtime-self-adaptation.md, AGENT-RUNTIME.md, AGENTS.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/source-and-learner-state.md.
-
-If you support skills, use skills/repo-as-review-os/SKILL.md. If not, use the memory fallback from docs/skill-and-memory-runtime.md.
-
-Create a minimal learning repository with dashboard.md, learner-profile.md, goals/main-goal.md, sources/, models/, knowledge-gaps/, reviews/, templates/, agents/, automations/, and archive/. If I have already given a learning goal, use it. If not, ask me for my first learning goal before creating detailed content. Report every file you create or edit.
-```
-
-### 4. Tell the AI your first goal
-
-Examples:
-
-```text
-I want to improve SAT Reading and Writing in 6 weeks.
-```
-
-```text
-I want to review my math mistakes every week.
-```
-
-```text
-I want to read three AI papers and remember the main ideas.
-```
-
-```text
-I want to organize my daily English learning.
-```
-
-### 5. Use it normally
-
-After setup, you can say things like:
-
-```text
-Based on my repository, make me a 30-minute review set.
-```
-
-```text
-Turn this mistake into a reusable model, record the knowledge gap, and schedule review.
-```
-
-```text
-Check my dashboard and tell me what I should study today.
-```
-
-```text
-Generate a short practice test from my knowledge gaps.
-```
-
-## What goes into GitHub
-
-GitHub mainly stores structured learning records: goals, learner profile, source records, reusable models, knowledge gaps, review sets, dashboards, next review dates, and handoff notes.
-
-It does not have to store every original file. See [docs/what-goes-into-github.md](docs/what-goes-into-github.md).
-
-## What not to upload
-
-Do not upload private or copyrighted material into a public repository.
-
-Avoid uploading:
-
-- full textbook pages;
-- full test questions from copyrighted sources;
-- teacher files;
-- private screenshots;
-- score reports;
-- IDs, passwords, tokens, or cookies.
-
-For real learning data, use a private repository.
-
-## What success looks like
-
-After setup, your repository should have:
-
-```text
+AGENTS.md
 dashboard.md
 learner-profile.md
 goals/main-goal.md
-sources/
-models/
-knowledge-gaps/
-reviews/
-templates/
-agents/
-automations/
-archive/
 ```
 
-The AI should be able to answer:
+Then create the first relevant source, knowledge-gap, model, review, or session file. Add folders only when they contain real state; Git does not preserve empty directories.
+
+## First useful commands
 
 ```text
-What is my current goal?
-What knowledge gaps are active?
-What should I review next?
-What practice should I do today?
-What files did you change?
+Check my dashboard and run the most important 20-minute learning session.
 ```
 
-## Choose a demo
+```text
+Record this material honestly, then test what I can recall before explaining it.
+```
 
-If you want an example first, start here:
+```text
+Turn this mistake into a knowledge gap and reusable model, then schedule one transfer check.
+```
 
-- [examples/en/demo-sat-lite/](examples/en/demo-sat-lite/)
-- [examples/en/demo-research-reading-lite/](examples/en/demo-research-reading-lite/)
-- [examples/zh-CN/demo-zhongkao-lite/](examples/zh-CN/demo-zhongkao-lite/)
+```text
+Score this review from observable evidence and update the next review date.
+```
+
+## Successful setup test
+
+The agent should be able to answer, with file links:
+
+- What is the active goal?
+- What is due now?
+- Which knowledge gaps have evidence?
+- What did the learner actually demonstrate?
+- What should happen next?
+- Which files changed?
+
+If it can only list folders but cannot run and record a learning session, setup is incomplete.
+
+## Privacy
+
+- Use a private target repository for real study records.
+- Keep full copyrighted books, teacher files, raw screenshots, credentials, and sensitive personal material out of public GitHub.
+- Use connected or local originals only when authorized, and write back the minimum durable learning state.
+
+## Examples
+
+- [Chinese exam-math demo](examples/zh-CN/demo-zhongkao-lite/)
+- [English research-reading demo](examples/en/demo-research-reading-lite/)
+- [English SAT demo](examples/en/demo-sat-lite/)

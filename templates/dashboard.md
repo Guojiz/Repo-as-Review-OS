@@ -1,32 +1,52 @@
-# Review Dashboard
+# Learning Dashboard
 
-## Current focus
+> This is a linked view, not the source of truth. Refresh it from canonical files.
 
-- 
+Updated:  
+Updated by:  
+Repository state: `active` / `paused` / `needs-input`
 
-## Active models
+## Active goal
 
-- 
-- 
-- 
+- Goal: [link]
+- Deadline or horizon:
+- Current success criterion:
 
-## Open TODOs
+## Do now
 
-- 
-- 
-- 
+- One next action:
+- Why now:
+- Estimated time:
+- Required source or tool:
 
-## Recently updated
+## Due reviews
 
-| Date | File | Change |
-|:---|:---|:---|
-|  |  |  |
+| Item | Evidence score | Due date | Priority | Link |
+|---|---:|---|---|---|
+|  |  |  |  |  |
 
-## Next handoff
+## Active knowledge gaps
 
-Before continuing, read:
+| Gap | Type | Confidence | Last evidence | Next check | Link |
+|---|---|---|---|---|---|
+|  |  |  |  |  |  |
 
-1. `README.md`
-2. `AGENTS.md`
-3. `agents/handoff-protocol.md`
-4. the files listed above
+## Waiting for input
+
+- Missing source, learner response, or decision:
+
+## Recent evidence
+
+| Date | Observation | Score | Evidence link | State changed? |
+|---|---|---:|---|---|
+|  |  |  |  |  |
+
+## Handoff
+
+Read only:
+
+1. the active goal linked above;
+2. `learner-profile.md` sections relevant to the next action;
+3. the linked gap/review/model/source files.
+
+Next action after handoff:

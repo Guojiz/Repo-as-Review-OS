@@ -1,91 +1,59 @@
 ---
 name: repo-as-review-os-source
-description: Use when turning learning materials, notes, paper references, practice results, or mistakes into honest source records in a Repo as Review OS repository. This skill prevents summaries from being treated as full sources and labels missing material clearly.
+description: Turn learning material, references, mistakes, or incomplete recollections into traceable GitLearnOS source records without pretending that summaries or unavailable originals are complete sources.
 ---
 
-# Repo as Review OS Source Skill
+# GitLearnOS Source Handling
 
-## Purpose
+## Source states
 
-Use this skill to handle learning sources safely and honestly.
+Use one:
 
-A source can be a note, practice result, mistake record, paper reference, class material, or user explanation.
+- `full`: the agent can inspect the complete authorized source;
+- `excerpt`: only a bounded excerpt is available;
+- `summary-only`: a summary exists but not the source;
+- `local-only`: the original exists outside current access;
+- `missing`: the source is referenced but unavailable;
+- `uncertain`: provenance or completeness is unclear.
 
-## When to use
-
-Use when the user provides or mentions:
-
-- a learning note;
-- a mistake;
-- a paper or article;
-- a class material reference;
-- a practice result;
-- a partial memory of a question;
-- a local source that the AI cannot fully access.
-
-## Core rule
-
-Never treat a summary as a full source.
-
-Never invent missing text, diagrams, answer choices, paper sections, or unavailable material.
-
-## Source workflow
+## Workflow
 
 ```text
 material arrives
-→ identify source type
-→ check completeness
-→ create source record
-→ label missing parts
-→ decide whether to extract a model
-→ link source to goal or dashboard
+→ identify provenance and access
+→ link it to a goal
+→ record what is actually available
+→ separate observation from interpretation
+→ choose one extraction target
+→ route to session or model only when justified
 ```
 
-## Source status labels
+## Required record fields
 
-Use these labels when helpful:
+- status and source type;
+- title/reference or stable locator;
+- goal link;
+- access/completeness state;
+- inspected portion;
+- known facts or learner event;
+- missing material;
+- permitted use and privacy boundary;
+- next learning action.
 
-```text
-full-source
-summary-only
-local-only-source
-needs-source
-needs-clear-source
-not-full-solution
-draft-full
-source-record
-```
+## Integrity rules
 
-## Minimal source record
+- Never reconstruct unavailable wording, answer choices, figures, data, or citations.
+- Never relabel a summary as a full source.
+- A learner's memory of a problem is evidence of the learning event, not necessarily the original problem.
+- Keep private or copyrighted originals out of public repositories.
+- Store only the minimum excerpt needed for future learning.
 
-A source record should include:
-
-```text
-status
-source type
-goal link
-source availability
-what is known
-what is missing
-what can be extracted
-AI rule
-```
-
-## Public repository rule
-
-For public repositories, use cleaned or fictional examples.
-
-For real learning records, recommend a private repository.
-
-## Output standard
+## Output
 
 ```text
+Source state:
 Changed files:
-- source record path: what was recorded
-
-Still missing:
-- missing source details
-
+Missing material:
+Safe extraction target:
 Next action:
-- extract model / ask user for clearer source / schedule review
 ```

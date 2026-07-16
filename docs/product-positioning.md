@@ -1,153 +1,102 @@
 # Product Positioning
 
-GitLearnOS is an AI-native learning system built around GitHub.
+GitLearnOS is a lightweight tutoring toolkit that attaches to an existing capable AI agent and uses a GitHub repository as durable, inspectable learning state.
 
-It is not a ChatGPT-only project. It is not an Obsidian-only workflow. It is not a multi-agent framework.
-
-It is a lightweight operating model for one main AI tool and one target GitHub repository.
-
-The repository is still named `Repo-as-Review-OS` for continuity. The product concept is **GitLearnOS**.
+It is not a standalone tutoring platform, a ChatGPT-only project, an Obsidian workflow, or a multi-agent framework.
 
 ## One sentence
 
-Use GitHub as the learning-state system, and use one capable AI tool to maintain the user's target repository.
-
-## What makes it work
-
-The system works when the AI tool has these capabilities:
-
-1. read repository files;
-2. create and edit files;
-3. follow project rules such as `AGENTS.md`;
-4. remember user preferences through memory, project rules, or persistent instructions;
-5. respect permission boundaries;
-6. report every change.
-
-The specific AI product is not the point. The capability set is the point.
-
-## Template vs target repository
-
 ```text
-Repo-as-Review-OS repository
-→ template repository
-→ method, docs, skills, examples, rules
-
-User target repository
-→ personal GitLearnOS repository
-→ goals, sources, models, knowledge gaps, reviews, dashboard
+Use one capable AI agent to run an evidence-based learning loop over one learner-owned GitHub repository.
 ```
 
-The template teaches the method. The target repository stores the user's learning state.
+## Benchmark and baseline
 
-## Why GitHub instead of Obsidian as the final layer
+GitLearnOS uses two different comparisons for two different questions.
 
-Many users start with Obsidian because it feels like a natural knowledge base.
+### Capability benchmark: HKU DeepTutor
 
-A practical path may look like this:
+[DeepTutor](https://github.com/HKUDS/DeepTutor) is the capability benchmark because its published design connects source grounding, evolving learner memory, personalized question generation, and a closed tutoring loop in one shared runtime.
+
+GitLearnOS asks:
 
 ```text
-Obsidian
-→ Obsidian + Git
-→ Obsidian + Git + GitHub
-→ GitHub + one AI tool
+What is the smallest portable toolkit that preserves the learning-critical behavior
+when a strong external AI runtime already exists?
 ```
 
-The final form is simpler:
+It does not attempt to reproduce DeepTutor's:
 
-- no extra local app is required for the core workflow;
-- the repository itself becomes the shared source of truth;
-- version history is built in;
-- AI tools can read and edit the same structure;
-- the user can manage the system from one AI app plus one repository connector.
+- full application runtime or web interface;
+- multi-agent orchestration and Partners;
+- RAG engines, document parsers, or knowledge center;
+- database, server, authentication, or model-provider layer;
+- Co-Writer, Book, visualization, IM, or platform surfaces.
 
-Obsidian can still be useful as a personal editor, but it is no longer the center of the system.
+### Practical baseline: the original zhongkao repository
 
-## Core runtime
+The original learning repository is the implementation baseline. It provides evidence about which file discipline, review habits, mistake-to-model workflow, and AI handoff patterns were useful in practice.
+
+In short:
+
+```text
+DeepTutor → where tutoring capability should go
+original zhongkao system → what proved useful in real repository practice
+GitLearnOS → the portable, low-deployment-cost intersection
+```
+
+## Lightweight kernel
+
+| Learning need | GitLearnOS implementation |
+|---|---|
+| shared context | one target repository plus one active agent session |
+| source grounding | `sources/` with access and completeness states |
+| learner personalization | `learner-profile.md` plus evidence-linked gaps |
+| tutoring loop | attempt → diagnosis → support → transfer → score |
+| practice generation | due gaps/models → focused review set |
+| memory auditability | Markdown evidence links and Git history |
+| extensibility | portable router and focused `SKILL.md` files |
+| handoff | dashboard, canonical state files, and concise session evidence |
+
+## Why GitHub
+
+GitHub supplies what a chat transcript alone does not:
+
+- stable file paths;
+- explicit state ownership;
+- writeback and version history;
+- inspectable evidence;
+- portability across AI runtimes;
+- learner control over the data.
+
+GitHub is passive state. The active AI runtime still has to read the relevant files, teach, observe the learner, and write back selectively.
+
+## Why a toolkit instead of another app
+
+A full platform is appropriate when a user wants a bundled UI, managed retrieval, built-in memory, background services, and a fixed runtime.
+
+GitLearnOS is appropriate when the user already has a capable AI environment—such as ChatGPT Work or another tool-using agent—and wants:
+
+- no separate server;
+- no required database;
+- no required API keys for the basic loop;
+- one main agent rather than mandatory multi-agent orchestration;
+- readable files and direct ownership;
+- a method that survives switching AI products.
+
+## Product boundary
 
 Minimum runtime:
 
 ```text
-one AI tool + one target GitHub repository + one rule file
+one capable AI agent
++ one private target GitHub repository
++ GitLearnOS agent rules
++ one learning goal
 ```
 
-Best runtime:
+Optional capabilities such as connected files, web research, code execution, visualization, native memory, automations, or local sources can improve the experience. The toolkit must remain useful without making those capabilities mandatory.
 
-```text
-one main AI tool
-+ GitHub or MCP connector
-+ memory or project instructions
-+ single-target-repository write access
-+ clear safety boundary
-```
+## Promise
 
-## What goes online
-
-GitHub should contain:
-
-- structure;
-- templates;
-- dashboards;
-- indexes;
-- source status notes;
-- cleaned examples;
-- handoff rules;
-- website copy.
-
-GitHub is the operating layer.
-
-## What stays local
-
-Local storage should keep:
-
-- textbooks;
-- copyrighted PDFs;
-- raw scans;
-- private screenshots;
-- teacher files;
-- large media;
-- anything the user does not want to upload.
-
-Local storage is the protected source layer.
-
-## How AI should handle local files
-
-The AI must not pretend it has read local files.
-
-If a source is local-only, the AI should create a source record in GitHub and ask the user for the smallest needed excerpt when necessary.
-
-## Permission philosophy
-
-The best default is one-target-repository write access.
-
-This lets the AI work smoothly inside the user's GitLearnOS repository while keeping risky actions blocked.
-
-Safe default actions:
-
-- create docs;
-- update templates;
-- update dashboards;
-- mark incomplete files as `todo`;
-- add cleaned examples;
-- report changes.
-
-Ask before:
-
-- deleting files;
-- changing visibility;
-- uploading private local files;
-- publishing real study records;
-- touching secrets;
-- changing the license.
-
-## Final promise
-
-GitLearnOS lets a user run an AI-maintained learning system with:
-
-```text
-one AI app
-one target GitHub repository
-one connector
-one memory or project-rule layer
-```
-
-It reduces the workflow from many scattered tools to one durable target repository that an AI can understand and maintain.
+GitLearnOS should make a learner's state easier to inspect, continue, and improve. Its success is measured by learning evidence and reliable handoff—not by repository size or the number of generated documents.

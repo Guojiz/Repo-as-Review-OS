@@ -1,8 +1,6 @@
-# Demo: 中考数学轻量学习 OS
+# Demo：中考数学轻量学习闭环
 
-这是一个虚构示例，用来展示 Repo as Review OS 如何运行。
-
-它不是用户真实资料，也不包含真实学校、老师或个人信息。
+这是虚构示例，用来展示 GitLearnOS 如何从一次真实作答形成可检查的学习状态。它不包含真实学校、老师或个人信息。
 
 ## 主目标
 
@@ -10,36 +8,42 @@
 在 30 天内提升中考数学几何模型识别能力。
 ```
 
-## 当前薄弱点
-
-- 相似三角形识别慢；
-- 辅助线反应不稳定；
-- 做完题后容易只记答案，不记模型；
-- 隔一段时间后会忘记以前讲过的题。
-
-## 仓库如何处理一题
+## 这次会话发生了什么
 
 ```text
-一道题
-→ 保存来源记录
-→ 拆出识别信号
-→ 提取模型
-→ 写入题目卡
-→ 安排下次复习
-→ 到期后生成题单
+虚构来源记录
+→ 学习者先做识别题
+→ 能想到相似三角形，但对应关系错误
+→ 记录 recognition 类型知识缺口
+→ 给予关键提示
+→ 变式题在提示后正确
+→ 证据评分 1
+→ 两天后再次复习
 ```
 
-## 本示例包含
+注意：AI 已经讲过，不代表学习者掌握。因为本次需要关键提示，所以模型保持 `learning`，知识缺口保持 `active`。
+
+## 文件
 
 ```text
 goals/main-goal.md
+learner-profile.md
+sources/fictional-geometry-source.md
 models/geometry-similarity-model.md
+knowledge-gaps/similarity-correspondence-gap.md
 reviews/2026-07-03_practice-set.md
+sessions/2026-07-03_similarity-session.md
 dashboard.md
 ```
 
-## 这个 demo 想说明什么
+## 这个 demo 证明什么
 
-Repo as Review OS 不是把旧资料堆起来。
+GitLearnOS 不只是把一道题整理成漂亮笔记。它保存：
 
-它会围绕目标，把材料拆成模型、复习任务和新题单。
+- 来源到底是否完整；
+- 学习者第一次独立做出了什么；
+- 错误属于哪一种缺口；
+- Agent 使用了多少提示；
+- 为什么得到这个分数；
+- 哪些状态因此改变；
+- 下一次应该怎么检验。

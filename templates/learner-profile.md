@@ -1,122 +1,69 @@
 # Learner Profile
 
-This file is the repository-level learner memory.
+> Inspectable learner state. Keep observations, learner preferences, and AI hypotheses separate.
 
-It should be updated when meaningful learning state changes. ChatGPT memory, Claude memory, project instructions, or other memory systems may summarize parts of this file, but this repository file remains the inspectable source of truth.
+Updated:  
+Updated by:  
+Evidence window reviewed:
 
-## Last updated
+## Active goals
 
-- Date:
-- Updated by:
-- Evidence used:
-
-## Current goals
-
-- Main goal:
-- Short-term goal:
+- Goal: [link]
 - Current priority:
+- Time constraint:
 
-## Active subjects
+## Stable preferences
 
-- Subject:
-  - current topic:
-  - current stage: sprint / building / maintenance
-  - linked files:
+Only include preferences that are explicit or repeatedly observed.
 
-## Strong areas
+| Preference | Source | Confidence | Last confirmed |
+|---|---|---|---|
+|  | learner-stated / observed |  |  |
 
-- Area:
-  - evidence:
-  - linked review/model/source:
+## Demonstrated strengths
 
-## Active weak points
+| Strength | Observable evidence | Evidence link | Last demonstrated | Confidence |
+|---|---|---|---|---|
+|  |  |  |  |  |
 
-- Weak point:
-  - evidence:
-  - first observed:
-  - last observed:
-  - linked source/model/review:
-  - next practice:
-  - status: active / improving / resolved
+## Active weak patterns
 
-## Repeated mistake patterns
+| Pattern | Observation, not interpretation | Evidence link | Frequency | Confidence | Gap link |
+|---|---|---|---:|---|---|
+|  |  |  |  |  |  |
 
-- Pattern:
-  - examples:
-  - likely cause:
-  - correction strategy:
+## Working hypotheses
 
-## Preferred explanation style
+Hypotheses guide the next check; they are not facts.
 
-- Language:
-- Detail level:
-- Examples preferred:
-- Visual/math support:
-- Things to avoid:
+| Hypothesis | Why suspected | How to test | Status |
+|---|---|---|---|
+|  |  |  | open / supported / rejected |
 
-## Memory policy
+## Explanation and practice adaptation
 
-Use this section to decide what belongs in AI memory and what belongs only in GitHub.
+- Preferred language:
+- Helpful representation:
+- Current support level:
+- What to avoid:
+- Evidence for these choices:
 
-### Stable memory candidates
-
-These may be copied into ChatGPT memory, Claude memory, custom instructions, or another stable memory layer:
-
-- long-term goals;
-- stable preferences;
-- preferred explanation style;
-- recurring constraints;
-- durable weak-point patterns;
-- repository operating rules.
-
-### Repository-only state
-
-These should usually stay in GitHub, not permanent AI memory:
-
-- temporary tasks;
-- one-off notes;
-- raw materials;
-- private or sensitive details;
-- incomplete sources;
-- generated practice archives;
-- stale weak points;
-- details that may change quickly.
-
-## Memory sync notes
-
-- What should be added to AI memory:
-- What should be removed or corrected in AI memory:
-- What changed in GitHub since last sync:
-- Conflict check:
-
-## Recent progress
+## Recent change
 
 - Date:
-- What improved:
-- Evidence:
-- Remaining issue:
+- What changed:
+- Evidence link:
+- Confidence:
+- Should native AI memory change? yes / no / pending
 
-## Next priorities
+## Privacy and memory boundary
 
-1.
-2.
-3.
+- Safe for native memory:
+- Repository only:
+- Local or sensitive only:
+- Known memory conflict:
 
-## Keywords for adaptive routing
+## Next profile check
 
-These keywords help an AI tool decide how to adapt its behavior.
-
-- runtime: ChatGPT / Claude / Zhipu / Codex / local agent / single-context agent
-- memory: native memory / project instructions / no memory / external memory
-- access: GitHub writeback / read-only / pasted excerpts / local-only
-- mode: organize / critique / revise / generate practice / explain / visualize / write
-- stage: sprint / building / maintenance
-- source status: complete / excerpt-only / local-only / missing / uncertain
-- privacy: public-safe / private / local-only / sensitive
-
-## Next action
-
-- Recommended next action:
-- Who should do it: user / AI / tool-enabled agent
-- Required access:
-- Safe to automate: yes / no
+- What should be tested next:
+- Trigger for updating this profile:

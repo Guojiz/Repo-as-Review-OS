@@ -1,25 +1,32 @@
 # Handoff Protocol
 
-Use this before continuing work in a review repository.
+Use this when another agent resumes a GitLearnOS target repository.
 
-## Read first
+## Read only
 
-1. `README.md`
-2. `docs/architecture.md`
-3. Relevant templates in `templates/`
-4. The source file being edited
+1. target `AGENTS.md`;
+2. `dashboard.md`;
+3. linked active goal;
+4. relevant learner-profile section;
+5. files linked by the next action.
 
-## Rules
+Do not restart by reading the whole repository.
 
-- Do not invent missing context.
-- Do not treat a summary as the original source.
-- Mark incomplete items as TODO.
-- Keep changes small and explain what changed.
+## Verify
 
-## Output after editing
+- dashboard refresh date;
+- target write permission;
+- due review and evidence score;
+- active gap and source availability;
+- whether the prior next action is still valid.
 
-Report:
+## Continue
+
+Run one focused task. Preserve source integrity, elicit a learner attempt before a mastery claim, and write back only durable evidence.
+
+## Report
 
 - files changed;
-- why they changed;
-- what remains unfinished.
+- observed learning evidence or `not assessed`;
+- unresolved source or decision;
+- one next action.

@@ -1,168 +1,130 @@
 # GitLearnOS Evaluation Standard
 
-GitLearnOS should first be judged against the original `zhongkao` learning repository system: can it preserve the learning loop, file discipline, review habits, AI handoff, and inspectable progress that made the original system useful?
+GitLearnOS is capability-benchmarked against HKU DeepTutor while remaining a lightweight toolkit for an external AI agent.
 
-External agentic tutoring research is useful as a reference signal, but it is not the primary benchmark and should not be used to overstate what this lightweight repository template can do.
+The standard is not feature parity. The standard is whether the toolkit preserves the learning-critical loop with far lower deployment cost and fully inspectable learner-owned state.
 
-The repository is still named `Repo-as-Review-OS` for continuity. The product concept is **GitLearnOS**.
+## Two evaluation layers
 
-## Primary baseline: the original zhongkao system
+### Capability direction: DeepTutor
 
-The first question is practical:
+Use DeepTutor's public design as the reference for these questions:
 
-```text
-Can GitLearnOS reproduce the useful behavior of the original zhongkao repository system with a lighter, reusable structure?
-```
+1. Is learning grounded in accessible sources?
+2. Does learner state evolve from interaction evidence?
+3. Can weak points drive adapted questions?
+4. Does the system close the loop from question to learner result to future behavior?
+5. Is personalization inspectable rather than hidden?
+6. Can tools and skills extend the learning workflow?
 
-That means checking whether it can keep:
+### Practical implementation: original repository behavior
 
-1. one durable GitHub learning workspace;
-2. clear separation between template repository and personal target repository;
-3. source records instead of vague memory;
-4. reusable models extracted from mistakes or materials;
-5. knowledge gaps that can drive later review;
-6. review sets and spaced repetition fields;
-7. a dashboard that tells the learner what to do next;
-8. AI handoff notes that let another capable tool continue;
-9. honest local-file boundaries;
-10. readable Markdown files that the learner can inspect and edit.
+Use the original `zhongkao` repository system to check:
 
-For the detailed parity check, see [Parity with the Original System](parity-with-original-system.md).
+1. Are files understandable to the learner and another agent?
+2. Are mistakes turned into reusable recognition models?
+3. Do old items return for review?
+4. Does the dashboard lead to a concrete next action?
+5. Are sources, summaries, and incomplete records kept distinct?
+6. Can the system remain light enough to use every day?
 
-## Secondary reference: agentic tutoring research
+## Acceptance tests
 
-A serious AI learning system can learn from modern tutoring research, but GitLearnOS does not claim to reproduce a full tutoring platform.
+### A. Five-minute handoff
 
-Use these research-facing questions as design checks, not as product claims:
+A new capable agent should read at most the entry rules and active target state, then answer:
 
-1. Does it keep a unified learning context?
-2. Does it ground answers in sources instead of vague memory?
-3. Does it maintain a learner state or profile?
-4. Does it turn mistakes into reusable models?
-5. Does it generate practice from weak points?
-6. Does it critique and revise weak outputs?
-7. Does it support writing as a learning surface?
-8. Does it support visual or math explanations when useful?
-9. Does it support review and repetition?
-10. Can another AI tool take over the same learning state?
-11. Can the learner inspect and edit the system?
-12. Does it avoid pretending that unavailable tools or files were used?
+- What is the active goal?
+- What is due now?
+- Which gap has evidence?
+- What source or model supports the task?
+- What should happen next?
 
-## GitLearnOS answer
+Fail if the agent must read the entire template repository before acting.
 
-GitLearnOS answers these requirements with ordinary repository structure instead of a private tutoring runtime.
+### B. Real learning session
+
+The system must be able to run:
 
 ```text
-Original zhongkao system behavior
-→ reproduced as reusable GitHub structure
-
-Unified learning context
-→ one target GitHub repository
-
-Source grounding
-→ sources/ and source-status records
-
-Learner state
-→ dashboard.md, learner-profile.md, memory/GitHub sync notes
-
-Mistake to model
-→ models/ and reusable problem patterns
-
-Knowledge gaps
-→ knowledge-gaps/ linked to source, model, review, and dashboard entries
-
-Practice from weak points
-→ reviews/ and optional automations/practice-generator/
-
-Critique and revision
-→ lightweight Organizer + Critic + Revision routine
-
-Review and repetition
-→ spaced repetition fields and review schedule records
-
-Cross-agent handoff
-→ GitHub repository as the shared state
-
-Inspectability
-→ Markdown files and Git history
-
-Honest boundaries
-→ runtime checks before claiming repository access, local-file access, or completed automation
+observable objective
+→ learner attempt
+→ diagnosis
+→ adaptive support
+→ fresh verification
+→ evidence score
+→ writeback
 ```
 
-## What this project should not become
+Fail if it only generates notes, folders, or generic worksheets.
 
-Do not turn GitLearnOS into a heavy tutoring runtime or a paper-shaped benchmark costume.
+### C. Evidence integrity
 
-Avoid requiring:
+- A generated review is not marked complete before an attempt.
+- Exposure or self-report alone does not produce `stable` or score 3.
+- A learner-profile claim links to observable evidence.
+- Contradictory evidence changes confidence instead of being silently discarded.
 
-- a database;
-- a vector memory engine;
-- a custom multi-agent server;
-- a required desktop agent;
-- a required local script;
-- one specific AI product;
-- uploading all textbooks into GitHub;
-- pretending ChatGPT Project is a full learning repository;
-- claiming parity with full tutoring platforms.
+### D. Source integrity
 
-The standard is practical: preserve the original learning loop, make it reusable, and keep it light.
+- Full, excerpt, summary-only, local-only, missing, and uncertain sources remain distinct.
+- The agent never invents unavailable source content.
+- Public repositories contain only safe, cleaned examples.
 
-## Why a user might choose this instead of a full tutoring platform
+### E. Adaptive practice
 
-A full tutoring platform is better when the user wants a packaged app, built-in runtime, integrated memory system, and managed tutoring interface.
+Practice is selected from active goals, due items, recent evidence, and knowledge gaps. Difficulty or support changes after observed performance.
 
-GitLearnOS is better when the user wants:
+Fail if practice is random, copied from a generic template, or disconnected from learner state.
 
-- a lightweight setup;
-- GitHub-native files and history;
-- direct control over the learning structure;
-- portability across ChatGPT, Claude, Zhipu, Codex, local agents, or future tools;
-- private learning data stored in the user's own repository;
-- no lock-in to a single tutoring app;
-- a system that can be inspected, forked, simplified, or rebuilt by any capable AI.
+### F. Deterministic review
 
-In short:
+An observed score maps to a reproducible next-review interval. A later agent can see why the date was chosen.
 
-```text
-Original zhongkao system
-→ real working learning loop
-→ personalized, inspectable, GitHub-based
+### G. Selective writeback
 
-GitLearnOS
-→ reusable template version
-→ lighter personal learning substrate
-→ open GitHub state
-→ easier handoff across tools
+The repository records durable changes, not every chat turn. Session logs contain observable evidence and outcomes, not hidden reasoning or full private transcripts.
 
-Full tutoring platform
-→ stronger packaged experience
-→ heavier runtime
-→ less direct control over the learning state
-```
+### H. Runtime honesty
 
-## Internal contradiction checks
+The agent detects actual permissions and capabilities. It does not claim GitHub writeback, local-file reading, connected-source use, memory updates, or automation completion without performing them.
 
-These rules prevent the project from contradicting itself:
+### I. Lightweight deployment
 
-1. Use external research as reference, but do not make it the project's main identity.
-2. Recommend ChatGPT and Claude, but do not make either mandatory.
-3. Support single-context agents, but do not claim they have long-term memory.
-4. Use ChatGPT Project for fixed materials, but do not treat it as the learning repository.
-5. Use ChatGPT memory for stable preferences, but do not treat it as the source of truth.
-6. Use GitHub as the durable state, but do not require all raw materials to be uploaded.
-7. Allow desktop agents, Codex, or local tools, but do not require them by default.
-8. Use automations, but do not claim prompt-only automations completed repository work.
-9. Support visual/math explanations, but prefer built-in ChatGPT abilities before adding extra tooling.
+The basic loop must not require:
 
-## User-facing promise
+- a custom server;
+- a database or vector store;
+- GitHub Actions;
+- API keys beyond the user's chosen AI environment;
+- a desktop runtime;
+- multi-agent orchestration;
+- copying the whole template into the target repository.
 
-GitLearnOS is for learners who want the useful loop of the original zhongkao-style learning repository without being locked into one exam, one AI product, or one local workflow.
+### J. User control
 
-It keeps the learning system readable:
+The learner can inspect, edit, export, or move all canonical learning state. Destructive, visibility, privacy, secret, and license changes require explicit approval.
 
-```text
-materials → models → knowledge gaps → reviews → dashboard → memory sync → next action
-```
+## Target quality levels
 
-The user can see the files, inspect the history, switch AI tools, and keep learning without losing the thread.
+### Level 0 — archive
+
+Files exist, but goals, evidence, and next actions are unclear.
+
+### Level 1 — organized state
+
+Goals, sources, models, gaps, and dashboard are connected.
+
+### Level 2 — closed learning loop
+
+The system elicits attempts, diagnoses gaps, scores observed evidence, schedules review, and updates state.
+
+### Level 3 — adaptive continuity
+
+Repeated evidence changes explanation style, difficulty, practice selection, and learner profile while remaining traceable.
+
+Public alpha should reliably meet Level 2 in its main demo before claiming Level 3.
+
+## Non-goals
+
+GitLearnOS does not claim feature parity, benchmark-score parity, or runtime parity with DeepTutor. It is successful when it captures the learning-critical structure in a portable toolkit and an existing capable agent can execute it reliably.

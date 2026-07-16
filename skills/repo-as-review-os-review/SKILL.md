@@ -1,90 +1,65 @@
 ---
 name: repo-as-review-os-review
-description: Use when generating review sets, practice prompts, mini tests, spaced repetition tasks, or daily learning plans from goals, models, weak points, and dashboard state in a Repo as Review OS repository.
+description: Generate, administer, score, and schedule GitLearnOS reviews from active goals, evidence-backed knowledge gaps, models, and due dates; use observable 0–3 evidence rather than completion or self-report.
 ---
 
-# Repo as Review OS Review Skill
+# GitLearnOS Review
 
-## Purpose
+## Two distinct operations
 
-Use this skill to generate review work from the user's current learning state.
+### Generate
 
-The goal is not to recommend random practice. The goal is to generate targeted review from the user's own goals, sources, models, weak points, and review dates.
-
-## When to use
-
-Use when the user asks for:
-
-- a review set;
-- a practice set;
-- a mini test;
-- today's study plan;
-- spaced repetition tasks;
-- a weak-point drill;
-- a custom paper or question set;
-- a review based on the repository.
-
-## Review workflow
+Create a small review set from:
 
 ```text
-read dashboard
-→ read active goal
-→ find due models
-→ find weak points
-→ choose review format
-→ generate review prompts
-→ write review set
-→ update dashboard or model review fields
+active goal
++ due items
++ evidence-backed gaps
++ relevant models and sources
++ recent results
 ```
 
-## Review set should include
+Prefer 1–5 focused prompts. Include recall, application, or transfer only as the goal requires. Do not reveal answers before the learner attempts the task.
+
+### Administer and score
+
+Record:
+
+- learner response summary;
+- independence/hint level;
+- correctness and error type;
+- transfer result when required;
+- score 0–3;
+- next review date;
+- files that must change.
+
+| Score | Evidence | Default interval |
+|---|---|---|
+| 0 | incorrect after substantial support | 1 day |
+| 1 | correct with major hints or imitation | 2 days |
+| 2 | correct with a minor hint or small execution error | 4 days |
+| 3 | independently correct; transfer succeeds when required | 7 days |
+
+After two consecutive score-3 reviews, double the prior interval up to 30 days.
+
+## Writeback
+
+After scoring:
+
+1. update the review record;
+2. update the linked gap status and evidence;
+3. update model review fields if present;
+4. update the dashboard;
+5. update learner profile only for repeated or durable patterns.
+
+A generated but unattempted review must remain `planned`, not `completed` or `mastered`.
+
+## Output
 
 ```text
-status: generated-review
-goal link
-source models
-why this was generated
-review prompts or tasks
-writeback instructions
-next review action
-```
-
-## Review quality rules
-
-A review set should be:
-
-- short enough to complete;
-- tied to existing models;
-- based on weak points;
-- clear about what to write back;
-- honest about missing sources.
-
-Do not create a huge random worksheet unless the user explicitly asks for it.
-
-## Example requests
-
-```text
-Generate a 30-minute review set from my weak points.
-```
-
-```text
-Make a mini test from the models due today.
-```
-
-```text
-Give me three prompts to check whether I still remember this concept.
-```
-
-## Output standard
-
-```text
-Changed files:
-- review path: what was generated
-- dashboard/model path: what was updated
-
-Still missing:
-- missing source or model
-
+Review status: planned / attempted / scored
+Evidence score: 0 / 1 / 2 / 3 / not assessed
+Files updated:
+Next review:
 Next action:
-- complete review / update memory status / schedule next review
 ```

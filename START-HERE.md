@@ -1,92 +1,86 @@
-# Start Here
+# Start Here: Agent Handoff
 
-GitLearnOS is a lightweight learning-trace operating system for AI-assisted study, built on GitHub.
+GitLearnOS is a lightweight tutoring toolkit, not a standalone app. Use this file to begin work without preloading the whole template repository.
 
-It helps a user and an AI tool turn scattered learning materials into a writable, traceable, and reviewable learning repository.
-
-## Copy this to an AI tool
+## 1. Identify the two repositories
 
 ```text
-Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
-
-The repository is named Repo-as-Review-OS for continuity. The product concept is GitLearnOS.
-
-Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, AGENTS.md, docs/runtime-self-adaptation.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/source-and-learner-state.md. Follow linked documents only when they are relevant to your current runtime.
-
-Help me build my own GitLearnOS. First explain what it is, then identify your current runtime, memory capability, permission boundary, GitHub access, and any manual steps I must complete. Then guide me to create or choose one target GitHub repository.
-
-Treat this Repo-as-Review-OS repository as the template repository. Treat my target repository as the personal learning repository. Do not write my learning data into the template repository.
-
-If your environment supports skills, use skills/repo-as-review-os/SKILL.md. If it does not support skills, use the memory fallback in docs/skill-and-memory-runtime.md.
-
-After that, create goal files, learner-profile.md, folder structure, source rules, model templates, knowledge-gap fields, spaced-repetition fields, automation output folders, and a dashboard in my target repository. If I already gave a learning goal, use it. If not, ask me for my first learning goal. Report every file created or edited.
+template repository: Guojiz/Repo-as-Review-OS
+target learning repository: <user repository or unknown>
 ```
 
-## What the AI should do
+Never write personal learning data into the template repository. If the target is unknown and the task requires writeback, ask only for the target repository.
 
-1. Read this file.
-2. Read `README.md`.
-3. Read `QUICKSTART.md`.
-4. Read `docs/runtime-self-adaptation.md`.
-5. Read `AGENT-RUNTIME.md`.
-6. Read `AGENTS.md`.
-7. Read `docs/skill-and-memory-runtime.md`.
-8. Read `docs/adaptive-memory-and-learner-profile.md`.
-9. Read `docs/source-and-learner-state.md`.
-10. Explain the system to the user.
-11. Identify the current runtime, memory capability, file access, and permission boundary.
-12. Separate the template repository from the target learning repository.
-13. Help the user create or choose one target GitHub repository.
-14. Decide whether to use skill runtime, native memory, project instructions, or a single-context fallback.
-15. Build the folder structure, templates, goal file, learner profile, knowledge-gap records, dashboard, and runtime rules in the target repository.
-16. Report every file created or edited.
+## 2. Detect real capability
 
-## What the human should do
-
-1. Create or choose one target GitHub repository for personal learning data.
-2. Connect the AI tool to that repository through MCP, a GitHub connector, or another safe integration.
-3. Use a private repository for real learning data.
-4. Keep protected or private materials local unless a small excerpt is needed.
-5. Ask the AI to report every change.
-
-## Core idea
-
-A repository can become the operating system for learning.
-
-It should contain:
-
-- goals;
-- learner profile;
-- source records;
-- reusable models;
-- knowledge gaps;
-- review sets;
-- spaced repetition fields;
-- dashboards;
-- automation outputs;
-- agent runtime rules;
-- skill or memory fallback instructions.
-
-## Runtime choices
-
-Before choosing a runtime path, read:
+Report internally before acting:
 
 ```text
-docs/runtime-self-adaptation.md
-docs/automation-runtime-matrix.md
-docs/adaptive-memory-and-learner-profile.md
+runtime:
+template read access:
+target read access:
+target write access:
+connected source access:
+skill support:
+manual user step actually required:
 ```
 
-If the AI tool supports skills, use:
+Test capabilities through available tools when safe. Do not make the learner perform a manual step that the current runtime can complete directly.
+
+## 3. Read the minimum state
+
+Start with:
+
+1. this file;
+2. `AGENTS.md`;
+3. the target repository's `dashboard.md`;
+4. its active goal;
+5. `learner-profile.md` and only the source/model/gap/review files relevant to the task.
+
+Do not read all template docs before starting. Open a deeper document only when the current task needs its rule.
+
+## 4. Choose one mode
+
+- **setup:** target state does not exist;
+- **session:** learner wants to learn, continue, practise, or be taught;
+- **source:** material must be recorded honestly;
+- **model:** reusable understanding should be extracted;
+- **review:** due practice must be generated or scored;
+- **maintenance:** state is stale, inconsistent, or broken.
+
+If skills are available, route through `skills/repo-as-review-os/SKILL.md`.
+
+## 5. Run the learning kernel
+
+For a learning session:
 
 ```text
-skills/repo-as-review-os/SKILL.md
+choose one observable objective
+→ ask for an attempt or retrieval
+→ diagnose the response
+→ give the smallest useful hint or explanation
+→ check transfer when appropriate
+→ score evidence 0–3
+→ write back only durable, evidenced change
+→ set the next action
 ```
 
-If the AI tool does not support skills, use:
+An explanation is not evidence of mastery. A learner's unsupported “I understand” is not evidence of mastery. Preserve uncertainty honestly.
+
+## 6. Finish visibly
+
+Report:
 
 ```text
-docs/skill-and-memory-runtime.md
-```
+Changed files:
+- path: reason
 
-Skill gives the AI behavior. Memory gives the AI stable preferences. The repository gives the AI current learning state.
+Learning evidence:
+- observed result and score, or "not assessed"
+
+Still needed:
+- missing source, learner attempt, or decision
+
+Next action:
+- one concrete step
+```

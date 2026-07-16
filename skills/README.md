@@ -1,54 +1,34 @@
-# Skills
+# GitLearnOS Skills
 
-Repo as Review OS can be used as one broad skill or as a small skill suite.
-
-The recommended structure is:
+Start with one router and load one focused skill for the current task:
 
 ```text
-repo-as-review-os                  Main router
-repo-as-review-os-setup            Create or migrate a learning repository
-repo-as-review-os-source           Turn materials into source records
-repo-as-review-os-model            Extract reusable learning models
-repo-as-review-os-review           Generate review sets and mini tests
-repo-as-review-os-maintenance      Audit and maintain the repository
+repo-as-review-os                  router
+repo-as-review-os-setup            setup or migration
+repo-as-review-os-session          live tutoring session
+repo-as-review-os-source           source integrity
+repo-as-review-os-model            reusable understanding
+repo-as-review-os-review           review generation and scoring
+repo-as-review-os-maintenance      state audit and repair
 ```
 
-## Why multiple skills?
+The session skill is the tutoring kernel. Without it, the suite may organize files but does not reliably improve or measure learning.
 
-A single large skill is easy to install but can be too broad.
+## Loading rule
 
-Smaller skills help an AI agent load the right behavior for the task:
+1. Read the router.
+2. Identify the current task.
+3. Load only the matching subskill.
+4. Read only the target state relevant to that task.
 
-- setup when creating a repository;
-- source when recording materials;
-- model when extracting reusable understanding;
-- review when generating practice;
-- maintenance when cleaning or auditing the repository.
+Do not preload every skill or every repository document.
 
-## Recommended usage
+## State boundary
 
-Start with the router:
+- Skills store behavior.
+- The target repository stores current learning state.
+- `learner-profile.md` stores inspectable learner state.
+- Native memory may cache stable preferences.
+- The current chat is temporary work.
 
-```text
-skills/repo-as-review-os/SKILL.md
-```
-
-Then use the specific subskill when the task is clear.
-
-## If your AI tool does not support multiple skills
-
-Use only the router skill.
-
-If your AI tool does not support skills at all, use the memory fallback in:
-
-```text
-docs/skill-and-memory-runtime.md
-```
-
-## Important distinction
-
-Skills give behavior.
-
-Memory gives stable preferences.
-
-Repository files store current learning state.
+No skill should silently store personal data in the public template repository.

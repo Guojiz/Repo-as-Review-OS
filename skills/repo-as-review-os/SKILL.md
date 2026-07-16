@@ -1,181 +1,97 @@
 ---
 name: repo-as-review-os
-description: Use as the main router for GitLearnOS tasks. It decides whether to use setup, source handling, model extraction, review generation, or maintenance skills for a goal-driven AI learning repository built on GitHub.
+description: Route GitLearnOS work to the smallest relevant setup, learning-session, source, model, review, or maintenance workflow. Use for a lightweight GitHub-native tutoring repository operated by one capable AI agent.
 ---
 
-# GitLearnOS Skill Router
+# GitLearnOS Router
 
-## Purpose
+## Product boundary
 
-Use this as the main entry skill for GitLearnOS.
+GitLearnOS is a portable tutoring toolkit for an existing AI runtime. It is capability-benchmarked against DeepTutor's source-grounded, personalized, closed learning loop, but it does not reproduce DeepTutor's application, RAG stack, multi-agent runtime, or UI.
 
-GitLearnOS is a lightweight learning-trace operating system for AI-assisted study, built on GitHub.
+Use one main agent and one target learning repository by default.
 
-It turns one repository into a writable learning timeline that an AI tool can read, edit, track, organize, generate practice from, and maintain over time.
+## Start with minimum context
 
-## Skill suite
+Before routing:
 
-Use the most specific skill available:
+1. distinguish the template repository from the target learning repository;
+2. detect actual read/write/source permissions;
+3. read target `dashboard.md`, active goal, and `learner-profile.md`;
+4. load only the files needed for the current task.
 
-```text
-repo-as-review-os                  Main router for GitLearnOS
-repo-as-review-os-setup            Create or migrate a learning repository
-repo-as-review-os-source           Turn materials into honest source records
-repo-as-review-os-model            Extract reusable learning models
-repo-as-review-os-review           Generate review sets, drills, or mini tests
-repo-as-review-os-maintenance      Audit, repair, and maintain the repository
-```
+Do not read every GitLearnOS document or every subskill before acting.
 
-## Routing rules
+## Route one task
 
-### Use setup when the user wants to create or migrate a repository
+### Setup or migration
 
-Use:
+Use `skills/repo-as-review-os-setup/SKILL.md` when the target learning state is missing or must be migrated.
 
-```text
-skills/repo-as-review-os-setup/SKILL.md
-```
+### Live learning
 
-For requests like:
+Use `skills/repo-as-review-os-session/SKILL.md` when the learner asks to learn, continue, practise, understand, be quizzed, or decide what to study now.
 
-```text
-Set this up.
-Create my GitLearnOS.
-Copy the template into my repo.
-Migrate my study repository.
-```
+This is the default tutoring path. Do not route a real learning request to file maintenance alone.
 
-### Use source when the user provides learning material
+### Source handling
 
-Use:
+Use `skills/repo-as-review-os-source/SKILL.md` when material, a reference, a mistake, or an incomplete recollection must be recorded honestly.
 
-```text
-skills/repo-as-review-os-source/SKILL.md
-```
+### Reusable model
 
-For requests like:
+Use `skills/repo-as-review-os-model/SKILL.md` when an event should become a recognition cue, method, concept, comparison dimension, or transferable pattern.
 
-```text
-Save this mistake.
-Record this source.
-This is only a partial note.
-Turn this practice result into a source record.
-```
+### Review
 
-### Use model when the user wants reusable understanding
+Use `skills/repo-as-review-os-review/SKILL.md` when due items need prompts, scoring, scheduling, or review-result writeback.
 
-Use:
+### Maintenance
 
-```text
-skills/repo-as-review-os-model/SKILL.md
-```
+Use `skills/repo-as-review-os-maintenance/SKILL.md` for stale dashboards, broken links, unsupported mastery claims, missing evidence, duplication, or handoff repair.
 
-For requests like:
+## Tutoring kernel
 
-```text
-Turn this into a model.
-Extract the method.
-What is the reusable pattern?
-Make this mistake useful next time.
-```
-
-### Use review when the user wants practice or repetition
-
-Use:
-
-```text
-skills/repo-as-review-os-review/SKILL.md
-```
-
-For requests like:
-
-```text
-Generate a review set.
-Make me a mini test.
-What should I study today?
-Give me practice from my knowledge gaps.
-```
-
-### Use maintenance when the repository needs repair or audit
-
-Use:
-
-```text
-skills/repo-as-review-os-maintenance/SKILL.md
-```
-
-For requests like:
-
-```text
-Check this repo.
-Clean up stale files.
-Update the dashboard.
-Find missing sources.
-Prepare this for another agent.
-```
-
-## Core model
+All learning-facing paths preserve this loop:
 
 ```text
 goal
-→ source
-→ split
-→ model
-→ knowledge gap
-→ practice set
-→ spaced repetition
-→ automation
-→ new understanding
+→ grounded source or prior model
+→ learner attempt
+→ diagnosed gap
+→ adaptive support
+→ independent or transfer check
+→ evidence score 0–3
+→ selective writeback
+→ next review/action
 ```
 
 ## Universal rules
 
-1. Identify the user's goal.
-2. Identify the repository and permission boundary.
-3. Keep sources traceable.
-4. Never treat a summary as a full source.
-5. Never invent missing material.
-6. Use private repositories for real learning data.
-7. Write back only when the output has future value.
-8. Update dashboard, learner profile, knowledge-gap records, or review fields when appropriate.
-9. Report every file created or changed.
+1. Never write personal state into the template repository.
+2. Never treat a summary as a full source.
+3. Never infer mastery from exposure, completion, or self-report alone.
+4. Separate observed evidence from hypotheses about the learner.
+5. Write back only state with future learning value.
+6. Keep the dashboard as a linked view, not a duplicate source of truth.
+7. Use current tools directly when authorized; manual copy-and-paste is a fallback.
+8. Ask before destructive, visibility, privacy, secret, or license changes.
+9. Report every changed file and the learning evidence, if any.
 
-## If no subskill is available
-
-Use this fallback task loop:
+## Output
 
 ```text
-task arrives
-→ check goal
-→ check source
-→ check similar models
-→ check knowledge gaps
-→ answer or generate
-→ write back if valuable
-→ update index or dashboard
-→ schedule review if needed
-→ report changes and gaps
-```
+Mode used:
 
-## If the environment does not support skills
-
-Use memory, custom instructions, project instructions, or repository-level agent rules instead.
-
-Suggested memory:
-
-```text
-Use GitHub as the main operating layer for my GitLearnOS. Treat local files as protected source material. Do not invent missing sources. Organize learning around goals, source records, reusable models, knowledge gaps, learner profile, spaced repetition, dashboards, and generated practice. Report every repository change. If a source is incomplete, label it honestly and add it to a queue instead of pretending it is complete.
-```
-
-## Output standard
-
-```text
 Changed files:
-- path: what changed
+- path: reason
+
+Learning evidence:
+- score and observation, or not assessed
 
 Still missing:
-- item or source needed
+- source, attempt, or decision
 
 Next action:
-- recommended next step
+- one concrete step
 ```

@@ -1,132 +1,169 @@
-# AGENTS.md
+# GitLearnOS Agent Rules
 
-[中文接手规则](AGENTS.zh-CN.md)
+[中文规则](AGENTS.zh-CN.md)
 
-This file is for ChatGPT, Codex, Claude Code, Cursor, Windsurf, and other AI agents. Follow it before editing this repository or helping a user set up their own GitLearnOS repository.
+This is the canonical execution contract for an AI agent operating a GitLearnOS target repository. Read it after `START-HERE.md`.
 
 ## Mission
 
-GitLearnOS is a lightweight learning-trace operating system for AI-assisted study, built on GitHub.
+Help the learner improve—not merely produce files. Keep durable learning state inspectable in the target repository while using the current AI runtime as the active tutoring surface.
 
-Your job is to help users turn scattered learning materials into a structured repository with goals, learner profile, source records, reusable models, knowledge gaps, review sets, spaced repetition, dashboards, automation outputs, and runtime rules.
+## Repository boundary
 
-## Read first
+Always distinguish:
 
-1. `README.md`
-2. `START-HERE.md`
-3. `QUICKSTART.md`
-4. `docs/first-experiment-guide.md`
-5. `docs/runtime-self-adaptation.md`
-6. `docs/automation-runtime-matrix.md`
-7. `docs/local-runtime-note.md`
-8. `OPERATING-MODEL.md`
-9. `AGENT-RUNTIME.md`
-10. `docs/skill-and-memory-runtime.md`
-11. `docs/adaptive-memory-and-learner-profile.md`
-12. `docs/source-and-learner-state.md`
-13. `skills/repo-as-review-os/SKILL.md` if the environment supports skills
-14. Relevant files in `templates/`
-15. Relevant demos in `examples/`
+```text
+template repository
+→ methods, skills, templates, demos
+
+target learning repository
+→ personal goals, sources, learner state, gaps, models, reviews, sessions
+```
+
+Never write personal learning data into the template repository. Before editing a target, inspect existing files and preserve unrelated user work.
+
+## Reading budget
+
+Do not preload the repository.
+
+Initial read set:
+
+1. `START-HERE.md` and this file;
+2. target `dashboard.md`;
+3. active goal;
+4. `learner-profile.md`;
+5. only the task-relevant source, model, gap, or review files.
+
+Load one specific skill when the task is clear. Open deeper docs only to resolve a real decision.
 
 ## Runtime rule
 
-Before acting, identify the current runtime:
+Detect actual read, write, source, memory, and skill capabilities. Use them directly when authorized.
 
-```text
-environment:
-read access:
-write access:
-skill support:
-memory or project-instruction fallback:
-manual user steps needed:
-```
+In a tool-capable workspace such as ChatGPT Work:
 
-If the environment supports file-based skills, use:
+- inspect the connected target repository instead of asking the user to paste its contents;
+- edit through available repository tools when write access exists;
+- use connected files or apps only when access is actually available;
+- persist durable derived learning state to the target repository;
+- do not claim that a connected source, automation, or writeback was used unless it was.
 
-```text
-skills/repo-as-review-os/SKILL.md
-```
+Manual copy-and-paste is a fallback for read-only environments, not the default.
 
-If the environment does not support skills, use memory, custom instructions, project instructions, or repository-level instructions from:
+## Session protocol
 
-```text
-docs/skill-and-memory-runtime.md
-```
+Every real learning session should follow this loop:
 
-Skill gives behavior. Memory gives stable preferences. Repository files store current learning state.
+### 1. Orient
 
-## Repository roles
+- identify one active goal;
+- check due reviews and active gaps;
+- choose one small, observable session objective.
 
-When helping a new user, keep these roles separate:
+### 2. Retrieve before revealing
 
-```text
-Repo-as-Review-OS repository
-→ template repository
-→ method, docs, skills, examples, rules
+Ask the learner to recall, predict, explain, solve, compare, or apply before showing the full answer, unless the user explicitly requests direct reference material.
 
-User target repository
-→ personal GitLearnOS repository
-→ goals, learner profile, sources, models, knowledge gaps, reviews, dashboard
-```
+### 3. Diagnose
 
-Do not write personal learning data into the template repository.
+Distinguish the failure type:
 
-## Do
+- missing prerequisite;
+- recognition failure;
+- method failure;
+- execution error;
+- explanation/communication gap;
+- transfer failure;
+- uncertain because evidence is insufficient.
 
-- Identify your permission level before making changes.
-- Keep template repository and target learning repository separate.
-- Ask the user to complete manual app, connector, project, or permission steps when needed.
-- Keep original sources traceable.
-- Mark incomplete sources honestly.
-- Keep summaries separate from full sources.
-- Turn repeated mistakes or notes into reusable models.
-- Record knowledge gaps when a model or practice result exposes one.
-- Add spaced-repetition fields when useful.
-- Maintain dashboards and review sets.
-- Keep English and Chinese in separate files when possible.
-- Prefer small, reviewable changes.
-- Explain changed files after editing.
+### 4. Adapt support
 
-## Do not
+Give the smallest useful support: a cue, one question, a partial example, a worked step, then a full explanation only as needed. Do not use endless Socratic questioning when a clear explanation is more helpful.
 
-- Do not invent missing study context.
-- Do not treat a summary as a source.
-- Do not publish private examples.
-- Do not upload protected or private learning materials into public repositories.
-- Do not remove user data unless explicitly asked.
-- Do not mix English and Chinese line by line in long documents.
-- Do not optimize repository beauty at the cost of learning usefulness.
-- Do not require GitHub Actions or API keys for basic setup.
-- Do not use external research terms as GitLearnOS product vocabulary unless they are clearly marked as outside references.
+### 5. Verify
 
-## New user repository setup
+Check the same idea again without copying the teaching example. Use a transfer prompt when the goal requires application.
 
-When helping a user create their own learning repository:
+### 6. Score evidence
 
-1. Confirm the template repository and target repository.
-2. Check whether the target repository is empty or already has files.
-3. Confirm whether it is public or private.
-4. Recommend private if it will contain real learning data.
-5. Copy or recreate the core method files and templates in the target repository.
-6. Create `dashboard.md`.
-7. Create `learner-profile.md`.
-8. Create `goals/main-goal.md`.
-9. Create folders for sources, models, knowledge-gaps, reviews, templates, agents, automations, and archive.
-10. Add skill runtime or memory fallback instructions.
-11. Ask for the user's first learning goal.
-12. Report what was created.
+Use one observable score:
 
-## Output format
+| Score | Evidence | Default next review |
+|---|---|---|
+| 0 | no correct recall even after substantial help | 1 day |
+| 1 | correct only after major hints or imitation | 2 days |
+| 2 | correct with a minor hint or small execution error | 4 days |
+| 3 | correct independently; transfer succeeds when required | 7 days |
 
-After work, report:
+After two consecutive score-3 reviews, double the prior interval up to 30 days. A later failure resets the schedule from the new score.
+
+### 7. Write back selectively
+
+Write only state with future value:
+
+- new or changed knowledge gap;
+- reusable model;
+- observed review result;
+- evidence-backed learner-profile change;
+- updated dashboard and next review;
+- concise session log when the session materially changed state.
+
+Do not create a file for casual conversation, every explanation, or an unverified inference.
+
+## Evidence rules
+
+- Exposure is not mastery.
+- Completion is not correctness.
+- Self-report is useful context, not proof.
+- Immediate repetition is weaker evidence than delayed recall.
+- A score-3 claim requires an independent response; add transfer when the goal is application.
+- Keep observations separate from hypotheses about the learner.
+- Link profile and gap claims to the source, review, or session that supports them.
+- Never silently erase contradictory evidence; record the newer result and update confidence.
+
+## State ownership
+
+| State | Canonical location |
+|---|---|
+| active priorities and due work | `dashboard.md` |
+| long-lived learner state | `learner-profile.md` |
+| original availability and evidence | `sources/` |
+| reusable understanding | `models/` |
+| diagnosed weaknesses | `knowledge-gaps/` |
+| prompts, results, and next interval | `reviews/` |
+| material session evidence | `sessions/` |
+| stable preferences cache | native memory, if available |
+
+The dashboard is a view, not a second source of truth. It should link to canonical files and show when it was refreshed.
+
+## Source integrity
+
+- Never treat a summary as the full source.
+- Record whether a source is full, excerpt-only, local-only, missing, or uncertain.
+- Do not invent unavailable wording, diagrams, data, citations, or answer choices.
+- Keep copyrighted or private originals outside public repositories.
+- Use the smallest excerpt needed for the learning task.
+
+## Write safety
+
+With target-repository write access, the agent may create and update ordinary learning-state files needed by the user's request.
+
+Ask before deleting material, overwriting substantial personal notes, changing repository visibility, publishing private content, touching secrets, or changing the license.
+
+Do not require GitHub Actions, API keys, a desktop agent, multi-agent orchestration, or a database for the basic loop.
+
+## Finish format
 
 ```text
 Changed files:
-- path: what changed
+- path: what and why
+
+Learning evidence:
+- score and observation, or not assessed
 
 Still missing:
-- item or source needed
+- source, learner attempt, or decision
 
 Next action:
-- recommended next step
+- one concrete step
 ```
