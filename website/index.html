@@ -32,12 +32,15 @@
     a { color: inherit; text-decoration: none; }
     button, a { -webkit-tap-highlight-color: transparent; }
     button:focus-visible, a:focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; }
-    .en { display: none !important; }
-    body.lang-en .zh { display: none !important; }
-    body.lang-en .en { display: inline !important; }
+    .zh, .en { display: none; }
+    body:not(.lang-en) .zh,
+    body.lang-en .en { display: inline; }
+    body:not(.lang-en) .block.zh,
     body.lang-en .block.en,
+    body:not(.lang-en) h1 > .zh,
+    body:not(.lang-en) .section-title > .zh,
     body.lang-en h1 > .en,
-    body.lang-en .section-title > .en { display: block !important; }
+    body.lang-en .section-title > .en { display: block; }
     .shell { overflow: hidden; min-height: 100vh; }
     .wrap { width: min(1320px, calc(100% - 72px)); margin-inline: auto; }
 
@@ -87,7 +90,6 @@
       letter-spacing: -.08em;
       line-height: .88;
     }
-    h1 > .zh, .section-title > .zh { display: block; }
     .intro { max-width: 570px; margin: 2.35rem 0 0; color: var(--muted); line-height: 1.85; }
     .actions { margin-top: 2.4rem; display: flex; align-items: center; flex-wrap: wrap; gap: 1.6rem; }
     .button {
