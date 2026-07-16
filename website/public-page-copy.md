@@ -26,6 +26,6 @@ Start with one subject.
 
 ## Links
 
-- Website: https://gitlearnos.jizheng.chatgpt.site
+- Website: https://guojiz.github.io/review-os/
 - Repository: https://github.com/Guojiz/Repo-as-Review-OS
 - Quickstart: https://github.com/Guojiz/Repo-as-Review-OS/blob/main/QUICKSTART.md

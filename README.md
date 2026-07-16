@@ -2,7 +2,7 @@
 
 ![GitLearnOS overview](docs/assets/repo-as-review-os-map.svg)
 
-[中文](README.zh-CN.md) · [Website](https://gitlearnos.jizheng.chatgpt.site)
+[中文](README.zh-CN.md) · [Website](https://guojiz.github.io/review-os/)
 
 **GitLearnOS is a learner-owned control layer: organize automatically, generate targeted questions, and keep durable state in sync.**
 
@@ -248,4 +248,4 @@ One main agent is the standard runtime. These responsibilities do not require se
 
 ## License
 
-Apache License 2.0. See [LICENSE](LICENSE).
+MIT License. See [LICENSE](LICENSE).
