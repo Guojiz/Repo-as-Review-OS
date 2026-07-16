@@ -1,87 +1,40 @@
 # AI Runtime Support
 
-This page is a supplementary guide.
+GitLearnOS supports any one main AI runtime that can execute the learner-owned control contract honestly.
 
-For the current main runtime path, read:
-
-- [Runtime Self-Adaptation](runtime-self-adaptation.md)
-- [Automation Runtime Matrix](automation-runtime-matrix.md)
-- [Local Runtime Note](local-runtime-note.md)
-- [Skill and Memory Runtime](skill-and-memory-runtime.md)
-- [Single Active Runtime Rule](single-active-runtime-rule.md)
-
-## Core idea
-
-GitLearnOS is not tied to one AI product, but it does require a clear runtime boundary.
-
-A tool is useful only if it can honestly say what it can read, what it can write, and where the durable learning state lives.
-
-## Required capabilities
-
-A good daily runtime should provide:
-
-1. repository or state-layer access;
-2. file creation and editing, or exact manual patches when it cannot edit;
-3. project rules or stable memory;
-4. permission boundaries;
-5. honest source handling;
-6. change reporting.
-
-## Supported runtime roles
+## Best experience
 
 ```text
-ChatGPT
-→ native daily learning runtime
-→ best with GitHub connector / MCP / repository access
-
-Claude
-→ native daily learning runtime
-→ best with project context, artifacts, and repository-assisted work
-
-OpenHanako / HanaAgent
-→ optional desktop enhanced runtime
-→ local files, desks, skills, scheduled tasks, bridge channels, subagents
-
-Claude Code / Codex / Cursor / CLI agents
-→ deployment and source-code assistants for OpenHanako
-→ not the maintained daily tutoring layer
+tool-capable workspace
++ one private target repository
++ authorized sources when needed
++ GitLearnOS rules or skills
 ```
 
-The project should describe capabilities, not force one brand. It should also avoid pretending that every capable tool has the same permissions.
+ChatGPT Work is a standard direct path when repository and source connections are available. A repository-aware coding agent is also valid.
 
-## Why memory matters
+## Minimum capability
 
-The AI should remember stable preferences only:
+The agent can:
 
-```text
-Use GitLearnOS with one active learning runtime and one chosen state layer. Prefer GitHub as the state layer for native ChatGPT or Claude workflows. Treat local files as protected source material. Ask for local excerpts only when needed. Keep English and Chinese in separate files. Report every changed file.
-```
+1. receive a goal or learning event;
+2. read minimum relevant state;
+3. organize and connect input;
+4. generate targeted, scoreable questions;
+5. follow source and user-policy rules;
+6. write the target or return exact pending writeback;
+7. report actual automation and changed files.
 
-Without memory or project instructions, the user has to repeat the same setup in every conversation.
+Live tutoring is optional.
 
-## Minimum runtime
+## Optional capability
 
-```text
-one AI tool
-+ one target GitHub repository or one accessible local state layer
-+ one rule file
-+ honest reporting
-```
+Native memory, connected files, web research, code execution, visual generation, local-file access, and a real scheduler may improve execution. The current standard does not require subagents, a multi-agent framework, RAG, or a database.
 
-## Best native runtime
+## Unsupported behavior
 
-```text
-one main native AI tool
-+ GitHub repository connector
-+ project memory or persistent instructions
-+ clear permission boundary
-+ optional local file upload when needed
-```
+A runtime is unsuitable for autonomous writeback when it cannot identify target, permissions, policy, or changed files. It may still use the read-only path.
 
-## Local-first path
+## Source of truth
 
-A local workspace can test or run the method, but local access is not the same as GitHub access.
-
-Use local git or Obsidian only when the active runtime can actually access those files, or when the AI provides exact patches for the user to apply manually.
-
-For the boundary, see [Local Runtime Note](local-runtime-note.md).
+The target stores changing learner state and policy. Native memory caches stable preferences. The current workspace performs temporary work. Do not collapse them into hidden runtime memory.

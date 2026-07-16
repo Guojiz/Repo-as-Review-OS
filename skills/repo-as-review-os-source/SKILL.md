@@ -1,91 +1,48 @@
 ---
 name: repo-as-review-os-source
-description: Use when turning learning materials, notes, paper references, practice results, or mistakes into honest source records in a Repo as Review OS repository. This skill prevents summaries from being treated as full sources and labels missing material clearly.
+description: Record and reconcile learning provenance from teachers, class, tutoring, paper notes, books, practice platforms, exams, peers, or AI without overstating access or completeness. Use when source availability, privacy, attribution, external feedback, or an unavailable original affects organization or question generation.
 ---
 
-# Repo as Review OS Source Skill
+# GitLearnOS Source Handling
 
-## Purpose
+## Source states
 
-Use this skill to handle learning sources safely and honestly.
+- `full`: complete authorized source inspected;
+- `excerpt`: bounded portion inspected;
+- `summary-only`: summary exists, original unavailable;
+- `local-only`: original remains outside current access;
+- `missing`: referenced but unavailable;
+- `uncertain`: provenance or completeness unclear.
 
-A source can be a note, practice result, mistake record, paper reference, class material, or user explanation.
-
-## When to use
-
-Use when the user provides or mentions:
-
-- a learning note;
-- a mistake;
-- a paper or article;
-- a class material reference;
-- a practice result;
-- a partial memory of a question;
-- a local source that the AI cannot fully access.
-
-## Core rule
-
-Never treat a summary as a full source.
-
-Never invent missing text, diagrams, answer choices, paper sections, or unavailable material.
-
-## Source workflow
+## Workflow
 
 ```text
-material arrives
-→ identify source type
-→ check completeness
-→ create source record
-→ label missing parts
-→ decide whether to extract a model
-→ link source to goal or dashboard
+input arrives
+→ identify channel, provenance, access, and privacy
+→ link goal and existing gap/handoff
+→ record only what was inspected or reported
+→ separate source fact, learner report, and interpretation
+→ choose organization, model extraction, or question generation
 ```
 
-## Source status labels
+For teacher feedback, record whether it is the learner's recollection, a note excerpt, or an inspectable original. Do not require the teacher's identity unless useful and authorized.
 
-Use these labels when helpful:
+## Integrity
 
-```text
-full-source
-summary-only
-local-only-source
-needs-source
-needs-clear-source
-not-full-solution
-draft-full
-source-record
-```
+- never reconstruct unavailable wording, figures, answer choices, data, or citations;
+- never relabel a summary as a full source;
+- treat remembered content as evidence of a learning event, not necessarily the original;
+- keep private and copyrighted originals out of public repositories;
+- store only the minimum excerpt needed;
+- label general-knowledge questions when no source grounds them.
 
-## Minimal source record
-
-A source record should include:
+## Output
 
 ```text
-status
-source type
-goal link
-source availability
-what is known
-what is missing
-what can be extracted
-AI rule
-```
-
-## Public repository rule
-
-For public repositories, use cleaned or fictional examples.
-
-For real learning records, recommend a private repository.
-
-## Output standard
-
-```text
+Channel:
+Source state:
+Linked items:
 Changed files:
-- source record path: what was recorded
-
-Still missing:
-- missing source details
-
-Next action:
-- extract model / ask user for clearer source / schedule review
+Missing material:
+Safe next operation:
 ```

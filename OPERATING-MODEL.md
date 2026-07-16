@@ -1,143 +1,118 @@
 # Operating Model
 
-GitLearnOS is a lightweight learning-trace operating system for AI-assisted study, built on GitHub.
+GitLearnOS is a learner-owned control layer. It does not own the place where learning happens; one replaceable main agent organizes distributed input, generates targeted questions, and maintains durable state.
 
-It is not just a review template. It is a way for one AI tool to help a user learn, remember, reorganize, and generate new understanding from old material.
-
-## Core thesis
-
-Use GitHub as the writable learning timeline.
-
-Use one target repository for the user's learning state.
-
-Use one main AI tool as the maintainer.
-
-Use goals to decide what matters.
-
-Use files and folders to express state.
-
-Use knowledge gaps to decide what should be practiced next.
-
-Use spaced repetition to prevent forgetting.
-
-Use automation to organize, critique, revise, and generate practice.
-
-## Template vs target repository
+## Four layers
 
 ```text
-Repo-as-Review-OS repository
-→ template repository
-→ method, docs, skills, examples, rules
+real learning channels
+→ teacher, class, tutoring, paper, books, platforms, exams, peers, AI
 
-User target repository
-→ personal GitLearnOS repository
-→ goals, learner profile, sources, models, knowledge gaps, reviews, dashboard
+one main AI agent
+→ identify intent, organize, question, act, explain, verify
+
+GitLearnOS rules, skills, and learning-policy
+→ govern provenance, automation, writeback, safety, and evidence
+
+target GitHub repository
+→ learner-owned, inspectable, portable, reversible state
 ```
 
-The AI should read this repository as the template and write learning state only into the user's target repository.
+Do not split these layers or responsibilities into mandatory agents.
 
-## The order AI should follow
+## Three core capabilities
 
-When an AI tool receives this repository, it should follow this order:
-
-1. Identify its runtime, memory capability, file access, and permission level.
-2. Separate the template repository from the target learning repository.
-3. Read the user's goal.
-4. Check the target repository structure.
-5. Find active sources, models, learner profile, and knowledge gaps.
-6. Decide what should be split, merged, rewritten, reviewed, generated, or archived.
-7. Update files in the target repository.
-8. Suggest native-memory updates only for stable preferences or repeated patterns.
-9. Schedule review if needed.
-10. Report every change.
-
-## What the repository is for
-
-The repository should not collect everything.
-
-It should transform material:
+### Automatic organization
 
 ```text
-raw material
-→ source record
-→ extracted item
-→ reusable model
-→ knowledge gap
-→ goal-linked review task
-→ generated practice
-→ updated learning state
+new input
+→ mark channel and provenance
+→ connect goal and gap
+→ deduplicate and extract
+→ update resolution state
+→ surface the next action
 ```
 
-## What GitHub adds
-
-GitHub gives the AI:
-
-- a file tree;
-- writeback;
-- history;
-- timestamps;
-- traceable changes;
-- a shared operating layer;
-- a place for automation outputs.
-
-This is why a normal AI project is not enough by itself.
-
-## What memory adds
-
-Memory or project instructions should store the user's stable preferences:
-
-- GitHub is the main operating layer;
-- local files are protected source material;
-- one main AI workflow is preferred;
-- English and Chinese stay in separate files;
-- every change should be reported.
-
-Changing learner state should remain inspectable in `learner-profile.md` and the target repository.
-
-## What goals add
-
-Goals prevent the repository from becoming a pile of files.
-
-Every file should answer:
+### Targeted question generation
 
 ```text
-Which goal does this serve?
+goal + source/model + gap + prior performance + learner constraints
+→ diagnostic / practice / variation / transfer / review / external question pack
+→ answer or rubric
+→ result writeback
 ```
 
-If a file serves no current or future goal, it should be archived or lowered in priority.
-
-## What knowledge gaps add
-
-Knowledge gaps connect the learner profile, extracted models, and future practice.
-
-They answer:
+### Automated execution
 
 ```text
-What does the learner still fail to recognize, apply, explain, or transfer?
+learner event or agent handoff
+→ read learning-policy
+→ perform safe, low-risk, reversible actions
+→ atomic writeback and deduplication
+→ refresh dashboard
+→ return a transparent receipt
 ```
 
-## What review adds
+Background scheduling is enabled only when the current runtime has a real scheduler.
 
-Review is not the final goal. Review is the floor of learning.
+## Two loops
 
-The system returns to old material so the user can learn something new from it.
-
-## What automation adds
-
-Automation should do two main jobs:
-
-1. organize, critique, and revise the repository;
-2. generate practice based on goals, knowledge gaps, history, and spaced repetition.
-
-## Final shape
-
-The simplest form is:
+Cross-channel coordination is the primary loop:
 
 ```text
-one AI app
-+ one target GitHub repository
-+ one connector
-+ memory or project rules
+capture
+→ connect
+→ route to teacher, learner, AI, or another channel
+→ organize feedback or generate questions
+→ write back
+→ next action
 ```
 
-This is enough to run a personal GitLearnOS from a phone or computer.
+AI tutoring is optional:
+
+```text
+attempt
+→ diagnose
+→ support
+→ fresh verification
+→ score
+→ review
+```
+
+## State model
+
+- `learning-policy.md`: automation, privacy, writeback, and scheduling preferences;
+- `dashboard.md`: priorities, due work, waiting feedback, and next action;
+- `learner-profile.md`: durable evidence-backed learner state;
+- `goals/`: outcomes and success criteria;
+- `inbox/`: quick input not yet fully processed;
+- `sources/`: teacher, class, book, platform, AI, and other provenance;
+- `models/`: reusable understanding reconciled across sources;
+- `knowledge-gaps/`: resolution lifecycle and mastery evidence;
+- `handoffs/`: question and feedback packs for teachers, peers, or other agents;
+- `reviews/`: generated questions, answers, scores, and next dates;
+- `sessions/`: material cross-channel activities that changed state.
+
+## Decision rules
+
+Before writing, ask internally:
+
+```text
+Did the learner provide or authorize this?
+Does it serve an active goal?
+Is there one canonical owner for the state?
+Will it have future value?
+Is the action safe, low-risk, and reversible?
+```
+
+Keep temporary content out of the repository. Under `safe-auto`, perform safe actions and report; ask before high-impact actions.
+
+## External resolution and mastery
+
+Resolution state and mastery evidence are separate. A teacher's answer may immediately end waiting and redundant AI teaching; independent mastery may still be checked through performance, delayed recall, or transfer. The learner may opt out of verification.
+
+## Benchmark boundary
+
+DeepTutor supplies the capability direction: grounded sources, evolving learner state, personalized questions, and feedback loops. GitLearnOS compresses these into cross-channel, learner-owned files and skills operated by one external main agent.
+
+It intentionally omits a full app, server, mandatory multi-agent runtime, RAG engine, and database.

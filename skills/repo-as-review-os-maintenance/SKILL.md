@@ -1,82 +1,49 @@
 ---
 name: repo-as-review-os-maintenance
-description: Use when maintaining, auditing, cleaning, indexing, or repairing a Repo as Review OS learning repository. This skill checks dashboards, stale files, broken links, missing sources, outdated review dates, and unclear status labels.
+description: Audit and safely repair a learner-owned GitLearnOS repository for stale dashboards, broken links, duplicate events, policy drift, unsupported mastery, overdue checks, unresolved handoffs, non-idempotent automation, and safe undo needs.
 ---
 
-# Repo as Review OS Maintenance Skill
+# GitLearnOS Maintenance
 
-## Purpose
+## Audit order
 
-Use this skill to keep a learning repository usable over time.
+1. `learning-policy.md` and actual runtime capability;
+2. active goal and dashboard;
+3. unprocessed inbox and waiting handoffs;
+4. active gaps and resolution/mastery separation;
+5. planned, due, and unscored questions;
+6. source/model links;
+7. duplicate, stale, orphaned, or excessive state.
 
-Maintenance should protect learning usefulness. Do not reorganize files just to make the repository look tidy.
+## High-value checks
 
-## When to use
+- dashboard duplicates state instead of linking;
+- teacher-resolved work still appears as an AI teaching task;
+- resolution is mistaken for mastery or score 3;
+- a generated set appears complete without an attempt;
+- questions are generic, duplicate, or lack a rubric;
+- a repeated input created duplicate files;
+- an automation is claimed but only a prompt or date exists;
+- safe-auto repeatedly asks for low-risk confirmation;
+- personal raw material or identity is retained beyond policy;
+- the learner cannot tell what changed or undo an agent event.
 
-Use when the user asks to:
+## Direct repair
 
-- audit the repository;
-- clean up files;
-- update the dashboard;
-- find stale items;
-- fix broken links;
-- identify missing sources;
-- prepare the repository for another agent;
-- inspect what should be reviewed next.
+Under `safe-auto`, fix clear links, duplicate views, stale dashboard state, deterministic dates, obsolete noncritical tasks, and contradictions directly. Preserve provenance and user content.
 
-## Maintenance workflow
+Ask before deletion, broad restructuring, rewriting notes, changing policy, publishing, visibility changes, sensitive identity, secrets, or license changes.
 
-```text
-read dashboard
-→ check goals
-→ check source records
-→ check models
-→ check review dates
-→ find stale or incomplete files
-→ repair small issues
-→ report bigger issues
-```
+For undo, identify the exact latest agent-created event or atomic commit, verify it does not include unrelated user work, then use the safest reversible mechanism available. If scope is mixed, stop and ask.
 
-## Checkpoints
-
-Look for:
-
-- missing goal links;
-- missing source links;
-- models without review dates;
-- source records marked complete without enough evidence;
-- reviews that were generated but never completed;
-- dashboard items that no longer match the repository;
-- files that should be archived;
-- files that need user input before repair.
-
-## Direct repair rule
-
-You may directly fix clear low-risk issues, such as:
-
-- broken internal links;
-- stale dashboard references;
-- missing status labels;
-- missing next-review fields;
-- index entries that point to renamed files.
-
-Ask before:
-
-- deleting content;
-- changing the user's learning strategy;
-- merging large files;
-- rewriting personal notes;
-- publishing private material.
-
-## Output standard
+## Output
 
 ```text
+Repository health:
+Organization issues:
+Question issues:
+Automation issues:
 Changed files:
-- path: what was repaired
-
-Still missing:
-- source / decision / user input needed
-
+Unresolved decisions:
 Next action:
-- recommended maintenance or learning step
 ```

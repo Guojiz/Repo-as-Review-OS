@@ -1,32 +1,70 @@
-# 复习控制台
+# 学习控制台
 
-## 当前重点
+> 本文件只是带链接的当前视图，不是第二份真相。根据原始状态文件刷新。
 
-- 
+更新时间：  
+更新者：  
+仓库状态：`active` / `paused` / `needs-input`  
+自动化政策：[链接到 learning-policy.md]
 
-## 活跃模型
+## 活跃目标
 
-- 
-- 
-- 
+- 目标：[链接]
+- 轨道：`school` / `self-study` / `mixed`
+- 时间范围：
+- 当前成功标准：
 
-## 待补事项
+## 现在做什么
 
-- 
-- 
-- 
+- 唯一下一步：
+- 处理渠道：`self` / `teacher` / `class` / `platform` / `ai` / `other`
+- 为什么现在做：
+- 预计时间：
+- 所需材料或工具：
 
-## 最近更新
+## 待整理输入
 
-| 日期 | 文件 | 改动 |
-|:---|:---|:---|
-|  |  |  |
+| 输入 | 渠道 | 状态 | 应关联到 | 链接 |
+|---|---|---|---|---|
+|  |  | unprocessed / needs-input |  |  |
 
-## 下一次接手
+## 等待外部反馈
 
-继续前，先读：
+| 问题 | 去向 | 发送或计划日期 | 当前状态 | 问题包 |
+|---|---|---|---|---|
+|  | teacher / tutor / peer / other |  | routed / awaiting-feedback |  |
 
-1. `README.zh-CN.md`
-2. `AGENTS.zh-CN.md`
-3. `agents/zh-CN/handoff-protocol.md`
-4. 上面列出的文件
+## 到期题目与复习
+
+| 项目 | 轨道 | 目的 | 最近证据 | 到期日期 | 优先级 | 链接 |
+|---|---|---|---|---|---|---|
+|  | school / self-study / mixed | diagnostic / practice / transfer / review |  |  |  |  |
+
+## 受保护的自学连续性
+
+- 本周保留时间：
+- 当前自学下一步：
+- 如果被校内任务挤占，何时恢复：
+
+## 活跃知识缺口
+
+| 缺口 | 处理状态 | 掌握状态 | 最近证据 | 下次动作 | 链接 |
+|---|---|---|---|---|---|
+|  | active / awaiting-feedback / resolved-externally | untested / developing / demonstrated |  |  |  |
+
+## 最近学习事件
+
+| 日期 | 渠道 | 发生了什么 | 证据类型 | 状态变化 | 链接 |
+|---|---|---|---|---|---|
+|  |  |  | reported / source-supported / demonstrated |  |  |
+
+## Agent 接手自动检查
+
+1. 读取 `learning-policy.md`；
+2. 处理可以安全归一化的 `inbox/` 输入；
+3. 检查到期题目；
+4. 检查等待老师或外部反馈的项目；
+5. 清除已解决问题的过时下一步；
+6. 只打开上面链接的必要文件。
+
+接手后的唯一下一步：

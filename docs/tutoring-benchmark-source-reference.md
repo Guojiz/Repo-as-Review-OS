@@ -1,123 +1,56 @@
-# External Tutoring Research Reference
+# DeepTutor Benchmark Reference
 
-This file records public tutoring-research ingredients that may inspire GitLearnOS design checks.
+GitLearnOS uses [HKU DeepTutor](https://github.com/HKUDS/DeepTutor) as its capability benchmark, not as a code or product-shape template.
 
-It is **not** the primary benchmark for GitLearnOS. The primary practical baseline is the original `zhongkao` learning repository system. This file is a reference list, not a dependency and not bundled source material.
+Primary references:
 
-## Source inventory example
+- [DeepTutor official repository](https://github.com/HKUDS/DeepTutor)
+- [DeepTutor technical report, arXiv:2604.26962](https://arxiv.org/abs/2604.26962)
+- [DeepTutor official site](https://deeptutor.info/)
 
-The DeepTutor technical report lists a TutorBench PDF source inventory. The list is useful as a reference for thinking about source variety, but GitLearnOS does not need to reproduce that inventory or platform.
+## Learning-critical ideas adopted
 
-### Textbook-derived PDFs
+The public report and repository emphasize:
 
-All listed textbook PDFs are sourced from OpenStax.
+- static knowledge grounding plus dynamic learner memory;
+- a closed loop between grounded problem solving and calibrated question generation;
+- shared personalization across learning workflows;
+- inspectable memory and evidence provenance;
+- skills as an extension surface;
+- student-centric evaluation.
 
-| English source | 中文参考名 | Splits listed in the report |
-|---|---|---|
-| Calculus Volume 2 | 微积分第 2 卷 | Chapters 1–2, 3–4, 5–6 |
-| Calculus Volume 3 | 微积分第 3 卷 | Chapters 1–2, 3–4, 5–6 |
-| Principles of Economics 3e | 经济学原理第 3 版 | Chapters 1–6, 7–12, 13–18 |
-| Foundations of Information Systems | 信息系统基础 | Chapters 1–3, 4–6, 7–9 |
-| Introduction to Computer Science | 计算机科学导论 | Chapters 1–3, 4–6, 7–9 |
-| Introduction to Philosophy | 哲学导论 | Chapters 1–4, 5–8, 9–12 |
-| Introduction to Business | 商业导论 | Chapters 1–5, 6–10, 11–15 |
-| Writing Guide with Handbook | 写作指南与手册 | Chapters 1–6, 7–12, 13–18 |
+GitLearnOS implements lightweight analogues:
 
-### Paper-derived PDFs
+```text
+cross-channel source records
++ automatic organization
++ evidence-linked learner profile and gaps
++ targeted question and external-handoff skills
++ optional tutoring and observable scoring
++ learner policy and Git history
+```
 
-| English source | 中文参考名 |
+## Explicit non-equivalence
+
+GitLearnOS does not implement DeepTutor's full runtime, TutorBot/Partners, multiple RAG engines, multi-agent research, application surfaces, memory graph, server, database, or benchmark infrastructure.
+
+Claims should use this wording:
+
+```text
+capability-benchmarked against DeepTutor
+lightweight adaptation of learning-loop ideas
+not a reproduction or parity claim
+```
+
+## Lightweight evaluation mapping
+
+| Research-facing question | Repository-level check |
 |---|---|
-| Memory in the Age of AI Agents | AI Agent 时代的记忆 |
-| DeepSeek-R1 incentivizes reasoning in LLMs through reinforcement learning | DeepSeek-R1：通过强化学习激励大模型推理 |
-| LiveCodeBench: Holistic and Contamination Free Evaluation of Large Language Models for Code | LiveCodeBench：面向代码大模型的整体、无污染评测 |
-| OpenVLA: An Open-Source Vision-Language-Action Model | OpenVLA：开源视觉-语言-动作模型 |
-| Towards Reasoning Era: A Survey of Long Chain-of-Thought for Reasoning Large Language Models | 迈向推理时代：长思维链推理大模型综述 |
-| YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information | YOLOv9：使用可编程梯度信息学习想学内容 |
+| Is the answer grounded? | source access state and inspected portion are recorded |
+| Is personalization evidence-based? | profile/gap claims link to reviews or sessions |
+| Does practice expose a real gap? | question set links goal, gap, model, source, and prior result |
+| Can external learning enter the loop? | teacher handoffs and feedback reconcile into canonical state |
+| Does the loop close? | feedback or learner result changes resolution, evidence, and next action |
+| Can the learner inspect and control it? | policy, Markdown state, receipts, and Git history remain editable |
 
-## Profile and task structure
-
-A useful personalized tutoring benchmark does not only store source files.
-
-It connects:
-
-```text
-source material
-→ learner profile
-→ knowledge gaps
-→ task type
-→ initial learner request
-→ expected gap exposure
-→ success criteria
-→ difficulty
-```
-
-For GitLearnOS, the lightweight equivalent is:
-
-```text
-sources/
-→ learner-profile.md
-→ models/
-→ knowledge-gaps/
-→ reviews/
-→ dashboard.md
-```
-
-This is a design analogy, not a claim that GitLearnOS implements the full benchmark.
-
-## Task type coverage
-
-The report lists four task types with sampling weights:
-
-| Task type | 中文名 | Weight |
-|---|---|---|
-| Concept understanding | 概念理解 | 30% |
-| Problem solving | 解题 | 30% |
-| Application | 应用 | 20% |
-| Comparison | 比较 | 20% |
-
-A GitLearnOS practice generator may reuse this distribution as a rough default, then adapt it to the learner profile and the actual repository state.
-
-## Rejection checks
-
-The report describes three rejection checks for generated tasks:
-
-1. Gap coherence: targeted gaps should form a coherent learning topic.
-2. Task-gap fit: the task should naturally expose the targeted gaps.
-3. Conversational naturalness and consistency: the task should read like a plausible learner request and not contain internal contradictions.
-
-For GitLearnOS, the Organizer + Critic + Revision routine can apply the same spirit:
-
-```text
-Is this practice linked to a real weak point?
-Is it grounded in a source or model?
-Is the task natural and useful?
-Is the answer/explanation correct?
-Should it be revised, approved, or rejected?
-```
-
-## Lightweight adaptation
-
-GitLearnOS does not need to reproduce the full benchmark machinery.
-
-It can use the idea in a lighter way:
-
-```text
-recently split models
-+ learner-profile.md
-+ active weak points
-+ source records
-→ personalized practice ideas
-→ critic revision
-→ approved review set
-→ spaced repetition / next review date
-```
-
-The important part is not the benchmark scale. The important part is the closed loop that also appears in the original `zhongkao` learning system:
-
-```text
-source → model → weak point → personalized question → result → learner profile update → next review
-```
-
-## Attribution
-
-This reference is based on the public DeepTutor technical report, arXiv:2604.26962, which lists the TutorBench PDF source inventory, task generation structure, and rejection checks. The material here is rewritten as a lightweight external research reference for GitLearnOS and does not bundle or redistribute the original PDFs.
+This document records design provenance; it does not bundle or redistribute DeepTutor source material or benchmark PDFs.

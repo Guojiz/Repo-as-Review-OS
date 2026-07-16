@@ -1,49 +1,48 @@
-# Public Alpha Note
+# Public Alpha
 
-GitLearnOS is currently an early public version.
+GitLearnOS is an early, usable personal learning control layer for one tool-capable main agent. Organization, question generation, automation, and templates will continue to evolve from real use.
 
-It is ready for people to inspect, copy, and test with an AI tool, but it should not be treated as a finished product.
+The repository keeps the historical name `Repo-as-Review-OS`.
 
-The repository is still named `Repo-as-Review-OS` for continuity.
+## Ready to test
 
-## What is ready
+- direct one-main-agent paths for ChatGPT Work and repository agents;
+- cross-channel input from teachers, class, paper, platforms, and AI;
+- automatic organization, linking, deduplication, and external-feedback reconciliation;
+- personalized diagnostic, variation, transfer, review, and teacher-handoff questions;
+- learner policy through `safe-auto`, `preview`, and `manual`;
+- immediate writeback and on-handoff checks;
+- source, profile, model, gap, handoff, review, and activity templates;
+- separate resolution and mastery state;
+- evidence-based 0–3 scoring and deterministic intervals;
+- a Chinese demo from teacher handoff through feedback sync to generated verification.
 
-- Core operating model;
-- AI runtime guide;
-- GitHub-first learning workflow;
-- goal model;
-- adaptive rules;
-- spaced repetition model;
-- filesystem design;
-- automation model;
-- a small Chinese demo.
-
-## How to try it
-
-Copy this into an AI tool that can read GitHub:
+## Try it
 
 ```text
-Read https://github.com/Guojiz/Repo-as-Review-OS
-Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, and the demo under examples/zh-CN/demo-zhongkao-lite. Explain how I can build my own GitLearnOS from one GitHub repository.
+Use https://github.com/Guojiz/Repo-as-Review-OS as the GitLearnOS template.
+Target repository: <private repository>
+Learning goal or current input: <content>
+
+Read START-HERE.md and AGENTS.md and use safe-auto. Organize automatically,
+generate targeted questions when useful, and actually write safe changes.
+Do not default to an AI tutoring session. Report changes, evidence, actual
+automation, next action, and undo capability.
 ```
 
-## Important safety note
+## Still experimental
 
-Do not put private study records, teacher files, copyrighted textbooks, personal screenshots, or real exam records into a public repository.
+- question format and difficulty adaptation across subjects;
+- long-term accuracy of deduplication and state linking;
+- the best default verification after external feedback;
+- whether 0–3 intervals fit every learning goal;
+- optional adapters for real schedulers;
+- longer-term portability evidence.
 
-Use a private repository for real learning data.
+## Benchmark boundary
 
-Use the public repository only for templates, methods, and cleaned examples.
+HKU DeepTutor is the capability benchmark. GitLearnOS does not claim feature or runtime parity; it emphasizes cross-channel use, learner ownership, and low deployment cost. The original `zhongkao` repository is the practical baseline.
 
-## What is still experimental
+## Safety
 
-- The best folder structure may change.
-- The review schedule may need tuning.
-- Automation prompts may need more examples.
-- More demos are needed for non-exam learning.
-
-## Current positioning
-
-This is not an Obsidian workflow, not a ChatGPT-only project, and not a multi-agent framework.
-
-It is a goal-driven AI learning operating system built on GitHub.
+Use a private target repository by default. Keep copyrighted originals, private screenshots, teacher originals, credentials, and sensitive identity out of the public template. Automation must be visible, low-risk, and policy-compliant.

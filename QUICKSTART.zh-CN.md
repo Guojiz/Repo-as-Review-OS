@@ -1,157 +1,101 @@
 # 快速开始
 
-如果你想试用 GitLearnOS，但不想一上来读完整个仓库，先看这一页。
+GitLearnOS 最适合一个能够读取模板、操作私有目标仓库的主 Agent。ChatGPT Work 是标准的工具型路径之一，但学习不需要发生在 ChatGPT 内部。
 
-## 你需要什么
+## 工具型快速路径
 
-你需要这些东西：
+1. 创建或选择私有目标仓库；
+2. 将它连接给当前主 Agent；
+3. 告诉 Agent 一个学习目标和当前输入；
+4. 让 Agent 自动整理、需要时出题并写回。
 
 ```text
-这个模板仓库
-+ 你自己的目标 GitHub 仓库
-+ 一个能读取模板仓并写入目标仓的 AI 工具
-+ 一个学习目标
+把 https://github.com/Guojiz/Repo-as-Review-OS 作为 GitLearnOS 模板。
+目标仓库：<链接>
+学习目标：<目标>
+
+读 START-HERE.zh-CN.md 与 AGENTS.zh-CN.md；支持 Skills 时使用
+skills/repo-as-review-os/SKILL.md。采用 safe-auto，保护已有内容，
+直接完成安全、可逆的整理、出题、同步和写回。不要默认进入 AI
+教学会话。完成后列出改动、证据、实际自动化与下一步。
 ```
 
-目标仓库是用来保存你个人学习记录的地方。
+Agent 能完成的操作不应要求用户手工创建目录、复制模板或更新 dashboard。
 
-AI 工具可以是带 GitHub connector 的 ChatGPT、Codex、Claude Code、Cursor、Windsurf，或者通过 MCP / GitHub 集成连接的其他 agent。
-
-## 五分钟开始
-
-### 1. 创建一个私有目标仓库
-
-首次部署时，建议创建一个空的或接近空的私有仓库，然后让 AI 把 GitLearnOS 的结构搭进去。
-
-如果目标仓库里已经有文件，要告诉 AI 先检查现有文件，不要直接覆盖。
-
-如果你要存真实学习笔记、错题、截图、成绩、个人学习记录，建议使用私有仓库。
-
-推荐仓库名：
+## 最小首次状态
 
 ```text
-my-gitlearnos
-```
-
-### 2. 把 AI 工具连接到目标仓库
-
-使用 MCP、GitHub connector 或其他安全连接方式。
-
-一开始只给一个仓库的权限，不要直接给整个账号的大范围权限。
-
-AI 应该先确认它是否真的能读取和写入目标仓库。如果不能，就必须明确说出来。
-
-### 3. 把这段发给你的 AI 工具
-
-```text
-请阅读这个模板仓库：
-https://github.com/Guojiz/Repo-as-Review-OS
-
-请在这个目标仓库里搭建我的个人 GitLearnOS：
-<粘贴你的仓库链接>
-
-这是首次部署。除非你发现仓库里已经有文件，否则先把目标仓库视为空仓库或接近空仓库。如果发现已有文件，先检查，不要未经确认直接覆盖。
-
-先读 START-HERE.zh-CN.md、README.zh-CN.md、QUICKSTART.zh-CN.md、docs/zh-CN/first-experiment-guide.md、docs/zh-CN/what-goes-into-github.md、docs/zh-CN/runtime-self-adaptation.md、AGENT-RUNTIME.zh-CN.md、AGENTS.zh-CN.md、docs/zh-CN/skill-and-memory-runtime.md、docs/adaptive-memory-and-learner-profile.md 和 docs/source-and-learner-state.md。
-
-如果你支持 skill，请使用 skills/repo-as-review-os/SKILL.md。如果不支持 skill，请使用 docs/zh-CN/skill-and-memory-runtime.md 里的记忆回退方案。
-
-请创建一个最小学习仓库结构，包括 dashboard.md、learner-profile.md、goals/main-goal.md、sources/、models/、knowledge-gaps/、reviews/、templates/、agents/、automations/ 和 archive/。如果我已经给出学习目标，直接使用；如果没有，再问我的第一个学习目标。每次创建或修改文件后都要汇报。
-```
-
-### 4. 告诉 AI 你的第一个目标
-
-例如：
-
-```text
-我想在 6 周内提升 SAT Reading and Writing。
-```
-
-```text
-我想每周复盘数学错题。
-```
-
-```text
-我想读三篇 AI 论文，并记住核心观点。
-```
-
-```text
-我想整理日常英语学习。
-```
-
-### 5. 正常使用它
-
-设置好之后，你可以直接说：
-
-```text
-根据我的仓库，给我生成一套 30 分钟复习题单。
-```
-
-```text
-把这道错题整理成一个可复用模型，记录知识缺口，并安排复习。
-```
-
-```text
-检查我的 dashboard，告诉我今天该学什么。
-```
-
-```text
-根据我的知识缺口定制一套小测。
-```
-
-## 什么内容放进 GitHub
-
-GitHub 主要保存结构化学习记录：目标、学习画像、来源记录、可复用模型、知识缺口、复习题单、控制台、下次复习日期和接手记录。
-
-它不一定保存每个原始文件。见 [docs/zh-CN/what-goes-into-github.md](docs/zh-CN/what-goes-into-github.md)。
-
-## 不要上传什么
-
-不要把隐私或版权材料放进公开仓库。
-
-尽量不要上传：
-
-- 完整教材页面；
-- 有版权的完整考试题目；
-- 老师文件；
-- 私人截图；
-- 成绩报告；
-- 身份信息、密码、token、cookie。
-
-真实学习数据请优先使用私有仓库。
-
-## 成功后应该长什么样
-
-设置完成后，你的仓库里应该有：
-
-```text
+AGENTS.zh-CN.md
+learning-policy.md
 dashboard.md
 learner-profile.md
 goals/main-goal.md
-sources/
-models/
-knowledge-gaps/
-reviews/
-templates/
-agents/
-automations/
-archive/
 ```
 
-AI 应该能回答：
+之后只在真实使用时创建 `sources/`、`knowledge-gaps/`、`models/`、`handoffs/`、`reviews/` 或 `sessions/`。
+
+## 日常用法
 
 ```text
-我现在的目标是什么？
-我有哪些知识缺口？
-我下次该复习什么？
-我今天该做什么练习？
-你刚刚改了哪些文件？
+把这两页课堂笔记整理一下，关联我最近的薄弱点，出三道变式题。
 ```
 
-## 先看 demo
+```text
+明天补习，把最近不会的内容整理成一份问老师的问题包。
+```
 
-想先看例子，可以从这里开始：
+```text
+老师已经解决第二个问题了。这是反馈和我的笔记，更新仓库；不用 AI 重讲。
+```
 
-- [examples/en/demo-sat-lite/](examples/en/demo-sat-lite/)
-- [examples/en/demo-research-reading-lite/](examples/en/demo-research-reading-lite/)
-- [examples/zh-CN/demo-zhongkao-lite/](examples/zh-CN/demo-zhongkao-lite/)
+```text
+导入这次题库结果，更新薄弱点，周末再测我。
+```
+
+```text
+这条只记录，不出题，也不安排复习。
+```
+
+```text
+撤销刚才的学习更新。
+```
+
+用户只描述学习事件和意图，不负责选择文件路径。
+
+## 自动化模式
+
+- `safe-auto`：安全操作直接执行并汇报，推荐；
+- `preview`：先预览改动；
+- `manual`：只输出待写回内容。
+
+即时与接手自动化属于基础能力。定时后台提醒只有在当前平台真实支持调度时才创建。
+
+## 只读回退
+
+没有写权限时，Agent应：
+
+1. 读取用户提供的最少状态；
+2. 完成整理或出题；
+3. 输出精确待写回区块；
+4. 明确说明仓库尚未更新。
+
+## 搭建成功的检验
+
+Agent 应能回答并实际操作：
+
+- 当前目标、到期项目和等待外部反馈是什么；
+- 新输入应关联到哪里；
+- 为什么生成这些题而不是随机题；
+- 老师已解决的问题是否停止重复教学；
+- 修改了哪些文件；
+- 哪些自动化真实完成；
+- 下一步与撤销方式是什么。
+
+如果它只能列目录或必须让用户手工维护文件，搭建不完整。
+
+## 隐私
+
+- 真实状态默认放在私有目标仓库；
+- 原始老师文件、完整版权材料和私人截图保留在授权来源；
+- 只写回必要摘要、定位和派生状态；
+- 默认不保存完整对话和不必要身份信息。

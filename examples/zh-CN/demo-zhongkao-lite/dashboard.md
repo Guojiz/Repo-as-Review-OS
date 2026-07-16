@@ -1,33 +1,66 @@
-# Demo 控制台
+# Demo 学习控制台
 
-状态: `active-dashboard`
+> 本文件是链接视图，原始状态在来源、缺口、问题包和复习记录中。
 
-## 当前主目标
+更新时间：2026-07-08  
+更新者：GitLearnOS 主 Agent  
+仓库状态：`active`  
+自动化政策：[safe-auto](learning-policy.md)
 
-在 30 天内提升中考数学几何模型识别能力。
+## 活跃目标
 
-## 今日重点
+- [在 30 天内提升几何模型识别能力](goals/main-goal.md)
+- 轨道：`mixed`（校内内容，自学负责整理与延迟巩固）
+- 当前成功标准：在不同布局中独立按等角写出正确对应关系。
 
-- 复习相似三角形识别模型；
-- 完成 `reviews/2026-07-03_practice-set.md`；
-- 完成后更新模型卡复习记录。
+## 现在做什么
 
-## 活跃模型
+- 2026-07-15 完成 [延迟复习](reviews/2026-07-15_delayed-review.md)；
+- 处理渠道：自主练习；
+- 预计 8 分钟；
+- 下次 Agent 接手时检查到期状态，当前没有真实后台调度器。
 
-| 模型 | 状态 | 下次复习 |
-|---|---|---|
-| 相似三角形识别 | `learning` | 2026-07-04 |
+## 待整理输入
 
-## 待补内容
+无。老师反馈已经完成去重、关联和写回。
 
-- 未来可以加入一张真实或虚构题目卡；
-- 未来可以增加一个 7 天后回炉题单；
-- 未来可以增加错因统计。
+## 等待外部反馈
 
-## AI 下一步
+无。[老师问题包](handoffs/2026-07-04_similarity-teacher-pack.md) 已完成反馈同步。
 
-1. 读取主目标；
-2. 读取模型卡；
-3. 读取今日题单；
-4. 根据完成情况更新复习记录；
-5. 安排下一次复习。
+## 到期题目与复习
+
+| 项目 | 目的 | 最近证据 | 到期日期 | 优先级 | 链接 |
+|---|---|---|---|---|---|
+| 相似对应关系延迟复习 | review + transfer | 2026-07-08 独立完成，3 分 | 2026-07-15 | 中 | [题组](reviews/2026-07-15_delayed-review.md) |
+
+## 受保护的自学连续性
+
+- 本周保留 20 分钟用于校内几何的自主延迟巩固；
+- 不因为老师已经讲解就删除自学验证；
+- 也不让额外探索超过当前校内目标范围。
+
+## 活跃知识缺口
+
+无。对应关系问题已由老师解决并通过一次独立迁移验证。
+
+## 最近解决，仍需保持
+
+| 缺口 | 处理状态 | 掌握状态 | 最近证据 | 下次动作 | 链接 |
+|---|---|---|---|---|---|
+| 相似三角形对应顺序 | verified | demonstrated | 2026-07-08 独立完成三题 | 2026-07-15 延迟检验 | [缺口](knowledge-gaps/similarity-correspondence-gap.md) |
+
+## 最近学习事件
+
+| 日期 | 渠道 | 发生了什么 | 证据类型 | 状态变化 | 链接 |
+|---|---|---|---|---|---|
+| 2026-07-03 | AI | 诊断对应顺序错误，关键提示后正确 | demonstrated | 建立 active gap，分数 1 | [记录](sessions/2026-07-03_similarity-session.md) |
+| 2026-07-04 | teacher handoff | 自动整理成老师问题包 | not-assessed | awaiting-feedback | [问题包](handoffs/2026-07-04_similarity-teacher-pack.md) |
+| 2026-07-05 | teacher | 同步老师反馈，不重复 AI 教学 | source-supported | resolved-externally，生成验证题 | [来源](sources/2026-07-05_teacher-feedback.md) |
+| 2026-07-08 | self | 独立完成三道迁移题 | demonstrated | verified，分数 3 | [复习](reviews/2026-07-08_teacher-feedback-check.md) |
+
+## Agent 接手
+
+只需读取本文件、[政策](learning-policy.md)、[目标](goals/main-goal.md)、[缺口](knowledge-gaps/similarity-correspondence-gap.md)与到期[题组](reviews/2026-07-15_delayed-review.md)。
+
+唯一下一步：到期后隐藏答案，让学习者独立完成延迟复习；作答前不重读老师反馈。

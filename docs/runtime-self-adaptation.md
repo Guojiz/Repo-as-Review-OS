@@ -1,92 +1,93 @@
 # Runtime Self-Adaptation
 
-Repo as Review OS should not assume every AI tool works the same way.
+GitLearnOS stores portable policy and state; the current main AI supplies execution.
 
-The repository gives the protocol. The current AI environment decides how that protocol can actually be deployed.
-
-## Core rule
+## Detect capabilities, not brand names
 
 ```text
-Identify the runtime before deployment.
-Then adapt the setup path to that runtime.
+template read?
+target read/write?
+authorized source access?
+file-based skills or repository rules?
+atomic write or version-history access?
+native memory?
+real scheduler?
+steps the learner truly must perform?
 ```
 
-## First questions for the AI
+Test safe capabilities. A product name does not prove permission.
 
-Before setting up a user's repository, the AI should answer:
+## Tool-capable Work path
+
+For a connected workspace such as ChatGPT Work:
 
 ```text
-What environment am I running in?
-Can I read the target repository?
-Can I write to the target repository?
-Do I support skills?
-Do I rely on memory or project instructions instead?
-Can I use a local workspace?
-Which steps must the user complete manually?
+verify target and policy
+→ inspect current state
+→ classify the learner event
+→ organize or generate targeted questions
+→ write safe changes directly
+→ verify and return a receipt
 ```
 
-## Use current product guidance when needed
+Do not ask the learner to paste repository content, recreate files, or perform operations the authorized workspace can complete.
 
-If deployment depends on a specific AI app, connector, project system, workspace, or permission flow, the AI should not guess.
+## Repository-agent path
 
-It should use current product guidance when available, or ask the user to complete the needed manual step.
+For Codex, Claude Code, Cursor, or a similar checkout-aware agent:
 
-The AI should say clearly:
+- obey repository instructions;
+- inspect existing changes;
+- preserve unrelated work;
+- use the same organization, question, automation, and evidence rules;
+- keep private originals outside public GitHub;
+- report validation and changed files.
+
+Use one main agent. Repository tools, search, code execution, and visual tools are capabilities, not separate learning-state owners.
+
+## Read-only path
+
+Without write access:
+
+- process the current input or generate questions;
+- read only actually available sources;
+- return concise exact pending writeback;
+- mark the repository unchanged;
+- keep stable preferences separate from fast-changing state.
+
+## Three automation tiers
+
+### Immediate
+
+Actually organize, generate, and write during the current interaction.
+
+### On handoff
+
+Whenever an agent resumes, inspect:
+
+- unprocessed inbox items;
+- due questions;
+- waiting external feedback;
+- obsolete tasks after resolution;
+- one current next action.
+
+### Background
+
+Create only through an actual scheduler exposed by the runtime.
 
 ```text
-I cannot perform this step from here. Please complete it manually, then tell me when it is done.
+date or instruction in a file ≠ scheduled automation
+real scheduler task with verified state = scheduled automation
 ```
 
-## Runtime-specific deployment
+The portable base guarantees immediate and on-handoff behavior. Background execution is optional.
 
-Different environments may use different setup paths:
+## Policy and safety
 
-```text
-ChatGPT Project
-→ project instructions, memory fallback, optional GitHub connector, local subject folders
+Read `learning-policy.md`. Under `safe-auto`, ordinary low-risk reversible state changes proceed without repeated confirmation. Ask before deletion, broad overwrite, policy change, visibility change, private publication, sensitive identity, secrets, or license changes.
 
-Codex
-→ repository setup, file edits, template copying, structured handoff
+Repeated input should be idempotent. Prefer one event per atomic update and report whether safe undo is available.
 
-Claude Code / Cloud
-→ workspace-based repository work if available
+## Rule
 
-Cursor / Windsurf
-→ local workspace edits and repository maintenance
-
-MCP worker
-→ explicit tool-based execution
-
-GitHub Actions
-→ deterministic checks and simple reports
-```
-
-## Deployment response pattern
-
-When an AI starts setup, it should output:
-
-```text
-Runtime detected:
-- environment:
-- read access:
-- write access:
-- skill support:
-- memory or project-instruction fallback:
-- user steps needed:
-
-Deployment plan:
-1. confirm target repository
-2. check whether it is empty or already has files
-3. choose skill or memory fallback
-4. create or verify structure
-5. ask for the first learning goal
-6. report changes
-```
-
-## Principle
-
-Repo instructions are the map.
-
-The current AI runtime is the vehicle.
-
-The AI should preserve the Repo as Review OS protocol while adapting the actual setup path to its own tools.
+Adapt execution, not product guarantees. Every runtime should preserve cross-channel provenance, targeted question quality, evidence honesty, automatic writeback when authorized, and learner control.

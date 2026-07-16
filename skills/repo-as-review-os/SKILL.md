@@ -1,181 +1,100 @@
 ---
 name: repo-as-review-os
-description: Use as the main router for GitLearnOS tasks. It decides whether to use setup, source handling, model extraction, review generation, or maintenance skills for a goal-driven AI learning repository built on GitHub.
+description: Route GitLearnOS work for a learner-owned repository to the smallest organization, question-generation, setup, tutoring-session, source, model, review, or maintenance workflow. Use when one capable main agent should organize learning from any channel, generate targeted questions, and automate safe writeback.
 ---
 
-# GitLearnOS Skill Router
+# GitLearnOS Router
 
-## Purpose
+## Product boundary
 
-Use this as the main entry skill for GitLearnOS.
-
-GitLearnOS is a lightweight learning-trace operating system for AI-assisted study, built on GitHub.
-
-It turns one repository into a writable learning timeline that an AI tool can read, edit, track, organize, generate practice from, and maintain over time.
-
-## Skill suite
-
-Use the most specific skill available:
+Treat GitLearnOS as a learner-owned control layer:
 
 ```text
-repo-as-review-os                  Main router for GitLearnOS
-repo-as-review-os-setup            Create or migrate a learning repository
-repo-as-review-os-source           Turn materials into honest source records
-repo-as-review-os-model            Extract reusable learning models
-repo-as-review-os-review           Generate review sets, drills, or mini tests
-repo-as-review-os-maintenance      Audit, repair, and maintain the repository
+organize automatically
+→ generate targeted questions
+→ write back under learner policy
 ```
 
-## Routing rules
+Learning may happen with teachers, class, paper, platforms, peers, or AI. Use one capable main agent. Do not require a multi-agent runtime, app, database, RAG stack, or background service.
 
-### Use setup when the user wants to create or migrate a repository
+## Read minimum context
 
-Use:
+1. distinguish template and target repositories;
+2. detect actual read, write, source, and scheduling capability;
+3. read target `learning-policy.md` when present;
+4. read `dashboard.md`, active goal, and only files related to the current input;
+5. load one primary subskill, plus one helper only when necessary.
 
-```text
-skills/repo-as-review-os-setup/SKILL.md
-```
+## Route by intent
 
-For requests like:
+### Setup or migration
 
-```text
-Set this up.
-Create my GitLearnOS.
-Copy the template into my repo.
-Migrate my study repository.
-```
+Use `skills/repo-as-review-os-setup/SKILL.md` when the target state is missing or must be migrated.
 
-### Use source when the user provides learning material
+### Organize and reconcile
 
-Use:
+Use `skills/repo-as-review-os-organize/SKILL.md` for notes, mistakes, teacher feedback, practice-platform results, duplicate input, external resolution, or cross-channel state sync.
 
-```text
-skills/repo-as-review-os-source/SKILL.md
-```
+This is the default path for “record,” “organize,” “my teacher said,” “I solved this elsewhere,” and “update my repository.”
 
-For requests like:
+### Generate questions
 
-```text
-Save this mistake.
-Record this source.
-This is only a partial note.
-Turn this practice result into a source record.
-```
+Use `skills/repo-as-review-os-question/SKILL.md` for diagnostic, practice, variation, transfer, review, or help-seeking questions.
 
-### Use model when the user wants reusable understanding
+This includes both questions for the learner and a context-rich pack to take to a teacher, peer, or another agent.
 
-Use:
+### Live AI tutoring
 
-```text
-skills/repo-as-review-os-model/SKILL.md
-```
+Use `skills/repo-as-review-os-session/SKILL.md` only when the learner wants AI explanation, guided practice, or testing now.
 
-For requests like:
+Do not route note organization, external feedback, or teacher preparation into tutoring by default.
 
-```text
-Turn this into a model.
-Extract the method.
-What is the reusable pattern?
-Make this mistake useful next time.
-```
+### Source handling
 
-### Use review when the user wants practice or repetition
+Use `skills/repo-as-review-os-source/SKILL.md` when provenance, access, completeness, privacy, or an unavailable original needs careful handling.
 
-Use:
+### Reusable model
 
-```text
-skills/repo-as-review-os-review/SKILL.md
-```
+Use `skills/repo-as-review-os-model/SKILL.md` when durable understanding should become a cue, method, concept, comparison, or transferable pattern.
 
-For requests like:
+### Review and scheduling
 
-```text
-Generate a review set.
-Make me a mini test.
-What should I study today?
-Give me practice from my knowledge gaps.
-```
+Use `skills/repo-as-review-os-review/SKILL.md` when an existing question set needs administration, scoring, interval calculation, or result writeback.
 
-### Use maintenance when the repository needs repair or audit
+### Maintenance and undo
 
-Use:
+Use `skills/repo-as-review-os-maintenance/SKILL.md` for stale dashboards, broken links, unsupported claims, duplication, policy drift, handoff repair, or safe undo.
 
-```text
-skills/repo-as-review-os-maintenance/SKILL.md
-```
+## Shared automation contract
 
-For requests like:
+Read `learning-policy.md`. Default to `safe-auto` if absent:
+
+- directly perform safe, low-risk, reversible organization, question, link, scheduling, and dashboard updates;
+- report all writes afterward;
+- ask before deletion, broad restructuring, publication, sensitive identity, policy changes, secrets, or license changes;
+- honor one-event overrides such as “record only,” “no review,” “do not store,” and “preview first”;
+- make repeated input idempotent;
+- make one learning event one atomic, reversible update when supported.
+
+Distinguish immediate automation, on-handoff checks, and real scheduled background automation. Never claim the third without creating it through an actual scheduler.
+
+## Shared evidence contract
+
+- external resolution and independent mastery are separate;
+- label evidence `reported`, `source-supported`, or `demonstrated`;
+- do not infer score 3 from exposure, completion, or self-report;
+- generated questions remain planned until attempted;
+- preserve contradictory evidence and adjust confidence.
+
+## Receipt
 
 ```text
-Check this repo.
-Clean up stale files.
-Update the dashboard.
-Find missing sources.
-Prepare this for another agent.
-```
-
-## Core model
-
-```text
-goal
-→ source
-→ split
-→ model
-→ knowledge gap
-→ practice set
-→ spaced repetition
-→ automation
-→ new understanding
-```
-
-## Universal rules
-
-1. Identify the user's goal.
-2. Identify the repository and permission boundary.
-3. Keep sources traceable.
-4. Never treat a summary as a full source.
-5. Never invent missing material.
-6. Use private repositories for real learning data.
-7. Write back only when the output has future value.
-8. Update dashboard, learner profile, knowledge-gap records, or review fields when appropriate.
-9. Report every file created or changed.
-
-## If no subskill is available
-
-Use this fallback task loop:
-
-```text
-task arrives
-→ check goal
-→ check source
-→ check similar models
-→ check knowledge gaps
-→ answer or generate
-→ write back if valuable
-→ update index or dashboard
-→ schedule review if needed
-→ report changes and gaps
-```
-
-## If the environment does not support skills
-
-Use memory, custom instructions, project instructions, or repository-level agent rules instead.
-
-Suggested memory:
-
-```text
-Use GitHub as the main operating layer for my GitLearnOS. Treat local files as protected source material. Do not invent missing sources. Organize learning around goals, source records, reusable models, knowledge gaps, learner profile, spaced repetition, dashboards, and generated practice. Report every repository change. If a source is incomplete, label it honestly and add it to a queue instead of pretending it is complete.
-```
-
-## Output standard
-
-```text
+Mode:
+Organized:
+Questions:
 Changed files:
-- path: what changed
-
-Still missing:
-- item or source needed
-
+Evidence:
+Actual automation:
 Next action:
-- recommended next step
+Undo:
 ```

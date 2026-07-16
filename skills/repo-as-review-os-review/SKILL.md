@@ -1,90 +1,58 @@
 ---
 name: repo-as-review-os-review
-description: Use when generating review sets, practice prompts, mini tests, spaced repetition tasks, or daily learning plans from goals, models, weak points, and dashboard state in a Repo as Review OS repository.
+description: Administer, score, schedule, and write back GitLearnOS reviews from existing targeted question sets. Use when the learner answers planned questions, a due review must run, results need observable 0–3 scoring, or the next interval and linked learner state must be updated.
 ---
 
-# Repo as Review OS Review Skill
+# GitLearnOS Review
 
-## Purpose
+## Boundary
 
-Use this skill to generate review work from the user's current learning state.
+Use `repo-as-review-os-question` to generate a new targeted set. Use this skill to administer, score, and update the result.
 
-The goal is not to recommend random practice. The goal is to generate targeted review from the user's own goals, sources, models, weak points, and review dates.
+## Administer
 
-## When to use
+Read the linked goal, source/model, gap, question purpose, answer key or rubric, and recent results. Do not reveal answers before the learner attempts unless requested.
 
-Use when the user asks for:
+Record:
 
-- a review set;
-- a practice set;
-- a mini test;
-- today's study plan;
-- spaced repetition tasks;
-- a weak-point drill;
-- a custom paper or question set;
-- a review based on the repository.
+- learner response summary;
+- independent portion;
+- correctness and error type;
+- support level;
+- transfer result when required;
+- observable score;
+- next review date or no-review decision.
 
-## Review workflow
+| Score | Evidence | Default interval |
+|---|---|---|
+| 0 | incorrect after substantial support | 1 day |
+| 1 | correct with major hints or imitation | 2 days |
+| 2 | correct with a minor hint or small execution error | 4 days |
+| 3 | independently correct; transfer succeeds when required | 7 days |
 
-```text
-read dashboard
-→ read active goal
-→ find due models
-→ find weak points
-→ choose review format
-→ generate review prompts
-→ write review set
-→ update dashboard or model review fields
-```
+After two consecutive score-3 reviews, double the prior interval up to 30 days.
 
-## Review set should include
+## Writeback
 
-```text
-status: generated-review
-goal link
-source models
-why this was generated
-review prompts or tasks
-writeback instructions
-next review action
-```
+Under policy:
 
-## Review quality rules
+1. update the review record;
+2. update mastery evidence in the linked gap without overwriting resolution provenance;
+3. update model review fields when present;
+4. refresh dashboard;
+5. update learner profile only for repeated durable patterns;
+6. create real scheduled automation only when a scheduler is available.
 
-A review set should be:
+A generated but unattempted set remains `planned`. A teacher's resolution may change gap resolution but does not create a score.
 
-- short enough to complete;
-- tied to existing models;
-- based on weak points;
-- clear about what to write back;
-- honest about missing sources.
-
-Do not create a huge random worksheet unless the user explicitly asks for it.
-
-## Example requests
+## Output
 
 ```text
-Generate a 30-minute review set from my weak points.
-```
-
-```text
-Make a mini test from the models due today.
-```
-
-```text
-Give me three prompts to check whether I still remember this concept.
-```
-
-## Output standard
-
-```text
-Changed files:
-- review path: what was generated
-- dashboard/model path: what was updated
-
-Still missing:
-- missing source or model
-
+Review status:
+Evidence type: demonstrated / not-assessed
+Score:
+Support:
+Files updated:
+Next review or check-on-handoff:
 Next action:
-- complete review / update memory status / schedule next review
 ```

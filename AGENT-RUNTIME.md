@@ -1,76 +1,61 @@
 # Agent Runtime Guide
 
-This guide is for any AI tool that wants to run GitLearnOS.
+GitLearnOS does not provide a model runtime. It attaches automatic organization, targeted question generation, and learner-controlled writeback to one main AI environment chosen by the learner.
 
-It is not specific to one product. It applies to any tool that can read a repository, edit files, follow project rules, and report changes.
+## Capability levels
 
-## First check your capability
+### Level A — tool-capable workspace
 
-Before doing work, identify your level:
-
-- no repository access;
-- read-only repository access;
-- write access to one repository;
-- broad account access;
-- local workspace access.
-
-The recommended default is write access to one repository only.
-
-## Main operating model
-
-Use one main AI workflow.
-
-Do not assume a multi-agent system. Other tools may exist, but GitLearnOS should be maintainable by one capable AI tool.
-
-## Read first
-
-1. [START-HERE.md](START-HERE.md)
-2. [README.md](README.md)
-3. [QUICKSTART.md](QUICKSTART.md)
-4. [docs/first-experiment-guide.md](docs/first-experiment-guide.md)
-5. [docs/what-goes-into-github.md](docs/what-goes-into-github.md)
-6. [docs/runtime-self-adaptation.md](docs/runtime-self-adaptation.md)
-7. [docs/local-runtime-note.md](docs/local-runtime-note.md)
-8. [docs/automation-runtime-matrix.md](docs/automation-runtime-matrix.md)
-9. [docs/adaptive-memory-and-learner-profile.md](docs/adaptive-memory-and-learner-profile.md)
-10. [docs/source-and-learner-state.md](docs/source-and-learner-state.md)
-11. [AGENTS.md](AGENTS.md)
-
-## GitHub role
-
-GitHub is the operating layer.
-
-It stores structure, learner profile, templates, dashboards, indexes, source status, knowledge gaps, cleaned examples, handoff rules, and website copy.
-
-## Local role
-
-Local storage is the protected source layer.
-
-It may contain textbooks, PDFs, scans, screenshots, private notes, teacher files, and large media.
-
-Do not claim to read local files unless the user uploads them or the runtime has local access.
-
-## Memory role
-
-If the AI tool has memory, project rules, or persistent instructions, store this preference:
+The runtime reads the template and authorized sources and writes the target. A connected ChatGPT Work workspace is a standard example.
 
 ```text
-Use GitHub as the main GitLearnOS repository. Keep local files as protected source material. Ask for local excerpts only when needed. Organize learning around goals, learner profile, source records, reusable models, knowledge gaps, spaced repetition, dashboard, and generated practice. Keep English and Chinese in separate files.
+verify access
+→ read policy and active state
+→ organize or generate questions
+→ write back automatically
+→ verify and return a receipt
 ```
 
-## Default safe actions
+### Level B — repository workspace
 
-With write access to the selected repository, the AI may:
+The runtime works in a local or cloud checkout. Follow repository rules, preserve unrelated changes, and execute the same organization, question, and writeback contract.
 
-- create docs;
-- update templates;
-- update dashboards;
-- update learner-profile.md;
-- record knowledge gaps;
-- mark incomplete files as `todo`;
-- add cleaned examples;
-- report changes.
+### Level C — read-only chat
 
-## Ask first
+The runtime can process input and generate questions but cannot write. Return exact pending writeback and do not claim the target changed.
 
-Ask before deleting files, changing visibility, uploading private local files, publishing real records, touching secrets, or changing the license.
+### Level D — single-context fallback
+
+The learner supplies the active goal, policy summary, and one relevant state file. Complete one focused operation without claiming persistent memory or file access.
+
+## Minimum reading
+
+Read `START-HERE.md`, `AGENTS.md`, target `learning-policy.md`, and dashboard, then only files required by the current input.
+
+## Runtime responsibilities
+
+- accept input from teachers, class, paper, platforms, and AI;
+- organize, connect, and deduplicate automatically;
+- generate targeted questions from goals and evidence;
+- tutor and score only when useful;
+- write within safety boundaries and report;
+- distinguish immediate, on-handoff, and background automation;
+- report capability limits honestly.
+
+## State responsibilities
+
+```text
+target repository → canonical durable state and learner policy
+skills/rules → agent behavior
+native memory → optional stable-preference cache
+connected/local originals → authorized sources
+current workspace → temporary execution
+```
+
+## One main agent
+
+One capable main agent is the current standard. Do not split organization, question generation, tutoring, and maintenance into separate agents. Other tools remain capabilities of the main agent, not independent state owners.
+
+## Permission
+
+Under `safe-auto`, ordinary low-risk reversible writes may proceed. Ask before deletion, broad overwrite, policy changes, publication, sensitive identity, secrets, or license changes.

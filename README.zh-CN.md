@@ -4,215 +4,183 @@
 
 [English](README.md)
 
-**GitLearnOS / 学习轨迹操作系统，是给你用于学习的人工智能大脑，可以让你的学习更加高效、智能。**
+**GitLearnOS 是用户拥有的轻量学习控制层：自动整理，针对性出题，持续写回。**
 
-仓库名暂时仍为 `Repo-as-Review-OS`，用于保持链接连续；项目展示名改为 **GitLearnOS**。
+学习可以发生在老师、课堂、补习、纸笔、教材、题库、其他 AI 或 ChatGPT Work 中。GitLearnOS 不要求把学习搬进某个平台；它让一个可替换的主 Agent 把分散的材料、问题、反馈、作答证据和下一步同步到学习者自己的 GitHub 仓库。
 
-当前状态：早期公开版本。见 [PUBLIC-ALPHA.zh-CN.md](PUBLIC-ALPHA.zh-CN.md)。
+仓库继续保留历史名称 `Repo-as-Review-OS`，项目概念名为 **GitLearnOS**。当前状态：早期公开版本，见 [PUBLIC-ALPHA.zh-CN.md](PUBLIC-ALPHA.zh-CN.md)。
 
-## 适合谁
+## 三项核心能力
 
-- 想把 AI 从一次性聊天变成长期学习助手的人；
-- 想用 GitHub 保存学习轨迹、复习记录和知识结构的人；
-- 想让 ChatGPT、Claude、智谱清言、本地 Agent 等不同 AI 都能接手同一套学习仓库的人；
-- 想把目标、资料、错题、模型、知识缺口、复习计划和下一步行动统一管理的人。
+| 核心能力 | 系统必须做到什么 |
+|---|---|
+| 自动整理 | 接收笔记、错题、老师反馈和平台结果，识别目标与知识缺口，去重、关联并给出下一步 |
+| 针对性出题 | 根据来源、目标、知识缺口和历史表现生成诊断题、变式题、迁移题、复习题，或带去问老师的问题包 |
+| 自动执行与写回 | 在用户策略允许的范围内直接更新状态、安排复习、清除过时任务并给出可检查、可撤销的回执 |
 
-它不是网盘，也不是单纯的笔记模板；它更像一套让 AI 可以持续接手学习过程的文件系统。
+讲解、搜索和实时辅导是重要的辅助能力，但不是使用 GitLearnOS 的前提。用户完全可以主要跟真人老师学习，只让 Agent 负责整理、出题和维护状态。
 
-## 从哪里开始
+## 同时兼顾在校与自学
 
-按你的身份选入口：
+GitLearnOS 使用共享知识状态，但保留两条目标轨道：
 
-- **学习者：**先读 [30 秒介绍](docs/zh-CN/30-second-intro.md)，再读 [快速开始](QUICKSTART.zh-CN.md)。
-- **AI 工具：**先读 [START-HERE.zh-CN.md](START-HERE.zh-CN.md)、[AGENTS.zh-CN.md](AGENTS.zh-CN.md) 和 [AGENT-RUNTIME.zh-CN.md](AGENT-RUNTIME.zh-CN.md)，再根据运行环境继续读相关链接。
-- **专家或贡献者：**先读 [与原系统的对齐分析](docs/zh-CN/parity-with-original-system.md)、[Product Positioning](docs/product-positioning.md)、[GitLearnOS Evaluation Standard](docs/agentic-tutoring-standard.md)、[Source and Learner State Model](docs/source-and-learner-state.md) 和 [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md)。
+| 轨道 | 典型内容 | Agent 的重点 |
+|---|---|---|
+| 在校学习 | 课程进度、作业、考试、课堂笔记、老师要求与反馈 | 对齐校内方法和期限，准备答疑，整理错题，生成贴近当前课程的题 |
+| 自主学习 | 兴趣探索、补前置知识、超前学习、阅读、项目与个人挑战 | 维持连续性，规划路径，生成开放题和迁移任务，避免被短期作业完全挤掉 |
 
-## 核心流程
+同一知识点只保留一份模型和掌握证据，但可以服务不同目标。dashboard 应显示任务属于哪条轨道，`learning-policy.md` 可以设置考试周优先校内、平时保留自学时间等规则。
+
+## 适配多样化学习需求
+
+在校与自学只是学习场景，不是功能边界。同一套整理、出题和自动化引擎应根据需求改变行为：
+
+| 学习需求 | 整理重点 | 出题或产出重点 |
+|---|---|---|
+| 跟进课程与作业 | 课程范围、老师要求、期限、课堂反馈 | 当前教法、作业形式、答疑问题包 |
+| 补弱与查漏 | 前置知识、错误链、重复卡点 | 小步诊断、针对性变式 |
+| 考试复习 | 考纲、错题分布、时间压力 | 限时题、混合提取、评分与复习调度 |
+| 超前或兴趣学习 | 概念地图、来源路径、开放问题 | 解释、比较、探索题与跨主题迁移 |
+| 项目与技能 | 里程碑、作品、反馈和真实约束 | 实作任务、测试、作品标准与复盘 |
+| 阅读与研究 | 文献来源、论点、证据和未知 | 提取、批判、综合与研究问题 |
+
+Agent 必须先确认或推断当前需求，再选择题型、证据标准和自动化强度。不是所有学习都需要 0–3 做题分数；代码测试、作品、口头表达、论文批判和老师反馈都可以成为合适证据。
+
+## 两分钟开始
+
+你只需要一个能读取模板仓并操作目标仓库的主 Agent、一个私有目标仓库和一个学习目标。
+
+把下面这段发给 Agent：
 
 ```text
-目标
-→ 来源
-→ 拆解
-→ 模型
-→ 知识缺口
-→ 题单
-→ 间隔复习
-→ 控制台
-→ 新理解
+请把 https://github.com/Guojiz/Repo-as-Review-OS 作为 GitLearnOS 模板仓库读取。
+我的个人学习仓库是：<目标仓库链接>
+我的学习目标是：<目标>
+
+先读 START-HERE.zh-CN.md 与 AGENTS.zh-CN.md；支持 Skills 时使用
+skills/repo-as-review-os/SKILL.md。检测真实权限，保护已有文件，
+采用 safe-auto：安全、可逆的整理、出题、状态同步与写回直接完成，
+高影响操作再询问。不要默认把任务变成 AI 教学会话，也不要把我的
+个人学习数据写进模板仓库。完成后用简短回执列出改动、依据和下一步。
 ```
 
-## 仓库角色
+ChatGPT Work 是主路径之一：连接目标仓库后，Agent 应直接检查并完成安全操作。普通 Chat 或只读环境仍然可以生成明确的待写回区块，但不能声称已经修改仓库。
+
+## 学习发生在哪里都可以
+
+GitLearnOS 接受这些输入：
+
+- “把这两页课堂笔记整理一下，给我出三道变式题。”
+- “校内作业先处理到周四，但给我的编程自学保留两小时。”
+- “明天补习，把最近不会的几何题整理成一份问老师的问题包。”
+- “老师已经解决第二个问题了，关键是先检查对应角；这是我的笔记。”
+- “这是题库今天的错题结果，更新薄弱点，周末再测我。”
+- “这个问题只记录，不安排复习。”
+- “撤销刚才的学习更新。”
+
+用户不需要指定文件路径或模板名称。Agent 负责识别意图、选择最小状态变化、执行并汇报。
+
+## 两个闭环
+
+主闭环是跨场景学习协调：
 
 ```text
-Repo-as-Review-OS 仓库
-→ 模板仓库
-→ 方法、文档、skill、示例、规则
-
-用户目标仓库
-→ 个人 GitLearnOS 仓库
-→ 目标、学习画像、来源、模型、知识缺口、复习、dashboard
+捕获任意学习事件
+→ 关联目标、来源与知识缺口
+→ 决定由老师、学习者、AI 或其他渠道处理
+→ 整理反馈或生成题目
+→ 自动写回
+→ 更新下一步
 ```
 
-AI 应该把这个仓库作为模板读取，然后把结构部署到用户自己的目标仓库里。
-
-## 先看 demo
-
-- [中文轻量 demo](examples/zh-CN/demo-zhongkao-lite/)
-
-这个项目的主对标不是 HKU 或某个完整辅导平台，而是原始 `zhongkao` 学习仓库系统和清理后的 `demo-zhongkao-lite`：能不能把真实有效的学习闭环，变成更轻、更通用、可复用的 GitHub + AI 模板。
-
-## 只看到一句话怎么办
-
-把这段复制给任意有能力读写 GitHub 仓库的 AI 工具：
+需要 AI 实时辅导时，再进入可选教学闭环：
 
 ```text
-请阅读这个模板仓库：https://github.com/Guojiz/Repo-as-Review-OS
-
-仓库名是 Repo-as-Review-OS，但项目概念名是 GitLearnOS。
-
-先读 START-HERE.zh-CN.md、README.zh-CN.md、QUICKSTART.zh-CN.md、AGENT-RUNTIME.zh-CN.md、AGENTS.zh-CN.md、docs/zh-CN/parity-with-original-system.md、docs/zh-CN/runtime-self-adaptation.md、docs/zh-CN/skill-and-memory-runtime.md、docs/adaptive-memory-and-learner-profile.md 和 docs/source-and-learner-state.md。只在当前运行环境需要时继续读更深层链接。
-
-帮我搭建自己的 GitLearnOS。先解释它是什么，再判断你当前的运行环境、权限边界、记忆能力、GitHub 访问能力，以及哪些步骤需要我手动完成。
-
-请把这个 Repo-as-Review-OS 仓库视为模板仓库，把我的目标仓库视为个人学习仓库。不要把我的学习数据写进模板仓库。
-
-然后指导我创建或选择一个目标 GitHub 仓库。如果你的环境支持 skill，就从 skills/repo-as-review-os/SKILL.md 开始；如果不支持 skill，就使用 docs/zh-CN/skill-and-memory-runtime.md 里的记忆回退方案。
-
-接着在我的目标仓库里创建目标文件、learner-profile.md、目录结构、来源规则、题目模型模板、知识缺口字段、间隔复习字段、自动化输出位置和控制台。如果我已经给出学习目标，直接使用；如果没有，再问我的第一个学习目标。每次创建或修改文件都要汇报。
+学习者尝试
+→ 诊断
+→ 最小帮助
+→ 新题验证
+→ 证据评分
+→ 写回与复习
 ```
 
-## 什么内容放进 GitHub
+“问题已经由老师解决”和“学习者已经独立掌握”是两个状态。系统可以接受外部解决并停止重复教学，同时诚实记录掌握证据是否经过验证。
 
-GitHub 主要保存结构化学习记录：目标、学习画像、来源记录、可复用模型、知识缺口、复习题单、控制台、下次复习日期和 AI 接手记录。
+## 出题不是随机生成练习
 
-它不要求保存每个原始文件。更多说明见 [什么内容放进 GitHub](docs/zh-CN/what-goes-into-github.md)。
+每个题组应说明：
 
-## ChatGPT Project 与记忆的边界
+- 服务哪个目标和知识缺口；
+- 基于哪些来源、模型和历史表现；
+- 是诊断、巩固、变式、迁移还是延迟复习；
+- 难度、预计时间、答案或评分标准；
+- 学习者结果、提示程度和后续动作。
 
-ChatGPT Project 适合放固定性的教材、少量稳定资料和项目说明，让 ChatGPT 在对话中读取和参考。
+给老师的问题包同样属于出题能力：它应包含原题或定位、学习者尝试、具体卡点和希望老师检查的内容。
 
-它不应该被当成完整学习仓库：动态笔记、大量材料、错题记录、复习历史、学习画像、题单归档和跨 Agent 接手状态，都应该以 GitHub 仓库为准。
+## 自动化与用户掌控
 
-ChatGPT 记忆适合保存稳定偏好和简短学习者摘要。它应该和 GitHub 同步校准，但不能替代 GitHub 的文件、索引和版本历史。
+推荐默认模式为 `safe-auto`：
 
-简单区分：
+| 模式 | 行为 |
+|---|---|
+| `safe-auto` | 安全、低风险、可逆的操作直接执行，然后汇报 |
+| `preview` | 写入前先展示计划修改 |
+| `manual` | 只给建议或待写回区块 |
+
+仓库中的 `learning-policy.md` 保存用户规则，例如是否保存原始对话、是否自动安排验证、是否记录老师姓名。自然语言可以临时覆盖：“这次不要保存”“只整理不出题”“以后老师反馈都自动关联”。
+
+自动化分三层：
+
+1. **即时自动化：**用户提供输入后自动整理、出题和写回；
+2. **接手自动化：**每次 Agent 打开仓库时检查到期项目、待处理输入和等待反馈；
+3. **后台自动化：**只有当前平台真正支持调度时才创建，不作为基础套件的强制依赖。
+
+规则和状态保存在仓库中，执行 Agent 可以更换。自动化必须透明、幂等，并尽量让一次学习事件形成一次可撤销更新。
+
+## 它是什么
 
 ```text
-ChatGPT 记忆 → 主动的稳定偏好缓存
-ChatGPT Project → 固定资料架 + 对话层
-GitHub 仓库 → 被动但可检查的长期学习状态 + 写回层 + 版本历史
-本地文件夹 → 原始资料和工作文件层
+任意学习场景
++ 一个可替换的主 AI Agent
++ 一个学习者拥有的目标仓库
++ GitLearnOS 规则与 Skills
+= 一套可移植的个人学习控制层
 ```
 
-如果 ChatGPT 记忆和 GitHub 内容冲突，优先相信 GitHub，再更新记忆或项目说明。
+GitLearnOS 不是：
 
-更多说明见 [本地文件夹与 ChatGPT Project 说明](docs/local-runtime-note.md) 和 [Adaptive Memory and Learner Profile](docs/adaptive-memory-and-learner-profile.md)。
+- AI 应用或真人老师的替代品；
+- 必须使用的多 Agent 框架；
+- RAG 服务或向量数据库；
+- 把所有教材与私人文件上传进去的网盘；
+- 为了“完整”而不断堆文件的笔记系统。
 
-## 来源层与学习状态层
+## 对标 DeepTutor，但不复制平台
 
-GitLearnOS 使用普通项目词：
+[港大 DeepTutor](https://github.com/HKUDS/DeepTutor) 仍是能力对标项目：来源支撑、动态学习者状态、个性化问题生成和反馈闭环。
 
-```text
-来源层
-→ 本地材料、来源记录、模型、证据、Git 历史
+GitLearnOS 的差异化方向是跨场景与用户所有权：
 
-学习状态层
-→ learner-profile.md、知识缺口、复习结果、控制台、记忆说明
-```
+| DeepTutor 的方向 | GitLearnOS 的轻量对应 |
+|---|---|
+| 共享个性化底座 | 一个学习者拥有的目标仓库 |
+| 来源支撑 | 老师、课堂、教材、平台和 AI 的可追踪来源记录 |
+| 动态学习者记忆 | 有证据链接的画像、缺口与活动记录 |
+| 个性化问题生成 | 题目 Skill、复习记录与老师问题包 |
+| 闭环教学 | 可选 AI 会话 + 外部反馈同步 + 结果写回 |
+| 可检查状态 | Markdown、Git 历史和用户策略 |
 
-来源层负责让回答追溯到材料。学习状态层负责让 AI 根据学习者变化调整解释、出题、复习和下一步行动。
+它不复刻完整 Runtime、前端、RAG、多 Agent、数据库或知识平台。原始 `zhongkao` 学习仓库继续作为实践落实基线。
 
-见 [Source and Learner State Model](docs/source-and-learner-state.md)。
+见 [产品定位](docs/product-positioning.md) 与 [评价标准](docs/agentic-tutoring-standard.md)。
 
-## 外部研究信号
-
-DeepTutor 显示，将来源 grounding、学习者记忆和闭环辅导结合起来，可以让个性化辅导质量相对最强基线提升 **10.8%**，并让五个基础模型的通用推理平均提升 **28.6%**。这只作为支持性证据，说明“来源 grounding + 学习者状态 + 闭环练习”这类设计有潜力。GitLearnOS 不声称复刻 DeepTutor 或任何完整辅导运行时。见 arXiv:2604.26962。
-
-## 评价标准
-
-这个项目应该首先对标原始 `zhongkao` 学习仓库系统：能不能在更轻、更通用的模板里，保留原系统的学习闭环、文件纪律、复习习惯、AI 接手能力和可检查进展。
-
-见 [GitLearnOS Evaluation Standard](docs/agentic-tutoring-standard.md) 和 [与原系统的对齐分析](docs/zh-CN/parity-with-original-system.md)。外部辅导研究是设计参考，不是主基准。
-
-## 为什么用 GitHub
-
-GitHub 不只是网盘。它是一条可以写入的学习时间线。
-
-它能记录：
-
-- 文件什么时候改过；
-- 改了什么；
-- 为什么改；
-- 哪些题目被拆成模型；
-- 哪些内容到期该复习；
-- AI 上次留下了什么接手记录。
-
-普通 AI 项目可以保存指令和上下文，但不提供同样开放的文件树、结构化写回、版本历史和持久工作区。
-
-## AI 执行路径
-
-1. 判断自己的运行环境、记忆、文件访问和权限等级。
-2. 区分模板仓库和目标学习仓库。
-3. 读取用户目标。
-4. 检查目标仓库结构。
-5. 找到活跃来源、模型、学习画像和知识缺口。
-6. 判断什么要拆解、合并、重写、复习、生成或归档。
-7. 只在正确的目标仓库中更新文件。
-8. 只把稳定偏好或重复模式建议写入原生记忆。
-9. 必要时安排下次复习。
-10. 汇报每一次改动。
-
-## Skill 或记忆运行层
-
-Skill 只是可选执行层，不是项目本体。
-
-如果 AI 工具支持 skill，先使用总入口 router skill：[skills/repo-as-review-os/SKILL.md](skills/repo-as-review-os/SKILL.md)。
-
-完整 skill suite 见 [skills/README.md](skills/README.md)。
-
-如果 AI 工具不支持 skill，使用记忆或项目指令回退方案：[docs/zh-CN/skill-and-memory-runtime.md](docs/zh-CN/skill-and-memory-runtime.md)。
-
-Skill 提供可执行规则，记忆提供稳定偏好，仓库保存当前学习状态。
-
-## 关键文档
-
-- [QUICKSTART.zh-CN.md](QUICKSTART.zh-CN.md)：五分钟开始
-- [FAQ.zh-CN.md](FAQ.zh-CN.md)：常见问题
-- [docs/zh-CN/30-second-intro.md](docs/zh-CN/30-second-intro.md)：30 秒介绍
-- [docs/zh-CN/first-experiment-guide.md](docs/zh-CN/first-experiment-guide.md)：第一次实验指南
-- [docs/zh-CN/what-goes-into-github.md](docs/zh-CN/what-goes-into-github.md)：什么内容放进 GitHub
-- [docs/zh-CN/runtime-self-adaptation.md](docs/zh-CN/runtime-self-adaptation.md)：运行环境自适应
-- [docs/zh-CN/parity-with-original-system.md](docs/zh-CN/parity-with-original-system.md)：与原始 zhongkao 系统对齐
-- [docs/zh-CN/customer-clarity-checklist.md](docs/zh-CN/customer-clarity-checklist.md)：客户明确性检查清单
-- [OPERATING-MODEL.zh-CN.md](OPERATING-MODEL.zh-CN.md)：总运行模型
-- [AGENT-RUNTIME.zh-CN.md](AGENT-RUNTIME.zh-CN.md)：AI 运行指南
-- [AGENTS.zh-CN.md](AGENTS.zh-CN.md)：AI 接手规则
-- [skills/README.md](skills/README.md)：Skill suite 总览
-- [docs/local-runtime-note.md](docs/local-runtime-note.md)：本地文件夹与 ChatGPT Project 说明
-- [docs/adaptive-memory-and-learner-profile.md](docs/adaptive-memory-and-learner-profile.md)：自适应记忆与学习画像
-- [docs/source-and-learner-state.md](docs/source-and-learner-state.md)：来源层与学习状态层
-- [docs/tutoring-benchmark-source-reference.md](docs/tutoring-benchmark-source-reference.md)：外部辅导研究参考
-- [templates/learner-profile.md](templates/learner-profile.md)：学习画像模板
-- [docs/zh-CN/automation-runtime-matrix.md](docs/zh-CN/automation-runtime-matrix.md)：自动化运行环境矩阵
-- [docs/agentic-tutoring-standard.md](docs/agentic-tutoring-standard.md)：GitLearnOS 评价标准
-- [examples/zh-CN/demo-zhongkao-lite/](examples/zh-CN/demo-zhongkao-lite/)：中文轻量 demo
-
-## 贡献与合作
-
-欢迎通过 Issue、PR 或实际使用反馈参与这个项目，尤其是：
-
-- 不同 AI 工具的部署记录；
-- 新的学习场景 demo；
-- 复习模板、题目模型和 dashboard 改进；
-- 文档翻译、错别字修正和教程截图；
-- 让更多 Agent 适配 GitHub MCP / 记忆能力的说明。
-
-如果这个项目对你或你的 AI 有帮助，欢迎点 Star，方便之后继续使用和更新。
-
-## 建议目录
+## 最小目标仓库
 
 ```text
-gitlearnos/
+my-gitlearnos/
+├── AGENTS.md
+├── learning-policy.md
 ├── dashboard.md
 ├── learner-profile.md
 ├── goals/
@@ -220,13 +188,46 @@ gitlearnos/
 ├── sources/
 ├── models/
 ├── knowledge-gaps/
+├── handoffs/
 ├── reviews/
-├── templates/
-├── agents/
-├── automations/
+├── sessions/
 └── archive/
 ```
 
+Git 不会保存空目录。Agent 只创建当前任务需要的状态，`handoffs/` 等目录在首次真实使用时再出现。
+
+## Skills 套件
+
+从 [skills/repo-as-review-os/SKILL.md](skills/repo-as-review-os/SKILL.md) 开始。套件按当前意图渐进加载：
+
+- setup：首次搭建或迁移；
+- organize：捕获、整理、去重、外部反馈同步；
+- question：个性化练习与外部问题包；
+- session：可选的 AI 实时教学；
+- source / model：来源完整性与可复用理解；
+- review：评分、调度与结果写回；
+- maintenance：一致性检查、自动修复和交接。
+
+一个主 Agent 就是标准运行方式；不需要为这些职责建立多个 Agent。
+
+## 来源、隐私与记忆
+
+- 真实学习状态默认放在私有目标仓库；
+- 有版权的书籍、老师原文件、私人截图和大型原件保留在本地或获授权来源；
+- GitHub 只保存必要摘要、定位方式和派生状态；
+- 不默认保存完整对话；
+- 学习者可以检查、编辑、导出、切换 Agent 或撤销更新；
+- 原生 AI 记忆与仓库冲突时，以可检查证据和用户纠正为准。
+
+## 示例与入口
+
+- [中文数学学习 demo](examples/zh-CN/demo-zhongkao-lite/)
+- [快速开始](QUICKSTART.zh-CN.md)
+- [Agent 接手入口](START-HERE.zh-CN.md)
+- [统一 Agent 规则](AGENTS.zh-CN.md)
+- [运行环境自适应](docs/zh-CN/runtime-self-adaptation.md)
+- [模板](templates/zh-CN/)
+
 ## 许可证
 
-采用 MIT License，详见 [LICENSE](LICENSE)。
+MIT License，见 [LICENSE](LICENSE)。

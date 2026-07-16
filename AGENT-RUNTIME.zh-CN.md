@@ -1,76 +1,61 @@
 # AI 运行指南
 
-本指南给任何想运行 GitLearnOS 的 AI 工具使用。
+GitLearnOS 不提供模型 Runtime。它把自动整理、针对性出题和用户可控写回协议挂载到学习者选择的一个主 AI 环境。
 
-它不绑定某一个产品。只要工具能读取仓库、修改文件、遵守项目规则并汇报改动，就可以使用这个系统。
+## 能力层级
 
-## 先检查自己的能力
+### A 级——工具型工作区
 
-开始前，先判断自己处在哪个层级：
-
-- 没有仓库权限；
-- 只有只读仓库权限；
-- 拥有一个仓库的写入权限；
-- 拥有较广泛账号权限；
-- 拥有本地工作区权限。
-
-推荐默认状态：只拥有一个仓库的写入权限。
-
-## 主要运行模型
-
-使用一个主 AI 工作流。
-
-不要默认假设多 Agent 系统。其他工具可以存在，但 GitLearnOS 应该能被一个有能力的 AI 工具维护。
-
-## 先读
-
-1. [START-HERE.zh-CN.md](START-HERE.zh-CN.md)
-2. [README.zh-CN.md](README.zh-CN.md)
-3. [QUICKSTART.zh-CN.md](QUICKSTART.zh-CN.md)
-4. [docs/zh-CN/first-experiment-guide.md](docs/zh-CN/first-experiment-guide.md)
-5. [docs/zh-CN/what-goes-into-github.md](docs/zh-CN/what-goes-into-github.md)
-6. [docs/zh-CN/runtime-self-adaptation.md](docs/zh-CN/runtime-self-adaptation.md)
-7. [docs/local-runtime-note.md](docs/local-runtime-note.md)
-8. [docs/zh-CN/automation-runtime-matrix.md](docs/zh-CN/automation-runtime-matrix.md)
-9. [docs/adaptive-memory-and-learner-profile.md](docs/adaptive-memory-and-learner-profile.md)
-10. [docs/source-and-learner-state.md](docs/source-and-learner-state.md)
-11. [AGENTS.zh-CN.md](AGENTS.zh-CN.md)
-
-## GitHub 的角色
-
-GitHub 是操作层。
-
-它保存结构、学习画像、模板、控制台、索引、来源状态、知识缺口、清理后的示例、接手规则和网站文案。
-
-## 本地的角色
-
-本地存储是受保护的来源层。
-
-它可以保存教材、PDF、扫描件、截图、私人笔记、老师文件和大型媒体。
-
-除非用户上传，或运行环境确实有本地访问权限，否则不要声称自己读过本地文件。
-
-## 记忆的角色
-
-如果 AI 工具有记忆、项目规则或持久指令，应该保存这个偏好：
+能读取模板与授权来源，并写入目标仓库。连接正确的 ChatGPT Work 是标准例子。
 
 ```text
-使用 GitHub 作为主要 GitLearnOS 仓库。本地文件视为受保护来源。只有需要时才请求本地摘录。围绕目标、学习画像、来源记录、可复用模型、知识缺口、间隔复习、控制台和生成题单组织学习。中文和英文放在不同文件里。
+验证权限
+→ 读取用户政策和当前状态
+→ 整理或出题
+→ 自动写回
+→ 验证与回执
 ```
 
-## 默认安全操作
+### B 级——仓库工作区
 
-如果拥有指定仓库的写入权限，AI 可以：
+在本地或云端 checkout 中工作。遵守仓库规则、保护无关改动，并执行同样的整理、出题和写回契约。
 
-- 创建文档；
-- 更新模板；
-- 更新控制台；
-- 更新 learner-profile.md；
-- 记录知识缺口；
-- 把不完整文件标记为 `todo`；
-- 添加清理后的示例；
-- 汇报改动。
+### C 级——只读聊天
 
-## 先问用户
+可以处理输入和出题，但不能写目标仓库。返回精确待写回区块，不声称已经更新。
 
-删除文件、改变公开状态、上传本地私人文件、发布真实记录、接触密钥、修改许可证之前，必须先问用户。
+### D 级——单上下文回退
+
+用户提供活跃目标、政策摘要和一个相关状态文件。完成一个聚焦操作，不声称拥有长期记忆或文件权限。
+
+## 最小读取
+
+先读 `START-HERE.zh-CN.md`、`AGENTS.zh-CN.md`、目标 `learning-policy.md` 和 dashboard，再读当前输入需要的文件。
+
+## Runtime 责任
+
+- 接收老师、课堂、纸笔、平台和 AI 输入；
+- 自动整理、关联和去重；
+- 从目标与证据生成针对性问题；
+- 需要时进行 AI 教学和评分；
+- 在安全边界内写回并汇报；
+- 区分即时、接手和后台自动化；
+- 诚实说明能力限制。
+
+## 状态责任
+
+```text
+目标仓库 → 唯一长期状态与用户政策
+Skills / 规则 → Agent 行为
+原生记忆 → 可选稳定偏好缓存
+连接或本地原件 → 授权来源
+当前工作区 → 临时执行
+```
+
+## 一个主 Agent
+
+一个具备工具能力的主 Agent 是当前标准。无需为整理、出题、教学和维护拆分 Agent。其他工具只作为主 Agent 的能力，不形成独立状态拥有者。
+
+## 权限
+
+`safe-auto` 下普通、低风险、可逆写入可直接执行。删除、大范围覆盖、政策变化、公开发布、敏感身份、密钥或许可证变化前询问。

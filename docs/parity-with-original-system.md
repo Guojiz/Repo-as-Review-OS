@@ -1,89 +1,61 @@
-# Parity with the Original System
+# Parity with the Original Learning Repository
 
-This document checks whether GitLearnOS can reproduce the behavior of the original `zhongkao` repository system.
+The original `zhongkao` repository is GitLearnOS's practical implementation baseline, while HKU DeepTutor is its capability benchmark.
 
-The original `zhongkao` system is the primary practical baseline for this project. External tutoring research can inspire design checks, but the first standard is whether the real learning loop that already worked can be made lighter, reusable, and easier for other AI tools to deploy.
-
-The repository is still named `Repo-as-Review-OS` for continuity.
-
-## What can be reproduced
-
-### 1. GitHub as the main operating layer
-
-Yes. The new template can use GitHub as the main map, state store, template library, and handoff surface.
-
-### 2. AI-first maintenance
-
-Yes. The original system moved toward ChatGPT as the main maintainer. GitLearnOS makes this explicit through `START-HERE.md`, `AGENTS.md`, and the handoff protocols.
-
-### 3. Content integrity
-
-Yes. The old system protected the difference between source, summary, index, and incomplete files. GitLearnOS reproduces this through sourcing rules, content labels, and local-only source records.
-
-### 4. Templates and dashboards
-
-Yes. Problem cards, writing material cards, daily review files, knowledge-gap records, and dashboards can all be reproduced.
-
-### 5. Review and next-action loop
-
-Yes. The useful loop is preserved:
+These roles are different:
 
 ```text
-goal
-→ source
-→ split
-→ model
-→ knowledge gap
-→ review set
-→ dashboard
-→ next action
+DeepTutor
+→ tests whether the design direction reflects modern personalized tutoring
+
+original repository
+→ tests whether the lightweight file workflow remains useful in real study
 ```
 
-## What cannot be fully reproduced by GitHub alone
+## Behaviors that must survive
 
-### 1. Fully invisible local inspection
+1. one durable learner-owned repository;
+2. honest separation of source, summary, and missing material;
+3. mistakes transformed into reusable recognition models;
+4. old items returning after time passes;
+5. a dashboard that produces one concrete next action;
+6. another capable agent able to resume from inspectable state;
+7. local/private material protected by default;
+8. small, readable files that the learner can understand.
 
-If the AI cannot access local files, it cannot inspect textbooks, screenshots, PDFs, or private notes by itself.
+## Behaviors strengthened in GitLearnOS
 
-### 2. Automatic background execution
+The reusable toolkit adds explicit:
 
-A single AI in a chat app usually cannot run forever in the background. It can maintain the repository during a session, but scheduled or background tasks depend on the platform.
+- cross-channel capture from teachers, class, paper, platforms, and AI;
+- automatic organization, linking, and deduplication;
+- personalized learner questions and external help-seeking packs;
+- learner-owned automation policy and transparent writeback receipts;
+- separate question-resolution and mastery states;
+- learner-profile evidence links;
+- knowledge-gap types and confidence;
+- learner attempt before mastery claims;
+- hint-level tracking;
+- 0–3 observable evidence scoring;
+- transfer and delayed-recall checks;
+- deterministic next-review dates;
+- selective event writeback.
 
-### 3. Permission prompts
+## What GitHub alone cannot supply
 
-The AI cannot remove all permission prompts. First-time connection, repository authorization, local file access, deletion, and publishing still need user approval.
+GitHub does not organize by itself, generate questions, inspect unavailable originals, run an AI model, or guarantee background execution. One active main AI runtime supplies those capabilities when authorized.
 
-## New recommended model
+## Parity test
 
-The new template should not require a multi-agent system.
-
-Recommended model:
+The template passes practical parity only when a learner can complete this loop without building a new platform:
 
 ```text
-ChatGPT or one main AI
-→ GitHub repository
-→ user supplies local excerpts only when needed
+material, mistake, or external feedback
+→ automatic organization and linking
+→ targeted learner questions or a teacher handoff
+→ feedback or learner result
+→ reusable state
+→ automatic writeback and next action
 ```
 
-## Why this is different from the old system
-
-The old system experimented with local agents, Obsidian, Git, GitHub, and automated inspection.
-
-GitLearnOS is simpler:
-
-- one main AI;
-- one GitHub repository;
-- clear permission boundary;
-- local protected source files;
-- GitHub as the shared operating layer;
-- ChatGPT memory or project instructions as the personal preference layer.
-
-## Practical conclusion
-
-GitLearnOS can reproduce the old system's structure and method.
-
-It cannot perfectly reproduce invisible local automation unless the user adds a local agent or grants local file access.
-
-Therefore, the default product should promise this:
-
-**A lightweight GitHub + AI learning system that works from one repository and one main AI, with local files surfaced only when needed.**
+Folder creation alone is not parity.

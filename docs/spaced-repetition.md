@@ -1,87 +1,89 @@
-# Spaced Repetition Model
+# Evidence-Based Spaced Repetition
 
-Repo as Review OS should include spaced repetition.
+GitLearnOS schedules review from observed performance, not from file creation or the learner merely seeing an explanation.
 
-The goal is simple: important knowledge should return before it is forgotten.
+Use this protocol for knowledge or skills that should be retrieved or performed again after time. Do not force open research, exploratory reading, creative work, or project milestones into 0–3 spaced repetition; use the goal's rubric, tests, artifact, or milestone evidence instead.
 
-## Why it matters
+## Evidence score
 
-A learning system should not only store what the user once learned. It should bring old material back at the right time.
+Use one score after a fresh check:
 
-This prevents the common failure where a user once understood a problem, but forgets it months later.
+| Score | Observable result | Default interval |
+|---|---|---|
+| 0 | no correct recall after substantial support | 1 day |
+| 1 | correct only with major hints or imitation | 2 days |
+| 2 | correct with a minor hint or small execution error | 4 days |
+| 3 | independently correct; transfer succeeds when required | 7 days |
 
-## Review schedule
+After two consecutive score-3 reviews, double the prior interval up to 30 days. A later lower score resets the schedule from that new score.
 
-A simple default schedule:
+## What counts as evidence
 
-```text
-first learn
-→ same day
-→ next day
-→ 3 days later
-→ 7 days later
-→ 14 days later
-→ 30 days later
-→ before the goal deadline
-```
+Strong evidence:
 
-The schedule can be changed for each user.
+- independent delayed recall;
+- correct explanation in the learner's own words;
+- solving a changed example;
+- successful transfer to a new context;
+- detecting and correcting one's own error.
 
-## What gets scheduled
+Weak or non-mastery evidence:
 
-The AI should schedule review for:
+- reading the answer;
+- copying a worked example;
+- immediate repetition;
+- completing a file or worksheet;
+- saying “I understand” without a check.
 
-- mistake models;
-- important problem cards;
-- weak topics;
-- vocabulary;
-- writing material;
-- formulas;
-- recurring traps;
-- goal-critical knowledge.
+Record weak evidence honestly. It can guide support, but it cannot justify score 3 or `stable`.
 
-## Repository fields
+## Review record
 
-Every reviewable item can include:
+Every scored review should include:
 
 ```text
-First learned:
-Last reviewed:
-Next review:
-Review count:
-Memory status:
-Goal link:
+reviewed item:
+date:
+prompt or task:
+learner response summary:
+hint level: none / minor / major / full explanation
+correctness:
+transfer required: yes / no
+transfer result:
+score: 0 / 1 / 2 / 3
+previous interval:
+next review:
+evidence link:
 ```
 
-## Memory status
+## Item state
 
-Recommended values:
+Keep status simple:
 
-- `new`
-- `learning`
-- `unstable`
-- `stable`
-- `forgotten`
-- `goal-critical`
+- `new`: not yet assessed;
+- `learning`: evidence score 0–2 or only immediate evidence;
+- `stable`: at least two successful reviews including delayed independent evidence;
+- `reopened`: previously stable but later failed;
+- `blocked`: missing source or prerequisite prevents a valid check.
 
-## AI behavior
+`goal-critical` is a priority flag, not a memory state.
 
-When the AI sees a reviewable item, it should decide:
+## Selection rule
 
-1. Is this tied to a goal?
-2. When was it last reviewed?
-3. Is it stable or forgotten?
-4. Should it appear in the next practice set?
-5. Should the next review date be updated?
+Choose review work in this order:
 
-## Automation
+1. overdue goal-critical items;
+2. recent score 0 or 1;
+3. due active knowledge gaps;
+4. score-2 items needing transfer;
+5. stable items whose interval has elapsed.
 
-The practice generator should use spaced repetition.
+Keep a session small enough to finish and score. A generated but unattempted review stays `planned`.
 
-It should not only pick recent items. It should also revive older items whose next review date has arrived.
+## Date rule
 
-## Practical rule
+Use explicit ISO dates (`YYYY-MM-DD`) and record the score that produced the date. If the runtime cannot calculate or write the date, report it as pending instead of guessing that an automation will handle it.
 
-A problem is not finished when it is solved once.
+## Principle
 
-It is finished only when the user can still recognize and solve its model after time has passed.
+For retained knowledge and repeatable skills, one success is not stable mastery. Stability requires later retrieval or performance. Other learning needs use their declared evidence contract.

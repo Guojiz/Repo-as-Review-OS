@@ -1,25 +1,36 @@
-# Handoff Protocol
+# Main Agent Handoff Protocol
 
-Use this before continuing work in a review repository.
+Use when the same or a replacement main agent resumes a GitLearnOS target repository. Handoff does not imply a multi-agent runtime.
 
-## Read first
+## Read only
 
-1. `README.md`
-2. `docs/architecture.md`
-3. Relevant templates in `templates/`
-4. The source file being edited
+1. target `AGENTS.md`;
+2. `learning-policy.md`;
+3. `dashboard.md`;
+4. the linked active goal;
+5. files required by the current next action.
 
-## Rules
+## On-handoff automation
 
-- Do not invent missing context.
-- Do not treat a summary as the original source.
-- Mark incomplete items as TODO.
-- Keep changes small and explain what changed.
+Check:
 
-## Output after editing
+- safe unprocessed inbox input;
+- due question sets;
+- waiting teacher or external feedback;
+- obsolete tasks after resolution;
+- school deadlines and protected self-study continuity;
+- whether current need, track, and next action remain valid;
+- actual target write permission.
 
-Report:
+## Continue
 
+Perform one focused organization, question, review, or optional tutoring task. Use the declared evidence contract; do not force every need into 0–3 scoring.
+
+## Report
+
+- mode and actual automation;
+- input organized and questions generated;
 - files changed;
-- why they changed;
-- what remains unfinished.
+- evidence or `not assessed`;
+- one next action;
+- undo availability.

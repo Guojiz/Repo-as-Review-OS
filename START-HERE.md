@@ -1,92 +1,94 @@
-# Start Here
+# Start Here: Agent Handoff
 
-GitLearnOS is a lightweight learning-trace operating system for AI-assisted study, built on GitHub.
+GitLearnOS is a learner-owned control layer. One main agent organizes automatically, generates targeted questions, and performs safe writeback; live AI tutoring is optional. Do not preload the template repository.
 
-It helps a user and an AI tool turn scattered learning materials into a writable, traceable, and reviewable learning repository.
-
-## Copy this to an AI tool
+## 1. Identify two repositories
 
 ```text
-Read this repository: https://github.com/Guojiz/Repo-as-Review-OS
-
-The repository is named Repo-as-Review-OS for continuity. The product concept is GitLearnOS.
-
-Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, AGENTS.md, docs/runtime-self-adaptation.md, docs/skill-and-memory-runtime.md, docs/adaptive-memory-and-learner-profile.md, and docs/source-and-learner-state.md. Follow linked documents only when they are relevant to your current runtime.
-
-Help me build my own GitLearnOS. First explain what it is, then identify your current runtime, memory capability, permission boundary, GitHub access, and any manual steps I must complete. Then guide me to create or choose one target GitHub repository.
-
-Treat this Repo-as-Review-OS repository as the template repository. Treat my target repository as the personal learning repository. Do not write my learning data into the template repository.
-
-If your environment supports skills, use skills/repo-as-review-os/SKILL.md. If it does not support skills, use the memory fallback in docs/skill-and-memory-runtime.md.
-
-After that, create goal files, learner-profile.md, folder structure, source rules, model templates, knowledge-gap fields, spaced-repetition fields, automation output folders, and a dashboard in my target repository. If I already gave a learning goal, use it. If not, ask me for my first learning goal. Report every file created or edited.
+template: Guojiz/Repo-as-Review-OS
+target learning repository: <learner repository or unknown>
 ```
 
-## What the AI should do
+Never place personal learning state in the template. If writeback is required and the target is unknown, ask only for the target.
 
-1. Read this file.
-2. Read `README.md`.
-3. Read `QUICKSTART.md`.
-4. Read `docs/runtime-self-adaptation.md`.
-5. Read `AGENT-RUNTIME.md`.
-6. Read `AGENTS.md`.
-7. Read `docs/skill-and-memory-runtime.md`.
-8. Read `docs/adaptive-memory-and-learner-profile.md`.
-9. Read `docs/source-and-learner-state.md`.
-10. Explain the system to the user.
-11. Identify the current runtime, memory capability, file access, and permission boundary.
-12. Separate the template repository from the target learning repository.
-13. Help the user create or choose one target GitHub repository.
-14. Decide whether to use skill runtime, native memory, project instructions, or a single-context fallback.
-15. Build the folder structure, templates, goal file, learner profile, knowledge-gap records, dashboard, and runtime rules in the target repository.
-16. Report every file created or edited.
+## 2. Detect actual capability
 
-## What the human should do
-
-1. Create or choose one target GitHub repository for personal learning data.
-2. Connect the AI tool to that repository through MCP, a GitHub connector, or another safe integration.
-3. Use a private repository for real learning data.
-4. Keep protected or private materials local unless a small excerpt is needed.
-5. Ask the AI to report every change.
-
-## Core idea
-
-A repository can become the operating system for learning.
-
-It should contain:
-
-- goals;
-- learner profile;
-- source records;
-- reusable models;
-- knowledge gaps;
-- review sets;
-- spaced repetition fields;
-- dashboards;
-- automation outputs;
-- agent runtime rules;
-- skill or memory fallback instructions.
-
-## Runtime choices
-
-Before choosing a runtime path, read:
+Internally confirm:
 
 ```text
-docs/runtime-self-adaptation.md
-docs/automation-runtime-matrix.md
-docs/adaptive-memory-and-learner-profile.md
+template read:
+target read:
+target write:
+connected sources:
+skill support:
+real scheduler:
+steps the learner must perform:
 ```
 
-If the AI tool supports skills, use:
+Do not make the learner repeat work the current runtime can safely perform. A prompt is not automation and a plan is not writeback.
+
+## 3. Read minimum state
+
+Initially read only:
+
+1. this file;
+2. `AGENTS.md`;
+3. target `learning-policy.md` when present;
+4. `dashboard.md` and the active goal;
+5. the minimum files related to the current input.
+
+## 4. Identify intent
+
+- **setup:** bootstrap or migrate;
+- **organize:** notes, mistakes, teacher feedback, platform results, deduplication, and state sync;
+- **question:** diagnostic, practice, variation, transfer, review, or teacher-facing question pack;
+- **session:** the learner explicitly wants AI tutoring now;
+- **review:** existing questions need administration, scoring, scheduling, or writeback;
+- **source / model:** provenance or reusable understanding;
+- **maintenance:** stale, contradictory, duplicate, broken, or undo work.
+
+Use `skills/repo-as-review-os/SKILL.md` when skills are supported. Do not route all learning requests to session.
+
+## 5. Organize and write back
 
 ```text
-skills/repo-as-review-os/SKILL.md
+capture input
+→ mark channel, provenance, and privacy
+→ link goal, gap, and existing state
+→ deduplicate
+→ organize, question, handoff, verify, or record only
+→ write under learning-policy
+→ refresh dashboard
+→ return a receipt
 ```
 
-If the AI tool does not support skills, use:
+Default to `safe-auto`: perform safe, low-risk, reversible learning-state changes and report them; ask before deletion, publication, sensitive identity, broad restructuring, or policy changes.
+
+## 6. Handle external learning correctly
+
+Teachers, class, tutoring, paper, and other platforms are first-class sources.
+
+- “prepare for my teacher” → create a `handoffs/` question pack and mark waiting feedback;
+- “my teacher resolved it” → update resolution, reconcile feedback, retire obsolete tasks;
+- “these are my notes” → record provenance and extract only useful models;
+- “do not test me” → honor the choice;
+- “undo that” → safely reverse the latest atomic learning update when supported.
+
+External resolution is not independent mastery, but it must not trigger forced AI reteaching.
+
+## 7. Generate questions correctly
+
+Connect questions to a goal, source or model, knowledge gap, and recent performance. Record purpose, difficulty, time, answer or rubric, and novelty. Never verify with the exact demonstrated item.
+
+## 8. Finish clearly
 
 ```text
-docs/skill-and-memory-runtime.md
+Mode:
+Organized:
+Questions:
+Changed files:
+Evidence type:
+Actual automation:
+Next action:
+Undo:
 ```
-
-Skill gives the AI behavior. Memory gives the AI stable preferences. The repository gives the AI current learning state.

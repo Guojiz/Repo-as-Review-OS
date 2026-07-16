@@ -1,92 +1,47 @@
 ---
 name: repo-as-review-os-model
-description: Use when extracting reusable learning models from mistakes, notes, examples, paper claims, or repeated patterns in a Repo as Review OS repository. This skill turns isolated learning events into models that can be reviewed and reused.
+description: Extract or refine a reusable GitLearnOS concept or problem-solving model from grounded sources and observed learning evidence, with recognition cues, limits, transfer conditions, and review links.
 ---
 
-# Repo as Review OS Model Skill
+# GitLearnOS Reusable Model
 
-## Purpose
+## Model test
 
-Use this skill to turn a source record, mistake, note, or repeated pattern into a reusable learning model.
+A useful model answers:
 
-A model is not a summary. It is a portable way to recognize and solve similar future problems.
+- When should I recognize it?
+- What should I do?
+- Why does it work?
+- When does it not apply?
+- What common error does it prevent?
+- How can a fresh task verify transfer?
 
-## When to use
-
-Use when the user asks to:
-
-- summarize the lesson from a mistake;
-- turn a question into a model;
-- extract a method;
-- compare examples;
-- build a reusable pattern;
-- convert reading notes into concepts;
-- preserve a trick, rule, or workflow.
-
-## Model workflow
+## Workflow
 
 ```text
-source record
-→ identify repeated pattern
+grounded source or observed event
+→ identify repeated structure
 → name the model
 → write recognition cues
-→ write method
-→ write traps
-→ write next-time reaction
-→ add review fields
-→ link back to source and goal
+→ write the shortest reliable method
+→ record limits and traps
+→ design a transfer check
+→ link any knowledge gap
+→ set review state
 ```
 
-## Minimal model file
+## Evidence boundary
 
-A model should include:
+The existence of a good model file does not mean the learner has mastered it. Keep model quality separate from learner evidence. Use review/session records for observed performance.
 
-```text
-status: model
-goal link
-source link
-first learned
-last reviewed
-next review
-review count
-memory status
-recognition cue
-method
-common trap
-next-time reaction
-review note
-```
+Do not create a permanent model from one ambiguous or incomplete event unless it has clear future value; keep it as a draft or gap instead.
 
-## Good model test
-
-A model is useful if the user can answer:
+## Output
 
 ```text
-When should I recognize this?
-What should I do next time?
-What mistake does this prevent?
-How will I review it later?
-```
-
-## Bad model signs
-
-Avoid models that are only:
-
-- a copied answer;
-- a vague summary;
-- a beautiful title without method;
-- an explanation with no review plan;
-- a rule that cannot be recognized in future tasks.
-
-## Output standard
-
-```text
-Changed files:
-- model path: what model was created or updated
-
-Still missing:
-- source or example needed
-
-Next action:
-- generate review / link to dashboard / ask for another example
+Model created or refined:
+Grounding source:
+Linked gap:
+Transfer check:
+Files updated:
 ```
