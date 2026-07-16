@@ -27,7 +27,7 @@
 
 | 缺口 | 类型 | 可信度 | 最近证据 | 下次检验 | 链接 |
 |---|---|---|---|---|---|
-| 能想到相似，但对应边易写反 | recognition | high | 关键提示后才改对 | 2026-07-05 | [缺口记录](knowledge-gaps/similarity-correspondence-gap.md) |
+| 能想到相似，但对应边易写反 | recognition | medium | 关键提示后才改对 | 2026-07-05 | [缺口记录](knowledge-gaps/similarity-correspondence-gap.md) |
 
 ## 最近证据
 
