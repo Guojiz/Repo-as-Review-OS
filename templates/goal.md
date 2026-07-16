@@ -1,6 +1,7 @@
 # Learning Goal
 
 Status: `active` / `paused` / `completed` / `archived`  
+Subject:  
 Track: `school` / `self-study` / `mixed`  
 Need: `current-course` / `remediation` / `exam` / `exploration` / `advance` / `project` / `research` / `skill`  
 Created:  

@@ -1,6 +1,7 @@
 # 补习老师问题包：相似三角形对应顺序
 
 状态：`reconciled`  
+学科：`math`  
 去向：`teacher`  
 目标链接：[几何模型识别](../goals/main-goal.md)  
 知识缺口：[对应关系缺口](../knowledge-gaps/similarity-correspondence-gap.md)  

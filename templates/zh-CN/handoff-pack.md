@@ -1,6 +1,7 @@
 # 外部答疑问题包
 
 状态：`draft` / `ready` / `sent` / `awaiting-feedback` / `feedback-received` / `reconciled` / `cancelled`  
+学科：  
 去向：`teacher` / `tutor` / `peer` / `other-agent` / `other`  
 目标链接：  
 知识缺口链接：  

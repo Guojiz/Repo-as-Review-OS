@@ -1,6 +1,7 @@
 # 学习目标
 
 状态：`active` / `paused` / `completed` / `archived`  
+学科：  
 轨道：`school` / `self-study` / `mixed`  
 需求类型：`current-course` / `remediation` / `exam` / `exploration` / `advance` / `project` / `research` / `skill`  
 创建日期：  

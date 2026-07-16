@@ -15,7 +15,8 @@ GitLearnOS 规则、Skills 与 learning-policy
 → 控制来源、自动化、写回、安全和证据标准
 
 目标 GitHub 仓库
-→ 保存学习者拥有、可检查、可迁移、可撤销的状态
+→ 根目录保存共享政策与跨学科视图
+→ subjects/<subject>/ 保存聚焦、可检查的学习状态
 ```
 
 不需要按层或职责拆分多个 Agent。
@@ -84,14 +85,16 @@ AI 教学是可选闭环：
 - `learning-policy.md`：自动化、隐私、写回与调度偏好；
 - `dashboard.md`：当前优先级、到期任务、等待反馈与下一步；
 - `learner-profile.md`：有长期证据支撑的学习者状态；
-- `goals/`：目标与成功标准；
-- `inbox/`：尚未完全处理的快速输入；
-- `sources/`：老师、课堂、教材、平台、AI等来源与可用性；
-- `models/`：跨来源整合的可复用理解；
-- `knowledge-gaps/`：问题处理生命周期与掌握证据；
-- `handoffs/`：给老师、同学或其他 Agent 的问题与反馈包；
-- `reviews/`：生成题目、回答、评分与下次日期；
-- `sessions/`：真正改变状态的重要跨渠道活动。
+- `subjects/<subject>/goals/`：学科目标与成功标准；
+- `subjects/<subject>/inbox/`：尚未完全处理的快速输入；
+- `subjects/<subject>/sources/`：老师、课堂、教材、平台、AI 等来源与可用性；
+- `subjects/<subject>/models/`：跨来源整合的可复用理解；
+- `subjects/<subject>/knowledge-gaps/`：问题处理生命周期与掌握证据；
+- `subjects/<subject>/handoffs/`：给老师、同学或其他 Agent 的问题与反馈包；
+- `subjects/<subject>/reviews/`：生成题目、回答、评分与下次日期；
+- `subjects/<subject>/sessions/`：真正改变状态的重要跨渠道活动。
+
+Agent 自动把每次事件路由到对应学科。根目录只协调各科，不复制学科状态。只创建当前事件真正需要的目录。
 
 ## 决策规则
 
@@ -111,8 +114,8 @@ AI 教学是可选闭环：
 
 问题处理状态与掌握证据分离。老师已经讲清楚可以立即结束等待和重复教学；独立掌握仍根据需要通过作答、延迟回忆或迁移验证。用户可以选择不安排验证。
 
-## 对标边界
+## 产品边界
 
-DeepTutor 提供能力方向：来源支撑、动态学习者状态、个性化问题和反馈闭环。GitLearnOS 将这些能力压缩成跨渠道、用户拥有、由外部主 Agent 执行的文件和 Skills。
+GitLearnOS 用一层小型文件控制系统保留来源支撑、动态学习状态、针对性出题、反馈同步与用户可控自动化。
 
 它有意不提供完整应用、服务端、多 Agent Runtime、RAG 引擎或数据库。

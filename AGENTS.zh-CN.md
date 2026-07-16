@@ -24,10 +24,23 @@
 → 方法、Skills、模板、Demo
 
 目标学习仓库
-→ 用户策略、目标、来源、笔记、缺口、模型、问题包、复习和活动
+→ 根目录保存共享政策与跨学科视图
+→ subjects/<subject>/ 保存目标、来源、缺口、模型、问题包、复习和活动
 ```
 
 绝不能把个人学习数据写进模板仓库。修改目标仓库前，检查已有文件并保护与当前任务无关的用户内容。
+
+## 学科路由
+
+- `learning-policy.md`、`learner-profile.md` 与跨学科 `dashboard.md` 留在仓库根目录；
+- 学科专属状态放在 `subjects/<subject>/`；
+- 根据用户明确用语、当前材料、关联目标和已有路径推断学科；
+- 只有歧义会导致错误写入时才询问；
+- “这是化学”等自然语言纠正立即覆盖自动推断；
+- 只创建当前活跃学科和真实状态需要的目录；
+- 真正跨学科的目标留在根目录，通过链接引用各科证据，不复制状态。
+
+学科路由属于自动整理。用户不需要指定路径。
 
 ## 最小读取
 
@@ -35,9 +48,9 @@
 
 1. `START-HERE.zh-CN.md` 与本文件；
 2. 目标仓库的 `learning-policy.md`，存在时；
-3. `dashboard.md`；
-4. 活跃目标；
-5. 与当前输入相关的最少来源、缺口、模型、问题包或复习。
+3. 根目录 `dashboard.md` 与当前学科入口；
+4. `subjects/<subject>/` 内的活跃目标；
+5. 与当前输入相关的最少学科来源、缺口、模型、问题包或复习。
 
 任务明确后只加载一个主要 Skill，确有必要再加载一个辅助 Skill。
 
@@ -109,7 +122,7 @@ exploration / advance / project / research / skill
 
 ### 准备求助
 
-根据已有证据生成 `handoffs/` 问题包，至少包含：
+根据已有证据生成 `subjects/<subject>/handoffs/` 问题包，至少包含：
 
 - 题目或材料定位；
 - 学习者已经尝试的内容；
@@ -245,12 +258,13 @@ exploration / advance / project / research / skill
 | 自动化、隐私与写回偏好 | `learning-policy.md` |
 | 当前优先级、到期任务与等待反馈 | `dashboard.md` |
 | 长期学习者状态 | `learner-profile.md` |
-| 原始来源可用性与反馈出处 | `sources/` |
-| 可复用理解 | `models/` |
-| 问题生命周期与掌握证据 | `knowledge-gaps/` |
-| 给老师、同学或其他 Agent 的交接包 | `handoffs/` |
-| 题目、结果与下次间隔 | `reviews/` |
-| 重要跨渠道学习事件 | `sessions/` |
+| 学科目标 | `subjects/<subject>/goals/` |
+| 原始来源可用性与反馈出处 | `subjects/<subject>/sources/` |
+| 可复用理解 | `subjects/<subject>/models/` |
+| 问题生命周期与掌握证据 | `subjects/<subject>/knowledge-gaps/` |
+| 给老师、同学或其他 Agent 的交接包 | `subjects/<subject>/handoffs/` |
+| 题目、结果与下次间隔 | `subjects/<subject>/reviews/` |
+| 重要跨渠道学习事件 | `subjects/<subject>/sessions/` |
 
 dashboard 是视图，不是第二份真相。
 
@@ -258,6 +272,7 @@ dashboard 是视图，不是第二份真相。
 
 ```text
 执行模式：safe-auto / preview / manual
+学科路径：
 
 已整理：
 - 输入、关联与状态变化

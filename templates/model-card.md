@@ -1,6 +1,7 @@
 # Reusable Model
 
 Status: `draft` / `active` / `archived`  
+Subject:  
 Goal link:  
 Source link:  
 Linked knowledge gap:  

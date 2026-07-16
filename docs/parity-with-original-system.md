@@ -1,20 +1,10 @@
 # Parity with the Original Learning Repository
 
-The original `zhongkao` repository is GitLearnOS's practical implementation baseline, while HKU DeepTutor is its capability benchmark.
-
-These roles are different:
-
-```text
-DeepTutor
-→ tests whether the design direction reflects modern personalized tutoring
-
-original repository
-→ tests whether the lightweight file workflow remains useful in real study
-```
+The original `zhongkao` repository is GitLearnOS's practical implementation baseline. It tests whether the lightweight file workflow remains useful in real study.
 
 ## Behaviors that must survive
 
-1. one durable learner-owned repository;
+1. one durable learner-owned repository with subject folders;
 2. honest separation of source, summary, and missing material;
 3. mistakes transformed into reusable recognition models;
 4. old items returning after time passes;

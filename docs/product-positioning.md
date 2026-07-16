@@ -12,66 +12,43 @@ Organize learning from anywhere, generate the next useful questions, and keep le
 
 ## Product thesis
 
-Learning is already distributed across teachers, class, tutoring, paper, books, practice platforms, peers, and AI. A useful lightweight system should not force all activity into its own runtime.
+Learning is already distributed across teachers, class, tutoring, paper, books, practice platforms, peers, and AI. A useful lightweight system should coordinate those channels without forcing them into its own runtime.
 
 GitLearnOS therefore treats:
 
-- the repository as the learner-owned control plane;
+- one repository as the learner-owned control plane;
+- root files as shared policy and cross-subject coordination;
+- `subjects/<subject>/` as focused subject state;
 - the current AI as a replaceable operator;
 - human teachers and external platforms as first-class channels;
 - organization and question generation as core capabilities;
 - live AI tutoring as one optional route.
 
-It preserves two goal tracks—school and self-study—that share knowledge state while using different deadlines, formats, and success criteria. Within either track, the need may be remediation, exam preparation, exploration, advanced study, project work, research, or practical skill. GitLearnOS adapts the output and evidence contract rather than creating a separate platform for every case.
+School and self-study share learner-level preferences while preserving different goals, deadlines, methods, and evidence. The same system adapts to remediation, exams, exploration, advanced study, projects, research, and practical skills.
 
 ## Three core capabilities
 
 | Capability | Product promise |
 |---|---|
-| organize | capture, classify, connect, deduplicate, reconcile, and surface the next action |
+| organize | capture, classify, route by subject, connect, deduplicate, reconcile, and surface the next action |
 | question | generate grounded diagnostic, practice, variation, transfer, review, and help-seeking questions |
 | automate | execute safe writeback and scheduling with transparent receipts, idempotence, and undo |
 
 Explanation, search, scoring, spaced repetition, and learner modeling support these capabilities.
 
-## Benchmark and baseline
-
-### Capability benchmark: HKU DeepTutor
-
-[DeepTutor](https://github.com/HKUDS/DeepTutor) is the capability benchmark because its public design connects source grounding, evolving learner memory, personalized question generation, and a feedback loop.
-
-GitLearnOS asks:
-
-```text
-What is the smallest portable control layer that preserves these learning-critical capabilities
-while allowing learning to happen outside the AI runtime?
-```
-
-It does not reproduce DeepTutor's full application, multi-agent orchestration, RAG engines, database, provider layer, or product surfaces.
-
-### Practical baseline: the original zhongkao repository
-
-The original learning repository remains the implementation baseline for file discipline, review habits, mistake-to-model workflows, and real daily use.
-
-```text
-DeepTutor → capability direction
-original zhongkao system → practical discipline
-GitLearnOS → learner-owned, cross-channel, portable control layer
-```
-
-## Lightweight mapping
+## Lightweight implementation
 
 | Learning need | GitLearnOS implementation |
 |---|---|
-| cross-channel capture | inbox, source records, activity records |
-| shared context | one target repository plus one active main agent |
-| learner control | learning-policy, Markdown, Git history, undo |
-| organization | organize skill, canonical state ownership, dashboard |
+| cross-channel capture | subject inbox, source records, activity records |
+| focused context | one repository with `subjects/<subject>/` folders |
+| learner control | root learning policy, Markdown, Git history, undo |
+| organization | automatic subject routing, canonical state ownership, dashboard |
 | personalized questions | question skill, reviews, handoff packs |
-| external teacher coordination | gap lifecycle, handoffs, feedback reconciliation |
+| teacher coordination | gap lifecycle, handoffs, feedback reconciliation |
 | mastery evidence | learner results, support level, delayed and transfer checks |
 | automation | immediate and on-handoff rules; optional real scheduler |
-| extensibility | portable router and focused SKILL.md files |
+| extensibility | one portable router and focused `SKILL.md` workflows |
 
 ## Why GitHub
 
@@ -79,17 +56,25 @@ GitHub provides stable paths, explicit ownership, version history, inspectable e
 
 The repository is passive state plus declarative policy. The active agent performs organization, question generation, tutoring when requested, and writeback. Scheduled background behavior is optional and runtime-dependent.
 
+## Why one repository with subject folders
+
+One repository keeps permission, backup, policy, and learner control simple. Subject folders reduce irrelevant context and prevent mathematics, languages, coding, and other learning state from becoming one undifferentiated pile.
+
+The agent infers the subject, asks only when a wrong write is plausible, and honors natural-language corrections. It creates the active subject and the first useful file—not an empty taxonomy.
+
+See [Subject Folder Model](subject-folder-model.md).
+
 ## Why one main agent
 
-Modern tool-capable runtimes such as ChatGPT Work can read connected state, reason across files, act, and verify within one workspace. GitLearnOS uses that as the standard: one capable main agent loads only the relevant skill.
+Modern tool-capable runtimes can read connected state, reason across files, act, and verify within one workspace. GitLearnOS uses that as the standard: one capable main agent loads only the relevant workflow.
 
-Mandatory multi-agent orchestration would add handoff cost and reduce user control without being necessary for the lightweight product.
+Mandatory multi-agent orchestration would add handoff cost and is unnecessary for the lightweight product.
 
 ## Appropriate users
 
 GitLearnOS fits a learner who:
 
-- already learns across more than one channel;
+- learns across teachers, school, self-study, paper, platforms, and AI;
 - wants AI to reduce organization and review overhead;
 - wants questions based on personal state rather than generic worksheets;
 - values readable, portable, self-owned records;
@@ -101,7 +86,7 @@ Minimum:
 
 ```text
 one capable main agent
-+ one private target repository
++ one private repository with one active subject folder
 + GitLearnOS rules
 + one learning goal or input
 ```
@@ -110,4 +95,4 @@ Optional connected files, web research, code execution, visualization, native me
 
 ## Promise
 
-Success is not repository size, number of generated documents, or time spent talking to AI. Success means the learner can report an event once, receive useful organization or questions, and trust that the resulting state is correctly updated, visible, portable, and reversible.
+Success is not repository size, number of generated documents, or time spent talking to AI. Success means the learner can report an event once, receive useful organization or questions, and trust that the resulting state is correctly routed, updated, visible, portable, and reversible.

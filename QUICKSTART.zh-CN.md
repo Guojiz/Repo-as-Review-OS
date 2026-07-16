@@ -6,18 +6,20 @@ GitLearnOS 最适合一个能够读取模板、操作私有目标仓库的主 Ag
 
 1. 创建或选择私有目标仓库；
 2. 将它连接给当前主 Agent；
-3. 告诉 Agent 一个学习目标和当前输入；
+3. 告诉 Agent 一个学习目标、学科和当前输入；
 4. 让 Agent 自动整理、需要时出题并写回。
 
 ```text
 把 https://github.com/Guojiz/Repo-as-Review-OS 作为 GitLearnOS 模板。
 目标仓库：<链接>
+学科：<学科>
 学习目标：<目标>
 
 读 START-HERE.zh-CN.md 与 AGENTS.zh-CN.md；支持 Skills 时使用
 skills/repo-as-review-os/SKILL.md。采用 safe-auto，保护已有内容，
 直接完成安全、可逆的整理、出题、同步和写回。不要默认进入 AI
-教学会话。完成后列出改动、证据、实际自动化与下一步。
+教学会话。共享政策留在仓库根目录，学科专属状态写入
+subjects/<subject>/。完成后列出改动、证据、实际自动化与下一步。
 ```
 
 Agent 能完成的操作不应要求用户手工创建目录、复制模板或更新 dashboard。
@@ -29,10 +31,10 @@ AGENTS.zh-CN.md
 learning-policy.md
 dashboard.md
 learner-profile.md
-goals/main-goal.md
+subjects/<subject>/goals/main-goal.md
 ```
 
-之后只在真实使用时创建 `sources/`、`knowledge-gaps/`、`models/`、`handoffs/`、`reviews/` 或 `sessions/`。
+只创建当前活跃学科文件夹；其中的 `sources/`、`knowledge-gaps/`、`models/`、`handoffs/`、`reviews/` 或 `sessions/` 只在首次真实使用时出现。
 
 ## 日常用法
 
@@ -85,6 +87,7 @@ Agent 应能回答并实际操作：
 
 - 当前目标、到期项目和等待外部反馈是什么；
 - 新输入应关联到哪里；
+- 这次事件属于哪个学科文件夹，以及为什么；
 - 为什么生成这些题而不是随机题；
 - 老师已解决的问题是否停止重复教学；
 - 修改了哪些文件；

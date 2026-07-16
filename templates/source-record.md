@@ -1,6 +1,7 @@
 # Source and External Feedback Record
 
 Status: `active` / `archived` / `needs-source`  
+Subject:  
 Channel: `teacher` / `class` / `tutoring` / `paper` / `book` / `platform` / `exam` / `peer` / `ai` / `other`  
 Availability: `full` / `excerpt` / `summary-only` / `local-only` / `missing` / `uncertain`  
 Evidence type: `reported` / `source-supported` / `demonstrated` / `not-assessed`  

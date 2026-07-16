@@ -1,6 +1,7 @@
 # 2026-07-03 诊断题组
 
 状态：`scored`  
+学科：`math`  
 目的：`diagnostic`  
 轨道：`mixed`  
 需求：`current-course + remediation`  

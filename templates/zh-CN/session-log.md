@@ -3,6 +3,7 @@
 > 老师、课堂、纸笔、平台和 AI 活动都可以使用。只保存可观察事件与状态变化，不保存隐藏推理或完整私人对话。
 
 日期：  
+学科：  
 渠道：`teacher` / `class` / `tutoring` / `paper` / `platform` / `ai` / `other`  
 轨道：`school` / `self-study` / `mixed`  
 需求：  

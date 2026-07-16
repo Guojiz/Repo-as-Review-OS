@@ -12,8 +12,8 @@ Turn one natural-language learning event into the smallest correct durable state
 ## Read
 
 1. `learning-policy.md` when present;
-2. `dashboard.md` and the active goal;
-3. candidate matching gaps, sources, models, handoffs, and reviews;
+2. root `dashboard.md` and the active subject entry;
+3. the goal and candidate gaps, sources, models, handoffs, and reviews under `subjects/<subject>/`;
 4. the input or authorized original.
 
 Do not scan unrelated subjects.
@@ -24,6 +24,7 @@ Record only what is needed:
 
 ```yaml
 occurred_at:
+subject:
 channel: teacher | class | tutoring | paper | book | platform | exam | peer | ai | other
 track: school | self-study | mixed
 need: current-course | remediation | exam | exploration | advance | project | research | skill
@@ -43,6 +44,7 @@ Use a concise activity record only when the event materially changes state. Do n
 
 ```text
 identify provenance
+→ infer or confirm subject
 → find existing state
 → deduplicate
 → link rather than copy
@@ -53,12 +55,14 @@ identify provenance
 
 Use:
 
-- `inbox/` for input that cannot yet be normalized;
-- `sources/` for provenance and feedback records;
-- `knowledge-gaps/` for problem lifecycle;
-- `models/` for durable reusable understanding;
-- `handoffs/` for external question and feedback packs;
-- `sessions/` for material cross-channel activity evidence.
+- `subjects/<subject>/inbox/` for input that cannot yet be normalized;
+- `subjects/<subject>/sources/` for provenance and feedback records;
+- `subjects/<subject>/knowledge-gaps/` for problem lifecycle;
+- `subjects/<subject>/models/` for durable reusable understanding;
+- `subjects/<subject>/handoffs/` for external question and feedback packs;
+- `subjects/<subject>/sessions/` for material cross-channel activity evidence.
+
+If an event spans subjects, choose one primary owner and link the secondary subject. Do not duplicate the same event. Ask only when ambiguity would change the canonical location.
 
 ## Reconcile school and self-study
 
@@ -109,6 +113,7 @@ Make repeated input idempotent by matching date, channel, source locator, linked
 
 ```text
 Organized:
+Subject path:
 Linked state:
 Resolution change:
 Questions generated: none / link

@@ -1,6 +1,7 @@
 # 主目标：几何模型识别
 
 状态：`active`  
+学科：`math`  
 轨道：`mixed`（校内几何目标 + 自主延迟巩固）  
 需求类型：`current-course + remediation`  
 时间范围：30 天
@@ -35,4 +36,4 @@
 - 模型：[相似三角形识别与对应](../models/geometry-similarity-model.md)
 - 缺口：[相似三角形对应关系](../knowledge-gaps/similarity-correspondence-gap.md)
 - 老师交接：[问题包](../handoffs/2026-07-04_similarity-teacher-pack.md)
-- 动态下一步只在 [dashboard](../dashboard.md) 维护。
+- 动态下一步只在 [dashboard](../../../dashboard.md) 维护。

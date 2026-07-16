@@ -2,7 +2,7 @@
 
 ![GitLearnOS overview](docs/assets/repo-as-review-os-map.svg)
 
-[中文](README.zh-CN.md)
+[中文](README.zh-CN.md) · [Website](https://gitlearnos.jizheng.chatgpt.site)
 
 **GitLearnOS is a learner-owned control layer: organize automatically, generate targeted questions, and keep durable state in sync.**
 
@@ -19,6 +19,26 @@ The repository retains the historical name `Repo-as-Review-OS`; the product conc
 | Automated execution and writeback | Apply safe state changes, schedule follow-up, retire obsolete tasks, and return an inspectable, reversible receipt |
 
 Explanation, search, and live AI tutoring are useful supporting capabilities, not prerequisites. A learner may work mainly with a human teacher and use GitLearnOS only to organize, generate questions, and maintain continuity.
+
+## One repository, subject folders
+
+The learner authorizes one GitHub repository. Shared policy and cross-subject planning stay at the root; each subject keeps its own working state under `subjects/<subject>/`.
+
+```text
+my-gitlearnos/
+├── AGENTS.md
+├── learning-policy.md
+├── dashboard.md
+├── learner-profile.md
+└── subjects/
+    ├── math/
+    ├── english/
+    └── coding/
+```
+
+The agent infers the subject from the current material, routes all subject-specific files into that folder, and asks only when ambiguity would cause a wrong write. A natural-language correction such as “this belongs to physics” overrides routing. It never creates empty folder trees just to look complete.
+
+See [Subject Folder Model](docs/subject-folder-model.md).
 
 ## Support school and self-study together
 
@@ -55,6 +75,7 @@ Send this:
 ```text
 Use https://github.com/Guojiz/Repo-as-Review-OS as the GitLearnOS template.
 My private learning repository is: <target repository>
+The subject for this first input is: <subject>
 My learning goal is: <goal>
 
 Read START-HERE.md and AGENTS.md first. Use
@@ -63,6 +84,8 @@ permissions, preserve existing files, and use safe-auto: perform safe,
 reversible organization, question generation, state sync, and writeback;
 ask only for high-impact actions. Do not force the request into an AI
 tutoring session. Never write my personal state into the template repository.
+Keep shared policy at the repository root and route subject-specific state to
+subjects/<subject>/. Create only files needed by the current learning event.
 Finish with a concise receipt of changes, evidence, and the next action.
 ```
 
@@ -145,7 +168,7 @@ Rules and state stay in the repository while the executing agent may change. Aut
 ```text
 any learning channel
 + one replaceable main AI agent
-+ one learner-owned target repository
++ one learner-owned repository with subject folders
 + GitLearnOS rules and skills
 = a portable personal learning control layer
 ```
@@ -158,20 +181,15 @@ GitLearnOS is not:
 - a drive for every textbook and private original;
 - a note system that creates files for its own sake.
 
-## Benchmarked against DeepTutor, without copying the platform
+## Design standard
 
-[HKU DeepTutor](https://github.com/HKUDS/DeepTutor) remains the capability benchmark: grounded sources, evolving learner state, personalized question generation, and feedback loops.
+GitLearnOS is evaluated by whether it preserves the learning-critical loop with the smallest practical system:
 
-GitLearnOS differentiates through cross-channel use and learner ownership:
-
-| DeepTutor direction | Lightweight GitLearnOS equivalent |
-|---|---|
-| shared personalization | one learner-owned target repository |
-| grounded sources | traceable records for teachers, class, books, platforms, and AI |
-| dynamic learner memory | evidence-linked profile, gaps, and activity records |
-| personalized questions | question skill, review records, and teacher question packs |
-| closed tutoring | optional AI session plus external-feedback sync and result writeback |
-| inspectable state | Markdown, Git history, and learner policy |
+1. outputs remain grounded in accessible sources;
+2. learner state evolves from evidence rather than claims;
+3. current gaps drive targeted questions;
+4. teacher feedback and learner results change future actions;
+5. every automation is inspectable, reversible, and controlled by the learner.
 
 It does not reproduce a full runtime, frontend, RAG stack, multi-agent system, database, or knowledge platform. The original `zhongkao` learning repository remains the practical implementation baseline.
 
@@ -185,18 +203,16 @@ my-gitlearnos/
 ├── learning-policy.md
 ├── dashboard.md
 ├── learner-profile.md
-├── goals/
-├── inbox/
-├── sources/
-├── models/
-├── knowledge-gaps/
-├── handoffs/
-├── reviews/
-├── sessions/
+├── subjects/
+│   └── math/
+│       ├── goals/
+│       ├── sources/
+│       ├── knowledge-gaps/
+│       └── reviews/
 └── archive/
 ```
 
-Git does not preserve empty folders. Create only the state needed now; optional folders such as `handoffs/` appear on first use.
+Git does not preserve empty folders. Create only the active subject and the state needed now; optional folders such as `handoffs/`, `models/`, or `sessions/` appear on first use.
 
 ## Skills
 
@@ -232,4 +248,4 @@ One main agent is the standard runtime. These responsibilities do not require se
 
 ## License
 
-MIT License. See [LICENSE](LICENSE).
+Apache License 2.0. See [LICENSE](LICENSE).

@@ -3,6 +3,7 @@
 > Use for teacher, class, paper, platform, and AI activity. Store observable events and state changes, not hidden reasoning or a full private transcript.
 
 Date:  
+Subject:  
 Channel: `teacher` / `class` / `tutoring` / `paper` / `platform` / `ai` / `other`  
 Track: `school` / `self-study` / `mixed`  
 Need:  

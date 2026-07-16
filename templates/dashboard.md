@@ -7,6 +7,12 @@ Updated by:
 Repository state: `active` / `paused` / `needs-input`  
 Automation policy: [link to learning-policy.md]
 
+## Subject overview
+
+| Subject | Track | Current priority | Due or waiting | Next action | Subject path |
+|---|---|---|---|---|---|
+|  | school / self-study / mixed |  |  |  | `subjects/<subject>/` |
+
 ## Active goal
 
 - Goal: [link]
@@ -61,9 +67,9 @@ Automation policy: [link to learning-policy.md]
 ## On-handoff checks
 
 1. read `learning-policy.md`;
-2. normalize safe `inbox/` input;
-3. check due questions;
-4. check waiting external feedback;
+2. identify the active subject and inspect its `inbox/` only when needed;
+3. check due questions in linked subject folders;
+4. check waiting external feedback in linked subject folders;
 5. retire obsolete next actions for resolved work;
 6. read only linked files needed now.
 

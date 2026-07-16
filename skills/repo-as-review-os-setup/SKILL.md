@@ -26,19 +26,19 @@ AGENTS.md or AGENTS.zh-CN.md
 learning-policy.md
 dashboard.md
 learner-profile.md
-goals/main-goal.md
+subjects/<subject>/goals/main-goal.md
 ```
 
-Then create real state under only the required folders:
+Then create real state under only the required subject folders:
 
 ```text
-inbox/
-sources/
-models/
-knowledge-gaps/
-handoffs/
-reviews/
-sessions/
+subjects/<subject>/inbox/
+subjects/<subject>/sources/
+subjects/<subject>/models/
+subjects/<subject>/knowledge-gaps/
+subjects/<subject>/handoffs/
+subjects/<subject>/reviews/
+subjects/<subject>/sessions/
 archive/
 ```
 
@@ -46,7 +46,7 @@ Do not add empty scaffolding.
 
 ## Setup order
 
-1. capture the first goal or input;
+1. capture the first goal or input and infer or confirm its subject;
 2. establish `learning-policy.md` with `safe-auto` unless the learner requests preview/manual;
 3. create minimal profile and dashboard with one next action;
 4. organize the first real input or gap;
@@ -57,15 +57,17 @@ Do not add empty scaffolding.
 ## Migration
 
 - inventory before moving;
-- map existing notes to goals, sources, models, gaps, or archive;
+- map existing notes to `subjects/<subject>/` goals, sources, models, gaps, or archive;
 - preserve paths that support learner habits or links;
 - ask before broad moves or overwrites;
-- migrate one active learning path first.
+- migrate one active learning path first;
+- route new state immediately, but move old single-subject paths gradually when link safety matters.
 
 ## Output
 
 ```text
 Target:
+Subject path:
 Capabilities:
 Policy:
 Changed files:

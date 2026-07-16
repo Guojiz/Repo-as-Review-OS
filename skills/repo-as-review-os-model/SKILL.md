@@ -18,6 +18,8 @@ A useful model answers:
 
 ## Workflow
 
+Resolve the subject first and write the model under `subjects/<subject>/models/`. Link across subjects only when genuinely reusable; keep one canonical owner.
+
 ```text
 grounded source or observed event
 → identify repeated structure
@@ -40,6 +42,7 @@ Do not create a permanent model from one ambiguous or incomplete event unless it
 
 ```text
 Model created or refined:
+Subject path:
 Grounding source:
 Linked gap:
 Transfer check:

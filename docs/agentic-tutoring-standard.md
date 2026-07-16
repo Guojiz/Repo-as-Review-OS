@@ -1,12 +1,12 @@
 # GitLearnOS Evaluation Standard
 
-GitLearnOS is capability-benchmarked against HKU DeepTutor while remaining a learner-owned, cross-channel control layer for one external main agent.
+GitLearnOS is evaluated as a learner-owned, cross-channel control layer for one external main agent.
 
 The standard is not feature parity. It is whether the toolkit organizes real learning, generates useful questions, automates durable state, and preserves user control at low deployment cost.
 
 ## Capability direction
 
-Use DeepTutor's public design to ask:
+Ask:
 
 1. Are learning outputs grounded in accessible sources?
 2. Does learner state evolve from interaction evidence?
@@ -20,6 +20,7 @@ Add GitLearnOS-specific questions:
 7. Can learning happen with teachers, paper, platforms, and AI without platform lock-in?
 8. Can one main agent coordinate the workflow?
 9. Can the learner inspect, override, and undo automation?
+10. Can subject-specific state be routed into `subjects/<subject>/` without making the learner manage paths?
 
 ## Acceptance tests
 
@@ -41,6 +42,12 @@ Fail if the learner must name paths or repeat the event in several forms.
 New notes, mistakes, feedback, and platform results are classified, linked, deduplicated, and turned into a clear next action.
 
 Fail if organization means copying everything into new files or producing a pretty summary disconnected from state.
+
+### B1. Subject routing
+
+The agent infers the subject, writes subject-specific state under `subjects/<subject>/`, keeps shared policy at the root, and asks only when an incorrect write is plausible. A learner correction immediately overrides the inference.
+
+Fail if the learner must choose folders, every subject becomes a separate repository, or empty subject trees are created in advance.
 
 ### B2. School and self-study balance
 
@@ -147,4 +154,4 @@ The main demo should meet Level 3 before the public alpha claims Level 4.
 
 ## Non-goals
 
-GitLearnOS does not claim feature, benchmark-score, or runtime parity with DeepTutor. It succeeds when the learner can report a real event once, receive useful organization or questions, and retain control of the resulting durable state.
+GitLearnOS does not claim to be a full tutoring platform. It succeeds when the learner can report a real event once, receive useful organization or questions, and retain control of the resulting durable state.

@@ -1,6 +1,7 @@
 # 2026-07-15 相似对应关系延迟复习
 
 状态：`planned`  
+学科：`math`  
 目的：`review + transfer`  
 轨道：`mixed`  
 需求：`current-course + remediation`  

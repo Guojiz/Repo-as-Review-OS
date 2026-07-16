@@ -1,6 +1,6 @@
 # Demo：老师、Agent 与个人仓库协同学习
 
-这是完全虚构的中考数学示例，不包含真实学校、老师或个人信息。它证明学习不需要发生在 AI 平台内部：真人老师负责一次关键答疑，一个主 Agent 自动整理、出题、同步和维护状态。
+这是完全虚构的中考数学示例，不包含真实学校、老师或个人信息。它使用一个学习仓库中的 `subjects/math/` 文件夹，证明学习不需要发生在 AI 平台内部：真人老师负责一次关键答疑，一个主 Agent 自动整理、出题、同步和维护状态。
 
 ## 主目标
 
@@ -26,7 +26,7 @@
 明天补习，把这个问题整理成一份我可以问老师的材料。
 ```
 
-Agent 自动生成 [老师问题包](handoffs/2026-07-04_similarity-teacher-pack.md)，写清题目定位、学习者尝试、具体卡点和希望老师检查的内容，并将缺口改为等待外部反馈。
+Agent 自动生成 [老师问题包](subjects/math/handoffs/2026-07-04_similarity-teacher-pack.md)，写清题目定位、学习者尝试、具体卡点和希望老师检查的内容，并将缺口改为等待外部反馈。
 
 ### 2026-07-05：同步老师反馈
 
@@ -39,33 +39,33 @@ Agent 自动生成 [老师问题包](handoffs/2026-07-04_similarity-teacher-pack
 
 Agent 自动：
 
-- 记录 [老师反馈来源](sources/2026-07-05_teacher-feedback.md)；
+- 记录 [老师反馈来源](subjects/math/sources/2026-07-05_teacher-feedback.md)；
 - 将问题标记为 `resolved-externally`；
 - 更新相似三角形模型；
 - 清除过时的“让 AI 重讲”任务；
-- 生成三天后的三道 [迁移验证题](reviews/2026-07-08_teacher-feedback-check.md)；
-- 写入一份最小 [跨渠道活动记录](sessions/2026-07-05_teacher-feedback-sync.md)；
+- 生成三天后的三道 [迁移验证题](subjects/math/reviews/2026-07-08_teacher-feedback-check.md)；
+- 写入一份最小 [跨渠道活动记录](subjects/math/sessions/2026-07-05_teacher-feedback-sync.md)；
 - 不把“已由老师解决”冒充成独立掌握。
 
 ### 2026-07-08：独立验证
 
 学习者独立完成三道不同形式的题并解释对应顺序，获得 3 分。知识缺口进入 `verified`，掌握状态为 `demonstrated`，但还没有因为一次成功就标为长期稳定。
 
-Agent 随后自动生成 [2026-07-15 延迟复习](reviews/2026-07-15_delayed-review.md)。当前环境没有真实调度器，因此诚实记录为“下次 Agent 接手时检查”，不声称已经建立后台提醒。
+Agent 随后自动生成 [2026-07-15 延迟复习](subjects/math/reviews/2026-07-15_delayed-review.md)。当前环境没有真实调度器，因此诚实记录为“下次 Agent 接手时检查”，不声称已经建立后台提醒。
 
 ## 文件
 
 ```text
 learning-policy.md
 dashboard.md
-goals/main-goal.md
 learner-profile.md
-sources/
-models/geometry-similarity-model.md
-knowledge-gaps/similarity-correspondence-gap.md
-handoffs/2026-07-04_similarity-teacher-pack.md
-reviews/
-sessions/
+subjects/math/goals/main-goal.md
+subjects/math/sources/
+subjects/math/models/geometry-similarity-model.md
+subjects/math/knowledge-gaps/similarity-correspondence-gap.md
+subjects/math/handoffs/2026-07-04_similarity-teacher-pack.md
+subjects/math/reviews/
+subjects/math/sessions/
 ```
 
 ## 这个 demo 证明什么

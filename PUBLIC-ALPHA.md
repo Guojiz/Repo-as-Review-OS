@@ -7,6 +7,7 @@ The repository keeps the historical name `Repo-as-Review-OS`.
 ## Ready to test
 
 - direct one-main-agent paths for ChatGPT Work and repository agents;
+- one repository with automatic routing to `subjects/<subject>/` folders;
 - cross-channel input from teachers, class, paper, platforms, and AI;
 - automatic organization, linking, deduplication, and external-feedback reconciliation;
 - personalized diagnostic, variation, transfer, review, and teacher-handoff questions;
@@ -22,12 +23,14 @@ The repository keeps the historical name `Repo-as-Review-OS`.
 ```text
 Use https://github.com/Guojiz/Repo-as-Review-OS as the GitLearnOS template.
 Target repository: <private repository>
+Subject: <subject>
 Learning goal or current input: <content>
 
 Read START-HERE.md and AGENTS.md and use safe-auto. Organize automatically,
 generate targeted questions when useful, and actually write safe changes.
 Do not default to an AI tutoring session. Report changes, evidence, actual
-automation, next action, and undo capability.
+automation, next action, and undo capability. Keep shared policy at the root
+and subject-specific state under subjects/<subject>/.
 ```
 
 ## Still experimental
@@ -39,9 +42,9 @@ automation, next action, and undo capability.
 - optional adapters for real schedulers;
 - longer-term portability evidence.
 
-## Benchmark boundary
+## Product boundary
 
-HKU DeepTutor is the capability benchmark. GitLearnOS does not claim feature or runtime parity; it emphasizes cross-channel use, learner ownership, and low deployment cost. The original `zhongkao` repository is the practical baseline.
+GitLearnOS emphasizes cross-channel use, learner ownership, and low deployment cost. It does not claim to be a full tutoring platform. The original `zhongkao` repository remains the practical baseline.
 
 ## Safety
 

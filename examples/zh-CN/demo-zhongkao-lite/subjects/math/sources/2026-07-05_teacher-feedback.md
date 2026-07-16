@@ -1,6 +1,7 @@
 # 来源记录：补习老师关于对应顺序的反馈
 
 状态：`active`  
+学科：`math`  
 渠道：`teacher`  
 可用性：`excerpt`  
 证据类型：`source-supported`  
@@ -44,5 +45,5 @@
 - 更新 [知识缺口](../knowledge-gaps/similarity-correspondence-gap.md)；
 - 更新 [相似模型](../models/geometry-similarity-model.md)；
 - 生成 [迁移验证题](../reviews/2026-07-08_teacher-feedback-check.md)；
-- 刷新 [dashboard](../dashboard.md)；
+- 刷新 [dashboard](../../../dashboard.md)；
 - 不安排 AI 重复讲解。

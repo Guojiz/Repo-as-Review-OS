@@ -16,6 +16,8 @@ description: Record and reconcile learning provenance from teachers, class, tuto
 
 ## Workflow
 
+Resolve the subject first and store the record under `subjects/<subject>/sources/`. If one source spans subjects, choose a primary owner and link it from the secondary subject rather than duplicating the source record.
+
 ```text
 input arrives
 → identify channel, provenance, access, and privacy
@@ -40,6 +42,7 @@ For teacher feedback, record whether it is the learner's recollection, a note ex
 
 ```text
 Channel:
+Subject path:
 Source state:
 Linked items:
 Changed files:

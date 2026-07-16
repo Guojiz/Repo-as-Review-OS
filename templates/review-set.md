@@ -1,6 +1,7 @@
 # Targeted Question Set and Review
 
 Status: `draft` / `planned` / `attempted` / `scored` / `blocked` / `cancelled`  
+Subject:  
 Purpose: `diagnostic` / `practice` / `variation` / `transfer` / `review` / `exam`  
 Track: `school` / `self-study` / `mixed`  
 Need: `current-course` / `remediation` / `exam` / `exploration` / `advance` / `project` / `research` / `skill`  

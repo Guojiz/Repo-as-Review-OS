@@ -1,6 +1,7 @@
 # 知识缺口
 
 处理状态：`candidate` / `active` / `routed` / `awaiting-feedback` / `resolved-externally` / `resolved-with-ai` / `needs-verification` / `verified` / `reopened` / `archived`  
+学科：  
 掌握状态：`untested` / `developing` / `demonstrated` / `stable` / `uncertain`  
 缺口类型：`prerequisite` / `recognition` / `method` / `execution` / `explanation` / `transfer` / `uncertain`  
 可信度：`low` / `medium` / `high`  
