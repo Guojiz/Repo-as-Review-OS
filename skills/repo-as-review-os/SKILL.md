@@ -1,97 +1,100 @@
 ---
 name: repo-as-review-os
-description: Route GitLearnOS work to the smallest relevant setup, learning-session, source, model, review, or maintenance workflow. Use for a lightweight GitHub-native tutoring repository operated by one capable AI agent.
+description: Route GitLearnOS work for a learner-owned repository to the smallest organization, question-generation, setup, tutoring-session, source, model, review, or maintenance workflow. Use when one capable main agent should organize learning from any channel, generate targeted questions, and automate safe writeback.
 ---
 
 # GitLearnOS Router
 
 ## Product boundary
 
-GitLearnOS is a portable tutoring toolkit for an existing AI runtime. It is capability-benchmarked against DeepTutor's source-grounded, personalized, closed learning loop, but it does not reproduce DeepTutor's application, RAG stack, multi-agent runtime, or UI.
+Treat GitLearnOS as a learner-owned control layer:
 
-Use one main agent and one target learning repository by default.
+```text
+organize automatically
+→ generate targeted questions
+→ write back under learner policy
+```
 
-## Start with minimum context
+Learning may happen with teachers, class, paper, platforms, peers, or AI. Use one capable main agent. Do not require a multi-agent runtime, app, database, RAG stack, or background service.
 
-Before routing:
+## Read minimum context
 
-1. distinguish the template repository from the target learning repository;
-2. detect actual read/write/source permissions;
-3. read target `dashboard.md`, active goal, and `learner-profile.md`;
-4. load only the files needed for the current task.
+1. distinguish template and target repositories;
+2. detect actual read, write, source, and scheduling capability;
+3. read target `learning-policy.md` when present;
+4. read `dashboard.md`, active goal, and only files related to the current input;
+5. load one primary subskill, plus one helper only when necessary.
 
-Do not read every GitLearnOS document or every subskill before acting.
-
-## Route one task
+## Route by intent
 
 ### Setup or migration
 
-Use `skills/repo-as-review-os-setup/SKILL.md` when the target learning state is missing or must be migrated.
+Use `skills/repo-as-review-os-setup/SKILL.md` when the target state is missing or must be migrated.
 
-### Live learning
+### Organize and reconcile
 
-Use `skills/repo-as-review-os-session/SKILL.md` when the learner asks to learn, continue, practise, understand, be quizzed, or decide what to study now.
+Use `skills/repo-as-review-os-organize/SKILL.md` for notes, mistakes, teacher feedback, practice-platform results, duplicate input, external resolution, or cross-channel state sync.
 
-This is the default tutoring path. Do not route a real learning request to file maintenance alone.
+This is the default path for “record,” “organize,” “my teacher said,” “I solved this elsewhere,” and “update my repository.”
+
+### Generate questions
+
+Use `skills/repo-as-review-os-question/SKILL.md` for diagnostic, practice, variation, transfer, review, or help-seeking questions.
+
+This includes both questions for the learner and a context-rich pack to take to a teacher, peer, or another agent.
+
+### Live AI tutoring
+
+Use `skills/repo-as-review-os-session/SKILL.md` only when the learner wants AI explanation, guided practice, or testing now.
+
+Do not route note organization, external feedback, or teacher preparation into tutoring by default.
 
 ### Source handling
 
-Use `skills/repo-as-review-os-source/SKILL.md` when material, a reference, a mistake, or an incomplete recollection must be recorded honestly.
+Use `skills/repo-as-review-os-source/SKILL.md` when provenance, access, completeness, privacy, or an unavailable original needs careful handling.
 
 ### Reusable model
 
-Use `skills/repo-as-review-os-model/SKILL.md` when an event should become a recognition cue, method, concept, comparison dimension, or transferable pattern.
+Use `skills/repo-as-review-os-model/SKILL.md` when durable understanding should become a cue, method, concept, comparison, or transferable pattern.
 
-### Review
+### Review and scheduling
 
-Use `skills/repo-as-review-os-review/SKILL.md` when due items need prompts, scoring, scheduling, or review-result writeback.
+Use `skills/repo-as-review-os-review/SKILL.md` when an existing question set needs administration, scoring, interval calculation, or result writeback.
 
-### Maintenance
+### Maintenance and undo
 
-Use `skills/repo-as-review-os-maintenance/SKILL.md` for stale dashboards, broken links, unsupported mastery claims, missing evidence, duplication, or handoff repair.
+Use `skills/repo-as-review-os-maintenance/SKILL.md` for stale dashboards, broken links, unsupported claims, duplication, policy drift, handoff repair, or safe undo.
 
-## Tutoring kernel
+## Shared automation contract
 
-All learning-facing paths preserve this loop:
+Read `learning-policy.md`. Default to `safe-auto` if absent:
 
-```text
-goal
-→ grounded source or prior model
-→ learner attempt
-→ diagnosed gap
-→ adaptive support
-→ independent or transfer check
-→ evidence score 0–3
-→ selective writeback
-→ next review/action
-```
+- directly perform safe, low-risk, reversible organization, question, link, scheduling, and dashboard updates;
+- report all writes afterward;
+- ask before deletion, broad restructuring, publication, sensitive identity, policy changes, secrets, or license changes;
+- honor one-event overrides such as “record only,” “no review,” “do not store,” and “preview first”;
+- make repeated input idempotent;
+- make one learning event one atomic, reversible update when supported.
 
-## Universal rules
+Distinguish immediate automation, on-handoff checks, and real scheduled background automation. Never claim the third without creating it through an actual scheduler.
 
-1. Never write personal state into the template repository.
-2. Never treat a summary as a full source.
-3. Never infer mastery from exposure, completion, or self-report alone.
-4. Separate observed evidence from hypotheses about the learner.
-5. Write back only state with future learning value.
-6. Keep the dashboard as a linked view, not a duplicate source of truth.
-7. Use current tools directly when authorized; manual copy-and-paste is a fallback.
-8. Ask before destructive, visibility, privacy, secret, or license changes.
-9. Report every changed file and the learning evidence, if any.
+## Shared evidence contract
 
-## Output
+- external resolution and independent mastery are separate;
+- label evidence `reported`, `source-supported`, or `demonstrated`;
+- do not infer score 3 from exposure, completion, or self-report;
+- generated questions remain planned until attempted;
+- preserve contradictory evidence and adjust confidence.
+
+## Receipt
 
 ```text
-Mode used:
-
+Mode:
+Organized:
+Questions:
 Changed files:
-- path: reason
-
-Learning evidence:
-- score and observation, or not assessed
-
-Still missing:
-- source, attempt, or decision
-
+Evidence:
+Actual automation:
 Next action:
-- one concrete step
+Undo:
 ```

@@ -1,102 +1,113 @@
 # Product Positioning
 
-GitLearnOS is a lightweight tutoring toolkit that attaches to an existing capable AI agent and uses a GitHub repository as durable, inspectable learning state.
+GitLearnOS is a lightweight, learner-owned learning control layer for one capable, replaceable AI agent and one GitHub repository.
 
-It is not a standalone tutoring platform, a ChatGPT-only project, an Obsidian workflow, or a multi-agent framework.
+It automatically organizes learning from any channel, generates targeted questions, and writes durable state back under learner-defined policy. It is not a standalone tutoring platform, a ChatGPT-only project, an Obsidian workflow, or a multi-agent framework.
 
 ## One sentence
 
 ```text
-Use one capable AI agent to run an evidence-based learning loop over one learner-owned GitHub repository.
+Organize learning from anywhere, generate the next useful questions, and keep learner-owned state in sync.
 ```
+
+## Product thesis
+
+Learning is already distributed across teachers, class, tutoring, paper, books, practice platforms, peers, and AI. A useful lightweight system should not force all activity into its own runtime.
+
+GitLearnOS therefore treats:
+
+- the repository as the learner-owned control plane;
+- the current AI as a replaceable operator;
+- human teachers and external platforms as first-class channels;
+- organization and question generation as core capabilities;
+- live AI tutoring as one optional route.
+
+It preserves two goal tracks—school and self-study—that share knowledge state while using different deadlines, formats, and success criteria. Within either track, the need may be remediation, exam preparation, exploration, advanced study, project work, research, or practical skill. GitLearnOS adapts the output and evidence contract rather than creating a separate platform for every case.
+
+## Three core capabilities
+
+| Capability | Product promise |
+|---|---|
+| organize | capture, classify, connect, deduplicate, reconcile, and surface the next action |
+| question | generate grounded diagnostic, practice, variation, transfer, review, and help-seeking questions |
+| automate | execute safe writeback and scheduling with transparent receipts, idempotence, and undo |
+
+Explanation, search, scoring, spaced repetition, and learner modeling support these capabilities.
 
 ## Benchmark and baseline
 
-GitLearnOS uses two different comparisons for two different questions.
-
 ### Capability benchmark: HKU DeepTutor
 
-[DeepTutor](https://github.com/HKUDS/DeepTutor) is the capability benchmark because its published design connects source grounding, evolving learner memory, personalized question generation, and a closed tutoring loop in one shared runtime.
+[DeepTutor](https://github.com/HKUDS/DeepTutor) is the capability benchmark because its public design connects source grounding, evolving learner memory, personalized question generation, and a feedback loop.
 
 GitLearnOS asks:
 
 ```text
-What is the smallest portable toolkit that preserves the learning-critical behavior
-when a strong external AI runtime already exists?
+What is the smallest portable control layer that preserves these learning-critical capabilities
+while allowing learning to happen outside the AI runtime?
 ```
 
-It does not attempt to reproduce DeepTutor's:
-
-- full application runtime or web interface;
-- multi-agent orchestration and Partners;
-- RAG engines, document parsers, or knowledge center;
-- database, server, authentication, or model-provider layer;
-- Co-Writer, Book, visualization, IM, or platform surfaces.
+It does not reproduce DeepTutor's full application, multi-agent orchestration, RAG engines, database, provider layer, or product surfaces.
 
 ### Practical baseline: the original zhongkao repository
 
-The original learning repository is the implementation baseline. It provides evidence about which file discipline, review habits, mistake-to-model workflow, and AI handoff patterns were useful in practice.
-
-In short:
+The original learning repository remains the implementation baseline for file discipline, review habits, mistake-to-model workflows, and real daily use.
 
 ```text
-DeepTutor → where tutoring capability should go
-original zhongkao system → what proved useful in real repository practice
-GitLearnOS → the portable, low-deployment-cost intersection
+DeepTutor → capability direction
+original zhongkao system → practical discipline
+GitLearnOS → learner-owned, cross-channel, portable control layer
 ```
 
-## Lightweight kernel
+## Lightweight mapping
 
 | Learning need | GitLearnOS implementation |
 |---|---|
-| shared context | one target repository plus one active agent session |
-| source grounding | `sources/` with access and completeness states |
-| learner personalization | `learner-profile.md` plus evidence-linked gaps |
-| tutoring loop | attempt → diagnosis → support → transfer → score |
-| practice generation | due gaps/models → focused review set |
-| memory auditability | Markdown evidence links and Git history |
-| extensibility | portable router and focused `SKILL.md` files |
-| handoff | dashboard, canonical state files, and concise session evidence |
+| cross-channel capture | inbox, source records, activity records |
+| shared context | one target repository plus one active main agent |
+| learner control | learning-policy, Markdown, Git history, undo |
+| organization | organize skill, canonical state ownership, dashboard |
+| personalized questions | question skill, reviews, handoff packs |
+| external teacher coordination | gap lifecycle, handoffs, feedback reconciliation |
+| mastery evidence | learner results, support level, delayed and transfer checks |
+| automation | immediate and on-handoff rules; optional real scheduler |
+| extensibility | portable router and focused SKILL.md files |
 
 ## Why GitHub
 
-GitHub supplies what a chat transcript alone does not:
+GitHub provides stable paths, explicit ownership, version history, inspectable evidence, portability across AI runtimes, and recovery from agent mistakes.
 
-- stable file paths;
-- explicit state ownership;
-- writeback and version history;
-- inspectable evidence;
-- portability across AI runtimes;
-- learner control over the data.
+The repository is passive state plus declarative policy. The active agent performs organization, question generation, tutoring when requested, and writeback. Scheduled background behavior is optional and runtime-dependent.
 
-GitHub is passive state. The active AI runtime still has to read the relevant files, teach, observe the learner, and write back selectively.
+## Why one main agent
 
-## Why a toolkit instead of another app
+Modern tool-capable runtimes such as ChatGPT Work can read connected state, reason across files, act, and verify within one workspace. GitLearnOS uses that as the standard: one capable main agent loads only the relevant skill.
 
-A full platform is appropriate when a user wants a bundled UI, managed retrieval, built-in memory, background services, and a fixed runtime.
+Mandatory multi-agent orchestration would add handoff cost and reduce user control without being necessary for the lightweight product.
 
-GitLearnOS is appropriate when the user already has a capable AI environment—such as ChatGPT Work or another tool-using agent—and wants:
+## Appropriate users
 
-- no separate server;
-- no required database;
-- no required API keys for the basic loop;
-- one main agent rather than mandatory multi-agent orchestration;
-- readable files and direct ownership;
-- a method that survives switching AI products.
+GitLearnOS fits a learner who:
+
+- already learns across more than one channel;
+- wants AI to reduce organization and review overhead;
+- wants questions based on personal state rather than generic worksheets;
+- values readable, portable, self-owned records;
+- does not want to deploy another platform.
 
 ## Product boundary
 
-Minimum runtime:
+Minimum:
 
 ```text
-one capable AI agent
-+ one private target GitHub repository
-+ GitLearnOS agent rules
-+ one learning goal
+one capable main agent
++ one private target repository
++ GitLearnOS rules
++ one learning goal or input
 ```
 
-Optional capabilities such as connected files, web research, code execution, visualization, native memory, automations, or local sources can improve the experience. The toolkit must remain useful without making those capabilities mandatory.
+Optional connected files, web research, code execution, visualization, native memory, and real schedulers may improve execution. None is required for the basic control layer.
 
 ## Promise
 
-GitLearnOS should make a learner's state easier to inspect, continue, and improve. Its success is measured by learning evidence and reliable handoff—not by repository size or the number of generated documents.
+Success is not repository size, number of generated documents, or time spent talking to AI. Success means the learner can report an event once, receive useful organization or questions, and trust that the resulting state is correctly updated, visible, portable, and reversible.

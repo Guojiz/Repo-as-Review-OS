@@ -27,6 +27,11 @@ original repository
 
 The reusable toolkit adds explicit:
 
+- cross-channel capture from teachers, class, paper, platforms, and AI;
+- automatic organization, linking, and deduplication;
+- personalized learner questions and external help-seeking packs;
+- learner-owned automation policy and transparent writeback receipts;
+- separate question-resolution and mastery states;
 - learner-profile evidence links;
 - knowledge-gap types and confidence;
 - learner attempt before mastery claims;
@@ -34,24 +39,23 @@ The reusable toolkit adds explicit:
 - 0–3 observable evidence scoring;
 - transfer and delayed-recall checks;
 - deterministic next-review dates;
-- selective session writeback.
+- selective event writeback.
 
 ## What GitHub alone cannot supply
 
-GitHub does not teach, inspect unavailable local files, run an AI model, or guarantee background execution. The active AI runtime supplies those capabilities when authorized.
+GitHub does not organize by itself, generate questions, inspect unavailable originals, run an AI model, or guarantee background execution. One active main AI runtime supplies those capabilities when authorized.
 
 ## Parity test
 
 The template passes practical parity only when a learner can complete this loop without building a new platform:
 
 ```text
-material or mistake
-→ grounded record
-→ learner attempt
-→ reusable model and gap
-→ later review
-→ observed result
-→ updated next action
+material, mistake, or external feedback
+→ automatic organization and linking
+→ targeted learner questions or a teacher handoff
+→ feedback or learner result
+→ reusable state
+→ automatic writeback and next action
 ```
 
 Folder creation alone is not parity.

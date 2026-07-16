@@ -1,50 +1,87 @@
 # GitLearnOS Evaluation Standard
 
-GitLearnOS is capability-benchmarked against HKU DeepTutor while remaining a lightweight toolkit for an external AI agent.
+GitLearnOS is capability-benchmarked against HKU DeepTutor while remaining a learner-owned, cross-channel control layer for one external main agent.
 
-The standard is not feature parity. The standard is whether the toolkit preserves the learning-critical loop with far lower deployment cost and fully inspectable learner-owned state.
+The standard is not feature parity. It is whether the toolkit organizes real learning, generates useful questions, automates durable state, and preserves user control at low deployment cost.
 
-## Two evaluation layers
+## Capability direction
 
-### Capability direction: DeepTutor
+Use DeepTutor's public design to ask:
 
-Use DeepTutor's public design as the reference for these questions:
-
-1. Is learning grounded in accessible sources?
+1. Are learning outputs grounded in accessible sources?
 2. Does learner state evolve from interaction evidence?
-3. Can weak points drive adapted questions?
-4. Does the system close the loop from question to learner result to future behavior?
-5. Is personalization inspectable rather than hidden?
-6. Can tools and skills extend the learning workflow?
+3. Do weak points drive adapted questions?
+4. Do results affect future behavior?
+5. Is personalization inspectable?
+6. Can skills extend the workflow?
 
-### Practical implementation: original repository behavior
+Add GitLearnOS-specific questions:
 
-Use the original `zhongkao` repository system to check:
-
-1. Are files understandable to the learner and another agent?
-2. Are mistakes turned into reusable recognition models?
-3. Do old items return for review?
-4. Does the dashboard lead to a concrete next action?
-5. Are sources, summaries, and incomplete records kept distinct?
-6. Can the system remain light enough to use every day?
+7. Can learning happen with teachers, paper, platforms, and AI without platform lock-in?
+8. Can one main agent coordinate the workflow?
+9. Can the learner inspect, override, and undo automation?
 
 ## Acceptance tests
 
-### A. Five-minute handoff
+### A. One-message capture
 
-A new capable agent should read at most the entry rules and active target state, then answer:
+Given “my teacher resolved this; here are my notes,” the agent:
 
-- What is the active goal?
-- What is due now?
-- Which gap has evidence?
-- What source or model supports the task?
-- What should happen next?
+- finds the existing goal and gap;
+- records provenance and privacy correctly;
+- updates resolution without inventing mastery;
+- retires obsolete AI teaching;
+- schedules verification only under learner policy;
+- reports changed files.
 
-Fail if the agent must read the entire template repository before acting.
+Fail if the learner must name paths or repeat the event in several forms.
 
-### B. Real learning session
+### B. Automatic organization
 
-The system must be able to run:
+New notes, mistakes, feedback, and platform results are classified, linked, deduplicated, and turned into a clear next action.
+
+Fail if organization means copying everything into new files or producing a pretty summary disconnected from state.
+
+### B2. School and self-study balance
+
+School deadlines, teacher constraints, and assessment formats remain visible without erasing learner-chosen self-study goals. Shared concepts reuse one model and evidence history. Policy can reserve self-study time and change priorities during exam weeks.
+
+Fail if the repository becomes only a homework queue or, conversely, ignores explicit school obligations.
+
+### B3. Diverse learning needs
+
+The same toolkit supports course follow-up, remediation, exams, advanced study, open exploration, projects, research, and practical skills by changing task form and evidence contract.
+
+Fail if every goal becomes a worksheet, every result uses 0–3 regardless of fit, or open-ended work is forced into a knowledge-gap lifecycle.
+
+### C. Targeted question generation
+
+Every generated set links to a goal, source/model, gap, and purpose. It records difficulty, time, answer or rubric, and novelty. The format fits the subject.
+
+Fail if questions are generic, random, duplicate a demonstration, reveal answers prematurely, or cannot be scored.
+
+### D. Teacher handoff
+
+The system creates a usable external question pack containing the problem locator, learner attempt, exact blocker, and requested feedback. Returned feedback reconciles into source, gap, model, and dashboard state without forced AI reteaching.
+
+### E. Automation contract
+
+- `safe-auto` performs low-risk, reversible work without repeated confirmation;
+- `preview` and `manual` behave as declared;
+- repeated input is idempotent;
+- each completed write has a receipt;
+- prompts and dates are not misreported as scheduled automation;
+- one event is atomic and undoable when the runtime supports it.
+
+### F. User control
+
+The learner can say “record only,” “do not store this,” “no review,” “always link teacher feedback,” or “undo the last update” and the agent obeys within safe technical limits.
+
+Destructive, visibility, privacy, secret, and policy-changing actions require approval.
+
+### G. Optional AI tutoring
+
+When requested, the system can run:
 
 ```text
 observable objective
@@ -56,75 +93,58 @@ observable objective
 → writeback
 ```
 
-Fail if it only generates notes, folders, or generic worksheets.
+Fail if AI tutoring is forced for organization or externally resolved work.
 
-### C. Evidence integrity
+### H. Evidence integrity
 
-- A generated review is not marked complete before an attempt.
-- Exposure or self-report alone does not produce `stable` or score 3.
-- A learner-profile claim links to observable evidence.
-- Contradictory evidence changes confidence instead of being silently discarded.
+- resolution and mastery are separate;
+- reported, source-supported, and demonstrated evidence remain distinct;
+- generated questions are not marked complete before an attempt;
+- exposure or self-report alone does not create score 3;
+- contradictory evidence adjusts confidence rather than erasing history.
 
-### D. Source integrity
+### I. Source integrity
 
-- Full, excerpt, summary-only, local-only, missing, and uncertain sources remain distinct.
-- The agent never invents unavailable source content.
-- Public repositories contain only safe, cleaned examples.
+Full, excerpt, summary-only, local-only, missing, and uncertain sources remain distinct. The agent never invents unavailable source content. Public examples contain only safe fictional data.
 
-### E. Adaptive practice
+### J. Lightweight deployment
 
-Practice is selected from active goals, due items, recent evidence, and knowledge gaps. Difficulty or support changes after observed performance.
+The basic control layer must not require a custom server, database, vector store, GitHub Actions, API key beyond the chosen AI runtime, desktop agent, multi-agent orchestration, or copying the entire template.
 
-Fail if practice is random, copied from a generic template, or disconnected from learner state.
+## Automation levels
 
-### F. Deterministic review
+| Level | Required behavior |
+|---|---|
+| immediate | process the current event and actually write state |
+| on handoff | inspect due work, inbox, and waiting feedback when an agent resumes |
+| background | use only a real scheduler supplied by the current runtime |
 
-An observed score maps to a reproducible next-review interval. A later agent can see why the date was chosen.
+Public alpha must reliably implement the first two. Background automation is an optional adapter.
 
-### G. Selective writeback
-
-The repository records durable changes, not every chat turn. Session logs contain observable evidence and outcomes, not hidden reasoning or full private transcripts.
-
-### H. Runtime honesty
-
-The agent detects actual permissions and capabilities. It does not claim GitHub writeback, local-file reading, connected-source use, memory updates, or automation completion without performing them.
-
-### I. Lightweight deployment
-
-The basic loop must not require:
-
-- a custom server;
-- a database or vector store;
-- GitHub Actions;
-- API keys beyond the user's chosen AI environment;
-- a desktop runtime;
-- multi-agent orchestration;
-- copying the whole template into the target repository.
-
-### J. User control
-
-The learner can inspect, edit, export, or move all canonical learning state. Destructive, visibility, privacy, secret, and license changes require explicit approval.
-
-## Target quality levels
+## Product quality levels
 
 ### Level 0 — archive
 
-Files exist, but goals, evidence, and next actions are unclear.
+Files exist, but goals, provenance, and next actions are unclear.
 
 ### Level 1 — organized state
 
-Goals, sources, models, gaps, and dashboard are connected.
+Inputs connect to goals, sources, gaps, and dashboard.
 
-### Level 2 — closed learning loop
+### Level 2 — question engine
 
-The system elicits attempts, diagnoses gaps, scores observed evidence, schedules review, and updates state.
+The system generates purposeful, grounded, scoreable questions from learner state.
 
-### Level 3 — adaptive continuity
+### Level 3 — automated cross-channel continuity
 
-Repeated evidence changes explanation style, difficulty, practice selection, and learner profile while remaining traceable.
+Teacher feedback, paper notes, platform results, AI work, and review outcomes reconcile automatically with transparent writeback and user control.
 
-Public alpha should reliably meet Level 2 in its main demo before claiming Level 3.
+### Level 4 — adaptive continuity
+
+Repeated evidence changes question selection, difficulty, support, scheduling, and learner models while remaining traceable.
+
+The main demo should meet Level 3 before the public alpha claims Level 4.
 
 ## Non-goals
 
-GitLearnOS does not claim feature parity, benchmark-score parity, or runtime parity with DeepTutor. It is successful when it captures the learning-critical structure in a portable toolkit and an existing capable agent can execute it reliably.
+GitLearnOS does not claim feature, benchmark-score, or runtime parity with DeepTutor. It succeeds when the learner can report a real event once, receive useful organization or questions, and retain control of the resulting durable state.

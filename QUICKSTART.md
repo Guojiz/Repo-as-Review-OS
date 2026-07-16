@@ -1,91 +1,102 @@
 # Quickstart
 
-GitLearnOS is easiest when the current AI workspace can read the template and write to one private target repository.
+GitLearnOS works best with one main agent that can read the template and operate a private target repository. ChatGPT Work is one standard tool-capable path, but learning does not need to happen inside ChatGPT.
 
-## Fast path: tool-capable workspace
+## Tool-capable path
 
-Use this path for ChatGPT Work, a repository-aware coding agent, or another environment with connected GitHub write access.
-
-1. Create or choose one private target repository.
-2. Connect only that repository when possible.
-3. Give the agent the target link and one learning goal.
-4. Let the agent inspect, bootstrap, and run the first session.
-
-Prompt:
+1. Create or choose a private target repository.
+2. Connect it to the current main agent.
+3. Give one learning goal and the current input.
+4. Let the agent organize, generate questions when useful, and write back.
 
 ```text
 Use https://github.com/Guojiz/Repo-as-Review-OS as the GitLearnOS template.
-Target repository: <URL>
+Target repository: <link>
 Learning goal: <goal>
 
-Read START-HERE.md and AGENTS.md first. Verify your actual permissions, inspect existing target files, preserve them, and create only the minimum missing state. If skills are supported, use skills/repo-as-review-os/SKILL.md. Then run one short learning session and write back only evidence-based changes. Report every changed file.
+Read START-HERE.md and AGENTS.md; use skills/repo-as-review-os/SKILL.md
+when supported. Use safe-auto, preserve existing content, and directly perform
+safe, reversible organization, question generation, synchronization, and
+writeback. Do not default to an AI tutoring session. Report changes, evidence,
+actual automation, and the next action.
 ```
 
-The agent should not ask you to manually recreate files it can safely create itself.
+Do not ask the learner to create folders, copy templates, or update the dashboard when the agent can do it.
 
-## Fallback: chat or read-only environment
-
-If the AI cannot write to GitHub:
-
-1. paste the active goal, dashboard, learner profile, and only the relevant source/model/gap excerpt;
-2. complete one focused task;
-3. ask the AI for a writeback block;
-4. add that block to the target repository manually or in a later tool-capable session.
-
-The AI must state that writeback is pending; it must not claim the repository was updated.
-
-## Minimum first deployment
-
-Do not copy the entire public template into a personal repository. Start with:
+## Minimum first state
 
 ```text
 AGENTS.md
+learning-policy.md
 dashboard.md
 learner-profile.md
 goals/main-goal.md
 ```
 
-Then create the first relevant source, knowledge-gap, model, review, or session file. Add folders only when they contain real state; Git does not preserve empty directories.
+Create `sources/`, `knowledge-gaps/`, `models/`, `handoffs/`, `reviews/`, or `sessions/` only on first real use.
 
-## First useful commands
+## Everyday requests
 
 ```text
-Check my dashboard and run the most important 20-minute learning session.
+Organize these class notes, connect them to my recent gaps, and give me three variations.
 ```
 
 ```text
-Record this material honestly, then test what I can recall before explaining it.
+Prepare my unresolved items as a question pack for tomorrow's tutor.
 ```
 
 ```text
-Turn this mistake into a knowledge gap and reusable model, then schedule one transfer check.
+My teacher resolved the second item. Reconcile this feedback and my notes; do not reteach it.
 ```
 
 ```text
-Score this review from observable evidence and update the next review date.
+Import this practice-platform result, update my weak points, and test me this weekend.
 ```
 
-## Successful setup test
+```text
+Record this only. Do not generate questions or schedule review.
+```
 
-The agent should be able to answer, with file links:
+```text
+Undo the last learning update.
+```
 
-- What is the active goal?
-- What is due now?
-- Which knowledge gaps have evidence?
-- What did the learner actually demonstrate?
-- What should happen next?
-- Which files changed?
+The learner describes the event and intent, not repository paths.
 
-If it can only list folders but cannot run and record a learning session, setup is incomplete.
+## Automation modes
+
+- `safe-auto`: perform safe actions and report afterward; recommended;
+- `preview`: show changes before writing;
+- `manual`: return pending writeback only.
+
+Immediate and on-handoff automation are core. Scheduled background reminders exist only when the current runtime provides a real scheduler.
+
+## Read-only fallback
+
+Without write access, the agent should:
+
+1. read the minimum state supplied;
+2. organize or generate questions;
+3. return exact pending writeback;
+4. state clearly that the repository has not changed.
+
+## Success check
+
+The agent can answer and act on:
+
+- the active goal, due work, and waiting external feedback;
+- where new input belongs;
+- why these questions were generated instead of random ones;
+- whether externally resolved issues stopped redundant teaching;
+- every changed file;
+- which automation actually ran;
+- the next action and undo path.
+
+If it only lists folders or makes the learner maintain files manually, setup is incomplete.
 
 ## Privacy
 
-- Use a private target repository for real study records.
-- Keep full copyrighted books, teacher files, raw screenshots, credentials, and sensitive personal material out of public GitHub.
-- Use connected or local originals only when authorized, and write back the minimum durable learning state.
-
-## Examples
-
-- [Chinese exam-math demo](examples/zh-CN/demo-zhongkao-lite/)
-- [English research-reading demo](examples/en/demo-research-reading-lite/)
-- [English SAT demo](examples/en/demo-sat-lite/)
+- Keep real state in a private target repository by default.
+- Keep teacher originals, full copyrighted material, and private screenshots in authorized sources.
+- Write back only necessary summaries, locators, and derived state.
+- Do not retain full conversations or unnecessary identity by default.

@@ -22,8 +22,8 @@ When a workspace can read sources and write to the target repository:
 
 1. load the router or canonical agent rules;
 2. inspect only active target state;
-3. run the learning task directly;
-4. write evidence-backed changes to canonical files;
+3. organize input or generate targeted questions directly;
+4. write policy-authorized state changes to canonical files;
 5. suggest a native-memory update only when a stable preference or durable pattern changed.
 
 Do not make native memory the only copy of learner state. Do not make the user manually copy files the authorized runtime can update.
@@ -37,6 +37,8 @@ skills/repo-as-review-os/SKILL.md
 ```
 
 Then load one focused subskill. Skills store behavior, not changing personal state.
+
+Use one main agent. Loading different skills does not imply separate agents.
 
 ## Repository-instruction path
 

@@ -1,84 +1,76 @@
 ---
 name: repo-as-review-os-setup
-description: Create or migrate the minimum viable GitLearnOS state in a target repository while preserving existing files, adapting to the current tool-capable runtime, and preparing the first evidence-based learning session.
+description: Create or migrate the minimum learner-owned GitLearnOS state while preserving existing files, configuring automation and privacy policy, and preparing the first useful organization, question-generation, or learning action for one main agent.
 ---
 
 # GitLearnOS Setup
 
-## First rule
+## Boundary
 
-Treat `Guojiz/Repo-as-Review-OS` as the template and the user's chosen repository as the target. Never place personal learning data in the template.
+Treat `Guojiz/Repo-as-Review-OS` as the template and the learner's repository as the target. Never place personal state in the template.
 
 ## Capability-first setup
 
-1. identify the target repository;
-2. test actual read and write access;
-3. inspect existing target files;
-4. ask only for information that tools cannot obtain;
-5. preserve existing work and avoid broad replacement.
+1. identify the target;
+2. test actual read, write, source, and scheduling capability;
+3. inspect existing files;
+4. ask only for information tools cannot obtain;
+5. preserve existing work.
 
-In a tool-capable workspace, perform safe setup directly. In a read-only chat, produce a writeback package and label it pending.
+## Minimum state
 
-## Minimum viable state
-
-Create only what the first goal needs:
+Create only what the first goal or input needs:
 
 ```text
 AGENTS.md or AGENTS.zh-CN.md
+learning-policy.md
 dashboard.md
 learner-profile.md
 goals/main-goal.md
 ```
 
-Then create the first relevant file under one or more of:
+Then create real state under only the required folders:
 
 ```text
 inbox/
 sources/
 models/
 knowledge-gaps/
+handoffs/
 reviews/
 sessions/
 archive/
 ```
 
-Git does not preserve empty directories. Do not add `.gitkeep` files merely to make the tree look complete unless the user wants a fixed scaffold.
+Do not add empty scaffolding.
 
 ## Setup order
 
-1. Confirm or infer the first learning goal from the user's request.
-2. Create the goal and a minimal learner profile; mark unknown fields as unknown.
-3. Create a dashboard with one next action, not a fictional task list.
-4. Copy only the relevant templates or link back to the template repository.
-5. Add the canonical agent rules.
-6. Run or prepare the first short learning session.
-7. Verify that the agent can answer: active goal, due item, evidence, next action, changed files.
+1. capture the first goal or input;
+2. establish `learning-policy.md` with `safe-auto` unless the learner requests preview/manual;
+3. create minimal profile and dashboard with one next action;
+4. organize the first real input or gap;
+5. generate questions only when useful or requested;
+6. run an AI session only when the learner requests it;
+7. verify that the agent can identify state, act, write, report, and honor undo boundaries.
 
-Do not copy all public docs, demos, platform guides, or every skill into a personal target repository by default.
+## Migration
 
-## Existing repository migration
-
-- inventory before moving files;
+- inventory before moving;
 - map existing notes to goals, sources, models, gaps, or archive;
-- preserve original paths when links or user habits depend on them;
-- ask before large moves, merges, or overwrites;
-- migrate one active learning path first, then expand.
+- preserve paths that support learner habits or links;
+- ask before broad moves or overwrites;
+- migrate one active learning path first.
 
 ## Output
 
 ```text
-Target repository:
-Capability verified:
-
+Target:
+Capabilities:
+Policy:
 Changed files:
-- path: reason
-
-First learning path:
-- goal → source/gap/model/review
-
+First organized path:
+Questions prepared:
 Still missing:
-- only real blockers
-
 Next action:
-- first session
 ```

@@ -1,37 +1,27 @@
 ---
 name: repo-as-review-os-review
-description: Generate, administer, score, and schedule GitLearnOS reviews from active goals, evidence-backed knowledge gaps, models, and due dates; use observable 0–3 evidence rather than completion or self-report.
+description: Administer, score, schedule, and write back GitLearnOS reviews from existing targeted question sets. Use when the learner answers planned questions, a due review must run, results need observable 0–3 scoring, or the next interval and linked learner state must be updated.
 ---
 
 # GitLearnOS Review
 
-## Two distinct operations
+## Boundary
 
-### Generate
+Use `repo-as-review-os-question` to generate a new targeted set. Use this skill to administer, score, and update the result.
 
-Create a small review set from:
+## Administer
 
-```text
-active goal
-+ due items
-+ evidence-backed gaps
-+ relevant models and sources
-+ recent results
-```
-
-Prefer 1–5 focused prompts. Include recall, application, or transfer only as the goal requires. Do not reveal answers before the learner attempts the task.
-
-### Administer and score
+Read the linked goal, source/model, gap, question purpose, answer key or rubric, and recent results. Do not reveal answers before the learner attempts unless requested.
 
 Record:
 
 - learner response summary;
-- independence/hint level;
+- independent portion;
 - correctness and error type;
+- support level;
 - transfer result when required;
-- score 0–3;
-- next review date;
-- files that must change.
+- observable score;
+- next review date or no-review decision.
 
 | Score | Evidence | Default interval |
 |---|---|---|
@@ -44,22 +34,25 @@ After two consecutive score-3 reviews, double the prior interval up to 30 days.
 
 ## Writeback
 
-After scoring:
+Under policy:
 
 1. update the review record;
-2. update the linked gap status and evidence;
-3. update model review fields if present;
-4. update the dashboard;
-5. update learner profile only for repeated or durable patterns.
+2. update mastery evidence in the linked gap without overwriting resolution provenance;
+3. update model review fields when present;
+4. refresh dashboard;
+5. update learner profile only for repeated durable patterns;
+6. create real scheduled automation only when a scheduler is available.
 
-A generated but unattempted review must remain `planned`, not `completed` or `mastered`.
+A generated but unattempted set remains `planned`. A teacher's resolution may change gap resolution but does not create a score.
 
 ## Output
 
 ```text
-Review status: planned / attempted / scored
-Evidence score: 0 / 1 / 2 / 3 / not assessed
+Review status:
+Evidence type: demonstrated / not-assessed
+Score:
+Support:
 Files updated:
-Next review:
+Next review or check-on-handoff:
 Next action:
 ```

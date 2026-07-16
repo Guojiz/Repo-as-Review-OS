@@ -20,6 +20,14 @@ Only include preferences that are explicit or repeatedly observed.
 |---|---|---|---|
 |  | learner-stated / observed |  |  |
 
+## Learning channels and support
+
+Record only durable information that changes coordination or question generation; avoid unnecessary identity.
+
+| Channel | Use | Availability or limit | How the agent should help |
+|---|---|---|---|
+| teacher / class / tutoring / platform / paper / AI |  |  |  |
+
 ## Demonstrated strengths
 
 | Strength | Observable evidence | Evidence link | Last demonstrated | Confidence |
@@ -40,11 +48,13 @@ Hypotheses guide the next check; they are not facts.
 |---|---|---|---|
 |  |  |  | open / supported / rejected |
 
-## Explanation and practice adaptation
+## Organization, question, and explanation adaptation
 
 - Preferred language:
 - Helpful representation:
 - Current support level:
+- Useful question type and count:
+- Preferred external-handoff format:
 - What to avoid:
 - Evidence for these choices:
 

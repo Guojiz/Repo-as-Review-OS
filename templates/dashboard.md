@@ -1,52 +1,70 @@
 # Learning Dashboard
 
-> This is a linked view, not the source of truth. Refresh it from canonical files.
+> This is a linked current view, not a second source of truth. Refresh it from canonical files.
 
 Updated:  
 Updated by:  
-Repository state: `active` / `paused` / `needs-input`
+Repository state: `active` / `paused` / `needs-input`  
+Automation policy: [link to learning-policy.md]
 
 ## Active goal
 
 - Goal: [link]
-- Deadline or horizon:
+- Track: `school` / `self-study` / `mixed`
+- Horizon:
 - Current success criterion:
 
 ## Do now
 
 - One next action:
+- Channel: `self` / `teacher` / `class` / `platform` / `ai` / `other`
 - Why now:
 - Estimated time:
-- Required source or tool:
+- Required material or tool:
 
-## Due reviews
+## Inputs to organize
 
-| Item | Evidence score | Due date | Priority | Link |
-|---|---:|---|---|---|
-|  |  |  |  |  |
+| Input | Channel | Status | Connect to | Link |
+|---|---|---|---|---|
+|  |  | unprocessed / needs-input |  |  |
+
+## Waiting for external feedback
+
+| Question | Destination | Sent or planned | State | Handoff pack |
+|---|---|---|---|---|
+|  | teacher / tutor / peer / other |  | routed / awaiting-feedback |  |
+
+## Due questions and reviews
+
+| Item | Track | Purpose | Recent evidence | Due | Priority | Link |
+|---|---|---|---|---|---|---|
+|  | school / self-study / mixed | diagnostic / practice / transfer / review |  |  |  |  |
+
+## Protected self-study continuity
+
+- Reserved time this week:
+- Current self-study next action:
+- If displaced by school work, resume:
 
 ## Active knowledge gaps
 
-| Gap | Type | Confidence | Last evidence | Next check | Link |
+| Gap | Resolution state | Mastery state | Recent evidence | Next action | Link |
 |---|---|---|---|---|---|
-|  |  |  |  |  |  |
+|  | active / awaiting-feedback / resolved-externally | untested / developing / demonstrated |  |  |  |
 
-## Waiting for input
+## Recent learning events
 
-- Missing source, learner response, or decision:
+| Date | Channel | What happened | Evidence type | State change | Link |
+|---|---|---|---|---|---|
+|  |  |  | reported / source-supported / demonstrated |  |  |
 
-## Recent evidence
+## On-handoff checks
 
-| Date | Observation | Score | Evidence link | State changed? |
-|---|---|---:|---|---|
-|  |  |  |  |  |
+1. read `learning-policy.md`;
+2. normalize safe `inbox/` input;
+3. check due questions;
+4. check waiting external feedback;
+5. retire obsolete next actions for resolved work;
+6. read only linked files needed now.
 
-## Handoff
-
-Read only:
-
-1. the active goal linked above;
-2. `learner-profile.md` sections relevant to the next action;
-3. the linked gap/review/model/source files.
-
-Next action after handoff:
+One next action after handoff:

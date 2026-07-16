@@ -1,93 +1,93 @@
 # Runtime Self-Adaptation
 
-GitLearnOS specifies a learning protocol; the current AI environment supplies the tools.
+GitLearnOS stores portable policy and state; the current main AI supplies execution.
 
 ## Detect capabilities, not brand names
 
-Before acting, determine:
-
 ```text
-Can I read the template repository?
-Can I read and write the target repository?
-Can I access the learner's authorized source files?
-Can I load file-based skills or repository instructions?
-Do I have native memory or project instructions?
-Can I schedule a real automation, or only draft a prompt?
-Which step genuinely requires the user?
+template read?
+target read/write?
+authorized source access?
+file-based skills or repository rules?
+atomic write or version-history access?
+native memory?
+real scheduler?
+steps the learner truly must perform?
 ```
 
-Test safe capabilities through available tools. Product names alone do not prove access.
+Test safe capabilities. A product name does not prove permission.
 
-## Work-mode fast path
+## Tool-capable Work path
 
-Use this path when the current workspace can inspect files, call connected apps or repository tools, and write to the target repository—for example, a properly connected ChatGPT Work session.
-
-```text
-verify target and permissions
-→ inspect existing target state
-→ read entry rules + active files only
-→ perform the learning task directly
-→ write back durable evidence
-→ verify changed files
-→ report the result
-```
-
-Do not ask the user to paste repository content, recreate files, or perform a connector action that the current authorized runtime can complete itself.
-
-Connected files or apps can serve as active source surfaces. GitHub remains the durable structured learning state; do not dump every original into it.
-
-## Repository-aware agent path
-
-For Codex, Claude Code, Cursor, or another agent working in a local checkout:
-
-- obey repository-level instructions;
-- inspect the working tree before edits;
-- preserve unrelated changes;
-- use the same learning-session and evidence rules;
-- keep local originals outside public GitHub;
-- report verification and changed files.
-
-These agents can run GitLearnOS directly when they are the user's chosen active agent; they are not limited to deploying another runtime.
-
-## Native chat path
-
-If the AI has memory or project context but no target write access:
-
-- use the current chat as the active teaching surface;
-- read connected sources only when actually available;
-- produce a concise writeback block;
-- mark repository updates as pending;
-- keep stable preferences separate from fast-changing learner state.
-
-## Single-context fallback
-
-Request only:
-
-- active goal;
-- relevant learner-profile excerpt;
-- one source/model/gap/review excerpt;
-- the current task.
-
-Complete one focused learning loop and return the exact state update for later writeback. Never pretend to have persistent memory or repository access.
-
-## Automation honesty
-
-Distinguish:
+For a connected workspace such as ChatGPT Work:
 
 ```text
-real scheduled automation
-→ created through an available scheduling system
-
-prompt or plan
-→ instructions only; nothing will run automatically
+verify target and policy
+→ inspect current state
+→ classify the learner event
+→ organize or generate targeted questions
+→ write safe changes directly
+→ verify and return a receipt
 ```
 
-Record automation output only after it exists. The basic GitLearnOS loop must work without background automation.
+Do not ask the learner to paste repository content, recreate files, or perform operations the authorized workspace can complete.
 
-## Permission boundary
+## Repository-agent path
 
-Use ordinary target-repository writes required by the user's task when authorized. Ask before deletion, broad overwrite, visibility change, private publication, secrets, or license changes.
+For Codex, Claude Code, Cursor, or a similar checkout-aware agent:
+
+- obey repository instructions;
+- inspect existing changes;
+- preserve unrelated work;
+- use the same organization, question, automation, and evidence rules;
+- keep private originals outside public GitHub;
+- report validation and changed files.
+
+Use one main agent. Repository tools, search, code execution, and visual tools are capabilities, not separate learning-state owners.
+
+## Read-only path
+
+Without write access:
+
+- process the current input or generate questions;
+- read only actually available sources;
+- return concise exact pending writeback;
+- mark the repository unchanged;
+- keep stable preferences separate from fast-changing state.
+
+## Three automation tiers
+
+### Immediate
+
+Actually organize, generate, and write during the current interaction.
+
+### On handoff
+
+Whenever an agent resumes, inspect:
+
+- unprocessed inbox items;
+- due questions;
+- waiting external feedback;
+- obsolete tasks after resolution;
+- one current next action.
+
+### Background
+
+Create only through an actual scheduler exposed by the runtime.
+
+```text
+date or instruction in a file ≠ scheduled automation
+real scheduler task with verified state = scheduled automation
+```
+
+The portable base guarantees immediate and on-handoff behavior. Background execution is optional.
+
+## Policy and safety
+
+Read `learning-policy.md`. Under `safe-auto`, ordinary low-risk reversible state changes proceed without repeated confirmation. Ask before deletion, broad overwrite, policy change, visibility change, private publication, sensitive identity, secrets, or license changes.
+
+Repeated input should be idempotent. Prefer one event per atomic update and report whether safe undo is available.
 
 ## Rule
 
-Adapt the execution mechanism, not the learning standard. Every runtime should preserve source honesty, learner attempts, evidence-based scoring, selective writeback, and clear next action.
+Adapt execution, not product guarantees. Every runtime should preserve cross-channel provenance, targeted question quality, evidence honesty, automatic writeback when authorized, and learner control.

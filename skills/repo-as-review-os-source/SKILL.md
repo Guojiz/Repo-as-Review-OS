@@ -1,59 +1,48 @@
 ---
 name: repo-as-review-os-source
-description: Turn learning material, references, mistakes, or incomplete recollections into traceable GitLearnOS source records without pretending that summaries or unavailable originals are complete sources.
+description: Record and reconcile learning provenance from teachers, class, tutoring, paper notes, books, practice platforms, exams, peers, or AI without overstating access or completeness. Use when source availability, privacy, attribution, external feedback, or an unavailable original affects organization or question generation.
 ---
 
 # GitLearnOS Source Handling
 
 ## Source states
 
-Use one:
-
-- `full`: the agent can inspect the complete authorized source;
-- `excerpt`: only a bounded excerpt is available;
-- `summary-only`: a summary exists but not the source;
-- `local-only`: the original exists outside current access;
-- `missing`: the source is referenced but unavailable;
-- `uncertain`: provenance or completeness is unclear.
+- `full`: complete authorized source inspected;
+- `excerpt`: bounded portion inspected;
+- `summary-only`: summary exists, original unavailable;
+- `local-only`: original remains outside current access;
+- `missing`: referenced but unavailable;
+- `uncertain`: provenance or completeness unclear.
 
 ## Workflow
 
 ```text
-material arrives
-→ identify provenance and access
-→ link it to a goal
-→ record what is actually available
-→ separate observation from interpretation
-→ choose one extraction target
-→ route to session or model only when justified
+input arrives
+→ identify channel, provenance, access, and privacy
+→ link goal and existing gap/handoff
+→ record only what was inspected or reported
+→ separate source fact, learner report, and interpretation
+→ choose organization, model extraction, or question generation
 ```
 
-## Required record fields
+For teacher feedback, record whether it is the learner's recollection, a note excerpt, or an inspectable original. Do not require the teacher's identity unless useful and authorized.
 
-- status and source type;
-- title/reference or stable locator;
-- goal link;
-- access/completeness state;
-- inspected portion;
-- known facts or learner event;
-- missing material;
-- permitted use and privacy boundary;
-- next learning action.
+## Integrity
 
-## Integrity rules
-
-- Never reconstruct unavailable wording, answer choices, figures, data, or citations.
-- Never relabel a summary as a full source.
-- A learner's memory of a problem is evidence of the learning event, not necessarily the original problem.
-- Keep private or copyrighted originals out of public repositories.
-- Store only the minimum excerpt needed for future learning.
+- never reconstruct unavailable wording, figures, answer choices, data, or citations;
+- never relabel a summary as a full source;
+- treat remembered content as evidence of a learning event, not necessarily the original;
+- keep private and copyrighted originals out of public repositories;
+- store only the minimum excerpt needed;
+- label general-knowledge questions when no source grounds them.
 
 ## Output
 
 ```text
+Channel:
 Source state:
+Linked items:
 Changed files:
 Missing material:
-Safe extraction target:
-Next action:
+Safe next operation:
 ```

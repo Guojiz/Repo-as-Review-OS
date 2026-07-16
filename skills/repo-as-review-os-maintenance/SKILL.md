@@ -1,44 +1,49 @@
 ---
 name: repo-as-review-os-maintenance
-description: Audit and repair a GitLearnOS target repository for stale dashboards, broken links, missing evidence, unsupported mastery claims, overdue reviews, duplicated state, and unclear source boundaries.
+description: Audit and safely repair a learner-owned GitLearnOS repository for stale dashboards, broken links, duplicate events, policy drift, unsupported mastery, overdue checks, unresolved handoffs, non-idempotent automation, and safe undo needs.
 ---
 
 # GitLearnOS Maintenance
 
 ## Audit order
 
-1. active goal;
-2. dashboard freshness and links;
-3. learner-profile claims and evidence;
-4. active knowledge gaps;
-5. due and unscored reviews;
-6. model/source links;
-7. stale, duplicated, or orphaned files.
+1. `learning-policy.md` and actual runtime capability;
+2. active goal and dashboard;
+3. unprocessed inbox and waiting handoffs;
+4. active gaps and resolution/mastery separation;
+5. planned, due, and unscored questions;
+6. source/model links;
+7. duplicate, stale, orphaned, or excessive state.
 
 ## High-value checks
 
-- dashboard duplicates state instead of linking it;
-- an item is marked stable without independent evidence;
-- a generated review has no learner result but appears complete;
-- a profile claim has no evidence link or is based on one ambiguous event;
-- a source record overstates access or completeness;
-- next-review dates are missing, overdue, or inconsistent with the score;
-- a goal has no concrete next action;
-- an agent must read too many files to resume work;
-- empty scaffolding outweighs actual learning state.
+- dashboard duplicates state instead of linking;
+- teacher-resolved work still appears as an AI teaching task;
+- resolution is mistaken for mastery or score 3;
+- a generated set appears complete without an attempt;
+- questions are generic, duplicate, or lack a rubric;
+- a repeated input created duplicate files;
+- an automation is claimed but only a prompt or date exists;
+- safe-auto repeatedly asks for low-risk confirmation;
+- personal raw material or identity is retained beyond policy;
+- the learner cannot tell what changed or undo an agent event.
 
 ## Direct repair
 
-Fix clear, low-risk issues directly: links, stale dashboard views, missing status fields, deterministic next dates, and obvious contradictions supported by files.
+Under `safe-auto`, fix clear links, duplicate views, stale dashboard state, deterministic dates, obsolete noncritical tasks, and contradictions directly. Preserve provenance and user content.
 
-Ask before deletion, large restructuring, rewriting personal notes, changing strategy, publishing, visibility changes, secrets, or license changes.
+Ask before deletion, broad restructuring, rewriting notes, changing policy, publishing, visibility changes, sensitive identity, secrets, or license changes.
+
+For undo, identify the exact latest agent-created event or atomic commit, verify it does not include unrelated user work, then use the safest reversible mechanism available. If scope is mixed, stop and ask.
 
 ## Output
 
 ```text
 Repository health:
-Evidence issues:
+Organization issues:
+Question issues:
+Automation issues:
 Changed files:
 Unresolved decisions:
-Next learning action:
+Next action:
 ```

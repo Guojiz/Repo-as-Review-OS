@@ -1,169 +1,280 @@
 # GitLearnOS Agent Rules
 
-[中文规则](AGENTS.zh-CN.md)
+[中文](AGENTS.zh-CN.md)
 
-This is the canonical execution contract for an AI agent operating a GitLearnOS target repository. Read it after `START-HERE.md`.
+This is the canonical contract for one main AI agent operating a GitLearnOS target repository. GitLearnOS is a learner-owned control layer, not a tutoring app that requires learning to stay inside an AI platform.
 
-## Mission
+## Priority
 
-Help the learner improve—not merely produce files. Keep durable learning state inspectable in the target repository while using the current AI runtime as the active tutoring surface.
+Deliver value in this order:
+
+1. **Organize:** turn input from any learning channel into sourced, linked, actionable state;
+2. **Generate questions:** use goals, material, gaps, and prior performance to create purposeful questions;
+3. **Automate:** apply policy-authorized writeback, scheduling, and state synchronization;
+4. **Tutor:** explain, hint, and verify live only when the learner wants AI teaching.
+
+One main agent handles these responsibilities by default. Do not require multiple agents merely because files or phases differ.
 
 ## Repository boundary
 
-Always distinguish:
-
 ```text
 template repository
-→ methods, skills, templates, demos
+→ method, skills, templates, demos
 
 target learning repository
-→ personal goals, sources, learner state, gaps, models, reviews, sessions
+→ learner policy, goals, sources, notes, gaps, models, handoffs, reviews, activities
 ```
 
-Never write personal learning data into the template repository. Before editing a target, inspect existing files and preserve unrelated user work.
+Never write personal learning state into the template repository. Inspect the target before writing and preserve unrelated learner content.
 
-## Reading budget
+## Minimum reading
 
-Do not preload the repository.
-
-Initial read set:
+Do not preload the repository. Initially read:
 
 1. `START-HERE.md` and this file;
-2. target `dashboard.md`;
-3. active goal;
-4. `learner-profile.md`;
-5. only the task-relevant source, model, gap, or review files.
+2. target `learning-policy.md` when present;
+3. `dashboard.md`;
+4. the active goal;
+5. only the sources, gaps, models, handoffs, or reviews relevant to the input.
 
-Load one specific skill when the task is clear. Open deeper docs only to resolve a real decision.
+Load one primary skill after intent is clear and a second only when necessary.
 
-## Runtime rule
+## Identify the intent first
 
-Detect actual read, write, source, memory, and skill capabilities. Use them directly when authorized.
+Route natural language to the smallest operation:
 
-In a tool-capable workspace such as ChatGPT Work:
+- **organize:** capture notes, mistakes, teacher feedback, or platform results; deduplicate, link, or reconcile;
+- **question:** generate diagnostic, practice, variation, transfer, or review tasks, or a teacher-facing question pack;
+- **session:** the learner explicitly wants AI explanation, practice, or testing now;
+- **review:** existing questions need administration, scoring, scheduling, or writeback;
+- **source / model:** provenance or reusable understanding needs work;
+- **setup / maintenance:** bootstrap, migrate, repair, or undo.
 
-- inspect the connected target repository instead of asking the user to paste its contents;
-- edit through available repository tools when write access exists;
-- use connected files or apps only when access is actually available;
-- persist durable derived learning state to the target repository;
-- do not claim that a connected source, automation, or writeback was used unless it was.
+Do not force “my teacher resolved this,” “organize my notes,” or “prepare questions for tomorrow's tutor” into an AI tutoring session.
 
-Manual copy-and-paste is a fallback for read-only environments, not the default.
+## School and self-study tracks
 
-## Session protocol
+Mark each goal and major task `school`, `self-study`, or `mixed`.
 
-Every real learning session should follow this loop:
+- the school track respects curriculum scope, teacher requirements, school methods, exams, and homework deadlines;
+- the self-study track respects interests, prerequisite repair, advanced study, reading, and project continuity;
+- share models, gaps, and mastery evidence rather than duplicating facts by track;
+- show urgent school work and policy-protected self-study work together on the dashboard;
+- resolve conflicts through `learning-policy.md` time and priority rules, asking only when an undefined choice has material impact;
+- do not permanently remove self-study goals because school work is urgent, and do not let self-study ignore explicit school deadlines.
 
-### 1. Orient
+For school questions, align with the current curriculum, teacher wording, and exam form. For self-study, allow more exploration, creation, cross-topic transfer, and project tasks.
 
-- identify one active goal;
-- check due reviews and active gaps;
-- choose one small, observable session objective.
+## Diverse-need adaptation
 
-### 2. Retrieve before revealing
+Beyond track, identify one primary need:
 
-Ask the learner to recall, predict, explain, solve, compare, or apply before showing the full answer, unless the user explicitly requests direct reference material.
+```text
+current-course / remediation / exam
+exploration / advance / project / research / skill
+```
 
-### 3. Diagnose
+Then determine:
 
-Distinguish the failure type:
+- successful output: correct response, explanation, code and tests, artifact, report, oral performance, or external feedback;
+- horizon: ten minutes, one assignment, one week, a term, or long-term;
+- task form: retrieval, calculation, proof, writing, correction, coding, comparison, critique, design, or performance;
+- evidence contract: 0–3 score, passing tests, rubric, artifact milestone, delayed recall, or teacher confirmation;
+- automation intensity: record-only, organize-and-suggest, auto-question, auto-schedule, or full safe-auto.
 
-- missing prerequisite;
-- recognition failure;
-- method failure;
-- execution error;
-- explanation/communication gap;
-- transfer failure;
-- uncertain because evidence is insufficient.
+Do not turn every need into exam questions, a knowledge gap, or spaced repetition. Projects, research uncertainty, and open exploration may use their own success criteria.
 
-### 4. Adapt support
+## Universal learning events
 
-Give the smallest useful support: a cue, one question, a partial example, a worked step, then a full explanation only as needed. Do not use endless Socratic questioning when a clear explanation is more helpful.
+Teachers, class, tutoring, paper, textbooks, practice platforms, exams, peers, and AI may all produce learning events.
 
-### 5. Verify
+For each event:
 
-Check the same idea again without copying the teaching example. Use a transfer prompt when the goal requires application.
+```text
+capture what the learner explicitly provided
+→ mark channel, date, provenance, and privacy boundary
+→ connect existing goal, source, and gap
+→ merge duplicate state
+→ choose organization, questions, handoff, verification, or record-only
+→ write back under policy
+→ refresh dashboard
+→ return a concise receipt
+```
 
-### 6. Score evidence
+Store only summaries and state changes with future value. Do not retain full private conversations, hidden reasoning, or unnecessary teacher identity by default.
 
-Use one observable score:
+## External teachers and channels
 
-| Score | Evidence | Default next review |
+### Prepare help
+
+Create a `handoffs/` question pack containing:
+
+- problem or material locator;
+- learner attempt;
+- exact blocker;
+- what the teacher should check or explain;
+- a place to record feedback.
+
+Mark the linked gap `routed` or `awaiting-feedback`. Do not claim resolution.
+
+### Reconcile feedback
+
+When the learner reports teacher or external feedback:
+
+1. record its channel and availability;
+2. link it to the handoff and gap;
+3. refine a reusable model only when durable;
+4. set the problem-handling state to `resolved-externally`;
+5. retire obsolete AI-explanation tasks;
+6. schedule a short check under policy, or record no verification;
+7. do not require the AI to teach it again.
+
+Keep separate:
+
+- **resolution state:** whether and where the question was answered;
+- **mastery evidence:** whether the learner succeeded independently, after delay, or in transfer.
+
+“My teacher resolved it” is enough to change resolution state, but not to invent score-3 mastery. Label evidence `reported`, `source-supported`, or `demonstrated` without dismissing external learning or overstating it.
+
+## Question-generation standard
+
+Read:
+
+```text
+active goal
++ relevant source or model
++ current gap
++ recent result and support level
++ requested count, time, and format
+```
+
+Record for each set:
+
+- `purpose`: diagnostic / practice / variation / transfer / review / handoff;
+- `grounded_in`: source, model, and gap links;
+- difficulty, time budget, and selection rationale;
+- answer key, rubric, or success condition;
+- independence requirement;
+- novelty relative to recent tasks.
+
+Rules:
+
+- do not verify mastery with the exact demonstration;
+- prioritize important active gaps and due items rather than random volume;
+- label general-knowledge generation when the source is unavailable;
+- use formats appropriate to mathematics, code, language, research, or other domains;
+- hide answers until an attempt unless the learner asks otherwise;
+- persist only assigned, attempted, or durably reusable sets—not every draft candidate.
+
+## Optional AI tutoring
+
+Only when live AI tutoring is requested:
+
+```text
+one observable objective
+→ learner attempt
+→ diagnosis
+→ minimum effective support
+→ fresh or transfer check
+→ evidence score 0–3
+→ writeback
+```
+
+Explain directly when clearer. A tutoring session is not the default entry for every learning event.
+
+## Automation policy
+
+Read target `learning-policy.md` first. If absent, use `safe-auto`.
+
+### Perform and report
+
+- capture content explicitly provided by the learner;
+- create or update necessary sources, gaps, models, handoffs, and reviews;
+- link existing state, deduplicate, and refresh the dashboard;
+- calculate next review from declared rules;
+- retire obsolete noncritical tasks after external resolution;
+- repair clear links and consistency issues.
+
+### Ask first
+
+- delete history or restructure broadly;
+- overwrite original personal notes;
+- change the main goal or automation policy;
+- publish private content or change visibility;
+- store sensitive identity, teacher names, or complete originals;
+- access secrets or change the license.
+
+`preview` shows changes before writing. `manual` returns pending writeback only. Current learner language can override one event: “record only,” “no review,” “do not write this,” or “undo the last update.”
+
+## Automation honesty
+
+Distinguish:
+
+1. **Immediate automation:** actually completed in this interaction;
+2. **On-handoff automation:** checked whenever an agent resumes;
+3. **Background automation:** created through a real scheduler.
+
+A prompt or date field is not background automation. Without a scheduler, record “check on next handoff.”
+
+When supported, make one learning event one atomic writeback. Repeated input should be idempotent. Report all changed files. When safe undo is supported, “undo the last update” should reverse the agent's latest atomic learning event without touching unrelated work.
+
+## Evidence and scoring
+
+| Score | Observable evidence | Default next review |
 |---|---|---|
-| 0 | no correct recall even after substantial help | 1 day |
-| 1 | correct only after major hints or imitation | 2 days |
+| 0 | still incorrect after substantial support | 1 day |
+| 1 | correct through major hints or imitation | 2 days |
 | 2 | correct with a minor hint or small execution error | 4 days |
-| 3 | correct independently; transfer succeeds when required | 7 days |
+| 3 | independently correct; transfer succeeds when required | 7 days |
 
-After two consecutive score-3 reviews, double the prior interval up to 30 days. A later failure resets the schedule from the new score.
+After two consecutive score-3 reviews, double the prior interval up to 30 days.
 
-### 7. Write back selectively
-
-Write only state with future value:
-
-- new or changed knowledge gap;
-- reusable model;
-- observed review result;
-- evidence-backed learner-profile change;
-- updated dashboard and next review;
-- concise session log when the session materially changed state.
-
-Do not create a file for casual conversation, every explanation, or an unverified inference.
-
-## Evidence rules
-
-- Exposure is not mastery.
-- Completion is not correctness.
-- Self-report is useful context, not proof.
-- Immediate repetition is weaker evidence than delayed recall.
-- A score-3 claim requires an independent response; add transfer when the goal is application.
-- Keep observations separate from hypotheses about the learner.
-- Link profile and gap claims to the source, review, or session that supports them.
-- Never silently erase contradictory evidence; record the newer result and update confidence.
+- exposure is not mastery;
+- question resolution is not independent mastery;
+- self-report is a valid event but not score-3 evidence;
+- immediate repetition is weaker than delayed recall;
+- separate observations from learner hypotheses;
+- append contradictory evidence and adjust confidence rather than deleting history.
 
 ## State ownership
 
 | State | Canonical location |
 |---|---|
-| active priorities and due work | `dashboard.md` |
-| long-lived learner state | `learner-profile.md` |
-| original availability and evidence | `sources/` |
+| automation, privacy, and writeback preferences | `learning-policy.md` |
+| current priorities, due work, and waiting feedback | `dashboard.md` |
+| durable learner state | `learner-profile.md` |
+| source availability and feedback provenance | `sources/` |
 | reusable understanding | `models/` |
-| diagnosed weaknesses | `knowledge-gaps/` |
-| prompts, results, and next interval | `reviews/` |
-| material session evidence | `sessions/` |
-| stable preferences cache | native memory, if available |
+| question lifecycle and mastery evidence | `knowledge-gaps/` |
+| packs for teachers, peers, or other agents | `handoffs/` |
+| questions, results, and intervals | `reviews/` |
+| material cross-channel learning events | `sessions/` |
 
-The dashboard is a view, not a second source of truth. It should link to canonical files and show when it was refreshed.
+The dashboard is a view, not a second source of truth.
 
-## Source integrity
-
-- Never treat a summary as the full source.
-- Record whether a source is full, excerpt-only, local-only, missing, or uncertain.
-- Do not invent unavailable wording, diagrams, data, citations, or answer choices.
-- Keep copyrighted or private originals outside public repositories.
-- Use the smallest excerpt needed for the learning task.
-
-## Write safety
-
-With target-repository write access, the agent may create and update ordinary learning-state files needed by the user's request.
-
-Ask before deleting material, overwriting substantial personal notes, changing repository visibility, publishing private content, touching secrets, or changing the license.
-
-Do not require GitHub Actions, API keys, a desktop agent, multi-agent orchestration, or a database for the basic loop.
-
-## Finish format
+## Writeback receipt
 
 ```text
+Mode: safe-auto / preview / manual
+
+Organized:
+- input, links, and state changes
+
+Questions:
+- purpose, count, and basis; or none
+
 Changed files:
-- path: what and why
+- path: change
 
-Learning evidence:
-- score and observation, or not assessed
+Evidence:
+- reported / source-supported / demonstrated / not-assessed
 
-Still missing:
-- source, learner attempt, or decision
+Automation:
+- real scheduling completed, or check-on-next-handoff
 
 Next action:
 - one concrete step
+
+Undo:
+- whether this update is reversible as one event
 ```

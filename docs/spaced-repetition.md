@@ -2,6 +2,8 @@
 
 GitLearnOS schedules review from observed performance, not from file creation or the learner merely seeing an explanation.
 
+Use this protocol for knowledge or skills that should be retrieved or performed again after time. Do not force open research, exploratory reading, creative work, or project milestones into 0–3 spaced repetition; use the goal's rubric, tests, artifact, or milestone evidence instead.
+
 ## Evidence score
 
 Use one score after a fresh check:
@@ -84,4 +86,4 @@ Use explicit ISO dates (`YYYY-MM-DD`) and record the score that produced the dat
 
 ## Principle
 
-A solved item is not finished. It becomes stable only when the learner can retrieve and use it again after time has passed.
+For retained knowledge and repeatable skills, one success is not stable mastery. Stability requires later retrieval or performance. Other learning needs use their declared evidence contract.

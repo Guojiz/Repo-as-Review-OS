@@ -1,59 +1,58 @@
 # Deployment Guide
 
-GitLearnOS deployment means attaching the toolkit to one learner-owned target repository. It does not mean installing a new tutoring platform.
+Deployment attaches GitLearnOS to one learner-owned target repository and one main agent. It does not install a tutoring platform or multi-agent system.
 
-## Fast path: tool-capable workspace
-
-Use when the current AI can read the template and write the target—for example, an authorized ChatGPT Work session.
+## Tool-capable fast path
 
 ```text
-1. identify target repository and active goal
-2. verify read/write capability through available tools
-3. inspect existing target files
-4. read START-HERE.md and AGENTS.md
+1. identify the target and current goal/input
+2. verify read/write/source/scheduler capability
+3. inspect existing state
+4. read START-HERE.md, AGENTS.md, and learning-policy.md
 5. create only missing minimum state
-6. run the first learning session
-7. verify and report writeback
+6. organize the first real input or generate the first targeted questions
+7. verify writeback and return a receipt
 ```
 
-Minimum initial state:
+Minimum:
 
 ```text
 AGENTS.md
+learning-policy.md
 dashboard.md
 learner-profile.md
 goals/main-goal.md
 ```
 
-Add the first source, model, gap, review, or session file when real learning creates it. Do not copy every template doc, demo, platform guide, or skill into the target by default.
+Create source, gap, model, handoff, review, or activity files only when real use requires them.
 
 ## Existing target
 
 - inspect before writing;
 - preserve unrelated files;
-- map one active learning path first;
-- ask before large moves, overwrites, or deletion;
-- do not create a parallel state system when existing files already serve the role.
-
-## Read-only fallback
-
-Provide exact Markdown writeback blocks and label them pending. The learner can apply them manually or return in a tool-capable session.
+- map one active path first;
+- reuse existing canonical state;
+- ask before broad moves, overwrite, deletion, or policy change.
 
 ## Runtime selection
-
-Choose by capability:
 
 | Capability | Path |
 |---|---|
 | connected target read/write and source tools | direct Work path |
-| local or cloud repository checkout | repository-agent path |
-| teaching/context but no write access | read-only handoff path |
-| only pasted excerpts | single-task fallback |
+| local or cloud checkout | repository-agent path |
+| context but no write | read-only pending-writeback path |
+| pasted excerpts only | focused fallback |
 
-ChatGPT, Codex, Claude, Cursor, or another agent can be the main runtime if it has the required capabilities and the user chooses it. OpenHanako is an optional desktop adapter, not the default dependency.
+ChatGPT Work is a standard direct path. Codex, Claude, Cursor, or another capable agent can also be the one main runtime. The current product does not need agent decomposition.
 
 ## Success test
 
-Deployment is complete only when the agent can identify the active goal, run an attempt-first learning session, record observable evidence, update the correct state file, and report one next action.
+Deployment succeeds when the learner can provide one natural-language event and the agent can:
 
-Creating folders alone is not successful deployment.
+- organize and link it;
+- generate useful questions when requested or policy-triggered;
+- write safe changes without path-by-path instruction;
+- report actual automation and every changed file;
+- honor preview, record-only, no-review, and undo boundaries.
+
+Creating folders or running a forced AI session is not the success criterion.

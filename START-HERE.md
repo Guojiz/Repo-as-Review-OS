@@ -1,86 +1,94 @@
 # Start Here: Agent Handoff
 
-GitLearnOS is a lightweight tutoring toolkit, not a standalone app. Use this file to begin work without preloading the whole template repository.
+GitLearnOS is a learner-owned control layer. One main agent organizes automatically, generates targeted questions, and performs safe writeback; live AI tutoring is optional. Do not preload the template repository.
 
-## 1. Identify the two repositories
+## 1. Identify two repositories
 
 ```text
-template repository: Guojiz/Repo-as-Review-OS
-target learning repository: <user repository or unknown>
+template: Guojiz/Repo-as-Review-OS
+target learning repository: <learner repository or unknown>
 ```
 
-Never write personal learning data into the template repository. If the target is unknown and the task requires writeback, ask only for the target repository.
+Never place personal learning state in the template. If writeback is required and the target is unknown, ask only for the target.
 
-## 2. Detect real capability
+## 2. Detect actual capability
 
-Report internally before acting:
+Internally confirm:
 
 ```text
-runtime:
-template read access:
-target read access:
-target write access:
-connected source access:
+template read:
+target read:
+target write:
+connected sources:
 skill support:
-manual user step actually required:
+real scheduler:
+steps the learner must perform:
 ```
 
-Test capabilities through available tools when safe. Do not make the learner perform a manual step that the current runtime can complete directly.
+Do not make the learner repeat work the current runtime can safely perform. A prompt is not automation and a plan is not writeback.
 
-## 3. Read the minimum state
+## 3. Read minimum state
 
-Start with:
+Initially read only:
 
 1. this file;
 2. `AGENTS.md`;
-3. the target repository's `dashboard.md`;
-4. its active goal;
-5. `learner-profile.md` and only the source/model/gap/review files relevant to the task.
+3. target `learning-policy.md` when present;
+4. `dashboard.md` and the active goal;
+5. the minimum files related to the current input.
 
-Do not read all template docs before starting. Open a deeper document only when the current task needs its rule.
+## 4. Identify intent
 
-## 4. Choose one mode
+- **setup:** bootstrap or migrate;
+- **organize:** notes, mistakes, teacher feedback, platform results, deduplication, and state sync;
+- **question:** diagnostic, practice, variation, transfer, review, or teacher-facing question pack;
+- **session:** the learner explicitly wants AI tutoring now;
+- **review:** existing questions need administration, scoring, scheduling, or writeback;
+- **source / model:** provenance or reusable understanding;
+- **maintenance:** stale, contradictory, duplicate, broken, or undo work.
 
-- **setup:** target state does not exist;
-- **session:** learner wants to learn, continue, practise, or be taught;
-- **source:** material must be recorded honestly;
-- **model:** reusable understanding should be extracted;
-- **review:** due practice must be generated or scored;
-- **maintenance:** state is stale, inconsistent, or broken.
+Use `skills/repo-as-review-os/SKILL.md` when skills are supported. Do not route all learning requests to session.
 
-If skills are available, route through `skills/repo-as-review-os/SKILL.md`.
-
-## 5. Run the learning kernel
-
-For a learning session:
+## 5. Organize and write back
 
 ```text
-choose one observable objective
-→ ask for an attempt or retrieval
-→ diagnose the response
-→ give the smallest useful hint or explanation
-→ check transfer when appropriate
-→ score evidence 0–3
-→ write back only durable, evidenced change
-→ set the next action
+capture input
+→ mark channel, provenance, and privacy
+→ link goal, gap, and existing state
+→ deduplicate
+→ organize, question, handoff, verify, or record only
+→ write under learning-policy
+→ refresh dashboard
+→ return a receipt
 ```
 
-An explanation is not evidence of mastery. A learner's unsupported “I understand” is not evidence of mastery. Preserve uncertainty honestly.
+Default to `safe-auto`: perform safe, low-risk, reversible learning-state changes and report them; ask before deletion, publication, sensitive identity, broad restructuring, or policy changes.
 
-## 6. Finish visibly
+## 6. Handle external learning correctly
 
-Report:
+Teachers, class, tutoring, paper, and other platforms are first-class sources.
+
+- “prepare for my teacher” → create a `handoffs/` question pack and mark waiting feedback;
+- “my teacher resolved it” → update resolution, reconcile feedback, retire obsolete tasks;
+- “these are my notes” → record provenance and extract only useful models;
+- “do not test me” → honor the choice;
+- “undo that” → safely reverse the latest atomic learning update when supported.
+
+External resolution is not independent mastery, but it must not trigger forced AI reteaching.
+
+## 7. Generate questions correctly
+
+Connect questions to a goal, source or model, knowledge gap, and recent performance. Record purpose, difficulty, time, answer or rubric, and novelty. Never verify with the exact demonstrated item.
+
+## 8. Finish clearly
 
 ```text
+Mode:
+Organized:
+Questions:
 Changed files:
-- path: reason
-
-Learning evidence:
-- observed result and score, or "not assessed"
-
-Still needed:
-- missing source, learner attempt, or decision
-
+Evidence type:
+Actual automation:
 Next action:
-- one concrete step
+Undo:
 ```

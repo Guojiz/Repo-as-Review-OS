@@ -1,62 +1,61 @@
 # Agent Runtime Guide
 
-GitLearnOS does not provide its own model runtime. It attaches a lightweight tutoring protocol to the AI environment the learner already uses.
+GitLearnOS does not provide a model runtime. It attaches automatic organization, targeted question generation, and learner-controlled writeback to one main AI environment chosen by the learner.
 
 ## Capability levels
 
 ### Level A — tool-capable workspace
 
-The runtime can read the template, inspect authorized sources, and write to the target repository. A connected ChatGPT Work session is one example.
-
-Use the direct path:
+The runtime reads the template and authorized sources and writes the target. A connected ChatGPT Work workspace is a standard example.
 
 ```text
-verify access → inspect target → run learning task → write back → verify
+verify access
+→ read policy and active state
+→ organize or generate questions
+→ write back automatically
+→ verify and return a receipt
 ```
 
-### Level B — repository-aware workspace
+### Level B — repository workspace
 
-The runtime works in a local or cloud checkout. Follow repository instructions, preserve unrelated changes, run the same learning-session protocol, and commit only in the authorized workflow.
+The runtime works in a local or cloud checkout. Follow repository rules, preserve unrelated changes, and execute the same organization, question, and writeback contract.
 
-### Level C — read-only or native chat
+### Level C — read-only chat
 
-The runtime can teach and may read selected context, but cannot write the target. Produce a concise pending writeback block and never claim that GitHub changed.
+The runtime can process input and generate questions but cannot write. Return exact pending writeback and do not claim the target changed.
 
 ### Level D — single-context fallback
 
-The user supplies the active goal, relevant profile excerpt, and one task-relevant state file. Complete one learning loop; do not claim persistent memory or file access.
+The learner supplies the active goal, policy summary, and one relevant state file. Complete one focused operation without claiming persistent memory or file access.
 
-## Minimum read set
+## Minimum reading
 
-Read `START-HERE.md`, `AGENTS.md`, then only the active target files. Do not preload every platform guide, template, demo, or skill.
+Read `START-HERE.md`, `AGENTS.md`, target `learning-policy.md`, and dashboard, then only files required by the current input.
 
 ## Runtime responsibilities
 
-The active runtime should:
-
-- teach and elicit learner attempts;
-- access authorized sources through available tools;
-- diagnose observable knowledge gaps;
-- adapt explanations and practice;
-- verify with a fresh check;
-- write durable evidence when possible;
+- accept input from teachers, class, paper, platforms, and AI;
+- organize, connect, and deduplicate automatically;
+- generate targeted questions from goals and evidence;
+- tutor and score only when useful;
+- write within safety boundaries and report;
+- distinguish immediate, on-handoff, and background automation;
 - report capability limits honestly.
 
 ## State responsibilities
 
 ```text
-target repository → canonical changing learning state
-learner-profile.md → inspectable learner state
+target repository → canonical durable state and learner policy
 skills/rules → agent behavior
-native memory → optional stable preference cache
-connected/local originals → authorized source surfaces
-current chat → temporary working context
+native memory → optional stable-preference cache
+connected/local originals → authorized sources
+current workspace → temporary execution
 ```
 
-## Permission rule
+## One main agent
 
-Ordinary target-state writes required by the user's learning request may proceed when authorized. Ask before deletion, large overwrite, visibility changes, private publication, secrets, or license changes.
+One capable main agent is the current standard. Do not split organization, question generation, tutoring, and maintenance into separate agents. Other tools remain capabilities of the main agent, not independent state owners.
 
-## One-main-agent default
+## Permission
 
-Use one main AI workflow. Subagents, local tools, RAG, visualizers, or automations are optional capabilities, not requirements. Shared canonical state must remain in the target repository.
+Under `safe-auto`, ordinary low-risk reversible writes may proceed. Ask before deletion, broad overwrite, policy changes, publication, sensitive identity, secrets, or license changes.

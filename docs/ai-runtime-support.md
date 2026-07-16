@@ -1,37 +1,40 @@
 # AI Runtime Support
 
-GitLearnOS supports any AI runtime that can execute the canonical learning contract honestly.
+GitLearnOS supports any one main AI runtime that can execute the learner-owned control contract honestly.
 
 ## Best experience
 
 ```text
-tool-capable AI workspace
+tool-capable workspace
 + one private target repository
-+ authorized source access when needed
-+ GitLearnOS rules or Skills
++ authorized sources when needed
++ GitLearnOS rules or skills
 ```
 
-ChatGPT Work is a strong direct path when its GitHub and source connections are available. A repository-aware coding agent is also a valid main runtime; it is not restricted to deploying another app.
+ChatGPT Work is a standard direct path when repository and source connections are available. A repository-aware coding agent is also valid.
 
 ## Minimum capability
 
-The agent must be able to:
+The agent can:
 
-1. receive the active goal and relevant state;
-2. elicit and observe a learner attempt;
-3. follow source-integrity rules;
-4. diagnose and adapt support;
-5. report evidence and a next action;
-6. write to the target or return exact pending writeback.
+1. receive a goal or learning event;
+2. read minimum relevant state;
+3. organize and connect input;
+4. generate targeted, scoreable questions;
+5. follow source and user-policy rules;
+6. write the target or return exact pending writeback;
+7. report actual automation and changed files.
 
-## Optional capabilities
+Live tutoring is optional.
 
-Native memory, connected files, web research, code execution, visual generation, local-file access, automations, RAG, and subagents can improve the experience. None is mandatory for the basic loop.
+## Optional capability
+
+Native memory, connected files, web research, code execution, visual generation, local-file access, and a real scheduler may improve execution. The current standard does not require subagents, a multi-agent framework, RAG, or a database.
 
 ## Unsupported behavior
 
-A runtime is not suitable for autonomous writeback if it cannot identify its target, permissions, and changed files. It may still run the read-only fallback.
+A runtime is unsuitable for autonomous writeback when it cannot identify target, permissions, policy, or changed files. It may still use the read-only path.
 
 ## Source of truth
 
-The target repository stores changing learner state. Native memory caches stable preferences. The current chat performs current work. Do not collapse them into one hidden layer.
+The target stores changing learner state and policy. Native memory caches stable preferences. The current workspace performs temporary work. Do not collapse them into hidden runtime memory.

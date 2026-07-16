@@ -22,12 +22,12 @@ The public report and repository emphasize:
 GitLearnOS implements lightweight analogues:
 
 ```text
-source records
-+ evidence-linked learner profile
-+ knowledge gaps
-+ session and review skills
-+ observable scoring
-+ Git history
+cross-channel source records
++ automatic organization
++ evidence-linked learner profile and gaps
++ targeted question and external-handoff skills
++ optional tutoring and observable scoring
++ learner policy and Git history
 ```
 
 ## Explicit non-equivalence
@@ -48,8 +48,9 @@ not a reproduction or parity claim
 |---|---|
 | Is the answer grounded? | source access state and inspected portion are recorded |
 | Is personalization evidence-based? | profile/gap claims link to reviews or sessions |
-| Does practice expose a real gap? | review links goal, gap, model, and source |
-| Does the loop close? | result changes score, state, and next action |
-| Can the learner inspect it? | canonical Markdown files and Git history remain editable |
+| Does practice expose a real gap? | question set links goal, gap, model, source, and prior result |
+| Can external learning enter the loop? | teacher handoffs and feedback reconcile into canonical state |
+| Does the loop close? | feedback or learner result changes resolution, evidence, and next action |
+| Can the learner inspect and control it? | policy, Markdown state, receipts, and Git history remain editable |
 
 This document records design provenance; it does not bundle or redistribute DeepTutor source material or benchmark PDFs.
