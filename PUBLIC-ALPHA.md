@@ -1,49 +1,44 @@
-# Public Alpha Note
+# Public Alpha
 
-GitLearnOS is currently an early public version.
+GitLearnOS is an early, usable learning toolkit. It is ready to inspect, fork, and test with a tool-capable AI agent, but its learning protocol and templates may still change from real-world feedback.
 
-It is ready for people to inspect, copy, and test with an AI tool, but it should not be treated as a finished product.
+The repository keeps the historical name `Repo-as-Review-OS`.
 
-The repository is still named `Repo-as-Review-OS` for continuity.
+## Ready to test
 
-## What is ready
+- short learner and agent entry paths;
+- capability-based ChatGPT Work and repository-agent execution;
+- one-main-agent operating model;
+- source, learner-profile, model, knowledge-gap, review, and session templates;
+- evidence-based 0–3 review scoring;
+- deterministic next-review intervals;
+- portable router and focused Skills;
+- a Chinese demo that closes the loop from attempt to writeback.
 
-- Core operating model;
-- AI runtime guide;
-- GitHub-first learning workflow;
-- goal model;
-- adaptive rules;
-- spaced repetition model;
-- filesystem design;
-- automation model;
-- a small Chinese demo.
-
-## How to try it
-
-Copy this into an AI tool that can read GitHub:
+## Try it
 
 ```text
-Read https://github.com/Guojiz/Repo-as-Review-OS
-Start with START-HERE.md, README.md, QUICKSTART.md, AGENT-RUNTIME.md, and the demo under examples/zh-CN/demo-zhongkao-lite. Explain how I can build my own GitLearnOS from one GitHub repository.
+Use https://github.com/Guojiz/Repo-as-Review-OS as the GitLearnOS template.
+Target repository: <private repository URL>
+Learning goal: <goal>
+
+Read START-HERE.md and AGENTS.md, inspect the target, and run the first evidence-based learning session. Report every changed file.
 ```
 
-## Important safety note
+## Still experimental
 
-Do not put private study records, teacher files, copyrighted textbooks, personal screenshots, or real exam records into a public repository.
+- whether the 0–3 interval defaults work equally well across subjects;
+- how often learner-profile hypotheses should be promoted or removed;
+- how much session evidence is useful before the repository becomes noisy;
+- non-exam demos and long-term usage evidence;
+- installation and portability of the skill suite across agent products.
 
-Use a private repository for real learning data.
+## Benchmark boundary
 
-Use the public repository only for templates, methods, and cleaned examples.
+HKU DeepTutor is the capability benchmark. GitLearnOS is a lightweight toolkit and does not claim feature or runtime parity. The original `zhongkao` repository is the practical implementation baseline.
 
-## What is still experimental
+## Safety
 
-- The best folder structure may change.
-- The review schedule may need tuning.
-- Automation prompts may need more examples.
-- More demos are needed for non-exam learning.
+Use a private target repository for real learning records. Keep copyrighted originals, private screenshots, teacher files, credentials, and sensitive information out of the public template.
 
-## Current positioning
-
-This is not an Obsidian workflow, not a ChatGPT-only project, and not a multi-agent framework.
-
-It is a goal-driven AI learning operating system built on GitHub.
+Report bugs and real trial results through GitHub Issues.
