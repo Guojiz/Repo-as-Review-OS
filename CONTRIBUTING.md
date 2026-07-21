@@ -4,7 +4,7 @@ Thank you for considering a contribution to GitLearnOS.
 
 This project is in public alpha. Contributions should help make the system easier to understand, safer to use, and more useful for real learning workflows.
 
-The repository is still named `Repo-as-Review-OS` for continuity.
+The repository was renamed from `Repo-as-Review-OS` to `GitLearnOS`; old links redirect.
 
 ## What this project is
 

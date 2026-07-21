@@ -5,7 +5,7 @@ GitLearnOS is a learner-owned control layer. One main agent organizes automatica
 ## 1. Identify two repositories
 
 ```text
-template: Guojiz/Repo-as-Review-OS
+template: Guojiz/GitLearnOS
 target learning repository: <learner repository or unknown>
 ```
 

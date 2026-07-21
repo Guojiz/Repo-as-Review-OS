@@ -2,7 +2,7 @@
 
 GitLearnOS 是可试用的早期个人学习控制层。它可以交给一个具备工具能力的主 Agent 运行；整理、出题、自动化与模板仍会根据真实使用反馈调整。
 
-仓库继续保留历史名称 `Repo-as-Review-OS`。
+仓库已由 `Repo-as-Review-OS` 更名为 `GitLearnOS`。
 
 ## 已可测试
 
@@ -21,7 +21,7 @@ GitLearnOS 是可试用的早期个人学习控制层。它可以交给一个具
 ## 这样试用
 
 ```text
-把 https://github.com/Guojiz/Repo-as-Review-OS 作为 GitLearnOS 模板。
+把 https://github.com/Guojiz/GitLearnOS 作为 GitLearnOS 模板。
 目标仓库：<私有仓库链接>
 学科：<学科>
 学习目标或当前输入：<内容>

@@ -2,7 +2,7 @@
 
 **[Quickstart: start with one subject →](QUICKSTART.md)**
 
-[中文](README.zh-CN.md) · [Website](https://guojiz.github.io/review-os/)
+[中文](README.zh-CN.md) · [Website](https://guojiz.github.io/gitlearnos/)
 
 ![GitLearnOS overview](docs/assets/repo-as-review-os-map.svg)
 
@@ -10,7 +10,7 @@
 
 Learning can happen with a teacher, in class, on paper, in a textbook or practice platform, with another AI, or in ChatGPT Work. GitLearnOS does not pull all learning into one platform. One replaceable main agent coordinates the resulting material, questions, feedback, evidence, and next actions in the learner's own GitHub repository.
 
-The repository retains the historical name `Repo-as-Review-OS`; the product concept is **GitLearnOS**. Status: early public release. See [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md).
+This repository is **GitLearnOS** (renamed from `Repo-as-Review-OS`; old links redirect here). Status: early public release. See [PUBLIC-ALPHA.md](PUBLIC-ALPHA.md).
 
 ## Three core capabilities
 
@@ -75,7 +75,7 @@ You need one main agent that can read this template and operate a private target
 Send this:
 
 ```text
-Use https://github.com/Guojiz/Repo-as-Review-OS as the GitLearnOS template.
+Use https://github.com/Guojiz/GitLearnOS as the GitLearnOS template.
 My private learning repository is: <target repository>
 The subject for this first input is: <subject>
 My learning goal is: <goal>

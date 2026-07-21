@@ -10,7 +10,7 @@ GitLearnOS 最适合一个能够读取模板、操作私有目标仓库的主 Ag
 4. 让 Agent 自动整理、需要时出题并写回。
 
 ```text
-把 https://github.com/Guojiz/Repo-as-Review-OS 作为 GitLearnOS 模板。
+把 https://github.com/Guojiz/GitLearnOS 作为 GitLearnOS 模板。
 目标仓库：<链接>
 学科：<学科>
 学习目标：<目标>

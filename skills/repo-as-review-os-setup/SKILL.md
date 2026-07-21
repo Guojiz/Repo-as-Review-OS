@@ -7,7 +7,7 @@ description: Create or migrate the minimum learner-owned GitLearnOS state while 
 
 ## Boundary
 
-Treat `Guojiz/Repo-as-Review-OS` as the template and the learner's repository as the target. Never place personal state in the template.
+Treat `Guojiz/GitLearnOS` as the template and the learner's repository as the target. Never place personal state in the template.
 
 ## Capability-first setup
 

@@ -2,7 +2,7 @@
 
 GitLearnOS is an early, usable personal learning control layer for one tool-capable main agent. Organization, question generation, automation, and templates will continue to evolve from real use.
 
-The repository keeps the historical name `Repo-as-Review-OS`.
+The repository was renamed from `Repo-as-Review-OS` to `GitLearnOS`.
 
 ## Ready to test
 
@@ -21,7 +21,7 @@ The repository keeps the historical name `Repo-as-Review-OS`.
 ## Try it
 
 ```text
-Use https://github.com/Guojiz/Repo-as-Review-OS as the GitLearnOS template.
+Use https://github.com/Guojiz/GitLearnOS as the GitLearnOS template.
 Target repository: <private repository>
 Subject: <subject>
 Learning goal or current input: <content>

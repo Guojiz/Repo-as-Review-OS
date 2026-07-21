@@ -31,7 +31,7 @@ The AI should read the template repository, then deploy the structure into the u
 
 ```text
 Read this template repository:
-https://github.com/Guojiz/Repo-as-Review-OS
+https://github.com/Guojiz/GitLearnOS
 
 Deploy the minimal Repo as Review OS structure into my empty target repository:
 <paste target repository link>

@@ -31,7 +31,7 @@ AI 应该先读模板仓库，再把结构部署到用户自己的仓库里。
 
 ```text
 请阅读这个模板仓库：
-https://github.com/Guojiz/Repo-as-Review-OS
+https://github.com/Guojiz/GitLearnOS
 
 然后把 Repo as Review OS 的最小结构部署到我的空目标仓库：
 <粘贴你的目标仓库链接>

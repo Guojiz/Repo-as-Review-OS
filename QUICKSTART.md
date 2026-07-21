@@ -10,7 +10,7 @@ GitLearnOS works best with one main agent that can read the template and operate
 4. Let the agent organize, generate questions when useful, and write back.
 
 ```text
-Use https://github.com/Guojiz/Repo-as-Review-OS as the GitLearnOS template.
+Use https://github.com/Guojiz/GitLearnOS as the GitLearnOS template.
 Target repository: <link>
 Subject: <subject>
 Learning goal: <goal>
